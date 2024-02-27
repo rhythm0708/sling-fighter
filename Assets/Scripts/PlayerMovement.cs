@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        forward = forward.normalized;
+        forward = transform.forward;
         ropeForward = forward;
         state = State.WaitSling;
         camera = Camera.main;
@@ -126,10 +126,12 @@ public class PlayerMovement : MonoBehaviour
 
     void ChargeSlingUpdate()
     {
-
-        if (Input.GetButtonUp("Action"))
+        // Once the sling is released, start moving forward
+        // (opposite of stick direction)
+        Vector3 axisInput = GetAxisInput();
+        if (Input.GetButtonUp("Action") && axisInput.magnitude > 0.1f)
         {
-            forward = -GetAxisInput().normalized;
+            forward = -axisInput.normalized;
             speed = slingSpeed;
             state = State.Move;
         }
