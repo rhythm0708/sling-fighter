@@ -141,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Decelerrate the player as time progresses
         speed -= decceleration * Time.deltaTime;
+        speed = Mathf.Max(speed, 0.0f);
 
         // Set the sidestep upon input. 
         // Negative = right 
