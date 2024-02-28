@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // TODO: Handle multiplier wrt specifications on design doc.
-public class WaveManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     private float score = 0;
     private float multiplier = 0;
