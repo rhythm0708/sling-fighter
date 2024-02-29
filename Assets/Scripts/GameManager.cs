@@ -19,14 +19,22 @@ public class GameManager : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         prevEnemyCount = enemies.Length;
         enemyFactory = GameObject.Find("EnemyFactory");
-        this.SetUpNewWave();
+        SetUpNewWave();
     }
 
     // Gets the current score.
     public float GetScore()
     {
-        return this.score;
+        return score;
     }
+
+    // Checks for Game Over.
+    // public bool CheckGameOver()
+    // {
+    //     GameObject player = GameObject.Find("Player");
+    //     PlayerController controller = player.GetComponent<PlayerController>();
+    //     return controller.CheckIfDead();
+    // }
 
     // Sets up the game for a new wave.
     // Generates the appropriate amount of enemies, updates fields.
@@ -41,7 +49,6 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    // 
     void Update()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");

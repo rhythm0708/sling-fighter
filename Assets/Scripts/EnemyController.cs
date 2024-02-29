@@ -34,12 +34,14 @@ public class EnemyController : MonoBehaviour
     {
         // Potentially integrate a damage table?
         this.health -= playerDamage;
+        Debug.Log("health: " + this.health);
         if (this.health <= 0)
         {
             Destroy(this.gameObject);
         }
     }
 
+    // Handle getting hit by player.
     private void OnCollisionStay(Collision collision)
     {
         // Can use switch statement if there will be more things that deal damage.

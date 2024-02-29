@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private float health = 100;
     private float damageCooldown = 2;
     private float contactDuration = 0;
+    // private bool isDead = false;
 
     void Awake()
     {
@@ -18,18 +20,26 @@ public class PlayerController : MonoBehaviour
     // Gets the damage.
     public float GetDamage()
     {
-        return this.damage;
+        return damage;
     }
+
+    // Checks if player is dead.
+    // public bool CheckIfDead()
+    // {
+    //     return isDead;
+    // }
 
     // Lose appropriate amount of health.
     private void TakeDamage(float enemyDamage)
     {
         // Potentially integrate a damage table?
-        this.health -= enemyDamage;
+        health -= enemyDamage;
         if (this.health <= 0)
         {
             Destroy(this.gameObject);
-            // Display Game Over screen.
+            // isDead = true;
+            // Switch to Game Over screen.
+            // SceneManager.LoadScene("Result Screen");
         }
     }
     
@@ -39,13 +49,14 @@ public class PlayerController : MonoBehaviour
         if ("Enemy" == collision.gameObject.tag && contactDuration >= damageCooldown)
         {
             var enemyDamage = collision.gameObject.GetComponent<EnemyController>().GetDamage();
-            this.TakeDamage(enemyDamage);
+            TakeDamage(enemyDamage);
             contactDuration = 0;
         }
-        else if ("Bumper" == collision.gameObject.tag  && contactDuration >= damageCooldown)
+        else if ("Reflect" == collision.gameObject.tag  && contactDuration >= damageCooldown)
         {
             // 10 is a placeholder damage value for all bumpers. Up to change.
-            this.TakeDamage(10);
+            // Reflect <=> Bumper.
+            TakeDamage(10);
             contactDuration = 0;
         }
     }
