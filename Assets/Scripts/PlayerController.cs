@@ -32,12 +32,17 @@ public class PlayerController : MonoBehaviour
     }
     
     // When player collides with the enemy, they take damage.
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if ("Enemy" == other.tag)
+        if ("Enemy" == collision.gameObject.tag)
         {
-            var enemyDamage = other.GetComponent<EnemyController>().GetDamage();
+            var enemyDamage = collision.gameObject.GetComponent<EnemyController>().GetDamage();
             this.TakeDamage(enemyDamage);
+        }
+        else if ("Bumper" == collision.gameObject.tag)
+        {
+            // 10 is a placeholder damage value for all bumpers. Up to change.
+            this.TakeDamage(10);
         }
     }
 }

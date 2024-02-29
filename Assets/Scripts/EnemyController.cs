@@ -40,18 +40,13 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         // Can use switch statement if there will be more things that deal damage.
-        if ("Fist" == other.tag)
+        if ("Fist" == collision.gameObject.tag)
         {
-            var playerDamage = other.GetComponent<PlayerController>().GetDamage();
+            var playerDamage = collision.gameObject.GetComponent<PlayerController>().GetDamage();
             this.TakeDamage(playerDamage);
-        }
-        else if ("Bumper" == other.tag)
-        {
-            // 10 is a placeholder damage value for all bumpers. Up to change.
-            this.TakeDamage(10);
         }
     }
     

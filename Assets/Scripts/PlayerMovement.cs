@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
 
     void WaitSlingUpdate()
     {
-        if (Input.GetButtonDown("Action"))
+        if (Input.GetButtonDown("z"))
         {
             state = State.ChargeSling;
         }

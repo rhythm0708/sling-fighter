@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     private float score = 0;
     private float multiplier = 0;
     private GameObject enemyFactory;
-    private int currWave = 0;
+    private int currWave = 1;
     private const int WaveCap = 7;
     private int enemiesKilled = 0;
     private int killCountToAdvance = 10;
@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         prevEnemyCount = enemies.Length;
         enemyFactory = GameObject.Find("EnemyFactory");
+        this.SetUpNewWave();
     }
 
     // Gets the current score.

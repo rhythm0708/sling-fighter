@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class EnemyFactoryController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject enemyTemplate;
+
     // Creates an enemy based on specifications.
     public void Build(EnemySpec spec)
     {
-        GameObject enemyTemplate = GameObject.Find("EnemyTemplate");
-        // xPos = Random.Range();
-        // yPos = Random.Range();
-        // zPosConst = 0;
-        // Vector3 pos = new Vector3(xPos, yPos, zPosConst);
+        float xPos = Random.Range(-80,80);
+        float zPos = Random.Range(-80,80);
+        Vector3 pos = new Vector3(xPos, 1.5f, zPos);
         GameObject enemy = Instantiate(enemyTemplate, pos, Quaternion.identity);
         EnemyController controller = enemy.GetComponent<EnemyController>();
         controller.SetSpec(spec);
