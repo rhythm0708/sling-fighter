@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         // Can use switch statement if there will be more things that deal damage.
         if ("Fist" == collision.gameObject.tag)
@@ -62,5 +62,10 @@ public class EnemyController : MonoBehaviour
             catchUpSpeed * Time.deltaTime
         );
         this.gameObject.transform.position = newPos;
+        // If enemy fell off the arena, destroy it.
+        if (newPos.y <= -1f)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

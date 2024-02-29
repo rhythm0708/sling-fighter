@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     private float damage;
     private float health = 100;
+    private float damageCooldown = 2;
+    private float contactDuration = 0;
 
     void Awake()
     {
@@ -32,17 +34,24 @@ public class PlayerController : MonoBehaviour
     }
     
     // When player collides with the enemy, they take damage.
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
-        if ("Enemy" == collision.gameObject.tag)
+        if ("Enemy" == collision.gameObject.tag && contactDuration >= damageCooldown)
         {
             var enemyDamage = collision.gameObject.GetComponent<EnemyController>().GetDamage();
             this.TakeDamage(enemyDamage);
+            contactDuration = 0;
         }
-        else if ("Bumper" == collision.gameObject.tag)
+        else if ("Bumper" == collision.gameObject.tag  && contactDuration >= damageCooldown)
         {
             // 10 is a placeholder damage value for all bumpers. Up to change.
             this.TakeDamage(10);
+            contactDuration = 0;
         }
+    }
+
+    void Update()
+    {
+        contactDuration += Time.deltaTime;
     }
 }
