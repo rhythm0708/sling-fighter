@@ -13,6 +13,16 @@ public class EnemyController : MonoBehaviour
     void Awake()
     {
         player = GameObject.Find("Player");
+        BoxCollider collider = this.gameObject.GetComponent<BoxCollider>();
+        PhysicMaterial mat = new PhysicMaterial
+        {
+            bounciness = 0,
+            dynamicFriction = 0,
+            staticFriction = 0,
+            bounceCombine = PhysicMaterialCombine.Minimum,
+            frictionCombine = PhysicMaterialCombine.Minimum
+        };
+        collider.material = mat;
     }
 
     // Uses specifications to update attributes.
@@ -34,7 +44,6 @@ public class EnemyController : MonoBehaviour
     {
         // Potentially integrate a damage table?
         this.health -= playerDamage;
-        Debug.Log("health: " + this.health);
         if (this.health <= 0)
         {
             Destroy(this.gameObject);
@@ -58,14 +67,11 @@ public class EnemyController : MonoBehaviour
         // Possibly change later, but does the job.
         var currPos = this.gameObject.transform.position;
         var playerPos = player.transform.position;
-        var newPos = Vector3.MoveTowards(
-            currPos, 
-            playerPos, 
-            catchUpSpeed * Time.deltaTime
-        );
-        this.gameObject.transform.position = newPos;
+        var dir = playerPos - currPos;
+        var normalizedDir = dir.normalized;
+        this.gameObject.GetComponent<Rigidbody>().velocity = catchUpSpeed * normalizedDir;
         // If enemy fell off the arena, destroy it.
-        if (newPos.y <= -1f)
+        if (this.gameObject.transform.position.y <= -1f)
         {
             Destroy(this.gameObject);
         }

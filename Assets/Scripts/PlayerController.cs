@@ -15,6 +15,16 @@ public class PlayerController : MonoBehaviour
     {
         // From the doc: Base damage is a randomly generated integer between 8 and 12.
         damage = Random.Range(8, 12);
+        CapsuleCollider collider = this.gameObject.GetComponent<CapsuleCollider>();
+        PhysicMaterial mat = new PhysicMaterial
+        {
+            bounciness = 0,
+            dynamicFriction = 0,
+            staticFriction = 0,
+            bounceCombine = PhysicMaterialCombine.Minimum,
+            frictionCombine = PhysicMaterialCombine.Minimum
+        };
+        collider.material = mat;
     }
     
     // Gets the damage.

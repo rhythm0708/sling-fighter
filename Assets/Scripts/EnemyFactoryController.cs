@@ -25,7 +25,7 @@ public class EnemyFactoryController : MonoBehaviour
         {
             health = Random.Range(50, 100),
             damage = Random.Range(8, 12),
-            catchUpSpeed = Random.Range(2, 5)
+            catchUpSpeed = Random.Range(5, 10)
         };
         this.Build(spec);
     }
