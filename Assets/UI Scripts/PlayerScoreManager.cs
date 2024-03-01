@@ -8,9 +8,19 @@ public class PlayerScoreManager : MonoBehaviour
 {
     private string connectString;
     private List<PlayerScore> playerScores = new List<PlayerScore>();
-    [SerializeField]private GameObject scorePrefab;
-    [SerializeField]private Transform scoreParent;
-    [SerializeField]private int topRanks;
+
+    // Prefab to generate strings for rank, name and score
+    [SerializeField] private GameObject scorePrefab;
+
+    // Prefab where scorePrefab will be generated under
+    [SerializeField] private Transform scoreParent;
+
+    // the amount of ranks we want to see (ex: top 10, top 20)
+    [SerializeField] private int topRanks;
+
+    // variable to delete scores under topRanks
+    [SerializeField] private int topScores;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,18 +29,8 @@ public class PlayerScoreManager : MonoBehaviour
         connectString = "URI=file:" + Application.dataPath + "/PlayerScoreDB.sqlite";
 
         // Call Insert Score
-        InsertScore("Annie", 16);
-        InsertScore("Annie", 16);
-                InsertScore("Annie", 16);
-        InsertScore("Annie", 16);
-                InsertScore("Annie", 16);
-        InsertScore("Annie", 16);
-                InsertScore("Annie", 16);
-        InsertScore("Annie", 16);
-                InsertScore("Annie", 16);
-        InsertScore("Annie", 16);
-        // InsertScore("Ken", 100);
-
+        // InsertScore("Annie", 160);
+        
         // Call Delete Score
         // DeleteScore(11); 
 
@@ -38,40 +38,58 @@ public class PlayerScoreManager : MonoBehaviour
         // GetScores();
         ShowScores();
 
+        // Call GetRidOfScores()
+        GetRidOfScores();
     }
 
     // This method will insert the name and score of player inside our database
     private void InsertScore(string name, int newScore)
-    {   
+    {
         // connect to Database
-        using(IDbConnection dbConnection = new SqliteConnection(connectString))
-        {   
-            // Open db
-            dbConnection.Open();
+        using (IDbConnection dbConnection = new SqliteConnection(connectString))
+        {
+            GetScores();
 
-            using(IDbCommand dbCmd = dbConnection.CreateCommand())
+            if (playerScores.Count > 0)
             {
-                // Insert new score and name into row
-                string sqlQuery = String.Format("INSERT INTO PlayerScores(Name,Score) VALUES(\"{0}\",\"{1}\") ", name,newScore);
+                PlayerScore lowestScore = playerScores[playerScores.Count - 1];
 
-                dbCmd.CommandText = sqlQuery;
-                dbCmd.ExecuteScalar();
-                dbConnection.Close();
+                // Check for null
+                if (lowestScore != null && topScores > 0 && playerScores.Count >= topScores && newScore > lowestScore.Score)
+                {
+                    DeleteScore(lowestScore.ID);
+                }
+            }
+
+            if (playerScores.Count < topScores)
+            {
+                // Open db
+                dbConnection.Open();
+                using (IDbCommand dbCmd = dbConnection.CreateCommand())
+                {
+                    // Insert new score and name into row
+                    string sqlQuery = String.Format("INSERT INTO PlayerScores(Name,Score) VALUES(\"{0}\",\"{1}\") ", name, newScore);
+
+                    dbCmd.CommandText = sqlQuery;
+                    dbCmd.ExecuteScalar();
+                    dbConnection.Close();
+                }
             }
         }
     }
+
     // This method will delete a row of scores
     private void DeleteScore(int id)
-    {   
+    {
         // connect to Database
-        using(IDbConnection dbConnection = new SqliteConnection(connectString))
-        {   
+        using (IDbConnection dbConnection = new SqliteConnection(connectString))
+        {
             // Open db
             dbConnection.Open();
 
-            using(IDbCommand dbCmd = dbConnection.CreateCommand())
+            using (IDbCommand dbCmd = dbConnection.CreateCommand())
             {
-                // Insert new score and name into row
+                // Delete row and column
                 string sqlQuery = String.Format("DELETE FROM PlayerScores WHERE PlayerID = \"{0}\"", id);
 
                 dbCmd.CommandText = sqlQuery;
@@ -83,15 +101,16 @@ public class PlayerScoreManager : MonoBehaviour
 
     // This method gets/reads the score and name stored inside our database
     private void GetScores()
-    {   
+    {
         playerScores.Clear();
+
         // connect to Database
-        using(IDbConnection dbConnection = new SqliteConnection(connectString))
-        {   
+        using (IDbConnection dbConnection = new SqliteConnection(connectString))
+        {
             // Open db
             dbConnection.Open();
 
-            using(IDbCommand dbCmd = dbConnection.CreateCommand())
+            using (IDbCommand dbCmd = dbConnection.CreateCommand())
             {
                 // inside Database Query selects the name and score to read
                 string sqlQuery = "SELECT * FROM PlayerScores";
@@ -122,16 +141,49 @@ public class PlayerScoreManager : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
+            // Instantiates the generated prefabs based on the data inside db
             GameObject tempObject = Instantiate(scorePrefab);
 
             PlayerScore tempScore = playerScores[i];
 
             tempObject.GetComponent<ScoreBoard>().SetScore(tempScore.Name, tempScore.Score.ToString(), "#" + (i + 1).ToString());
 
+            // Set the parent where we'll generate these prefabs under(location)
+
             tempObject.transform.SetParent(scoreParent);
 
-            tempObject.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
-            
+            tempObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+
+        }
+    }
+
+    // This method gets rid of scores that are <= playerScores.Count
+    private void GetRidOfScores()
+    {
+        GetScores();
+        if (topScores <= playerScores.Count)
+        {
+            int deleteScores = playerScores.Count - topScores;
+
+            // run in reverse from list of scores
+            playerScores.Reverse();
+
+            using (IDbConnection dbConnection = new SqliteConnection(connectString))
+            {
+                // Open db
+                dbConnection.Open();
+
+                using (IDbCommand dbCmd = dbConnection.CreateCommand())
+                {
+                    for (int i = 0; i < deleteScores; i++)
+                    {
+                        string sqlQuery = String.Format("DELETE FROM PlayerScores WHERE PlayerID = \"{0}\"", playerScores[i]);
+                        dbCmd.CommandText = sqlQuery;
+                        dbCmd.ExecuteScalar();
+                        dbConnection.Close();
+                    }
+                }
+            }
         }
     }
 }
