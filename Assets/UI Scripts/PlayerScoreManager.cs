@@ -23,7 +23,7 @@ public class PlayerScoreManager : MonoBehaviour
         // InsertScore("Ken", 100);
 
         // Call Delete Score
-        // DeleteScore(11);
+        // DeleteScore(11); 
 
         // Call GetScores
         // GetScores();
