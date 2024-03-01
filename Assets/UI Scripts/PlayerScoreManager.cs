@@ -19,7 +19,7 @@ public class PlayerScoreManager : MonoBehaviour
         connectString = "URI=file:" + Application.dataPath + "/PlayerScoreDB.sqlite";
 
         // Call Insert Score
-        // InsertScore("Jack", 100);
+        // InsertScore("Annie", 16);
         // InsertScore("Ken", 100);
 
         // Call Delete Score
