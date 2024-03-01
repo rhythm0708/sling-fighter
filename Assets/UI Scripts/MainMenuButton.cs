@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButton : MonoBehaviour
 {
-        private void OnMouseUpAsButton()
+    private void OnMouseUpAsButton()
     {
         SceneManager.LoadScene("Main Menu");
     }

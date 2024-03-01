@@ -3,6 +3,9 @@ using System.Data;
 using Mono.Data.Sqlite;
 using System;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using Unity.VisualScripting;
+using TMPro;
 
 public class PlayerScoreManager : MonoBehaviour
 {
@@ -21,6 +24,9 @@ public class PlayerScoreManager : MonoBehaviour
     // variable to delete scores under topRanks
     [SerializeField] private int topScores;
 
+    [SerializeField] private GameObject userName;
+    [SerializeField] private GameObject nameDialog;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +36,7 @@ public class PlayerScoreManager : MonoBehaviour
 
         // Call Insert Score
         // InsertScore("Annie", 160);
-        
+
         // Call Delete Score
         // DeleteScore(11); 
 
@@ -40,6 +46,27 @@ public class PlayerScoreManager : MonoBehaviour
 
         // Call GetRidOfScores()
         GetRidOfScores();
+    }
+
+    public void SetString(string userName)
+    {
+        this.userName.GetComponent<TextMeshProUGUI>().text = userName;
+    }
+
+    public void UserName()
+    {
+        if (userName.GetComponent<TextMeshProUGUI>().text != string.Empty)
+        {
+            // On mouse click the enter name screen will appear after the game has ended
+            if (Input.GetMouseButtonDown(0))
+            {
+                nameDialog.SetActive(!nameDialog.activeSelf);
+            }
+
+            int score = UnityEngine.Random.Range(1, 10000);
+            InsertScore(userName.GetComponent<TextMeshProUGUI>().text, score);
+            userName.GetComponent<TextMeshProUGUI>().text = string.Empty;
+        }
     }
 
     // This method will insert the name and score of player inside our database
@@ -135,6 +162,11 @@ public class PlayerScoreManager : MonoBehaviour
     private void ShowScores()
     {
         GetScores();
+
+        foreach (GameObject score in GameObject.FindGameObjectsWithTag("Score"))
+        {
+            Destroy(score);
+        }
 
         // Ensure that topRanks does not exceed the available playerScores count
         int count = Mathf.Min(topRanks, playerScores.Count);
