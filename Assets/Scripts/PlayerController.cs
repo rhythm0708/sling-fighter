@@ -62,12 +62,16 @@ public class PlayerController : MonoBehaviour
             TakeDamage(enemyDamage);
             contactDuration = 0;
         }
-        else if ("Reflect" == collision.gameObject.tag  && contactDuration >= damageCooldown)
+        else if ("Reflect" == collision.gameObject.tag && contactDuration >= damageCooldown)
         {
             // 10 is a placeholder damage value for all bumpers. Up to change.
             // Reflect <=> Bumper.
             TakeDamage(10);
             contactDuration = 0;
+        }
+        else if ("Target" == collision.gameObject.name)
+        {
+            collision.gameObject.GetComponent<EnemyController>().TakeDamage(this.damage);
         }
     }
 

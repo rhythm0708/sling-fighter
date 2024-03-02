@@ -5,14 +5,18 @@ using UnityEngine;
 // TODO: Possibly integrate enemy healthbar in the future.
 public class EnemyController : MonoBehaviour
 {
-    private float catchUpSpeed = 1.0f;
-    private float health = 100.0f;
-    private float damage = 10.0f;
+    private float catchUpSpeed = 1;
+    private float health = 100;
+    private float damage = 10;
     private GameObject player;
+    // private GameObject hitbox;
+    // private EnemyHitbox controller;
 
     void Awake()
     {
-        player = GameObject.Find("Player");
+        this.player = GameObject.Find("Player");
+        // this.hitbox = this.gameObject.transform.Find("Target").gameObject;
+        // controller = this.hitbox.GetComponent<EnemyHitbox>();
         BoxCollider collider = this.gameObject.GetComponent<BoxCollider>();
         PhysicMaterial mat = new PhysicMaterial
         {
@@ -40,24 +44,14 @@ public class EnemyController : MonoBehaviour
     }
 
     // Lose appropriate amount of health.
-    private void TakeDamage(float playerDamage)
+    // TODO: go back and figure out information hiding.
+    public void TakeDamage(float playerDamage)
     {
         // Potentially integrate a damage table?
         this.health -= playerDamage;
         if (this.health <= 0)
         {
             Destroy(this.gameObject);
-        }
-    }
-
-    // Handle getting hit by player.
-    private void OnCollisionStay(Collision collision)
-    {
-        // Can use switch statement if there will be more things that deal damage.
-        if ("Fist" == collision.gameObject.tag)
-        {
-            var playerDamage = collision.gameObject.GetComponent<PlayerController>().GetDamage();
-            this.TakeDamage(playerDamage);
         }
     }
     
@@ -71,7 +65,7 @@ public class EnemyController : MonoBehaviour
         var normalizedDir = dir.normalized;
         this.gameObject.GetComponent<Rigidbody>().velocity = catchUpSpeed * normalizedDir;
         // If enemy fell off the arena, destroy it.
-        if (this.gameObject.transform.position.y <= -1f)
+        if (this.gameObject.transform.position.y <= -1)
         {
             Destroy(this.gameObject);
         }
