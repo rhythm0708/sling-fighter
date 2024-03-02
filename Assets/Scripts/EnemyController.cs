@@ -17,7 +17,10 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         hurtbox = GetComponentInChildren<Hurtbox>();
-        hurtbox.SubscribeOnHurt(OnHurt);
+        if (hurtbox != null)
+        {
+            hurtbox.SubscribeOnHurt(OnHurt);
+        }
     }
 
     public void SubscribeOnDestroy(Action<EnemyController> action)

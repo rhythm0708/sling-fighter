@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 // TODO: Handle multiplier wrt specifications on design doc.
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private List<GameObject> enemyPrefabs;
     private float score = 0;
     private float multiplier = 0;
     private int curWave = 1;
@@ -35,10 +36,10 @@ public class GameManager : MonoBehaviour
             float xPos = Random.Range(-80,80);
             float zPos = Random.Range(-80,80);
 
+            // Instantiate a random enemy prefab at the give position
+            GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
             Vector3 pos = new Vector3(xPos, 1.5f, zPos);
-            Instantiate(enemyPrefab, pos, Quaternion.identity);
-
-            // Enemies will be responsible for their own parameters
+            Instantiate(prefab, pos, Quaternion.identity);
         }
     }
 
