@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float speed;
     private State state;
     private Vector3 ropeForward;
-    private Camera camera;
+    private Camera cam;
     private float sideStepTimer;
 
     private CharacterController controller;
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         forward = transform.forward;
         ropeForward = forward;
         state = State.WaitSling;
-        camera = Camera.main;
+        cam = Camera.main;
         sideStepTimer = 0.0f;
     }
 
@@ -98,12 +98,12 @@ public class PlayerMovement : MonoBehaviour
         Vector3 axis = Vector3.zero;
 
         // Get the camera forward vector, and flatten it
-        Vector3 cameraForward = camera.transform.forward;
+        Vector3 cameraForward = cam.transform.forward;
         cameraForward.y = 0.0f;
         cameraForward = cameraForward.normalized;
 
         // Get the camera right vector and flatten it
-        Vector3 cameraRight = camera.transform.right;
+        Vector3 cameraRight = cam.transform.right;
         cameraRight.y = 0.0f;
         cameraRight = cameraRight.normalized;
 
