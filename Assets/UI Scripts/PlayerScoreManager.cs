@@ -193,6 +193,7 @@ public class PlayerScoreManager : MonoBehaviour
     private void GetRidOfScores()
     {
         GetScores();
+        
         if (topScores <= playerScores.Count)
         {
             int deleteScores = playerScores.Count - topScores;
