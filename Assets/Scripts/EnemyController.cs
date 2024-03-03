@@ -9,6 +9,9 @@ public class EnemyController : MonoBehaviour
     private Hurtbox hurtbox;
     private List<Action<EnemyController>> onDestroyActions;
 
+    // For other scripts to access Health.
+    public float Health { get => health; }
+
     void Awake()
     {
         onDestroyActions = new List<Action<EnemyController>>();

@@ -7,8 +7,12 @@ using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
 {
+    // Reference to ScoreManager.
+    ScoreManager scoreManager;
+
     // Text objects.
-    [SerializeField] TMP_Text scoreText;
+    [SerializeField] TMP_Text totalScoreText;
+    [SerializeField] TMP_Text comboScoreText;
     [SerializeField] TMP_Text multiplierText;
 
     // On-screen graphics.
@@ -16,14 +20,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] List<Color32> multiplierColors;
     [SerializeField] Color32 defaultColor;
 
-    // HUD variables.
-    [SerializeField] int scoreValue;
-    [SerializeField] int multiplierValue;
-
     private void Start()
     {
+        // Obtain reference to ScoreManager.
+        scoreManager = GameObject.Find("Player").GetComponent<ScoreManager>();
+
         // Set score to 000 000.
-        scoreText.text = "Score: 000 000";
+        totalScoreText.text = "Score: 000 000";
 
         // Set multiplier to x0.
         multiplierText.text = "x0";
@@ -35,31 +38,43 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        
-    }
-
-    private void UpdateScore()
-    {
-        // Update text.
-        scoreText.text = "Score: " + scoreValue.ToString("000 000");
-    }
-
-    private void UpdateMultiplier()
-    {
-        // Update text.
-        if(0 <= multiplierValue && multiplierValue <= multiplierGraphics.Count)
+        // Update HUD.
+        if (scoreManager != null)
         {
-            multiplierText.text = "x" + multiplierValue;
+            UpdateTotalScore(scoreManager.TotalScore);
+            UpdateComboScore(scoreManager.ComboScore);
+            UpdateMultiplier(scoreManager.MultiplierValue);
+        }
+    }
+
+    private void UpdateTotalScore(int totalScore)
+    {
+        // Update text.
+        totalScoreText.text = "Score: " + totalScore.ToString("000 000");
+    }
+
+    private void UpdateComboScore(int comboScore)
+    {
+        // Update text.
+        comboScoreText.text = "+ " + comboScore;
+    }
+
+    private void UpdateMultiplier(int multiplier)
+    {
+        // Update text.
+        if(0 <= multiplier && multiplier <= multiplierGraphics.Count)
+        {
+            multiplierText.text = "x" + multiplier;
         }
         else
         {
-            Debug.LogException(new System.Exception($"Multiplier {multiplierValue} out of bounds."));
+            Debug.LogException(new System.Exception($"Multiplier {multiplier} out of bounds."));
         }
 
         // Update graphic.
         for (int i = 0; i < multiplierGraphics.Count; i++)
         {
-            if(i<multiplierValue)
+            if(i<multiplier)
             {
                 multiplierGraphics[i].material.color = multiplierColors[i];
             }
