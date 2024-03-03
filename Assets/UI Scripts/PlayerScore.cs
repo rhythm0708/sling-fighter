@@ -26,18 +26,22 @@ public class PlayerScore : IComparable<PlayerScore>
         {
             return -1;
         }
+
         else if (other.Score > this.Score)
         {
             return 1;
         }
+
         if (other.Date < this.Date)
         {
             return -1;
         }
+
         else if (other.Date > this.Date)
         {
             return 1;
         }
+        
         return 0;
 
     }
