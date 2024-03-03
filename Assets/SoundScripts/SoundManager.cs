@@ -7,11 +7,8 @@ using UnityEngine.Audio;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField]private AudioMixerGroup musicGroup;
-
     [SerializeField]private AudioMixerGroup sfxGroup;
-
     [SerializeField]private List<Sound> musicTracks;
-
     [SerializeField]private List<Sound> sfxClips;
 
     void Awake()
@@ -35,8 +32,8 @@ public class SoundManager : MonoBehaviour
             clip.audioSource.loop = clip.loop;
             clip.audioSource.outputAudioMixerGroup = this.sfxGroup;
         }
-        //play initial track
-        this.PlayMusic("Theme");
+        //play placeholdere track
+        this.PlayMusic("In Game");
     }
 
     public void PlayMusic(string name)
@@ -51,7 +48,6 @@ public class SoundManager : MonoBehaviour
 
         track.audioSource.Play();
     }
-
 
     public void PlaySfx(string name)
     {
