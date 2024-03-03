@@ -65,7 +65,7 @@ public class ScoreManager : MonoBehaviour
             multiplierRawScore += 1;
 
             // If enemy took damage.
-            if(other.gameObject.GetComponent<EnemyController>().Health > 0f)
+            if(other.transform.parent.gameObject.GetComponent<EnemyController>().Health > 0f)
             {
                 comboScore += enemyHitScore;
             }
@@ -74,6 +74,7 @@ public class ScoreManager : MonoBehaviour
             {
                 comboScore += enemyKilledScore;
             }
+            // Debug.Log("Enemy hit.");
         }
         else if(other.tag == "Elite")
         {
@@ -81,7 +82,7 @@ public class ScoreManager : MonoBehaviour
             multiplierRawScore += 1;
 
             // If enemy took damage.
-            if (other.gameObject.GetComponent<EnemyController>().Health > 0f)
+            if (other.transform.parent.gameObject.GetComponent<EnemyController>().Health > 0f)
             {
                 comboScore += eliteHitScore;
             }
@@ -97,7 +98,7 @@ public class ScoreManager : MonoBehaviour
             multiplierRawScore += 1;
 
             // If enemy took damage.
-            if (other.gameObject.GetComponent<EnemyController>().Health > 0f)
+            if (other.transform.parent.gameObject.GetComponent<EnemyController>().Health > 0f)
             {
                 comboScore += bossHitScore;
             }
@@ -131,6 +132,7 @@ public class ScoreManager : MonoBehaviour
         timeSinceHit = 0f;
 
         // Add combo score to total score. Reset combo score.
+        // Debug.Log($"Score added: {comboScore}");
         totalScore += comboScore;
         comboScore = 0;
     }

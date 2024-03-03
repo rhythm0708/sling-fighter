@@ -20,10 +20,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] List<Color32> multiplierColors;
     [SerializeField] Color32 defaultColor;
 
+    [Obsolete]
     private void Start()
     {
         // Obtain reference to ScoreManager.
-        scoreManager = GameObject.Find("Player").GetComponent<ScoreManager>();
+        scoreManager = GameObject.Find("Player").transform.FindChild("ScoreManager").gameObject.GetComponent<ScoreManager>();
 
         // Set score to 000 000.
         totalScoreText.text = "Score: 000 000";
@@ -44,6 +45,10 @@ public class UIManager : MonoBehaviour
             UpdateTotalScore(scoreManager.TotalScore);
             UpdateComboScore(scoreManager.ComboScore);
             UpdateMultiplier(scoreManager.MultiplierValue);
+        }
+        else
+        {
+            Debug.LogException(new Exception("Cannot find ScoreManager script / scoreManager is null."));
         }
     }
 
