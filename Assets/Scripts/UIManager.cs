@@ -13,7 +13,8 @@ public class UIManager : MonoBehaviour
 
     // On-screen graphics.
     [SerializeField] List<Image> multiplierGraphics;
-
+    [SerializeField] List<Color32> multiplierColors;
+    [SerializeField] Color32 defaultColor;
 
     // HUD variables.
     [SerializeField] int scoreValue;
@@ -21,7 +22,15 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        
+        // Set score to 000 000.
+        scoreText.text = "Score: 000 000";
+
+        // Set multiplier to x0.
+        multiplierText.text = "x0";
+        foreach (Image graphic in multiplierGraphics)
+        {
+            graphic.material.color = defaultColor;
+        }
     }
 
     private void Update()
@@ -31,34 +40,33 @@ public class UIManager : MonoBehaviour
 
     private void UpdateScore()
     {
-
+        // Update text.
+        scoreText.text = "Score: " + scoreValue.ToString("000 000");
     }
 
     private void UpdateMultiplier()
     {
-        switch(multiplierValue)
+        // Update text.
+        if(0 <= multiplierValue && multiplierValue <= multiplierGraphics.Count)
         {
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-            case 7:
-                break;
-            case 8:
-                break;
-            default:
-                Debug.LogException(new System.Exception("Multiplier out of bounds."));
-                break;
+            multiplierText.text = "x" + multiplierValue;
+        }
+        else
+        {
+            Debug.LogException(new System.Exception($"Multiplier {multiplierValue} out of bounds."));
+        }
+
+        // Update graphic.
+        for (int i = 0; i < multiplierGraphics.Count; i++)
+        {
+            if(i<multiplierValue)
+            {
+                multiplierGraphics[i].material.color = multiplierColors[i];
+            }
+            else
+            {
+                multiplierGraphics[i].material.color = defaultColor;
+            }
         }
     }
 }
