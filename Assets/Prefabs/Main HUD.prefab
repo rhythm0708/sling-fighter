@@ -979,7 +979,7 @@ MonoBehaviour:
     rgba: 9079434
   defaultColor:
     serializedVersion: 2
-    rgba: 0
+    rgba: 4278190080
   scoreValue: 0
   multiplierValue: 0
 --- !u!1 &8828240338188742937
