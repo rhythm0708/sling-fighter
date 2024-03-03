@@ -50,8 +50,11 @@ public class ScoreManager : MonoBehaviour
     {
         timeSinceHit += Time.deltaTime;
 
+        // ComputeMultiplier happens in Update for now, will change for beta.
+        ComputeMultiplier();
+
         // Multiplier ends because of time.
-        if(timeSinceHit >= multiplierResetTime)
+        if (timeSinceHit >= multiplierResetTime)
         {
             ResetMultiplier();
         }
@@ -63,16 +66,19 @@ public class ScoreManager : MonoBehaviour
         {
             timeSinceHit = 0f;
             multiplierRawScore += 1;
+            ComputeMultiplier();
+
+            // TODO: Use other.gameObject.name to distinguish enemy types.
 
             // If enemy took damage.
             if(other.transform.parent.gameObject.GetComponent<EnemyController>().Health > 0f)
             {
-                comboScore += enemyHitScore;
+                comboScore += (enemyHitScore * multiplierValue);
             }
             // If enemy was killed.
             else
             {
-                comboScore += enemyKilledScore;
+                comboScore += (enemyKilledScore * multiplierValue);
             }
             // Debug.Log("Enemy hit.");
         }
@@ -80,46 +86,46 @@ public class ScoreManager : MonoBehaviour
         {
             timeSinceHit = 0f;
             multiplierRawScore += 1;
+            ComputeMultiplier();
 
             // If enemy took damage.
             if (other.transform.parent.gameObject.GetComponent<EnemyController>().Health > 0f)
             {
-                comboScore += eliteHitScore;
+                comboScore += (eliteHitScore * multiplierValue);
             }
             // If enemy was killed.
             else
             {
-                comboScore += eliteKilledScore;
+                comboScore += (eliteKilledScore * multiplierValue);
             }
         }
         else if(other.tag == "Boss")
         {
             timeSinceHit = 0f;
             multiplierRawScore += 1;
+            ComputeMultiplier();
 
             // If enemy took damage.
             if (other.transform.parent.gameObject.GetComponent<EnemyController>().Health > 0f)
             {
-                comboScore += bossHitScore;
+                comboScore += (bossHitScore * multiplierValue);
             }
             // If enemy was killed.
             else
             {
-                comboScore += bossKilledScore;
+                comboScore += (bossKilledScore * multiplierValue);
             }
         }
-
-        ComputeMultiplier(multiplierRawScore);
     }
 
     // Update multiplier value.
-    private void ComputeMultiplier(int multiplierRawScore)
+    private void ComputeMultiplier()
     {
         foreach (int bound in multiplierBounds)
         {
-            if(bound>multiplierRawScore || multiplierBounds.IndexOf(bound) == multiplierBounds.Count-1)
+            if(bound>=multiplierRawScore || multiplierBounds.IndexOf(bound) == multiplierBounds.Count-1)
             {
-                multiplierValue = multiplierBounds.IndexOf(bound) - 1;
+                multiplierValue = multiplierBounds.IndexOf(bound);
                 break;
             }
         }
@@ -132,8 +138,8 @@ public class ScoreManager : MonoBehaviour
         timeSinceHit = 0f;
 
         // Add combo score to total score. Reset combo score.
-        // Debug.Log($"Score added: {comboScore}");
         totalScore += comboScore;
+        // Debug.Log($"Score added: {comboScore}");
         comboScore = 0;
     }
 }
