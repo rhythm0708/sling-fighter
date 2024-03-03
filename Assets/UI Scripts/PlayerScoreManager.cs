@@ -3,8 +3,6 @@ using System.Data;
 using Mono.Data.Sqlite;
 using System;
 using System.Collections.Generic;
-using UnityEngine.UI;
-using Unity.VisualScripting;
 using TMPro;
 
 public class PlayerScoreManager : MonoBehaviour

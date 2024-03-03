@@ -81,11 +81,12 @@ public class UIManager : MonoBehaviour
         {
             if(i<multiplier)
             {
-                multiplierGraphics[i].material.color = multiplierColors[i];
+                multiplierGraphics[i].color = multiplierColors[i];
+                // Debug.Log("Color.");
             }
             else
             {
-                multiplierGraphics[i].material.color = defaultColor;
+                multiplierGraphics[i].color = defaultColor;
             }
         }
     }

@@ -1081,7 +1081,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 950852179}
-  - component: {fileID: 950852178}
+  - component: {fileID: 950852180}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -1089,64 +1089,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &950852178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950852177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc6f57e631927b458f33533c5014e7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicGroup: {fileID: 2533814632396168556, guid: 46a75691ae517a14785ba1d49e35066d, type: 2}
-  sfxGroup: {fileID: 3468307724742771576, guid: 46a75691ae517a14785ba1d49e35066d, type: 2}
-  musicTracks:
-  - clip: {fileID: 8300000, guid: 2fa983e70de105146bee85f3e2fab7e5, type: 3}
-    audioSource: {fileID: 0}
-    name: In Game
-    volume: 1
-    pitch: 1
-    loop: 1
-  sfxClips:
-  - clip: {fileID: 8300000, guid: 67d730f45f3233645983ac5c71adc4f6, type: 3}
-    audioSource: {fileID: 0}
-    name: On Hit
-    volume: 1
-    pitch: 1
-    loop: 0
-  - clip: {fileID: 8300000, guid: c768060bae331fc4dbd1eef8466cdc1e, type: 3}
-    audioSource: {fileID: 0}
-    name: On Collision
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: 2e64502e2ce8edb48ae75d0a8379f4e3, type: 3}
-    audioSource: {fileID: 0}
-    name: Point V1
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: 8e57359b31d72184f832b9e487d1c206, type: 3}
-    audioSource: {fileID: 0}
-    name: Low Health
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: 5ab06144f4ccccf4ba356cd14a74edb3, type: 3}
-    audioSource: {fileID: 0}
-    name: Player Death
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: fc367b30de17f01449073dbc597bf204, type: 3}
-    audioSource: {fileID: 0}
-    name: Game Over
-    volume: 0
-    pitch: 0
-    loop: 0
 --- !u!4 &950852179
 Transform:
   m_ObjectHideFlags: 0
@@ -1162,6 +1104,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &950852180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950852177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f039a08bb2842749862d301fefe8947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicGroup: {fileID: 2533814632396168556, guid: 46a75691ae517a14785ba1d49e35066d, type: 2}
+  sfxGroup: {fileID: 3468307724742771576, guid: 46a75691ae517a14785ba1d49e35066d, type: 2}
+  musicTracks:
+  - clip: {fileID: 8300000, guid: c3abf9f70bf8ce0478d4e04c52b6bb46, type: 3}
+    audioSource: {fileID: 0}
+    name: In Game
+    volume: 1
+    pitch: 1
+    loop: 1
+  sfxClips:
+  - clip: {fileID: 8300000, guid: 8e57359b31d72184f832b9e487d1c206, type: 3}
+    audioSource: {fileID: 0}
+    name: Low Health
+    volume: 0
+    pitch: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: c768060bae331fc4dbd1eef8466cdc1e, type: 3}
+    audioSource: {fileID: 0}
+    name: Collision
+    volume: 0
+    pitch: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: fc367b30de17f01449073dbc597bf204, type: 3}
+    audioSource: {fileID: 0}
+    name: Game Over
+    volume: 0
+    pitch: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: 67d730f45f3233645983ac5c71adc4f6, type: 3}
+    audioSource: {fileID: 0}
+    name: On Hit
+    volume: 0
+    pitch: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: 5ab06144f4ccccf4ba356cd14a74edb3, type: 3}
+    audioSource: {fileID: 0}
+    name: Death
+    volume: 0
+    pitch: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: d087f2e86f63bf24999aef41702f6834, type: 3}
+    audioSource: {fileID: 0}
+    name: Swing
+    volume: 0
+    pitch: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: 2e64502e2ce8edb48ae75d0a8379f4e3, type: 3}
+    audioSource: {fileID: 0}
+    name: Points
+    volume: 1
+    pitch: 1
+    loop: 0
 --- !u!1 &965964597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,25 +2766,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1505432324}
     m_Modifications:
-    - target: {fileID: 2417800899867398423, guid: 169194a6dd01b4728b3bfccdb7f16803, type: 3}
-      propertyPath: multiplierResetTime
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4590703852573544844, guid: 169194a6dd01b4728b3bfccdb7f16803, type: 3}
       propertyPath: m_Name
       value: ScoreManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008574901278609594, guid: 169194a6dd01b4728b3bfccdb7f16803, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008574901278609594, guid: 169194a6dd01b4728b3bfccdb7f16803, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008574901278609594, guid: 169194a6dd01b4728b3bfccdb7f16803, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6008574901278609594, guid: 169194a6dd01b4728b3bfccdb7f16803, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2833,14 +2823,74 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2126521221596339882, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+    - target: {fileID: 3641529531192640049, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: multiplierColors.Array.data[0].rgba
+      value: 4288054013
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641529531192640049, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: multiplierColors.Array.data[1].rgba
+      value: 4287673806
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641529531192640049, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: multiplierColors.Array.data[2].rgba
+      value: 4285645773
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641529531192640049, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: multiplierColors.Array.data[3].rgba
+      value: 4289119608
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641529531192640049, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: multiplierColors.Array.data[4].rgba
+      value: 4291607181
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641529531192640049, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: multiplierColors.Array.data[5].rgba
+      value: 4291402417
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641529531192640049, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: multiplierColors.Array.data[6].rgba
+      value: 4290748105
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641529531192640049, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: multiplierColors.Array.data[7].rgba
+      value: 4287269514
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852211400817687226, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+    - target: {fileID: 5383206911097437808, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
     - target: {fileID: 5930085098214963277, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Name
       value: Main HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 6423621534198907155, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+    - target: {fileID: 6706646239158514102, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+    - target: {fileID: 7239530773109364787, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
     - target: {fileID: 7840601591776188063, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 8614480188560330020, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
     - target: {fileID: 8638840799975320928, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2921,6 +2971,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8772753125003049614, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
