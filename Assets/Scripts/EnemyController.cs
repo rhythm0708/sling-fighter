@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // Lose appropriate amount of health.
-    public void OnHurt(Hitbox.Properties properties)
+    public void OnHurt(Hitbox.Properties properties, Vector3 direction)
     {
         // Potentially integrate a damage table?
         health -= properties.damage;
