@@ -8,7 +8,6 @@ TagManager:
   - Reflect
   - Rope
   - Enemy
-  - Ball
   layers:
   - Default
   - TransparentFX
