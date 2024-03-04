@@ -6,7 +6,7 @@ using UnityEngine;
 // position. The anchor rotates then to move the camera
 public class ShoulderCameraController : MonoBehaviour
 {
-    [SerializeField] private float followSpeed = 0.995f;
+    [SerializeField] private float followSpeed = 0.95f;
     private PlayerMovement playerMovement;
 
     void Start()
@@ -39,7 +39,7 @@ public class ShoulderCameraController : MonoBehaviour
         (
             transform.rotation, 
             Quaternion.LookRotation(forward),
-            1.0f - Mathf.Pow(1.0f - followSpeed, Time.deltaTime)
+            1.0f - Mathf.Exp(-followSpeed * Time.deltaTime)
         );
     }
 }

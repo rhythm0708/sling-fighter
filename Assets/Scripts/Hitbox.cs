@@ -1,13 +1,20 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using Unity.VisualScripting;
 
 public class Hitbox : MonoBehaviour
 {
     [Serializable]
     public struct Properties {
         public float damage;
-        public float knocback;
+        public float knockback;
+    }
+
+    private Vector3 _directionOverride;
+    public Vector3 directionOverride {
+        get { return _directionOverride; }
+        set { _directionOverride = value; }
     }
 
     [SerializeField] private Properties _properties;
@@ -17,9 +24,10 @@ public class Hitbox : MonoBehaviour
 
     List<Action> onHitActions;
 
-     public void Awake()
+    public void Awake()
     {
         onHitActions = new List<Action>();
+        directionOverride = Vector3.zero;
     }
 
     public void SubscribeOnHit(Action action)

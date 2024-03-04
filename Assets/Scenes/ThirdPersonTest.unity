@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 123303600}
   - component: {fileID: 123303602}
   - component: {fileID: 123303601}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 294829646}
   - component: {fileID: 294829645}
   - component: {fileID: 294829644}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (2)
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 50
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 349811736}
   - component: {fileID: 349811738}
   - component: {fileID: 349811737}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,8 +531,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _properties:
-    damage: 200
-    knocback: 10
+    damage: 50
+    knockback: 400
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 410087041}
   - component: {fileID: 410087040}
   - component: {fileID: 410087042}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +663,7 @@ GameObject:
   - component: {fileID: 434372943}
   - component: {fileID: 434372942}
   - component: {fileID: 434372941}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -813,6 +813,12 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 6455318981755920708, guid: 57a7368202226ca4d9dde67a1294daf3, type: 3}
   - {fileID: 773025803232599178, guid: 09e2515f355a1e943bcdd4022ff061a7, type: 3}
+  spawnpoints:
+  - {x: -50, y: 1.5, z: 50}
+  - {x: 30, y: 1.5, z: -50}
+  - {x: -40, y: 1.5, z: -40}
+  - {x: 60, y: 1.5, z: 20}
+  - {x: -10, y: 1.5, z: 0}
 --- !u!1 &741287418
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,7 +831,7 @@ GameObject:
   - component: {fileID: 741287422}
   - component: {fileID: 741287421}
   - component: {fileID: 741287420}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Reflect
   m_Icon: {fileID: 0}
@@ -928,7 +934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 832575519}
   - component: {fileID: 832575518}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Global Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -979,7 +985,7 @@ GameObject:
   - component: {fileID: 904379678}
   - component: {fileID: 904379677}
   - component: {fileID: 904379676}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Reflect
   m_Icon: {fileID: 0}
@@ -1180,7 +1186,7 @@ GameObject:
   - component: {fileID: 965964601}
   - component: {fileID: 965964600}
   - component: {fileID: 965964599}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Reflect
   m_Icon: {fileID: 0}
@@ -1285,7 +1291,7 @@ GameObject:
   - component: {fileID: 1054516439}
   - component: {fileID: 1054516438}
   - component: {fileID: 1054516437}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Reflect
   m_Icon: {fileID: 0}
@@ -1392,7 +1398,7 @@ GameObject:
   - component: {fileID: 1057449579}
   - component: {fileID: 1057449578}
   - component: {fileID: 1057449577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Reflect
   m_Icon: {fileID: 0}
@@ -1530,7 +1536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e6462c391435a343bc43b0240a737d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followSpeed: 0.999
+  followSpeed: 10
 --- !u!1 &1417618910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,7 +1549,7 @@ GameObject:
   - component: {fileID: 1417618913}
   - component: {fileID: 1417618912}
   - component: {fileID: 1417618911}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1650,6 +1656,8 @@ GameObject:
   - component: {fileID: 1505432326}
   - component: {fileID: 1505432321}
   - component: {fileID: 1505432325}
+  - component: {fileID: 1505432327}
+  - component: {fileID: 1505432328}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1782,6 +1790,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  respawnLocation: {x: 0, y: 0, z: 0}
+--- !u!114 &1505432327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505432320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0552da4d23945884c8368c0bec740589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  length: 0.05
+--- !u!114 &1505432328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505432320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d497a315164ce4184c625dd0b751f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acceleration: 1
 --- !u!1 &1505725095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,7 +1829,7 @@ GameObject:
   - component: {fileID: 1505725098}
   - component: {fileID: 1505725097}
   - component: {fileID: 1505725096}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (3)
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -2207,7 +2242,7 @@ GameObject:
   - component: {fileID: 1945081011}
   - component: {fileID: 1945081010}
   - component: {fileID: 1945081009}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (1)
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -2317,7 +2352,7 @@ GameObject:
   - component: {fileID: 1996361533}
   - component: {fileID: 1996361532}
   - component: {fileID: 1996361531}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Reflect
   m_Icon: {fileID: 0}
@@ -2422,7 +2457,7 @@ GameObject:
   - component: {fileID: 2003683207}
   - component: {fileID: 2003683206}
   - component: {fileID: 2003683205}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Reflect
   m_Icon: {fileID: 0}
@@ -2560,7 +2595,7 @@ GameObject:
   - component: {fileID: 2057736901}
   - component: {fileID: 2057736900}
   - component: {fileID: 2057736899}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Reflect
   m_Icon: {fileID: 0}
@@ -2665,7 +2700,7 @@ GameObject:
   - component: {fileID: 2123818928}
   - component: {fileID: 2123818927}
   - component: {fileID: 2123818926}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Reflect
   m_Icon: {fileID: 0}
@@ -2827,6 +2862,14 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+    - target: {fileID: 2142886579489755889, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230038471008882036, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 867.99945
+      objectReference: {fileID: 0}
     - target: {fileID: 3641529531192640049, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: multiplierColors.Array.data[0].rgba
       value: 4288054013
@@ -2859,6 +2902,10 @@ PrefabInstance:
       propertyPath: multiplierColors.Array.data[7].rgba
       value: 4287269514
       objectReference: {fileID: 0}
+    - target: {fileID: 4422740396008095814, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 4852211400817687226, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Material
       value: 
@@ -2867,6 +2914,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+    - target: {fileID: 5847301858188918016, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5930085098214963277, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Name
       value: Main HUD
