@@ -20,14 +20,19 @@
 
 "arcade-bonus-alert" from [mixkit](https://mixkit.co/free-sound-effects/arcade/) licensed under [mixkit](https://mixkit.co/license/#sfxFree)
 
-"arcade-bonus" from [mixkit](https://mixkit.co/free-sound-effects/arcade/) licensed under [mixkit](https://mixkit.co/license/#sfxFree)
-
 "repeating-arcade-beep" from [mixkit](https://mixkit.co/free-sound-effects/arcade/) licensed under [mixkit](https://mixkit.co/license/#sfxFree)
 
 "electronic-retro-block-hit" from [mixkit](https://mixkit.co/free-sound-effects/arcade/) licensed under [mixkit](https://mixkit.co/license/#sfxFree)
 
 "arcade-retro-game-over-" from [mixkit](https://mixkit.co/free-sound-effects/arcade/) licensed under [mixkit](https://mixkit.co/license/#sfxFree)
 
+"mixkit-arcade-bonus-229" from [mixkit](https://mixkit.co/free-sound-effects/arcade/) licensed under [mixkit](https://mixkit.co/license/#sfxFree)
+
+"mixkit-arcade-bonus-alert-767" from [mixkit](https://mixkit.co/free-sound-effects/arcade/) licensed under [mixkit](https://mixkit.co/license/#sfxFree)
+
+"mixkit-retro-arcade-casino-notification-211" from [mixkit](https://mixkit.co/free-sound-effects/arcade/) licensed under [mixkit](https://mixkit.co/license/#sfxFree)
+
+"throwing-item-swing-epic-stock-media-1-00-00" from [uppbeat.io](https://uppbeat.io/sfx/arcade-game-retro-8-bit-big-shot-1/912/1601) by Uppbeat and licensed under [Uppbeat](https://uppbeat.io/user-agreement)
 
 
 

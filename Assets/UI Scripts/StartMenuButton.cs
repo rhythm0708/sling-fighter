@@ -5,6 +5,6 @@ public class StartMenu : MonoBehaviour
 {
     private void OnMouseUpAsButton()
     {
-        SceneManager.LoadScene("Title Screen");
+        SceneManager.LoadScene("ThirdPersonTest");
     }
 }
