@@ -39,8 +39,9 @@ public class PlayerController : MonoBehaviour
         if (currPos.y < -1)
         {
             // Teleport back to the arena for the sake of testing.
+            // gameObject.transform.position = respawnLocation;
             // TODO: could have player take damage or die instantly.
-            gameObject.transform.position = respawnLocation;
+            SceneManager.LoadScene("Results Screen");
         }
 
         hitbox.directionOverride = movement.GetForward();
