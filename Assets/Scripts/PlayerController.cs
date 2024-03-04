@@ -1,14 +1,15 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float health = 100.0f;
-    [SerializeField] private Vector3 respawnLocation;
+    // [SerializeField] private Vector3 respawnLocation;
     private Hurtbox hurtbox;
     private Hitbox hitbox;
     private PlayerMovement movement;
+    private float damageCooldown;
+    private float timeElapsed = 0;
 
     void Start()
     {
@@ -16,13 +17,19 @@ public class PlayerController : MonoBehaviour
         hurtbox.SubscribeOnHurt(OnHurt);
         hitbox = GetComponentInChildren<Hitbox>();
         movement = GetComponent<PlayerMovement>();
+        damageCooldown = Random.Range(2, 5);
     }
 
     // Lose appropriate amount of health.
     private void OnHurt(Hitbox.Properties properties, Vector3 direction)
     {
-        health -= properties.damage;
-        CheckGameOver();
+        // Make sure that cooldown has expired.
+        if (timeElapsed >= damageCooldown)
+        {
+            health -= properties.damage;
+            CheckGameOver();
+            timeElapsed = 0;
+        }
     }
 
     private void CheckGameOver()
@@ -45,6 +52,7 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("Results Screen");
         }
 
+        timeElapsed += Time.deltaTime;
         hitbox.directionOverride = movement.GetForward();
     }
 }

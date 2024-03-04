@@ -6,6 +6,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private float health = 100.0f;
+    private float damageCooldown;
+    private float timeElapsed = 0;
     private Hurtbox hurtbox;
     private List<Action<EnemyController>> onDestroyActions;
 
@@ -15,6 +17,7 @@ public class EnemyController : MonoBehaviour
     void Awake()
     {
         onDestroyActions = new List<Action<EnemyController>>();
+        damageCooldown = UnityEngine.Random.Range(2, 5);
     }
 
     void Start()
@@ -35,14 +38,19 @@ public class EnemyController : MonoBehaviour
     public void OnHurt(Hitbox.Properties properties, Vector3 direction)
     {
         // Potentially integrate a damage table?
-        health -= properties.damage;
-        if (health <= 0)
+        // Make sure that cooldown has expired.
+        if (timeElapsed >= damageCooldown)
         {
-            foreach (Action<EnemyController> action in onDestroyActions)
+            health -= properties.damage;
+            if (health <= 0)
             {
-                action.Invoke(this);
+                foreach (Action<EnemyController> action in onDestroyActions)
+                {
+                    action.Invoke(this);
+                }
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
+            timeElapsed = 0;
         }
     }
 
@@ -54,5 +62,6 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        timeElapsed += Time.deltaTime;
     }
 }
