@@ -2,13 +2,13 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartMenu : MonoBehaviour
+public class SettingsMenu : MonoBehaviour
 {
     private bool collisionDetected = false;
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Check if the colliding object it's the ball
+        // Check if the colliding object has the tag "Ball"
         if (collision.gameObject.CompareTag("Ball") && !collisionDetected)
         {
             // Set collisionDetected to true to prevent multiple scene switches
@@ -21,10 +21,10 @@ public class StartMenu : MonoBehaviour
 
     private IEnumerator SceneSwitchTimer()
     {
-        // Wait for 3 seconds then switch scenes
+        // Wait for 3 seconds
         yield return new WaitForSeconds(3f);
 
         // Change the scene after the delay
-        SceneManager.LoadScene("ThirdPersonTest");
+        SceneManager.LoadScene("Settings");
     }
 }
