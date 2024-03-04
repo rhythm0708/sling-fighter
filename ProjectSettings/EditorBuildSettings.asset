@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ThirdPersonTest.unity
     guid: 23a60333344f60e4f94cab8f92cb65cd
+  - enabled: 1
+    path: Assets/UI Scenes/Results Screen.unity
+    guid: fbb19896cb98b014ba1522204d3c81b4
   m_configObjects: {}
