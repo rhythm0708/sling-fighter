@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> enemyPrefabs;
+    [SerializeField] private List<Vector3> spawnpoints;
     private float score = 0;
     private float multiplier = 0;
     private int curWave = 1;
@@ -31,14 +32,9 @@ public class GameManager : MonoBehaviour
         killCountToAdvance *= curWave;
         for (int i = 0; i < killCountToAdvance; i++)
         {
-            // TODO: Define arena bounds in fields
-            // OR have predefined spawn points?
-            float xPos = Random.Range(-80,80);
-            float zPos = Random.Range(-80,80);
-
             // Instantiate a random enemy prefab at the give position
             GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
-            Vector3 pos = new Vector3(xPos, 1.5f, zPos);
+            Vector3 pos = spawnpoints[Random.Range(0, spawnpoints.Count)];
             Instantiate(prefab, pos, Quaternion.identity);
         }
     }
