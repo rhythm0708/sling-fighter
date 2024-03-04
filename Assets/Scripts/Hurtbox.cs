@@ -6,6 +6,8 @@ public class Hurtbox : MonoBehaviour
 {
     delegate void OnHurt();
     List<Action<Hitbox.Properties, Vector3>> onHurtActions;
+    // private float damageCooldown;
+    // private float timeElapsed = 0;
 
     public void Awake()
     {
@@ -18,6 +20,7 @@ public class Hurtbox : MonoBehaviour
         }
         rigidbody.isKinematic = true;
         onHurtActions = new List<Action<Hitbox.Properties, Vector3>>();
+        // damageCooldown = UnityEngine.Random.Range(2, 5);
     }
 
     public void SubscribeOnHurt(Action<Hitbox.Properties, Vector3> action)
@@ -28,6 +31,15 @@ public class Hurtbox : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         Hitbox hitbox = collider.gameObject.GetComponent<Hitbox>();
+
+        // Make sure that cooldown has expired.
+        // if (timeElapsed < damageCooldown)
+        // {
+        //     return;
+        // }
+        // else{
+        //     timeElapsed = 0;
+        // }
 
         // Only check for hits if we actually contact a hitbox
         if (hitbox == null)
@@ -54,4 +66,9 @@ public class Hurtbox : MonoBehaviour
             action.Invoke(hitbox.properties, direction);
         }
     }
+
+    // void Update()
+    // {
+    //     timeElapsed -= Time.deltaTime;
+    // }
 }

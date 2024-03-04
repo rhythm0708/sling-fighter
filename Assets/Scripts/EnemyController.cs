@@ -45,4 +45,14 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void Update()
+    {
+        // Handle enemies falling off arena.
+        var currPos = gameObject.transform.position;
+        if (currPos.y < -1)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

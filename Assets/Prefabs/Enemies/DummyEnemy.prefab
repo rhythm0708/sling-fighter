@@ -79,10 +79,9 @@ GameObject:
   - component: {fileID: 3095393555540730788}
   - component: {fileID: 6128970811542054844}
   - component: {fileID: 1455086296000442740}
-  - component: {fileID: 4033810732691615709}
   - component: {fileID: -5277429562237295779}
   - component: {fileID: -3751160966650858838}
-  - component: {fileID: 7314321299712885022}
+  - component: {fileID: -3631028617908453705}
   m_Layer: 7
   m_Name: DummyEnemy
   m_TagString: Enemy
@@ -195,19 +194,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &4033810732691615709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6455318981755920708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0803982e6f78ba54bbc6bcb3599afe17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  decay: 0.95
 --- !u!114 &-5277429562237295779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 1
---- !u!114 &7314321299712885022
+--- !u!114 &-3631028617908453705
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,6 +229,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6455318981755920708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44f7fec25829b494aad11ed7d7e197b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 0803982e6f78ba54bbc6bcb3599afe17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  decay: 0.05

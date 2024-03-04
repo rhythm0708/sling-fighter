@@ -6,7 +6,6 @@ public class TryAgain : MonoBehaviour
 {
     private void OnMouseUpAsButton()
     {
-        Debug.Log("entere");
         SceneManager.LoadScene("ThirdPersonTest");
     }
 }
