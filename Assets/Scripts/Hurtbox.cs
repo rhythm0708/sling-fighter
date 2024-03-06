@@ -43,10 +43,12 @@ public class Hurtbox : MonoBehaviour
             return;
         }
 
-        Vector3 direction = (transform.position - hitbox.transform.position).normalized;
+        Vector3 direction = transform.position - hitbox.transform.position;
+        direction.y = 0.0f;
+        direction = direction.normalized;
         if (hitbox.directionOverride != Vector3.zero)
         {
-            direction = Vector3.Lerp(direction, hitbox.directionOverride, 0.65f).normalized;
+            direction = Vector3.Lerp(direction, hitbox.directionOverride, 0.75f).normalized;
         }
 
         foreach (Action<Hitbox.Properties, Vector3> action in onHurtActions)

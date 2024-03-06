@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SetUpNewWave();
+        //SetUpNewWave();
     }
 
     // Gets the current score.
@@ -35,7 +35,10 @@ public class GameManager : MonoBehaviour
             // Instantiate a random enemy prefab at the give position
             GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
             Vector3 pos = spawnpoints[Random.Range(0, spawnpoints.Count)];
-            Instantiate(prefab, pos, Quaternion.identity);
+            float x = Random.Range(-75.0f, 75.0f);
+            float z = Random.Range(-75.0f, 75.0f);
+
+            Instantiate(prefab, new Vector3(x, 0.0f, z), Quaternion.identity);
         }
     }
 

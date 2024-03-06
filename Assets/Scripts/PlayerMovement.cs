@@ -1,3 +1,6 @@
+using System;
+using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -6,8 +9,7 @@ public class PlayerMovement : MonoBehaviour
     {
         WaitSling,
         ChargeSling,
-        Move,
-        ChargePunch
+        Move
     };
 
     [SerializeField] private float punchDistance = 8.0f;
@@ -17,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float sideStepLength = 0.15f;
 
     private Vector3 forward;
+    private Vector3 mouseAxis;
+    private bool useMouseAxis;
     private float speed;
     private State state;
     private Vector3 ropeForward;
@@ -30,9 +34,11 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         forward = transform.forward;
         ropeForward = forward;
+        mouseAxis = Vector3.zero;
         state = State.WaitSling;
         cam = Camera.main;
         sideStepTimer = 0.0f;
+        useMouseAxis = false;
     }
 
     public Vector3 GetForward()
@@ -52,14 +58,21 @@ public class PlayerMovement : MonoBehaviour
 
     void Update() 
     {
-        // When the punch is charging, slow-mo the game
-        if (state == State.ChargePunch)
+        float mouseX = Input.GetAxisRaw("Mouse X");
+        float mouseY = Input.GetAxisRaw("Mouse Y");
+        if (Mathf.Abs(mouseX) > 0.001f || Mathf.Abs(mouseY) > 0.001f)
         {
-            Time.timeScale = 0.1f;
+            useMouseAxis = true;
+            mouseAxis.x += mouseX;
+            mouseAxis.z += mouseY;
         }
-        else
+        else if (
+            Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.1f ||
+            Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0.1f
+        ) 
         {
-            Time.timeScale = 1.0f;
+            useMouseAxis = false;
+            mouseAxis = Vector3.zero;
         }
 
         // Each state has their own update to control movement
@@ -76,14 +89,10 @@ public class PlayerMovement : MonoBehaviour
             case State.Move:
                 MoveUpdate();
                 break;
-
-            case State.ChargePunch:
-                ChargePunchUpdate();
-                break;
         }
 
         // Draw the aim-line
-        if (state == State.ChargeSling || state == State.ChargePunch)
+        if (state == State.ChargeSling)
         {
             Debug.DrawLine(transform.position, transform.position - GetAxisInput().normalized * punchDistance, Color.red);
         }
@@ -107,12 +116,14 @@ public class PlayerMovement : MonoBehaviour
         cameraRight.y = 0.0f;
         cameraRight = cameraRight.normalized;
 
-
         // The forward and right vector summed together create
         // the direction vector. It is then clamped to ensure its
         // value doesn't go beyond 1.0f
-        axis += cameraRight * Input.GetAxisRaw("Horizontal");
-        axis += cameraForward * Input.GetAxisRaw("Vertical");
+        Vector3 normalizeMouseAxis = mouseAxis.normalized;
+        float rightAxis = useMouseAxis ? normalizeMouseAxis.x : Input.GetAxisRaw("Horizontal");
+        float forwardAxis = useMouseAxis ? normalizeMouseAxis.z : Input.GetAxisRaw("Vertical");
+        axis += cameraRight * rightAxis;
+        axis += cameraForward * forwardAxis;
         return Vector3.ClampMagnitude(axis, 1.0f);
     }
 
@@ -121,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Action"))
         {
             state = State.ChargeSling;
+            mouseAxis = Vector3.zero;
         }
     }
 
@@ -187,53 +199,6 @@ public class PlayerMovement : MonoBehaviour
         // {
         //     state = State.ChargePunch;
         // }
-    }
-
-    void ChargePunchUpdate()
-    {
-        // Same sidestep code as MoveUpdate
-        if (Input.GetButtonDown("StepLeft"))
-        {
-            sideStepTimer = sideStepLength;
-        }
-        if (Input.GetButtonDown("StepRight"))
-        {
-            sideStepTimer = -sideStepLength;
-        }
-        float sideStepFactor = sideStepTimer / sideStepLength; 
-        if (sideStepTimer < 0.0f) {
-            sideStepTimer = Mathf.Min(sideStepTimer + Time.deltaTime, 0.0f);
-        }
-        else
-        {
-            sideStepTimer = Mathf.Max(sideStepTimer - Time.deltaTime, 0.0f);
-        }
-        controller.Move
-        (
-            Vector3.Cross(forward, transform.up) * 
-            sideStepSpeed * 
-            sideStepFactor *
-            Time.deltaTime
-        );
-
-        // Upon releasing the punch, we Raycast based on its direction.
-        // If it hits, we set our forward direction to the opposite of
-        // the input
-        if (Input.GetButtonUp("Action"))
-        {
-            Vector3 axis = GetAxisInput().normalized;
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, axis, out hit, punchDistance))
-            {
-                speed = slingSpeed;
-                forward = -axis;
-                sideStepTimer = 0.0f;
-            }
-            state = State.Move;
-        }
-
-        // Move the player
-        controller.Move(forward * speed * Time.deltaTime);
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)

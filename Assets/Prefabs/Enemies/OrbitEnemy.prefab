@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4532615500650092818}
   - component: {fileID: 95906151472271652}
   - component: {fileID: 8937555028117479787}
-  - component: {fileID: -2302553169343117341}
   m_Layer: 0
   m_Name: OrbitEnemy
   m_TagString: Enemy
@@ -100,18 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
---- !u!114 &-2302553169343117341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 773025803232599178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44f7fec25829b494aad11ed7d7e197b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4536965831502036624
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,6 +22,7 @@ public class GravityComponent : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 10.0f, layerMask))
         {
             gravity = 0.0f;
+            controller.Move(Vector3.down * 20.0f * Time.deltaTime);
         }
         else
         {
