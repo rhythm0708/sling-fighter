@@ -23,7 +23,7 @@ public class Hitbox : MonoBehaviour
         get { return _properties; }
     }
 
-    [SerializeField] private bool _active;
+    [SerializeField] private bool _active = true;
     public bool active
     {
         get { return _active; }

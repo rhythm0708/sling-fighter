@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
         Move
     };
 
+    [SerializeField] private GameObject slingPrevew;
     [SerializeField] private float punchDistance = 8.0f;
     [SerializeField] private float slingSpeed = 120.0f;
     [SerializeField] private float decceleration = 1.0f;
@@ -94,10 +95,13 @@ public class PlayerMovement : MonoBehaviour
         // Draw the aim-line
         if (state == State.ChargeSling)
         {
-            Debug.DrawLine(transform.position, transform.position - GetAxisInput().normalized * punchDistance, Color.red);
+            slingPrevew.SetActive(true);
+            slingPrevew.transform.rotation = Quaternion.LookRotation(-GetAxisInput());
         }
-        // Draw the forward line
-        Debug.DrawLine(transform.position, transform.position + forward * 5.0f, Color.green);
+        else
+        {
+            slingPrevew.SetActive(false);
+        }
     }
 
     // Returns the vector pointing in the direction of the
