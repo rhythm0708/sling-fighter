@@ -45,6 +45,10 @@ public class Hitbox : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        if (!_active)
+        {
+            return;
+        }
         Hurtbox hurtbox = collider.gameObject.GetComponent<Hurtbox>();
 
         // Only check for hits if we actually contact a hitbox
