@@ -34,6 +34,11 @@ public class Hurtbox : MonoBehaviour
         {
             return;
         }
+        // Ignore inactive hitboxes
+        if (!hitbox.active)
+        {
+            return;
+        }
 
         // A hitbox that shares the same root object as the
         // hurtbox should not trigger a hurt action, since
