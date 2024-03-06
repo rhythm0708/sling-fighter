@@ -18,8 +18,16 @@ public class Hitbox : MonoBehaviour
     }
 
     [SerializeField] private Properties _properties;
-    public Properties properties {
+    public Properties properties 
+    {
         get { return _properties; }
+    }
+
+    [SerializeField] private bool _active;
+    public bool active
+    {
+        get { return _active; }
+        set { _active = value; }
     }
 
     List<Action> onHitActions;

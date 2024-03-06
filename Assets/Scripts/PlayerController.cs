@@ -54,5 +54,14 @@ public class PlayerController : MonoBehaviour
 
         timeElapsed += Time.deltaTime;
         hitbox.directionOverride = movement.GetForward();
+
+        if (movement.GetState() == PlayerMovement.State.Move)
+        {
+            hitbox.active = true;
+        }
+        else
+        {
+            hitbox.active = false;
+        }
     }
 }
