@@ -610,6 +610,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1795382713630566074, guid: 8a9fc4fa5f0a4b04d9b782b9517c1357, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -84.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2278898137409497575, guid: 8a9fc4fa5f0a4b04d9b782b9517c1357, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -646,6 +650,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8676756179976791544, guid: 8a9fc4fa5f0a4b04d9b782b9517c1357, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8676756179976791544, guid: 8a9fc4fa5f0a4b04d9b782b9517c1357, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5281a4b2b1c1678479cbc5d6deb11f1f, type: 2}
     - target: {fileID: 9046264241293074025, guid: 8a9fc4fa5f0a4b04d9b782b9517c1357, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -661,7 +673,82 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4301198994362707650, guid: 8a9fc4fa5f0a4b04d9b782b9517c1357, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7163814916399203373, guid: 8a9fc4fa5f0a4b04d9b782b9517c1357, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4929077491213005758}
+    - targetCorrespondingSourceObject: {fileID: 7163814916399203373, guid: 8a9fc4fa5f0a4b04d9b782b9517c1357, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4929077491213005757}
+    - targetCorrespondingSourceObject: {fileID: 7163814916399203373, guid: 8a9fc4fa5f0a4b04d9b782b9517c1357, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4929077491213005759}
   m_SourcePrefab: {fileID: 100100000, guid: 8a9fc4fa5f0a4b04d9b782b9517c1357, type: 3}
+--- !u!1 &4929077491213005756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7163814916399203373, guid: 8a9fc4fa5f0a4b04d9b782b9517c1357, type: 3}
+  m_PrefabInstance: {fileID: 4929077491213005755}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4929077491213005757
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4929077491213005756}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.020000007, y: 0.020000001, z: 0.020000007}
+  m_Center: {x: 0, y: 0.000000007450581, z: -0.000000014901161}
+--- !u!54 &4929077491213005758
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4929077491213005756}
+  serializedVersion: 4
+  m_Mass: 30
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &4929077491213005759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4929077491213005756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c424f38c0790e9d4fa517adb89d0172b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 5281a4b2b1c1678479cbc5d6deb11f1f, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
