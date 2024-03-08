@@ -36,13 +36,13 @@ public class Knockback : MonoBehaviour
         {
             return;
         }
-
+        
+        // Do bounce physics on the rope upon contanct
         Rope rope = hit.gameObject.GetComponent<Rope>();
-        if (rope == null)
+        if (rope != null)
         {
-            return;
+            rope.Bounce(hit.point, velocity);
         }
-        rope.Bounce(hit.point, velocity);
 
         // If we hit something that reflects, get the
         // normal of the surface and flatten it
