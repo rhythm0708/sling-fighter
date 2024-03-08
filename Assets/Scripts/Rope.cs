@@ -43,6 +43,7 @@ public class Rope : MonoBehaviour
         {
             // Convert the target's world position to local space
             localTargetPos = transform.InverseTransformPoint(target.transform.position) + apexOffset;
+            localTargetPos.y = 0.0f;
             power = 1.0f;
         }
         else 

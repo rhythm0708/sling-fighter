@@ -116,7 +116,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Draw the aim-line
-        if (state == State.ChargeSling && GetAxisInput().magnitude > 0.1f)
+        Vector3 axisInput = GetAxisInput();
+        if (state == State.ChargeSling && axisInput.magnitude > 0.1f && Vector3.Dot(-axisInput.normalized, ropeForward) > 0.25f)
         {
             slingPrevew.SetActive(true);
             slingPrevew.transform.rotation = Quaternion.LookRotation(-smoothRopeAim);
