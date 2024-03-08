@@ -9,6 +9,7 @@ public class Hitbox : MonoBehaviour
     public struct Properties {
         public float damage;
         public float knockback;
+        public string type;
     }
 
     private Vector3 _directionOverride;

@@ -9,6 +9,8 @@ TagManager:
   - Rope
   - Enemy
   - Ball
+  - Obstacle
+  - Tool
   layers:
   - Default
   - TransparentFX

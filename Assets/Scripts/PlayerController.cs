@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,14 +18,15 @@ public class PlayerController : MonoBehaviour
         hurtbox.SubscribeOnHurt(OnHurt);
         hitbox = GetComponentInChildren<Hitbox>();
         movement = GetComponent<PlayerMovement>();
-        damageCooldown = Random.Range(2, 5);
+        damageCooldown = UnityEngine.Random.Range(2, 5);
     }
 
     // Lose appropriate amount of health.
     private void OnHurt(Hitbox.Properties properties, Vector3 direction)
     {
         // Make sure that cooldown has expired.
-        if (timeElapsed >= damageCooldown)
+        if (timeElapsed >= damageCooldown &&
+            (properties.type == "Enemy" || properties.type == "Obstacle"))
         {
             health -= properties.damage;
             CheckGameOver();
