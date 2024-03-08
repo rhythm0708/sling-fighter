@@ -849,19 +849,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650179573}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ffb5895f6672d4420afc023a14880471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 6455318981755920708, guid: 57a7368202226ca4d9dde67a1294daf3, type: 3}
-  spawnpoints:
-  - {x: -50, y: 1.5, z: 50}
-  - {x: 30, y: 1.5, z: -50}
-  - {x: -40, y: 1.5, z: -40}
-  - {x: 60, y: 1.5, z: 20}
-  - {x: -10, y: 1.5, z: 0}
+  obstaclePrefabs: []
+  toolPrefabs: []
+  enemySpawnpoints: []
+  obstacleSpawnpoints: []
 --- !u!1001 &750525793
 PrefabInstance:
   m_ObjectHideFlags: 0
