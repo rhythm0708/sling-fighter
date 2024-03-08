@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         }
 
         timeElapsed += Time.deltaTime;
-        hitbox.directionOverride = movement.GetForward();
+        hitbox.directionOverride = movement.GetVelocity().normalized;
 
         if (movement.GetState() == PlayerMovement.State.Move)
         {

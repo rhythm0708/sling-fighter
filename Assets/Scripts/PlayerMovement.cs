@@ -1,6 +1,3 @@
-using System;
-using Unity.VisualScripting;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -18,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float decceleration = 1.0f;
     [SerializeField] private float sideStepSpeed = 30.0f;
     [SerializeField] private float sideStepLength = 0.15f;
+    [SerializeField] private Rope initialRope;
 
     private Vector3 forward;
     private Vector3 mouseAxis;
@@ -27,6 +25,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 ropeForward;
     private Camera cam;
     private float sideStepTimer;
+
+    private Vector3 ropeStart;
+    private Vector3 smoothRopeAxis;
+    private Rope currentRope;
+    private Vector3 recoilOffset;
+    private Vector3 recoilVelocity;
 
     private CharacterController controller;
 
@@ -40,6 +44,10 @@ public class PlayerMovement : MonoBehaviour
         cam = Camera.main;
         sideStepTimer = 0.0f;
         useMouseAxis = false;
+
+        currentRope = initialRope;
+        currentRope.Attach(gameObject);
+        ropeStart = transform.position;
     }
 
     public Vector3 GetForward()
@@ -55,6 +63,18 @@ public class PlayerMovement : MonoBehaviour
     public State GetState()
     {
         return state;
+    }
+
+    public Vector3 GetVelocity()
+    {
+        Vector3 velocity = forward * speed;
+        float sideStepFactor = sideStepTimer / sideStepLength; 
+        velocity += 
+            Vector3.Cross(forward, transform.up) * 
+            sideStepSpeed * 
+            sideStepFactor;
+        
+        return velocity;
     }
 
     void Update() 
@@ -93,10 +113,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Draw the aim-line
-        if (state == State.ChargeSling)
+        if (state == State.ChargeSling && GetAxisInput().magnitude > 0.1f)
         {
             slingPrevew.SetActive(true);
-            slingPrevew.transform.rotation = Quaternion.LookRotation(-GetAxisInput());
+            slingPrevew.transform.rotation = Quaternion.LookRotation(-smoothRopeAxis);
         }
         else
         {
@@ -123,9 +143,8 @@ public class PlayerMovement : MonoBehaviour
         // The forward and right vector summed together create
         // the direction vector. It is then clamped to ensure its
         // value doesn't go beyond 1.0f
-        Vector3 normalizeMouseAxis = mouseAxis.normalized;
-        float rightAxis = useMouseAxis ? normalizeMouseAxis.x : Input.GetAxisRaw("Horizontal");
-        float forwardAxis = useMouseAxis ? normalizeMouseAxis.z : Input.GetAxisRaw("Vertical");
+        float rightAxis = useMouseAxis ? mouseAxis.x : Input.GetAxisRaw("Horizontal");
+        float forwardAxis = useMouseAxis ? mouseAxis.z : Input.GetAxisRaw("Vertical");
         axis += cameraRight * rightAxis;
         axis += cameraForward * forwardAxis;
         return Vector3.ClampMagnitude(axis, 1.0f);
@@ -133,6 +152,29 @@ public class PlayerMovement : MonoBehaviour
 
     void WaitSlingUpdate()
     {
+        controller.enabled = false;
+        smoothRopeAxis = Vector3.Lerp
+        (
+            smoothRopeAxis, 
+            Vector3.zero,
+            1.0f - Mathf.Exp(-8.0f * Time.deltaTime)
+        );
+        recoilVelocity = Vector3.Lerp
+        (
+            recoilVelocity, 
+            Vector3.zero,
+            1.0f - Mathf.Exp(-8.0f * Time.deltaTime)
+        );
+        recoilOffset += recoilVelocity * Time.deltaTime;
+        recoilOffset = Vector3.Lerp
+        (
+            recoilOffset, 
+            Vector3.zero,
+            1.0f - Mathf.Exp(-8.0f * Time.deltaTime)
+        );
+
+        transform.position = ropeStart + smoothRopeAxis * 10.0f + recoilOffset;
+
         if (Input.GetButtonDown("Action"))
         {
             state = State.ChargeSling;
@@ -142,19 +184,53 @@ public class PlayerMovement : MonoBehaviour
 
     void ChargeSlingUpdate()
     {
+        controller.enabled = false;
+        Vector3 axisInput = GetAxisInput();
+
+        smoothRopeAxis = Vector3.Lerp
+        (
+            smoothRopeAxis, 
+            axisInput,
+            1.0f - Mathf.Exp(-8.0f * Time.deltaTime)
+        );
+        recoilVelocity = Vector3.Lerp
+        (
+            recoilVelocity, 
+            Vector3.zero,
+            1.0f - Mathf.Exp(-8.0f * Time.deltaTime)
+        );
+        recoilOffset += recoilVelocity * Time.deltaTime;
+        recoilOffset = Vector3.Lerp
+        (
+            recoilOffset, 
+            Vector3.zero,
+            1.0f - Mathf.Exp(-8.0f * Time.deltaTime)
+        );
+
+        transform.position = ropeStart + smoothRopeAxis * 10.0f + recoilOffset;
+
         // Once the sling is released, start moving forward
         // (opposite of stick direction)
-        Vector3 axisInput = GetAxisInput();
-        if (Input.GetButtonUp("Action") && axisInput.magnitude > 0.1f)
+        if (Input.GetButtonUp("Action"))
         {
-            forward = -axisInput.normalized;
-            speed = slingSpeed;
-            state = State.Move;
+            if (axisInput.magnitude > 0.1f && Vector3.Dot(-axisInput.normalized, ropeForward) > 0.25f) {
+                transform.position = ropeStart;
+                forward = -axisInput.normalized;
+                speed = slingSpeed;
+                currentRope.Release(forward * speed);
+                currentRope = null;
+                state = State.Move;
+            }
+            else
+            {
+                state = State.WaitSling;
+            }
         }
     }
 
     void MoveUpdate()
     {
+        controller.enabled = true;
         // Decelerrate the player as time progresses
         speed -= decceleration * Time.deltaTime;
         speed = Mathf.Max(speed, 0.0f);
@@ -217,18 +293,12 @@ public class PlayerMovement : MonoBehaviour
 
             // Determine the direction of travel.
             // This calcualtion accounts for sidestepping
-            Vector3 direction = forward;
-            float sideStepFactor = sideStepTimer / sideStepLength; 
-            direction += 
-                Vector3.Cross(forward, transform.up) * 
-                sideStepSpeed * 
-                sideStepFactor;
-            direction = direction.normalized;
+            Vector3 direction = GetVelocity().normalized;
 
             // Using the direction of travel and the normal,
             // calculate the vector of reflection and use that
             // as the new forward vector
-            forward = direction - 2 * (Vector3.Dot(direction, flatNormal)) * flatNormal;
+            forward = direction - 2 * Vector3.Dot(direction, flatNormal) * flatNormal;
             forward = forward.normalized;
             sideStepTimer = 0.0f;
         }
@@ -237,6 +307,13 @@ public class PlayerMovement : MonoBehaviour
             // Once we hit a rope, go into the
             // WaitSling stat
             ropeForward = hit.normal;
+            ropeStart = transform.position;
+
+            currentRope = hit.gameObject.GetComponent<Rope>();
+            currentRope.Attach(gameObject);
+            smoothRopeAxis = Vector3.zero;
+            recoilVelocity = GetVelocity();
+
             state = State.WaitSling;
             sideStepTimer = 0.0f;
         }

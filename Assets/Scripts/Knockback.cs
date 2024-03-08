@@ -37,6 +37,13 @@ public class Knockback : MonoBehaviour
             return;
         }
 
+        Rope rope = hit.gameObject.GetComponent<Rope>();
+        if (rope == null)
+        {
+            return;
+        }
+        rope.Bounce(hit.point, velocity);
+
         // If we hit something that reflects, get the
         // normal of the surface and flatten it
         Vector3 flatNormal = hit.normal;
@@ -46,7 +53,7 @@ public class Knockback : MonoBehaviour
         // Determine the direction of travel.
         // This calcualtion accounts for sidestepping
         Vector3 direction = velocity.normalized;
-
+        
         // Using the direction of travel and the normal,
         // calculate the vector of reflection and use that
         // as the new forward vector
