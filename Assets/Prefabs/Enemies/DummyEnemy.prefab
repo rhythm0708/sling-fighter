@@ -77,14 +77,13 @@ GameObject:
   - component: {fileID: 883693010286903993}
   - component: {fileID: 1654376228929813041}
   - component: {fileID: 3095393555540730788}
-  - component: {fileID: 6128970811542054844}
   - component: {fileID: 1455086296000442740}
   - component: {fileID: -5277429562237295779}
   - component: {fileID: -3751160966650858838}
   - component: {fileID: -3631028617908453705}
   m_Layer: 7
   m_Name: DummyEnemy
-  m_TagString: Enemy
+  m_TagString: Tool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,6 +102,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3728248218099820940}
+  - {fileID: 5410935417781327683}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1654376228929813041
@@ -155,19 +155,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6128970811542054844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6455318981755920708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e3fdda41fff74e4ba6abd542721e937, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!143 &1455086296000442740
 CharacterController:
   m_ObjectHideFlags: 0
@@ -189,8 +176,8 @@ CharacterController:
   serializedVersion: 3
   m_Height: 3
   m_Radius: 0.5
-  m_SlopeLimit: 0
-  m_StepOffset: 0
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
@@ -206,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0552da4d23945884c8368c0bec740589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 0.075
+  length: 0.05
 --- !u!114 &-3751160966650858838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,4 +219,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0803982e6f78ba54bbc6bcb3599afe17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decay: 0.5
+  decay: 0.05
+--- !u!1 &7184267502911421916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5410935417781327683}
+  - component: {fileID: 7605307506234682897}
+  - component: {fileID: 3484610124578007970}
+  m_Layer: 8
+  m_Name: Hitbox
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5410935417781327683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184267502911421916}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 883693010286903993}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7605307506234682897
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184267502911421916}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3484610124578007970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184267502911421916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab269911f41643f6a6b2b1835155072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _properties:
+    damage: 0
+    knockback: 0
+    type: Tool

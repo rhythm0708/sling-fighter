@@ -55,7 +55,7 @@ public class Hurtbox : MonoBehaviour
         {
             direction = Vector3.Lerp(direction, hitbox.directionOverride, 0.75f).normalized;
         }
-
+        
         foreach (Action<Hitbox.Properties, Vector3> action in onHurtActions)
         {
             action.Invoke(hitbox.properties, direction);

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8937555028117479787}
   m_Layer: 7
   m_Name: OrbitEnemy
-  m_TagString: Enemy
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3fdda41fff74e4ba6abd542721e937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
 --- !u!1 &4536965831502036624
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +109,7 @@ GameObject:
   - component: {fileID: 5188429598168504310}
   - component: {fileID: 7952218467401146421}
   - component: {fileID: 3757523995942995179}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Orbiter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +170,7 @@ GameObject:
   - component: {fileID: 4178267549054658527}
   - component: {fileID: 1508428069307138188}
   - component: {fileID: 1180528138437773018}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hurtbox
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -241,7 +240,7 @@ GameObject:
   - component: {fileID: 5577618340731755016}
   - component: {fileID: 4471719244617954139}
   - component: {fileID: 494893306010380639}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +327,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -347,5 +346,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _properties:
-    damage: 50
+    damage: 100
     knockback: 0
+    type: Obstacle
