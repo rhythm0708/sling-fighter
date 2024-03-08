@@ -463,6 +463,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &950501881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,6 +1718,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6994079953590416939, guid: cb50f004ffc8c7f499373d95de469675, type: 3}
+      propertyPath: m_Name
+      value: Try Again Button
+      objectReference: {fileID: 0}
     - target: {fileID: 7657287072689925265, guid: cb50f004ffc8c7f499373d95de469675, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.16
@@ -2033,6 +2048,10 @@ PrefabInstance:
     - target: {fileID: 1093528887626439585, guid: 7fbdf905cbbfba94fb0d249329763411, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 4.568
+      objectReference: {fileID: 0}
+    - target: {fileID: 3759424231236645145, guid: 7fbdf905cbbfba94fb0d249329763411, type: 3}
+      propertyPath: m_Name
+      value: Back Button
       objectReference: {fileID: 0}
     - target: {fileID: 5681250196910743408, guid: 7fbdf905cbbfba94fb0d249329763411, type: 3}
       propertyPath: m_text
