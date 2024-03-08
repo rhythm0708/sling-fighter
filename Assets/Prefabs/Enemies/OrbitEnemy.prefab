@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4532615500650092818}
   - component: {fileID: 95906151472271652}
   - component: {fileID: 8937555028117479787}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OrbitEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

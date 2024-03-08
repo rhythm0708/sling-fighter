@@ -18,8 +18,16 @@ public class Hitbox : MonoBehaviour
     }
 
     [SerializeField] private Properties _properties;
-    public Properties properties {
+    public Properties properties 
+    {
         get { return _properties; }
+    }
+
+    [SerializeField] private bool _active = true;
+    public bool active
+    {
+        get { return _active; }
+        set { _active = value; }
     }
 
     List<Action> onHitActions;
@@ -37,6 +45,10 @@ public class Hitbox : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        if (!_active)
+        {
+            return;
+        }
         Hurtbox hurtbox = collider.gameObject.GetComponent<Hurtbox>();
 
         // Only check for hits if we actually contact a hitbox

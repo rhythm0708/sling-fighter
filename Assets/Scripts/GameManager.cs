@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //SetUpNewWave();
+        SetUpNewWave();
     }
 
     // Gets the current score.
@@ -33,8 +33,12 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < killCountToAdvance; i++)
         {
             // Instantiate a random enemy prefab at the give position
+
             GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
             Vector3 pos = spawnpoints[Random.Range(0, spawnpoints.Count)];
+
+            // Restored random spawning, this is only temporary. Please remove this on
+            // the merge!
             float x = Random.Range(-75.0f, 75.0f);
             float z = Random.Range(-75.0f, 75.0f);
 

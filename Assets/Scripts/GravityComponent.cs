@@ -14,6 +14,10 @@ public class GravityComponent : MonoBehaviour
 
     void Update()
     {
+        if (!controller.enabled)
+        {
+            return;
+        }
         RaycastHit hit;
 
         // Only raycast on the aerna

@@ -4,18 +4,35 @@ using UnityEngine;
 // camera anchor gameObject. The camera is then offset
 // from that anchor object so it stays in the same relative
 // position. The anchor rotates then to move the camera
-public class ShoulderCameraController : MonoBehaviour
+public class ShoulderCameraController : MonoBehaviour, IIgnoreHitlag
 {
     [SerializeField] private float followSpeed = 0.95f;
+    [SerializeField] private float shakeStrength = 2.0f;
+    [SerializeField] private float shakeSpeed = 100.0f;
     private PlayerMovement playerMovement;
+    private HitlagComponent hitlagComponent;
 
     void Start()
     {
         playerMovement = GetComponentInParent<PlayerMovement>(); 
+        hitlagComponent = GetComponentInParent<HitlagComponent>();
     }
 
     void LateUpdate()
     {
+        if (hitlagComponent.time > 0.0f)
+        {
+            float x = Mathf.Pow(Mathf.Sin(Time.time * shakeSpeed + 16.0f), 2.0f) * shakeStrength * hitlagComponent.time;
+            float y = Mathf.Pow(Mathf.Sin(Time.time * shakeSpeed + 32.0f), 2.0f) * shakeStrength * hitlagComponent.time;
+            float z = Mathf.Pow(Mathf.Sin(Time.time * shakeSpeed + 64.0f), 2.0f) * shakeStrength * hitlagComponent.time;
+            transform.localPosition = new Vector3(x, y, z);
+            return;
+        }
+        else
+        {
+            transform.localPosition = Vector3.zero;
+        }
+
         Vector3 forward;
         if (
             playerMovement.GetState() == PlayerMovement.State.ChargeSling || 

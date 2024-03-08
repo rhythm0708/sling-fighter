@@ -5,11 +5,15 @@ using UnityEngine.Assertions;
 
 public class HitlagComponent : MonoBehaviour
 {
-    [SerializeField] private float length = 0.05f;
+    [SerializeField] private float length = 0.15f;
     private float timer;
     private Hitbox hitbox;
     private Hurtbox hurtbox;
     List<MonoBehaviour> monoBehaviours;
+    public float time 
+    {
+        get { return timer / length; }
+    }
 
     void Start()
     {
@@ -25,7 +29,18 @@ public class HitlagComponent : MonoBehaviour
             hitbox.SubscribeOnHit(OnHit);
         }
 
-        monoBehaviours = GetComponentsInChildren<MonoBehaviour>().ToList();
+        monoBehaviours = new List<MonoBehaviour>();
+        foreach (MonoBehaviour behaviour in GetComponentsInChildren<MonoBehaviour>()) {
+            if (behaviour == this)
+            {
+                continue;
+            }
+            if (behaviour is IIgnoreHitlag)
+            {
+                continue;
+            }
+            monoBehaviours.Add(behaviour);
+        }
         timer = 0.0f;
     }
 
@@ -46,10 +61,7 @@ public class HitlagComponent : MonoBehaviour
         timer = length;
         foreach (MonoBehaviour behaviour in monoBehaviours)
         {
-            if (behaviour != this)
-            {
-                behaviour.enabled = false;
-            }
+            behaviour.enabled = false;
         }
     }
 
