@@ -642,6 +642,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7163814916399203373, guid: 8a9fc4fa5f0a4b04d9b782b9517c1357, type: 3}
+      propertyPath: m_Name
+      value: Back Button
+      objectReference: {fileID: 0}
     - target: {fileID: 8016320479738714752, guid: 8a9fc4fa5f0a4b04d9b782b9517c1357, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

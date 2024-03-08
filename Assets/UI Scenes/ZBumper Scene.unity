@@ -1178,6 +1178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Start
       objectReference: {fileID: 0}
+    - target: {fileID: 4359691357791455224, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
+      propertyPath: m_Name
+      value: ZB
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6393175206293392471, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
@@ -1243,6 +1247,10 @@ PrefabInstance:
     - target: {fileID: 5847505367989405886, guid: 0430f08e00a318544a0d700e0ad75fab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 4.634
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706265455752473788, guid: 0430f08e00a318544a0d700e0ad75fab, type: 3}
+      propertyPath: m_Name
+      value: ZB1
       objectReference: {fileID: 0}
     - target: {fileID: 9073888350184399668, guid: 0430f08e00a318544a0d700e0ad75fab, type: 3}
       propertyPath: m_Name
@@ -1374,6 +1382,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 92280171}
     m_Modifications:
+    - target: {fileID: 358902434613380108, guid: b03de7b3437f61e40b201e438ca0272a, type: 3}
+      propertyPath: m_Name
+      value: ZB4
+      objectReference: {fileID: 0}
     - target: {fileID: 1194548171454654525, guid: b03de7b3437f61e40b201e438ca0272a, type: 3}
       propertyPath: m_LocalScale.x
       value: 672.99854
@@ -1447,6 +1459,10 @@ PrefabInstance:
     - target: {fileID: 4551656142375907884, guid: 285a83ddbe637de47be5e868e9cefa38, type: 3}
       propertyPath: m_Name
       value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005801409619484244, guid: 285a83ddbe637de47be5e868e9cefa38, type: 3}
+      propertyPath: m_Name
+      value: ZB3
       objectReference: {fileID: 0}
     - target: {fileID: 7518814959882073324, guid: 285a83ddbe637de47be5e868e9cefa38, type: 3}
       propertyPath: m_LocalScale.x
