@@ -7,6 +7,7 @@ public class Rope : MonoBehaviour
     private Renderer renderer;
     private Vector3 localTargetPos;
     private Vector3 velocity;
+    private float power = 1.25f;
 
     void Start()
     {
@@ -41,6 +42,7 @@ public class Rope : MonoBehaviour
         {
             // Convert the target's world position to local space
             localTargetPos = transform.InverseTransformPoint(target.transform.position) + apexOffset;
+            power = 1.0f;
         }
         else 
         {
@@ -68,11 +70,19 @@ public class Rope : MonoBehaviour
                 1.0f - Mathf.Exp(-16.0f * Time.deltaTime)
             );
 
+            power = Mathf.Lerp
+            (
+                power, 
+                1.25f,
+                1.0f - Mathf.Exp(-16.0f * Time.deltaTime)
+            );
+
             // Apply the position to local space
             localTargetPos = transform.InverseTransformPoint(worldPosition);
         }
 
         // Apply the position to the shader
         renderer.material.SetVector("_Point", localTargetPos);
+        renderer.material.SetFloat("_Power", power);
     }
 }
