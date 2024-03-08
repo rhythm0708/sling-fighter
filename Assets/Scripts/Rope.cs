@@ -19,6 +19,7 @@ public class Rope : MonoBehaviour
         target = gameObject.transform;
         Vector3 localAttachPoint = transform.InverseTransformPoint(gameObject.transform.position);
         localAttachPoint.z = 0.0f;
+        localAttachPoint -= apexOffset;
         return transform.TransformPoint(localAttachPoint);
     }
 
