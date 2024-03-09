@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class TimeManager : MonoBehaviour
 {
+    // Get Player Hitbox.
+    Hitbox playerHitbox;
+
     // Related to timer values.
     [Header("TIMER VALUES")]
     [SerializeField] float startTime;
@@ -20,8 +23,15 @@ public class TimeManager : MonoBehaviour
     [SerializeField] int bossHitTime;
     [SerializeField] int bossKilledTime;
 
-    // Property to get timeStamp
+    // Property to get CurrentTime.
     public int CurrentTime { get => (int)currentTime; }
+
+    private void Awake()
+    {
+        // Get reference to playerHitbox.
+        playerHitbox = GameObject.Find("Player").transform.Find("Hitbox").gameObject.GetComponent<Hitbox>();
+        playerHitbox.SubscribeOnHit(AddTime);
+    }
 
     void Start()
     {
@@ -42,12 +52,13 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void AddTime(Collider collider)
     {
-        if (other.tag == "Enemy")
+        // Simple add time system.
+        if(collider.gameObject.tag == "Enemy")
         {
-            // Adds to time if enemy was hit.
-            
+            // TODO: can be varied for if enemy dies.
+            currentTime += enemyHitTime;
         }
     }
 }

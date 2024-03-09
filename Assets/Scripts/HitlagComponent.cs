@@ -79,7 +79,7 @@ public class HitlagComponent : MonoBehaviour
         StartHitlag();
     }
 
-    void OnHit()
+    void OnHit(Collider collider)
     {
         StartHitlag();
     }

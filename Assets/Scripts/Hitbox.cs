@@ -31,17 +31,23 @@ public class Hitbox : MonoBehaviour
         set { _active = value; }
     }
 
-    List<Action> onHitActions;
+    public delegate void OnHitEventHandler(Collider param);
+
+    private event OnHitEventHandler onHitEvent;
 
     public void Awake()
     {
-        onHitActions = new List<Action>();
         directionOverride = Vector3.zero;
     }
 
-    public void SubscribeOnHit(Action action)
+    public void SubscribeOnHit(OnHitEventHandler action)
     {
-        onHitActions.Add(action);
+        onHitEvent += action;
+    }
+
+    public void UnsubscribeOnHit(OnHitEventHandler action)
+    {
+        onHitEvent -= action;
     }
 
     void OnTriggerEnter(Collider collider)
@@ -66,9 +72,6 @@ public class Hitbox : MonoBehaviour
             return;
         }
 
-        foreach (Action action in onHitActions)
-        {
-            action.Invoke();
-        }
+        onHitEvent?.Invoke(collider);
     }
 }

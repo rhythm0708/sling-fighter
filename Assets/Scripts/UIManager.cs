@@ -7,9 +7,10 @@ using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
 {
-    // Reference to ScoreManager and TimeManager.
+    // Reference to ScoreManager and TimeManager and playerHitbox.
     ScoreManager scoreManager;
     TimeManager timeManager;
+    Hitbox playerHitbox;
 
     // Text objects.
     [SerializeField] TMP_Text totalScoreText;
@@ -21,6 +22,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] List<Image> multiplierGraphics;
     [SerializeField] List<Color32> multiplierColors;
     [SerializeField] Color32 defaultColor;
+    [SerializeField] float textPopRatio;
+    [SerializeField] float textShrinkRatio;
+    [SerializeField] float popDelayRate;
 
     [Obsolete]
     private void Start()
@@ -28,6 +32,10 @@ public class UIManager : MonoBehaviour
         // Obtain reference to ScoreManager.
         scoreManager = GameObject.Find("Player").transform.FindChild("ScoreManager").gameObject.GetComponent<ScoreManager>();
         timeManager = GameObject.Find("Main HUD").transform.FindChild("Timer").gameObject.GetComponent<TimeManager>();
+        playerHitbox = GameObject.Find("Player").transform.Find("Hitbox").gameObject.GetComponent<Hitbox>();
+
+        // Subscribe to playerHitbox OnHit.
+        playerHitbox.SubscribeOnHit(TimerTextPopOut);
 
         // Set score to 000 000.
         totalScoreText.text = "Score: 000 000";
@@ -110,5 +118,26 @@ public class UIManager : MonoBehaviour
         {
             timerText.text = time.ToString("00");
         }
+    }
+
+    private void TimerTextPopOut(Collider collider)
+    {
+        // Makes timer text "pop out" if time is increased.
+        var originalFontSize = timerText.fontSize;
+
+        timerText.fontSize *= textPopRatio;
+        StartCoroutine(PopText(timerText, originalFontSize, popDelayRate));
+    }
+
+    private IEnumerator PopText(TMP_Text textbox, float originalFontSize, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        // Pops and reduces font size.
+        while (timerText.fontSize >= originalFontSize)
+        {
+            timerText.fontSize *= textShrinkRatio;
+            yield return new WaitForSeconds(delay);
+        }
+        timerText.fontSize = originalFontSize;
     }
 }
