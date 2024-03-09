@@ -1,25 +1,42 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using Unity.VisualScripting;
 
 public class Hitbox : MonoBehaviour
 {
     [Serializable]
     public struct Properties {
         public float damage;
-        public float knocback;
+        public float knockback;
+        public string type;
+    }
+
+    private Vector3 _directionOverride;
+    public Vector3 directionOverride {
+        get { return _directionOverride; }
+        set { _directionOverride = value; }
     }
 
     [SerializeField] private Properties _properties;
-    public Properties properties {
+    public Properties properties 
+    {
         get { return _properties; }
+    }
+
+    [SerializeField] private bool _active = true;
+    public bool active
+    {
+        get { return _active; }
+        set { _active = value; }
     }
 
     List<Action> onHitActions;
 
-     public void Awake()
+    public void Awake()
     {
         onHitActions = new List<Action>();
+        directionOverride = Vector3.zero;
     }
 
     public void SubscribeOnHit(Action action)
@@ -29,6 +46,10 @@ public class Hitbox : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        if (!_active)
+        {
+            return;
+        }
         Hurtbox hurtbox = collider.gameObject.GetComponent<Hurtbox>();
 
         // Only check for hits if we actually contact a hitbox

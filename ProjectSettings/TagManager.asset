@@ -8,6 +8,9 @@ TagManager:
   - Reflect
   - Rope
   - Enemy
+  - Ball
+  - Obstacle
+  - Tool
   layers:
   - Default
   - TransparentFX
@@ -15,9 +18,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Arena
+  - Entity
+  - Combat
   - 
   - 
   - 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hurtbox : MonoBehaviour
 {
     delegate void OnHurt();
-    List<Action<Hitbox.Properties>> onHurtActions;
+    List<Action<Hitbox.Properties, Vector3>> onHurtActions;
 
     public void Awake()
     {
@@ -17,10 +17,10 @@ public class Hurtbox : MonoBehaviour
             rigidbody = gameObject.AddComponent<Rigidbody>();
         }
         rigidbody.isKinematic = true;
-        onHurtActions = new List<Action<Hitbox.Properties>>();
+        onHurtActions = new List<Action<Hitbox.Properties, Vector3>>();
     }
 
-    public void SubscribeOnHurt(Action<Hitbox.Properties> action)
+    public void SubscribeOnHurt(Action<Hitbox.Properties, Vector3> action)
     {
         onHurtActions.Add(action);
     }
@@ -34,6 +34,11 @@ public class Hurtbox : MonoBehaviour
         {
             return;
         }
+        // Ignore inactive hitboxes
+        if (!hitbox.active)
+        {
+            return;
+        }
 
         // A hitbox that shares the same root object as the
         // hurtbox should not trigger a hurt action, since
@@ -43,9 +48,17 @@ public class Hurtbox : MonoBehaviour
             return;
         }
 
-        foreach (Action<Hitbox.Properties> action in onHurtActions)
+        Vector3 direction = transform.position - hitbox.transform.position;
+        direction.y = 0.0f;
+        direction = direction.normalized;
+        if (hitbox.directionOverride != Vector3.zero)
         {
-            action.Invoke(hitbox.properties);
+            direction = Vector3.Lerp(direction, hitbox.directionOverride, 0.75f).normalized;
+        }
+        
+        foreach (Action<Hitbox.Properties, Vector3> action in onHurtActions)
+        {
+            action.Invoke(hitbox.properties, direction);
         }
     }
 }

@@ -49,8 +49,11 @@ public class ScoreManager : MonoBehaviour
     {
         timeSinceHit += Time.deltaTime;
 
+        // ComputeMultiplier happens in Update for now, will change for beta.
+        ComputeMultiplier();
+
         // Multiplier ends because of time.
-        if(timeSinceHit >= multiplierResetTime)
+        if (timeSinceHit >= multiplierResetTime)
         {
             ResetMultiplier();
         }
@@ -62,63 +65,70 @@ public class ScoreManager : MonoBehaviour
         {
             timeSinceHit = 0f;
             multiplierRawScore += 1;
+            ComputeMultiplier();
+
+            // TODO: Use other.gameObject.name to distinguish enemy types.
 
             // If enemy took damage.
-            if(other.transform.parent.gameObject.GetComponent<EnemyController>().Health > 0f)
-            {
-                comboScore += enemyHitScore;
-            }
-            // If enemy was killed.
-            else
-            {
-                comboScore += enemyKilledScore;
-            }
+            // if(other.transform.parent.gameObject.GetComponent<EnemyController>().Health > 0f)
+            // {
+            //     comboScore += (enemyHitScore * multiplierValue);
+            // }
+            // // If enemy was killed.
+            // else
+            // {
+            //     comboScore += (enemyKilledScore * multiplierValue);
+            // }
+            comboScore += (enemyKilledScore * multiplierValue);
             // Debug.Log("Enemy hit.");
         }
-        else if(other.tag == "Elite")
-        {
-            timeSinceHit = 0f;
-            multiplierRawScore += 1;
 
-            // If enemy took damage.
-            if (other.transform.parent.gameObject.GetComponent<EnemyController>().Health > 0f)
-            {
-                comboScore += eliteHitScore;
-            }
-            // If enemy was killed.
-            else
-            {
-                comboScore += eliteKilledScore;
-            }
-        }
-        else if(other.tag == "Boss")
-        {
-            timeSinceHit = 0f;
-            multiplierRawScore += 1;
+        // Commented out for now.
 
-            // If enemy took damage.
-            if (other.transform.parent.gameObject.GetComponent<EnemyController>().Health > 0f)
-            {
-                comboScore += bossHitScore;
-            }
-            // If enemy was killed.
-            else
-            {
-                comboScore += bossKilledScore;
-            }
-        }
+        // else if(other.tag == "Elite")
+        // {
+        //     timeSinceHit = 0f;
+        //     multiplierRawScore += 1;
+        //     ComputeMultiplier();
 
-        ComputeMultiplier(multiplierRawScore);
+        //     // If enemy took damage.
+        //     if (other.transform.parent.gameObject.GetComponent<EnemyController>().Health > 0f)
+        //     {
+        //         comboScore += (eliteHitScore * multiplierValue);
+        //     }
+        //     // If enemy was killed.
+        //     else
+        //     {
+        //         comboScore += (eliteKilledScore * multiplierValue);
+        //     }
+        // }
+        // else if(other.tag == "Boss")
+        // {
+        //     timeSinceHit = 0f;
+        //     multiplierRawScore += 1;
+        //     ComputeMultiplier();
+
+        //     // If enemy took damage.
+        //     if (other.transform.parent.gameObject.GetComponent<EnemyController>().Health > 0f)
+        //     {
+        //         comboScore += (bossHitScore * multiplierValue);
+        //     }
+        //     // If enemy was killed.
+        //     else
+        //     {
+        //         comboScore += (bossKilledScore * multiplierValue);
+        //     }
+        // }
     }
 
     // Update multiplier value.
-    private void ComputeMultiplier(int multiplierRawScore)
+    private void ComputeMultiplier()
     {
         foreach (int bound in multiplierBounds)
         {
-            if(bound>multiplierRawScore || multiplierBounds.IndexOf(bound) == multiplierBounds.Count-1)
+            if(bound>=multiplierRawScore || multiplierBounds.IndexOf(bound) == multiplierBounds.Count-1)
             {
-                multiplierValue = multiplierBounds.IndexOf(bound) - 1;
+                multiplierValue = multiplierBounds.IndexOf(bound);
                 break;
             }
         }
@@ -131,8 +141,8 @@ public class ScoreManager : MonoBehaviour
         timeSinceHit = 0f;
 
         // Add combo score to total score. Reset combo score.
-        // Debug.Log($"Score added: {comboScore}");
         totalScore += comboScore;
+        // Debug.Log($"Score added: {comboScore}");
         comboScore = 0;
     }
 }
