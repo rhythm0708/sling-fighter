@@ -17,9 +17,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text comboScoreText;
     [SerializeField] TMP_Text multiplierText;
     [SerializeField] TMP_Text timerText;
+    [SerializeField] TMP_Text livesText;
 
     // On-screen graphics.
     [SerializeField] List<Image> multiplierGraphics;
+    [SerializeField] List<Image> lifeGraphics;
     [SerializeField] List<Color32> multiplierColors;
     [SerializeField] Color32 defaultColor;
     [SerializeField] float textPopRatio;
@@ -30,7 +32,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         // Obtain reference to ScoreManager.
-        scoreManager = GameObject.Find("Player").transform.FindChild("ScoreManager").gameObject.GetComponent<ScoreManager>();
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
         timeManager = GameObject.Find("Main HUD").transform.FindChild("Timer").gameObject.GetComponent<TimeManager>();
         playerHitbox = GameObject.Find("Player").transform.Find("Hitbox").gameObject.GetComponent<Hitbox>();
 
@@ -110,13 +112,39 @@ public class UIManager : MonoBehaviour
     private void UpdateTime(int time)
     {
         // Update time.
-        if(time>=100)
+        if (time>=100)
         {
             timerText.text = time.ToString("000");
         }
         else
         {
             timerText.text = time.ToString("00");
+        }
+    }
+
+    private void UpdateLife(int lives)
+    {
+        // Update text.
+        if (0 <= lives && lives <= lifeGraphics.Count)
+        {
+            livesText.text = "Lives: " + lives;
+        }
+        else
+        {
+            Debug.LogException(new System.Exception($"Lives {lives} out of bounds."));
+        }
+
+        // Update graphic.
+        for (int i = 0; i < lifeGraphics.Count; i++)
+        {
+            if (i < lives)
+            {
+                lifeGraphics[i].color = new Color32(255, 255, 255, 255);
+            }
+            else
+            {
+                lifeGraphics[i].color = new Color32(255, 255, 255, 0);
+            }
         }
     }
 

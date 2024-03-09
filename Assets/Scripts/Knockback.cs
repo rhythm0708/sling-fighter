@@ -25,7 +25,7 @@ public class Knockback : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    void OnHurt(Hitbox.Properties properties, Vector3 direction) 
+    void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction) 
     {
         velocity = direction * properties.knockback;
     }

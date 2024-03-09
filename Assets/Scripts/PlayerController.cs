@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Lose appropriate amount of health.
-    private void OnHurt(Hitbox.Properties properties, Vector3 direction)
+    private void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction)
     {
         // Make sure that cooldown has expired.
         if (timeElapsed >= damageCooldown &&

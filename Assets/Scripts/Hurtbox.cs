@@ -5,7 +5,9 @@ using UnityEngine;
 public class Hurtbox : MonoBehaviour
 {
     delegate void OnHurt();
-    List<Action<Hitbox.Properties, Vector3>> onHurtActions;
+
+    public delegate void OnHurtEventHandler(Collider param, Hitbox.Properties properties, Vector3 direction);
+    private event OnHurtEventHandler onHurtEvent;
 
     public void Awake()
     {
@@ -17,12 +19,11 @@ public class Hurtbox : MonoBehaviour
             rigidbody = gameObject.AddComponent<Rigidbody>();
         }
         rigidbody.isKinematic = true;
-        onHurtActions = new List<Action<Hitbox.Properties, Vector3>>();
     }
 
-    public void SubscribeOnHurt(Action<Hitbox.Properties, Vector3> action)
+    public void SubscribeOnHurt(OnHurtEventHandler action)
     {
-        onHurtActions.Add(action);
+        onHurtEvent += action;
     }
 
     void OnTriggerEnter(Collider collider)
@@ -55,10 +56,7 @@ public class Hurtbox : MonoBehaviour
         {
             direction = Vector3.Lerp(direction, hitbox.directionOverride, 0.75f).normalized;
         }
-        
-        foreach (Action<Hitbox.Properties, Vector3> action in onHurtActions)
-        {
-            action.Invoke(hitbox.properties, direction);
-        }
+
+        onHurtEvent?.Invoke(collider, hitbox.properties, direction);
     }
 }

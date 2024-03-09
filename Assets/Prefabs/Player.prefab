@@ -119,7 +119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slingPrevew: {fileID: 5666157761215001454}
-  punchDistance: 25
   slingSpeed: 250
   decceleration: 0
   sideStepSpeed: 250
@@ -558,6 +557,7 @@ MonoBehaviour:
   _properties:
     damage: 50
     knockback: 500
+    type: 
   _active: 1
 --- !u!135 &6255621146947021467
 SphereCollider:

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    // Needs to be attached to Player GameObject.
+    // Needs to be related to player hitbox.
+    Hitbox playerHitbox;
 
     // Related to enemy score values.
     [Header("ENEMY POINT VALUES")]
@@ -35,6 +36,14 @@ public class ScoreManager : MonoBehaviour
     public int ComboScore { get => comboScore; }
     public int MultiplierValue { get => multiplierValue; }
 
+    private void Awake()
+    {
+        // Subscribe to player hitbox.
+        playerHitbox = GameObject.Find("Player").transform.Find("Hitbox").gameObject.GetComponent<Hitbox>();
+        playerHitbox.SubscribeOnHit(IncrementMultiplier);
+        playerHitbox.SubscribeOnHit(IncrementScore);
+    }
+
     private void Start()
     {
         // Initial values to start the game.
@@ -57,14 +66,29 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void IncrementScore(Collider collider)
     {
-        if(other.tag == "Enemy")
+        if(collider.tag == "Enemy")
+        {
+            comboScore += (enemyKilledScore * multiplierValue);
+        }
+    }
+
+
+    private void IncrementMultiplier(Collider collider)
+    {
+        if (collider.tag == "Enemy")
         {
             timeSinceHit = 0f;
             multiplierRawScore += 1;
             ComputeMultiplier();
+        }
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Enemy")
+        {
             // TODO: Use other.gameObject.name to distinguish enemy types.
 
             // If enemy took damage.
@@ -77,7 +101,6 @@ public class ScoreManager : MonoBehaviour
             // {
             //     comboScore += (enemyKilledScore * multiplierValue);
             // }
-            comboScore += (enemyKilledScore * multiplierValue);
             // Debug.Log("Enemy hit.");
         }
 

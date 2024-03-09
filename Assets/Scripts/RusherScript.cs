@@ -24,7 +24,7 @@ public class RusherScript : MonoBehaviour
     }
 
     // Lose appropriate amount of health.
-    public void OnHurt(Hitbox.Properties properties, Vector3 direction)
+    public void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction)
     {
         if (properties.type == "Tool")
         {

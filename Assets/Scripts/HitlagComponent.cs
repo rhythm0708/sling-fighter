@@ -74,7 +74,7 @@ public class HitlagComponent : MonoBehaviour
         }
     }
 
-    void OnHurt(Hitbox.Properties properties, Vector3 direction) 
+    void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction) 
     {
         StartHitlag();
     }
