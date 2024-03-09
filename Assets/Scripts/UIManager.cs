@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text totalScoreText;
     [SerializeField] TMP_Text comboScoreText;
     [SerializeField] TMP_Text multiplierText;
+    [SerializeField] TMP_Text timerText;
 
     // On-screen graphics.
     [SerializeField] List<Image> multiplierGraphics;

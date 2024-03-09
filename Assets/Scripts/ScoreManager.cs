@@ -29,7 +29,6 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] int multiplierRawScore;
     [SerializeField] int multiplierValue;
     private float timeSinceHit;
-    
 
     // Public getters to obtain score values.
     public int TotalScore { get => totalScore; }
