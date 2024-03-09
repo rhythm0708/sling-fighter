@@ -48,8 +48,6 @@ public class ScoreManager : MonoBehaviour
     private void Update()
     {
         timeSinceHit += Time.deltaTime;
-
-        // ComputeMultiplier happens in Update for now, will change for beta.
         ComputeMultiplier();
 
         // Multiplier ends because of time.

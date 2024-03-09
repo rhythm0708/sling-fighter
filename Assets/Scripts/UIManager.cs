@@ -7,8 +7,9 @@ using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
 {
-    // Reference to ScoreManager.
+    // Reference to ScoreManager and TimeManager.
     ScoreManager scoreManager;
+    TimeManager timeManager;
 
     // Text objects.
     [SerializeField] TMP_Text totalScoreText;
@@ -26,6 +27,7 @@ public class UIManager : MonoBehaviour
     {
         // Obtain reference to ScoreManager.
         scoreManager = GameObject.Find("Player").transform.FindChild("ScoreManager").gameObject.GetComponent<ScoreManager>();
+        timeManager = GameObject.Find("Main HUD").transform.FindChild("Timer").gameObject.GetComponent<TimeManager>();
 
         // Set score to 000 000.
         totalScoreText.text = "Score: 000 000";
@@ -50,6 +52,11 @@ public class UIManager : MonoBehaviour
         else
         {
             Debug.LogException(new Exception("Cannot find ScoreManager script / scoreManager is null."));
+        }
+
+        if(timeManager != null)
+        {
+            UpdateTime(timeManager.CurrentTime);
         }
     }
 
@@ -89,6 +96,19 @@ public class UIManager : MonoBehaviour
             {
                 multiplierGraphics[i].color = defaultColor;
             }
+        }
+    }
+
+    private void UpdateTime(int time)
+    {
+        // Update time.
+        if(time>=100)
+        {
+            timerText.text = time.ToString("000");
+        }
+        else
+        {
+            timerText.text = time.ToString("00");
         }
     }
 }

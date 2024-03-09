@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44300658, g: 0.4921953, b: 0.57192475, a: 1}
+  m_IndirectSpecularColor: {r: 0.44300592, g: 0.49219483, b: 0.57192373, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -510,6 +510,17 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!114 &473884072 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2759145554159872345, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+  m_PrefabInstance: {fileID: 8713105385436838728}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &584733889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,6 +1487,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 299072841}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &1281220897 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5687576951541721727, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
+  m_PrefabInstance: {fileID: 1008313120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1301573748
 GameObject:
   m_ObjectHideFlags: 0
@@ -2720,6 +2736,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123818924}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2130569728 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5484427225152383990, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+  m_PrefabInstance: {fileID: 8713105385436838728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2130569730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130569728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2bd7b9c68ba4012aaa0740179db62a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTime: 90
+  currentTime: 0
+  startBufferTime: 0.95
 --- !u!1001 &8713105385436838728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2740,6 +2776,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 867.99945
       objectReference: {fileID: 0}
+    - target: {fileID: 3641529531192640049, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 473884072}
     - target: {fileID: 3641529531192640049, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: multiplierColors.Array.data[0].rgba
       value: 4288054013
@@ -2784,6 +2824,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+    - target: {fileID: 5484427225152383990, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_Name
+      value: Timer
+      objectReference: {fileID: 0}
     - target: {fileID: 5847301858188918016, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2807,7 +2851,7 @@ PrefabInstance:
     - target: {fileID: 7840601591776188063, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1281220897}
     - target: {fileID: 8614480188560330020, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Material
       value: 
@@ -2899,7 +2943,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5484427225152383990, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2130569730}
   m_SourcePrefab: {fileID: 100100000, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
