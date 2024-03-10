@@ -7,9 +7,39 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] private AudioMixerGroup musicGroup;
     [SerializeField] private List<Sound> musicTracks;
-    private static SoundManager instance;
+    private string currentScene;
+    private string lastScene;
+    public static SoundManager instance;
 
     void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            // If an instance already exists, destroy this one
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+        InitializeMusicTracks();
+        PlayMusicByScene();
+    }
+    void Update()
+    {
+        // Check if the scene has changed
+        if (currentScene != SceneManager.GetActiveScene().name)
+        {
+            lastScene = currentScene;
+            PlayMusicByScene();
+        }
+    }
+
+    // Initializes each track
+    void InitializeMusicTracks()
     {
         foreach (var track in this.musicTracks)
         {
@@ -20,25 +50,27 @@ public class SoundManager : MonoBehaviour
             track.audioSource.loop = track.loop;
             track.audioSource.outputAudioMixerGroup = this.musicGroup;
         }
+    }
 
+    void PlayMusicByScene()
+    {
         // Determine the current scene name
-        string currentScene = SceneManager.GetActiveScene().name;
+        currentScene = SceneManager.GetActiveScene().name;
 
         // Play the appropriate music based on the scene
         if (currentScene == "Main Menu")
         {
-            this.PlayMusic("In Menu");
+            StopMusic("In Game");
+            PlayMusic("In Menu");
         }
-        else if(currentScene == "ThirdPersonTest")
+        else if (currentScene == "ThirdPersonTest")
         {
-            this.PlayMusic("In Game");
-        }
-        else if (currentScene == "Settings")
-        {
-            this.PlayMusic("In Game");
+            StopMusic("In Menu");
+            PlayMusic("In Game");
         }
     }
 
+    // Plays the desired Song 
     public void PlayMusic(string name)
     {
         var track = this.musicTracks.Find(track => track.name == name);
@@ -50,5 +82,19 @@ public class SoundManager : MonoBehaviour
         }
 
         track.audioSource.Play();
+    }
+
+    // Stops playing the desired Song 
+    public void StopMusic(string name)
+    {
+        var track = this.musicTracks.Find(track => track.name == name);
+
+        if (track == null)
+        {
+            Debug.Log("Sound not found: " + name);
+            return;
+        }
+
+        track.audioSource.Stop();
     }
 }
