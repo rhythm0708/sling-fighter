@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] float textPopRatio;
     [SerializeField] float textShrinkRatio;
     [SerializeField] float popDelayRate;
+    [SerializeField] float redDelayRate;
 
     [Obsolete]
     private void Start()
@@ -168,15 +169,32 @@ public class UIManager : MonoBehaviour
         StartCoroutine(PopText(timerText, originalFontSize, popDelayRate));
     }
 
+    private void TimerTextShrink()
+    {
+        // Makes timer text shake and turn red if decreased.
+        Color32 originalColor = timerText.color;
+        StartCoroutine(TurnTextRed(timerText, originalColor, redDelayRate));
+    }
+
     private IEnumerator PopText(TMP_Text textbox, float originalFontSize, float delay)
     {
         yield return new WaitForSeconds(delay);
         // Pops and reduces font size.
-        while (timerText.fontSize >= originalFontSize)
+        while (textbox.fontSize >= originalFontSize)
         {
-            timerText.fontSize *= textShrinkRatio;
+            textbox.fontSize *= textShrinkRatio;
             yield return new WaitForSeconds(delay);
         }
-        timerText.fontSize = originalFontSize;
+        textbox.fontSize = originalFontSize;
+    }
+
+    private IEnumerator TurnTextRed(TMP_Text textbox, Color32 originalColor, float delay)
+    {
+        textbox.color = Color.red;
+        yield return new WaitForSeconds(delay);
+        while(textbox.color != originalColor)
+        {
+            textbox.color = Color.Lerp(textbox.color, originalColor, Time.deltaTime);
+        }
     }
 }

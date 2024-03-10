@@ -13,6 +13,7 @@ TagManager:
   - Tool
   - Arena
   - SFX Manager
+  - Bounds
   layers:
   - Default
   - TransparentFX

@@ -309,7 +309,7 @@ Transform:
   m_GameObject: {fileID: 3220349136896261026}
   serializedVersion: 2
   m_LocalRotation: {x: -0.13052616, y: 0, z: -0, w: 0.9914449}
-  m_LocalPosition: {x: 332686.22, y: 304151.25, z: 62812.844}
+  m_LocalPosition: {x: 332686.22, y: 304160, z: 62811}
   m_LocalScale: {x: 935.3074, y: 935.3073, z: 935.3073}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -975,12 +975,15 @@ MonoBehaviour:
   startTime: 90
   currentTime: 0
   startBufferTime: 0.95
-  enemyHitTime: 1
+  enemyHitTime: 3
   enemyKilledTime: 0
   eliteHitTime: 0
   eliteKilledTime: 0
   bossHitTime: 0
   bossKilledTime: 0
+  oOBLostTime: 5
+  throttle: 0.2
+  timeStamp: 0
 --- !u!1 &5930085098214963277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,6 +1145,7 @@ MonoBehaviour:
   textPopRatio: 1.5
   textShrinkRatio: 0.95
   popDelayRate: 0.1
+  redDelayRate: 0.1
 --- !u!1 &6132086404968432651
 GameObject:
   m_ObjectHideFlags: 0

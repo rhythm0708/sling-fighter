@@ -37,6 +37,7 @@ public class LivesComponent : MonoBehaviour
     {
         // Subscribe to player hurtbox.
         playerHurtbox.SubscribeOnHurt(LoseLife);
+        playerHurtbox.SubscribeOnHurt(CheckOutOfBounds);
 
         lives = startLives;
         timeStamp = 0f;
@@ -44,15 +45,7 @@ public class LivesComponent : MonoBehaviour
 
     private void FixedUpdate()
     {
-        timeStamp += Time.deltaTime;
-
-        // Throttled out-of-bounds check.
-        if(timeStamp >= throttle)
-        {
-            timeStamp = 0f;
-            CheckOutOfBounds();
-        }
-        
+        timeStamp += Time.deltaTime;        
         CheckGameOver();
     }
 
@@ -61,28 +54,35 @@ public class LivesComponent : MonoBehaviour
         var enemySpeed = collider.gameObject.GetComponent<Knockback>()?.Speed;
         if (collider.gameObject.tag == "Enemy" && enemySpeed < 50)
         {
-            Debug.Log($"Enemy speed: {enemySpeed}");
+            // Debug.Log($"Enemy speed: {enemySpeed}");
             lives -= 1;
         }
     }
 
-    void CheckOutOfBounds()
+    void CheckOutOfBounds(Collider collider, Hitbox.Properties properties, Vector3 direction)
     {
         // Check out-of-bounds. Lose life.
-        if (player.transform.position.y < 0)
+        if (collider.gameObject.tag == "Bounds")
         {
-            Vector3 spawnPoint = gameManager.playerSpawnPoints[Random.Range(0, gameManager.playerSpawnPoints.Count)].transform.position;
             Debug.Log("Out of bounds.");
             lives -= 1;
+            RespawnRandomPoint();
 
-            // Return to spawn point.
-            player.transform.position = spawnPoint;
-            playerSpeed = 0f;
             // Play Death sound
             sfxManager.PlaySfx("Death");
         }
     }
 
+    void RespawnRandomPoint()
+    {
+        // Select a random spawnPoint.
+        Vector3 spawnPoint = gameManager.playerSpawnPoints[Random.Range(0, gameManager.playerSpawnPoints.Count)].transform.position;
+
+        // Return to spawn point.
+        player.transform.position = spawnPoint;
+        playerSpeed = 0f;
+
+    }
     void CheckGameOver()
     {
         if(lives<=0)

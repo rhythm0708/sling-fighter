@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> toolPrefabs;
 
     // Spawn points.
-    [SerializeField] private List<GameObject> enemySpawnpoints;
-    [SerializeField] private List<GameObject> obstacleSpawnpoints;
+    [SerializeField] public List<GameObject> enemySpawnpoints;
+    [SerializeField] public List<GameObject> obstacleSpawnpoints;
     [SerializeField] public List<GameObject> playerSpawnPoints;
 
     // Wave and spawn variables.

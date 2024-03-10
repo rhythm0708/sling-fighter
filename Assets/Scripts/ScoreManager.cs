@@ -68,78 +68,20 @@ public class ScoreManager : MonoBehaviour
 
     private void IncrementScore(Collider collider)
     {
-        if(collider.tag == "Enemy")
+        if(collider.gameObject.tag == "Enemy")
         {
             comboScore += (enemyKilledScore * multiplierValue);
         }
     }
 
-
     private void IncrementMultiplier(Collider collider)
     {
-        if (collider.tag == "Enemy")
+        if (collider.gameObject.tag == "Enemy")
         {
             timeSinceHit = 0f;
             multiplierRawScore += 1;
             ComputeMultiplier();
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Enemy")
-        {
-            // TODO: Use other.gameObject.name to distinguish enemy types.
-
-            // If enemy took damage.
-            // if(other.transform.parent.gameObject.GetComponent<EnemyController>().Health > 0f)
-            // {
-            //     comboScore += (enemyHitScore * multiplierValue);
-            // }
-            // // If enemy was killed.
-            // else
-            // {
-            //     comboScore += (enemyKilledScore * multiplierValue);
-            // }
-            // Debug.Log("Enemy hit.");
-        }
-
-        // Commented out for now.
-
-        // else if(other.tag == "Elite")
-        // {
-        //     timeSinceHit = 0f;
-        //     multiplierRawScore += 1;
-        //     ComputeMultiplier();
-
-        //     // If enemy took damage.
-        //     if (other.transform.parent.gameObject.GetComponent<EnemyController>().Health > 0f)
-        //     {
-        //         comboScore += (eliteHitScore * multiplierValue);
-        //     }
-        //     // If enemy was killed.
-        //     else
-        //     {
-        //         comboScore += (eliteKilledScore * multiplierValue);
-        //     }
-        // }
-        // else if(other.tag == "Boss")
-        // {
-        //     timeSinceHit = 0f;
-        //     multiplierRawScore += 1;
-        //     ComputeMultiplier();
-
-        //     // If enemy took damage.
-        //     if (other.transform.parent.gameObject.GetComponent<EnemyController>().Health > 0f)
-        //     {
-        //         comboScore += (bossHitScore * multiplierValue);
-        //     }
-        //     // If enemy was killed.
-        //     else
-        //     {
-        //         comboScore += (bossKilledScore * multiplierValue);
-        //     }
-        // }
     }
 
     // Update multiplier value.
