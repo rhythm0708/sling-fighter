@@ -807,8 +807,10 @@ MonoBehaviour:
   - {fileID: 7875551903354274487, guid: 7cbdddbd85c3b4733a5f72c3747991b0, type: 3}
   obstaclePrefabs:
   - {fileID: 773025803232599178, guid: 09e2515f355a1e943bcdd4022ff061a7, type: 3}
+  - {fileID: 8890096498228739061, guid: 868090f0549ea4c899808da8ac7bc342, type: 3}
   toolPrefabs:
   - {fileID: 6455318981755920708, guid: 57a7368202226ca4d9dde67a1294daf3, type: 3}
+  - {fileID: 2943069619900935074, guid: 8f24a9f08145b4d49a5e9eaae4d258c4, type: 3}
   enemySpawnpoints:
   - {fileID: 53201698}
   - {fileID: 1470196053}

@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Handle destruction.
+    // TODO: Handle destruction.
     
     void Update()
     {
