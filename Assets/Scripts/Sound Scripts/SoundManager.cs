@@ -1,13 +1,13 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField]private AudioMixerGroup musicGroup;
-    [SerializeField]private List<Sound> musicTracks;
+    [SerializeField] private AudioMixerGroup musicGroup;
+    [SerializeField] private List<Sound> musicTracks;
+    private static SoundManager instance;
 
     void Awake()
     {
@@ -21,15 +21,29 @@ public class SoundManager : MonoBehaviour
             track.audioSource.outputAudioMixerGroup = this.musicGroup;
         }
 
-        //play placeholdere track
-        this.PlayMusic("In Game");
+        // Determine the current scene name
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        // Play the appropriate music based on the scene
+        if (currentScene == "Main Menu")
+        {
+            this.PlayMusic("In Menu");
+        }
+        else if(currentScene == "ThirdPersonTest")
+        {
+            this.PlayMusic("In Game");
+        }
+        else if (currentScene == "Settings")
+        {
+            this.PlayMusic("In Game");
+        }
     }
 
     public void PlayMusic(string name)
     {
         var track = this.musicTracks.Find(track => track.name == name);
 
-        if (name == null)
+        if (track == null)
         {
             Debug.Log("Sound not found: " + name);
             return;
