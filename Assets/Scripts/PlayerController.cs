@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float health = 100.0f;
+    [SerializeField] float health;
     // [SerializeField] private Vector3 respawnLocation;
     private Hurtbox hurtbox;
     private Hitbox hitbox;
@@ -29,11 +29,11 @@ public class PlayerController : MonoBehaviour
             (properties.type == "Enemy" || properties.type == "Obstacle"))
         {
             health -= properties.damage;
-            CheckGameOver();
+            // CheckGameOver();
             timeElapsed = 0;
         }
     }
-
+/*
     private void CheckGameOver()
     {
         if (health <= 0)
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("Results Screen");
         }
     }
-
+*/
     private void Update()
     {
         Vector3 currPos = gameObject.transform.position;
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
             // gameObject.GetComponent<CharacterController>().Move(new Vector3(0,0,0));
             // gameObject.transform.position = respawnLocation;
             // TODO: could have player take damage or die instantly.
-            SceneManager.LoadScene("Results Screen");
+            // SceneManager.LoadScene("Results Screen");
         }
 
         timeElapsed += Time.deltaTime;

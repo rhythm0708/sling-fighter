@@ -4,11 +4,17 @@ using UnityEngine;
 // TODO: Handle multiplier wrt specifications on design doc.
 public class GameManager : MonoBehaviour
 {
+    // Prefabs.
     [SerializeField] private List<GameObject> enemyPrefabs;
     [SerializeField] private List<GameObject> obstaclePrefabs;
     [SerializeField] private List<GameObject> toolPrefabs;
+
+    // Spawn points.
     [SerializeField] private List<GameObject> enemySpawnpoints;
     [SerializeField] private List<GameObject> obstacleSpawnpoints;
+    [SerializeField] public List<GameObject> playerSpawnPoints;
+
+    // Wave and spawn variables.
     private int currWave = 1;
     private int killCount = 0;
     private int killCountToAdvance = 4;

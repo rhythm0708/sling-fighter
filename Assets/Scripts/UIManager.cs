@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     // Reference to ScoreManager and TimeManager and playerHitbox.
     ScoreManager scoreManager;
     TimeManager timeManager;
+    LivesComponent livesComponent;
     Hitbox playerHitbox;
 
     // Text objects.
@@ -34,6 +35,7 @@ public class UIManager : MonoBehaviour
         // Obtain reference to ScoreManager.
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
         timeManager = GameObject.Find("Main HUD").transform.FindChild("Timer").gameObject.GetComponent<TimeManager>();
+        livesComponent = GameObject.Find("Player").GetComponent<LivesComponent>();
         playerHitbox = GameObject.Find("Player").transform.Find("Hitbox").gameObject.GetComponent<Hitbox>();
 
         // Subscribe to playerHitbox OnHit.
@@ -67,6 +69,15 @@ public class UIManager : MonoBehaviour
         if(timeManager != null)
         {
             UpdateTime(timeManager.CurrentTime);
+        }
+        else
+        {
+            Debug.LogException(new Exception("Cannot find TimeManager script / timeManager is null."));
+        }
+
+        if (livesComponent != null)
+        {
+            UpdateLives(livesComponent.Lives);
         }
     }
 
@@ -122,7 +133,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void UpdateLife(int lives)
+    private void UpdateLives(int lives)
     {
         // Update text.
         if (0 <= lives && lives <= lifeGraphics.Count)

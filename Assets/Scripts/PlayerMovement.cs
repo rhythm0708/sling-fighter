@@ -31,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 recoilOffset;
     private Vector3 recoilVelocity;
 
+    // Public getter for speed.
+    public float Speed { get => speed; set => speed = value; }
+
     private CharacterController controller;
 
     void Start()

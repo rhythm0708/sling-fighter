@@ -7,6 +7,9 @@ public class Knockback : MonoBehaviour
     private CharacterController controller;
     private Hurtbox hurtbox;
 
+    // Public getter for velocity (speed)
+    public float Speed { get => velocity.magnitude; }
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
