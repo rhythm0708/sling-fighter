@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5217182121706057438}
   m_Layer: 0
   m_Name: SoundManager
-  m_TagString: Untagged
+  m_TagString: SFX Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicGroup: {fileID: 2533814632396168556, guid: 46a75691ae517a14785ba1d49e35066d, type: 2}
-  sfxGroup: {fileID: 3468307724742771576, guid: 46a75691ae517a14785ba1d49e35066d, type: 2}
   musicTracks:
   - clip: {fileID: 8300000, guid: c3abf9f70bf8ce0478d4e04c52b6bb46, type: 3}
     audioSource: {fileID: 0}
@@ -53,46 +52,3 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 1
-  sfxClips:
-  - clip: {fileID: 8300000, guid: 8e57359b31d72184f832b9e487d1c206, type: 3}
-    audioSource: {fileID: 0}
-    name: Low Health
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: c768060bae331fc4dbd1eef8466cdc1e, type: 3}
-    audioSource: {fileID: 0}
-    name: Collision
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: fc367b30de17f01449073dbc597bf204, type: 3}
-    audioSource: {fileID: 0}
-    name: Game Over
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: 67d730f45f3233645983ac5c71adc4f6, type: 3}
-    audioSource: {fileID: 0}
-    name: On Hit
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: 5ab06144f4ccccf4ba356cd14a74edb3, type: 3}
-    audioSource: {fileID: 0}
-    name: Death
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: d087f2e86f63bf24999aef41702f6834, type: 3}
-    audioSource: {fileID: 0}
-    name: Swing
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: 2e64502e2ce8edb48ae75d0a8379f4e3, type: 3}
-    audioSource: {fileID: 0}
-    name: Points
-    volume: 1
-    pitch: 1
-    loop: 0

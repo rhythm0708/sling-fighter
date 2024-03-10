@@ -9,6 +9,7 @@ public class LivesComponent : MonoBehaviour
     GameObject player;
     Hurtbox playerHurtbox;
     GameManager gameManager;
+    SFXManager sfxManager;
 
     float playerSpeed;
 
@@ -29,6 +30,7 @@ public class LivesComponent : MonoBehaviour
         playerSpeed = player.GetComponent<PlayerMovement>().Speed;
         playerHurtbox = GetComponentInChildren<Hurtbox>();
         gameManager = GameObject.Find("Arena").GetComponent<GameManager>();
+        sfxManager = GameObject.Find("SFX Manager").GetComponent<SFXManager>();
     }
 
     private void Start()
@@ -76,6 +78,8 @@ public class LivesComponent : MonoBehaviour
             // Return to spawn point.
             player.transform.position = spawnPoint;
             playerSpeed = 0f;
+            // Play Death sound
+            sfxManager.PlaySfx("Death");
         }
     }
 

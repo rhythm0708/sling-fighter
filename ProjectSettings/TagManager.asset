@@ -12,6 +12,7 @@ TagManager:
   - Obstacle
   - Tool
   - Arena
+  - SFX Manager
   layers:
   - Default
   - TransparentFX
