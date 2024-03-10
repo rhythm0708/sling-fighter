@@ -7,9 +7,7 @@ using UnityEngine.Audio;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField]private AudioMixerGroup musicGroup;
-    [SerializeField]private AudioMixerGroup sfxGroup;
     [SerializeField]private List<Sound> musicTracks;
-    [SerializeField]private List<Sound> sfxClips;
 
     void Awake()
     {
@@ -23,15 +21,6 @@ public class SoundManager : MonoBehaviour
             track.audioSource.outputAudioMixerGroup = this.musicGroup;
         }
 
-        foreach (var clip in this.sfxClips)
-        {
-            clip.audioSource = this.gameObject.AddComponent<AudioSource>();
-            clip.audioSource.clip = clip.clip;
-            clip.audioSource.volume = clip.volume;
-            clip.audioSource.pitch = clip.pitch;
-            clip.audioSource.loop = clip.loop;
-            clip.audioSource.outputAudioMixerGroup = this.sfxGroup;
-        }
         //play placeholdere track
         this.PlayMusic("In Game");
     }
@@ -47,31 +36,5 @@ public class SoundManager : MonoBehaviour
         }
 
         track.audioSource.Play();
-    }
-
-    public void PlaySfx(string name)
-    {
-        var track = this.sfxClips.Find(track => track.name == name);
-
-        if(null == track) 
-        {
-            Debug.Log("Sound not found: " + name);
-            return;
-        }
-
-        track.audioSource.Play();
-    }
-
-    public void StopSfx(string name)
-    {
-        var track = this.sfxClips.Find(track => track.name == name);
-
-        if(null == track) 
-        {
-            Debug.Log("Sound not found: " + name);
-            return;
-        }
-
-        track.audioSource.Stop();
     }
 }
