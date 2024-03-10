@@ -6,6 +6,7 @@ public class ScoreManager : MonoBehaviour
 {
     // Needs to be related to player hitbox.
     Hitbox playerHitbox;
+    SFXManager sfxManager;
 
     // Related to enemy score values.
     [Header("ENEMY POINT VALUES")]
@@ -42,6 +43,7 @@ public class ScoreManager : MonoBehaviour
         playerHitbox = GameObject.Find("Player").transform.Find("Hitbox").gameObject.GetComponent<Hitbox>();
         playerHitbox.SubscribeOnHit(IncrementMultiplier);
         playerHitbox.SubscribeOnHit(IncrementScore);
+        sfxManager = GameObject.Find("SFX Manager").GetComponent<SFXManager>();
     }
 
     private void Start()
@@ -71,6 +73,7 @@ public class ScoreManager : MonoBehaviour
         if(collider.tag == "Enemy")
         {
             comboScore += (enemyKilledScore * multiplierValue);
+            sfxManager.PlaySfx("On Hit");
         }
     }
 

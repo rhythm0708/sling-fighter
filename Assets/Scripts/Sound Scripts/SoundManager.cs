@@ -13,7 +13,9 @@ public class SoundManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance != null && instance != this)
+        InitializeMusicTracks();
+        
+        if (instance != null)
         {
             // If an instance already exists, destroy this one
             Destroy(gameObject);
@@ -25,7 +27,6 @@ public class SoundManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-        InitializeMusicTracks();
         PlayMusicByScene();
     }
     void Update()
