@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3744811688943397759}
   - component: {fileID: 4532615500650092818}
   - component: {fileID: 95906151472271652}
-  - component: {fileID: 8937555028117479787}
+  - component: {fileID: 7298109612759207554}
   m_Layer: 7
   m_Name: OrbitEnemy
   m_TagString: Obstacle
@@ -86,7 +86,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8937555028117479787
+--- !u!114 &7298109612759207554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 773025803232599178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e3fdda41fff74e4ba6abd542721e937, type: 3}
+  m_Script: {fileID: 11500000, guid: b4a6158de44c24764a950d3ab273bd4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4536965831502036624
