@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     private bool isPaused;
-    private string previousScene;
+    [SerializeField]private GameObject pauseMenu;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Store the name of the initial scene
-        previousScene = SceneManager.GetActiveScene().name;
+        pauseMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -33,20 +31,20 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        SceneManager.LoadScene("Pause Menu", LoadSceneMode.Additive);
+        pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
     }
 
     public void ResumeGame()
     {
+        pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+    }
 
-        // Unload the pause menu scene
-        SceneManager.UnloadSceneAsync("Pause Menu");
-
-        // Load back the previous scene
-        SceneManager.LoadScene(previousScene);
+    private void OpenMainMenu()
+    {
+        
     }
 }
