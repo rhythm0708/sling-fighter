@@ -3,6 +3,8 @@ using UnityEngine;
 public class Knockback : MonoBehaviour
 {
     [SerializeField] private float decay = 0.05f;
+    [SerializeField] private float minFullSpeedTime = 0.0f;
+    private float fullSpeedTimer = 0.0f;
     private Vector3 velocity;
     private CharacterController controller;
     private Hurtbox hurtbox;
@@ -17,20 +19,34 @@ public class Knockback : MonoBehaviour
         hurtbox.SubscribeOnHurt(OnHurt);
     }
 
+    public void Stop()
+    {
+        velocity = Vector3.zero;
+    }
+
     void Update()
     {
-        velocity = Vector3.Lerp
-        (
-            velocity, 
-            Vector3.zero,
-            1.0f - Mathf.Exp(-decay * Time.deltaTime)
-        );
+        if (fullSpeedTimer >= minFullSpeedTime) 
+        {
+            velocity = Vector3.Lerp
+            (
+                velocity, 
+                Vector3.zero,
+                1.0f - Mathf.Exp(-decay * Time.deltaTime)
+            );
+        }
+        else
+        {
+            fullSpeedTimer += Time.deltaTime;
+        }
+
         controller.Move(velocity * Time.deltaTime);
     }
 
     void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction) 
     {
         velocity = direction * properties.knockback;
+        fullSpeedTimer = 0.0f;
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)

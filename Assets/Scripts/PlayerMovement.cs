@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private Rope currentRope;
     private Vector3 recoilOffset;
     private Vector3 recoilVelocity;
+    private Rope lastRope;
 
     // Public getter for speed.
     public float Speed { get => speed; set => speed = value; }
@@ -48,10 +49,20 @@ public class PlayerMovement : MonoBehaviour
         useMouseAxis = false;
 
         currentRope = initialRope;
+        lastRope = initialRope;
         if (currentRope != null)
         {
             ropeStart = currentRope.Attach(gameObject);
         }
+    }
+
+    public void AttachToLastRope() 
+    {
+        state = State.WaitSling;
+        currentRope = lastRope;
+        transform.position = currentRope.transform.position;
+        ropeStart = currentRope.Attach(gameObject);
+        forward = ropeForward;
     }
 
     public Vector3 GetForward()
@@ -341,6 +352,7 @@ public class PlayerMovement : MonoBehaviour
             ropeStart = transform.position;
 
             currentRope = hit.gameObject.GetComponent<Rope>();
+            lastRope = currentRope;
             if (currentRope != null)
             {
                 ropeStart = currentRope.Attach(gameObject);

@@ -313,6 +313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1717651895793373333, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3415556526989090018, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -782,6 +786,7 @@ MonoBehaviour:
   toolPrefabs: []
   enemySpawnpoints: []
   obstacleSpawnpoints: []
+  playerSpawnPoints: []
 --- !u!1 &656758495
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,7 +874,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &741287421
 MeshRenderer:
@@ -1054,7 +1059,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &904379677
 MeshRenderer:
@@ -1151,7 +1156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicGroup: {fileID: 2533814632396168556, guid: 46a75691ae517a14785ba1d49e35066d, type: 2}
-  sfxGroup: {fileID: 3468307724742771576, guid: 46a75691ae517a14785ba1d49e35066d, type: 2}
   musicTracks:
   - clip: {fileID: 8300000, guid: c3abf9f70bf8ce0478d4e04c52b6bb46, type: 3}
     audioSource: {fileID: 0}
@@ -1159,49 +1163,6 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 1
-  sfxClips:
-  - clip: {fileID: 8300000, guid: 8e57359b31d72184f832b9e487d1c206, type: 3}
-    audioSource: {fileID: 0}
-    name: Low Health
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: c768060bae331fc4dbd1eef8466cdc1e, type: 3}
-    audioSource: {fileID: 0}
-    name: Collision
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: fc367b30de17f01449073dbc597bf204, type: 3}
-    audioSource: {fileID: 0}
-    name: Game Over
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: 67d730f45f3233645983ac5c71adc4f6, type: 3}
-    audioSource: {fileID: 0}
-    name: On Hit
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: 5ab06144f4ccccf4ba356cd14a74edb3, type: 3}
-    audioSource: {fileID: 0}
-    name: Death
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: d087f2e86f63bf24999aef41702f6834, type: 3}
-    audioSource: {fileID: 0}
-    name: Swing
-    volume: 0
-    pitch: 0
-    loop: 0
-  - clip: {fileID: 8300000, guid: 2e64502e2ce8edb48ae75d0a8379f4e3, type: 3}
-    audioSource: {fileID: 0}
-    name: Points
-    volume: 1
-    pitch: 1
-    loop: 0
 --- !u!1 &965964597
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,7 +1216,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &965964600
 MeshRenderer:
@@ -1360,7 +1321,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1057449578
 MeshRenderer:
@@ -1636,6 +1597,63 @@ Transform:
   - {fileID: 1057449576}
   m_Father: {fileID: 650179574}
   m_LocalEulerAnglesHint: {x: 0, y: -315, z: 0}
+--- !u!1001 &1651748422
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2476285101232716435, guid: 3220de7cbe692684b9b3f266566a2a5f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476285101232716435, guid: 3220de7cbe692684b9b3f266566a2a5f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476285101232716435, guid: 3220de7cbe692684b9b3f266566a2a5f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476285101232716435, guid: 3220de7cbe692684b9b3f266566a2a5f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476285101232716435, guid: 3220de7cbe692684b9b3f266566a2a5f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476285101232716435, guid: 3220de7cbe692684b9b3f266566a2a5f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476285101232716435, guid: 3220de7cbe692684b9b3f266566a2a5f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476285101232716435, guid: 3220de7cbe692684b9b3f266566a2a5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476285101232716435, guid: 3220de7cbe692684b9b3f266566a2a5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476285101232716435, guid: 3220de7cbe692684b9b3f266566a2a5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620524907311653070, guid: 3220de7cbe692684b9b3f266566a2a5f, type: 3}
+      propertyPath: m_Name
+      value: Rusher
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3220de7cbe692684b9b3f266566a2a5f, type: 3}
 --- !u!1 &1713778152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2150,7 +2168,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1996361532
 MeshRenderer:
@@ -2255,7 +2273,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2003683206
 MeshRenderer:
@@ -2427,7 +2445,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2057736900
 MeshRenderer:
@@ -2532,7 +2550,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2123818927
 MeshRenderer:
@@ -2837,3 +2855,4 @@ SceneRoots:
   - {fileID: 950852179}
   - {fileID: 258333228}
   - {fileID: 800759726}
+  - {fileID: 1651748422}
