@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     // Wave and spawn variables.
     private int currWave = 1;
     private int killCount = 0;
-    private int killCountToAdvance = 4;
+    private int killCountToAdvance;
     private int obstacleCount = 1;
     private int enemyCount = 1;
     private int toolCount = 3;
@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
         {
             killCount += deltaEnemiesKilled;
         }
+        prevEnemiesAlive = currEnemiesAlive;
     }
     
     void Update()
