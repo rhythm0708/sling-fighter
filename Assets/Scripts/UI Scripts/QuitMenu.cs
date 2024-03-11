@@ -59,11 +59,16 @@ public class QuitMenu : MonoBehaviour
 
     private IEnumerator QuitApplication()
     {
-        yield return new WaitForSeconds(0.1f); // Wait for 3 seconds
+        // Wait for 3 seconds
+        yield return new WaitForSeconds(0.1f); 
+
+        // Quit play mode in the Unity Editor
         #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false; // Quit play mode in the Unity Editor
+            UnityEditor.EditorApplication.isPlaying = false; 
+        
+        // Quit the standalone application
         #else
-            Application.Quit(); // Quit the standalone application
+            Application.Quit(); 
         #endif
     }
 }
