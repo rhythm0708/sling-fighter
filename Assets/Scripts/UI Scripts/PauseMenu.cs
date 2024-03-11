@@ -58,10 +58,10 @@ public class PauseMenu : MonoBehaviour
     // Go into Settings
     public void Settings()
     {
-        SceneManager.LoadScene("Settings");
-        pauseMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+        SceneManager.LoadScene("In Game Settings", LoadSceneMode.Additive);
         Time.timeScale = 0f;
-        isPaused = false;
+        isPaused = true;
     }
 
     // Quit to go back into main menu
@@ -71,5 +71,14 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+    }
+
+    // From Settings Scene go back
+    public void Back()
+    {
+        pauseMenu.SetActive(true);
+        SceneManager.UnloadSceneAsync("In Game Settings");
+        Time.timeScale = 0f;
+        isPaused = true;
     }
 }
