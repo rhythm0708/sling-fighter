@@ -30,13 +30,15 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    // Pause the game
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
     }
-
+    
+    // Resume game upon pressing esc in pause, or pressing resume
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
@@ -44,6 +46,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
     }
 
+    // Restart Game
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -51,11 +54,22 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
     }
-        public void Settings()
+
+    // Go into Settings
+    public void Settings()
     {
         SceneManager.LoadScene("Settings");
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
+        isPaused = false;
+    }
+
+    // Quit to go back into main menu
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
         isPaused = false;
     }
 }
