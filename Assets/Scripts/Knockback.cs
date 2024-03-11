@@ -6,9 +6,11 @@ public class Knockback : MonoBehaviour
     private Vector3 velocity;
     private CharacterController controller;
     private Hurtbox hurtbox;
+    private bool initiated = false;
 
     // Public getter for velocity (speed)
     public float Speed { get => velocity.magnitude; }
+    public bool Initiated { get => initiated; }
 
     void Start()
     {
@@ -30,6 +32,10 @@ public class Knockback : MonoBehaviour
 
     void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction) 
     {
+        if (properties.type == "Player")
+        {
+            initiated = true;
+        }
         velocity = direction * properties.knockback;
     }
 

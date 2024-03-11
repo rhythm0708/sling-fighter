@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44300592, g: 0.49219483, b: 0.57192373, a: 1}
+  m_IndirectSpecularColor: {r: 0.4430061, g: 0.49219483, b: 0.57192373, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -850,6 +850,7 @@ MonoBehaviour:
   toolPrefabs:
   - {fileID: 6455318981755920708, guid: 57a7368202226ca4d9dde67a1294daf3, type: 3}
   - {fileID: 2943069619900935074, guid: 8f24a9f08145b4d49a5e9eaae4d258c4, type: 3}
+  - {fileID: 4856569184131947632, guid: 227b4b9f3a4d949d8a9e03a232095250, type: 3}
   enemySpawnpoints:
   - {fileID: 53201698}
   - {fileID: 1470196053}
@@ -1429,6 +1430,10 @@ PrefabInstance:
       propertyPath: initialRope
       value: 
       objectReference: {fileID: 63680522}
+    - target: {fileID: 1241558852938499245, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
+      propertyPath: _properties.type
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1717651895793373333, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
       propertyPath: m_Name
       value: Player

@@ -8,7 +8,10 @@ public class HomingMissileScript : MonoBehaviour
     [SerializeField] private float followSpeed;
     private Hurtbox hurtbox;
     private bool isFollowing = false;
+    private bool initiated = false;
     private GameObject enemyToFollow;
+
+     public bool Initiated { get => initiated; }
 
     void Start()
     {
@@ -24,6 +27,7 @@ public class HomingMissileScript : MonoBehaviour
         if (properties.type == "Player")
         {
             isFollowing = true;
+            initiated = true;
             // Errors when there are no enemies, but we should move onto next wave.
             // Hence, need not be handled.
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");

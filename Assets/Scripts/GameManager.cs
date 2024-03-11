@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     private int obstacleCount = 1;
     private int enemyCount = 1;
     private int toolCount = 3;
+
+    // Enemy count trackers.
+    private int prevEnemiesAlive;
     
     void Start()
     {
@@ -65,6 +68,7 @@ public class GameManager : MonoBehaviour
 
         killCount = 0;
         killCountToAdvance = enemyCount;
+        prevEnemiesAlive = enemyCount;
         for (int i = 0; i < enemyCount; i++)
         {
             // Instantiate a random enemy prefab at the given position.
@@ -93,11 +97,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // TODO: Handle destruction.
+    // Keeps track of enemies killed since the last frame.
+    private void CheckForDestruction()
+    {
+        var currEnemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        var deltaEnemiesKilled = prevEnemiesAlive - currEnemiesAlive;
+        if (deltaEnemiesKilled > 0)
+        {
+            killCount += deltaEnemiesKilled;
+        }
+    }
     
     void Update()
     {
-        if (killCount == killCountToAdvance)
+        CheckForDestruction();
+        if (killCount >= killCountToAdvance)
         {
             currWave++;
             SetUpNewWave();
