@@ -9,11 +9,13 @@ public class PlayerController : MonoBehaviour
     private Hurtbox hurtbox;
     private Hitbox hitbox;
     private PlayerMovement movement;
+    private ShoulderCameraController cameraController;
     private float damageCooldown;
     private float timeElapsed = 0;
 
     void Start()
     {
+        cameraController = GetComponentInChildren<ShoulderCameraController>();
         hurtbox = GetComponentInChildren<Hurtbox>();
         hurtbox.SubscribeOnHurt(OnHurt);
         hitbox = GetComponentInChildren<Hitbox>();
@@ -29,31 +31,12 @@ public class PlayerController : MonoBehaviour
             (properties.type == "Enemy" || properties.type == "Obstacle"))
         {
             health -= properties.damage;
-            // CheckGameOver();
             timeElapsed = 0;
         }
     }
-/*
-    private void CheckGameOver()
-    {
-        if (health <= 0)
-        {
-            SceneManager.LoadScene("Results Screen");
-        }
-    }
-*/
+
     private void Update()
     {
-        Vector3 currPos = gameObject.transform.position;
-        if (currPos.y < -1)
-        {
-            // Teleport back to the arena for the sake of testing.
-            // gameObject.GetComponent<CharacterController>().Move(new Vector3(0,0,0));
-            // gameObject.transform.position = respawnLocation;
-            // TODO: could have player take damage or die instantly.
-            // SceneManager.LoadScene("Results Screen");
-        }
-
         timeElapsed += Time.deltaTime;
         hitbox.directionOverride = movement.GetVelocity().normalized;
 
@@ -64,6 +47,12 @@ public class PlayerController : MonoBehaviour
         else
         {
             hitbox.active = false;
+        }
+
+        if (transform.position.y < -25.0f)
+        {
+            movement.AttachToLastRope();
+            cameraController.SnapToForward(movement.GetForward());
         }
     }
 }
