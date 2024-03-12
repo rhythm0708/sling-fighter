@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 // Picks random enemy and follows it at a slow speed.
@@ -24,14 +25,20 @@ public class HomingMissileScript : MonoBehaviour
 
     public void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction)
     {
-        if (properties.type == "Player")
+        if (!initiated && properties.type == "Player")
         {
-            isFollowing = true;
-            initiated = true;
             // Errors when there are no enemies, but we should move onto next wave.
             // Hence, need not be handled.
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            enemyToFollow = enemies[UnityEngine.Random.Range(0, enemies.Length)];
+            System.Random rand = new System.Random();
+            GameObject[] enemiesArr = GameObject.FindGameObjectsWithTag("Enemy");
+            List<GameObject> enemiesList = enemiesArr.ToList();
+            enemiesList.RemoveAll(enemy => enemy.name != "Rusher(Clone)");
+            if (enemiesList.Count > 0)
+            {
+                enemyToFollow = enemiesList[rand.Next(enemiesList.Count)];
+                initiated = true;
+                isFollowing = true;
+            }
         }
     }
 
@@ -43,7 +50,7 @@ public class HomingMissileScript : MonoBehaviour
         }
         else if (isFollowing && enemyToFollow == null)
         {
-            // Caught up -> explode on collision
+            // Caught up -> explode on collision.
             Destroy(this.gameObject);
         }
     }
