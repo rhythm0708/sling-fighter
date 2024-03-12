@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     private void SetUpNewWave()
     {
         // TODO: update wave sign at the top of the screen, not added yet.
-
+        
         // Clean up after last wave.
         GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
         GameObject[] tools = GameObject.FindGameObjectsWithTag("Tool");

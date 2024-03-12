@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44300658, g: 0.4921953, b: 0.57192475, a: 1}
+  m_IndirectSpecularColor: {r: 0.4430061, g: 0.49219483, b: 0.57192373, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -912,6 +912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 7875551903354274487, guid: 7cbdddbd85c3b4733a5f72c3747991b0, type: 3}
+  - {fileID: 1199914579079848680, guid: 3d7b50ff5406f4e709030b2191d93f79, type: 3}
   obstaclePrefabs:
   - {fileID: 773025803232599178, guid: 09e2515f355a1e943bcdd4022ff061a7, type: 3}
   - {fileID: 8890096498228739061, guid: 868090f0549ea4c899808da8ac7bc342, type: 3}

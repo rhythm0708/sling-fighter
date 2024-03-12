@@ -20,15 +20,6 @@ public class SmasherScript : MonoBehaviour
         peakPos = initialPos + new Vector3(0, deltaY, 0);
     }
 
-    void Start()
-    {
-        // hurtbox = GetComponentInChildren<Hurtbox>();
-        // if (hurtbox != null)
-        // {
-        //     hurtbox.SubscribeOnHurt(OnHurt);
-        // }
-    }
-
     private void PerformSmash()
     {
         if (transform.position == initialPos)
@@ -56,31 +47,23 @@ public class SmasherScript : MonoBehaviour
         }
     }
 
-    // public void OnHurt(Hitbox.Properties properties, Vector3 direction)
-    // {
-    //     if (properties.type == "Player")
-    //     {
-    //         Destroy(gameObject);
-    //     }
-    // }
-
     void Update()
     {
         switch (state)
         {
             case 0:
-                // Resting state (minimum displacement)
+                // Resting state (minimum displacement).
                 if (timeElapsed >= lingerDuration)
                 {
                     state = 1;
                 }
                 break;
             case 1:
-                // Moving up
+                // Moving up.
                 ChargeSmash();
                 break;
             case 2:
-                // Lingering state (maximum displacement)
+                // Lingering state (maximum displacement).
                 if (timeElapsed >= lingerDuration)
                 {
                     state = 3;
