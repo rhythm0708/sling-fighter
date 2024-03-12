@@ -11,11 +11,18 @@ public class ShoulderCameraController : MonoBehaviour, IIgnoreHitlag
     [SerializeField] private float shakeSpeed = 100.0f;
     private PlayerMovement playerMovement;
     private HitlagComponent hitlagComponent;
+    private float initialY;
 
     void Start()
     {
         playerMovement = GetComponentInParent<PlayerMovement>(); 
         hitlagComponent = GetComponentInParent<HitlagComponent>();
+        initialY = transform.position.y;
+    }
+
+    public void SnapToForward(Vector3 snapForward)
+    {
+        transform.rotation = Quaternion.LookRotation(snapForward);
     }
 
     void LateUpdate()
@@ -48,6 +55,15 @@ public class ShoulderCameraController : MonoBehaviour, IIgnoreHitlag
             // When doing anything else, use the players forward
             // travel direction
             forward = playerMovement.GetForward(); 
+        }
+
+        if (transform.position.y < initialY)
+        {
+            transform.position = new Vector3(transform.position.x, initialY, transform.position.z);
+        }
+        else
+        {
+            transform.localPosition = Vector3.zero;
         }
 
         // Interpolate the camera's rotation towards the

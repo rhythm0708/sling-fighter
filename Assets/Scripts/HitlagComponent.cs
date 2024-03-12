@@ -5,14 +5,14 @@ using UnityEngine.Assertions;
 
 public class HitlagComponent : MonoBehaviour
 {
-    [SerializeField] private float length = 0.15f;
+    private const float LENGTH = 0.075f;
     private float timer;
     private Hitbox hitbox;
     private Hurtbox hurtbox;
     List<MonoBehaviour> monoBehaviours;
     public float time 
     {
-        get { return timer / length; }
+        get { return timer / LENGTH; }
     }
 
     void Start()
@@ -58,7 +58,7 @@ public class HitlagComponent : MonoBehaviour
 
     public void StartHitlag()
     {
-        timer = length;
+        timer = LENGTH;
         foreach (MonoBehaviour behaviour in monoBehaviours)
         {
             behaviour.enabled = false;
