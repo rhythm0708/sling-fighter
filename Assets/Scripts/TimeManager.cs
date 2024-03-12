@@ -61,6 +61,13 @@ public class TimeManager : MonoBehaviour
         {
             SceneManager.LoadScene("Results Screen");
         }
+
+        // TEMP: Check out-of-bounds. Lose time.
+        if (transform.position.y < -25.0)
+        {
+            Debug.Log("Hit bounds");
+            currentTime -= oOBLostTime;
+        }
     }
 
     private void HitAddTime(Collider collider)
@@ -79,7 +86,7 @@ public class TimeManager : MonoBehaviour
     private void OOBLoseTime(Collider collider, Hitbox.Properties properties, Vector3 direction)
     {
         // Check out-of-bounds. Lose time.
-        if (properties.type == "Bounds")
+        if (transform.position.y < -25.0)
         {
             Debug.Log("Hit bounds");
             currentTime -= oOBLostTime;

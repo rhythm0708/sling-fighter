@@ -47,6 +47,17 @@ public class LivesComponent : MonoBehaviour
     {
         timeStamp += Time.deltaTime;        
         CheckGameOver();
+
+        // Check out-of-bounds. Lose life.
+        if (transform.position.y < -25.0)
+        {
+            Debug.Log("Out of bounds.");
+            lives -= 1;
+            RespawnRandomPoint();
+
+            // Play Death sound.
+            sfxManager.PlaySfx("Death");
+        }
     }
 
     void LoseLife(Collider collider, Hitbox.Properties properties, Vector3 direction)
@@ -66,13 +77,13 @@ public class LivesComponent : MonoBehaviour
         var hitbox = collider.gameObject.transform.parent.gameObject.GetComponentInChildren<Hitbox>();
 
         // Check out-of-bounds. Lose life.
-        if (hitbox.properties.type == "Bounds")
+        if (transform.position.y < -25.0)
         {
             Debug.Log("Out of bounds.");
             lives -= 1;
             RespawnRandomPoint();
 
-            // Play Death sound
+            // Play Death sound.
             sfxManager.PlaySfx("Death");
         }
     }
