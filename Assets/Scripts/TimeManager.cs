@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class TimeManager : MonoBehaviour
 {
-    // Get Player Hitbox.
+    // References.
+    GameObject player;
     Hitbox playerHitbox;
+    Hurtbox playerHurtbox;
+    GameManager gameManager;
 
     // Related to timer values.
     [Header("TIMER VALUES")]
@@ -23,21 +26,29 @@ public class TimeManager : MonoBehaviour
     [SerializeField] int bossHitTime;
     [SerializeField] int bossKilledTime;
 
+    // Related to losing time.
+    [Header("LOSING TIME VALUES")]
+    [SerializeField] int oOBLostTime;
+
     // Property to get CurrentTime.
     public int CurrentTime { get => (int)currentTime; }
 
     private void Awake()
     {
         // Get reference to playerHitbox.
+        player = GameObject.Find("Player");
         playerHitbox = GameObject.Find("Player").transform.Find("Hitbox").gameObject.GetComponent<Hitbox>();
-        playerHitbox.SubscribeOnHit(AddTime);
+        playerHurtbox = GameObject.Find("Player").transform.Find("Hurtbox").gameObject.GetComponent<Hurtbox>();
+        gameManager = GameObject.Find("Arena").GetComponent<GameManager>();
+
+        playerHitbox.SubscribeOnHit(HitAddTime);
+        playerHurtbox.SubscribeOnHurt(OOBLoseTime);
     }
 
     void Start()
     {
         // Apply a buffer before time starts ticking down.
         startTime += startBufferTime;
-
         currentTime = startTime;
     }
 
@@ -52,13 +63,23 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    private void AddTime(Collider collider)
+    private void HitAddTime(Collider collider)
     {
         // Simple add time system.
         if(collider.gameObject.tag == "Enemy")
         {
             // TODO: can be varied for if enemy dies.
             currentTime += enemyHitTime;
+        }
+    }
+
+    private void OOBLoseTime(Collider collider, Hitbox.Properties properties, Vector3 direction)
+    {
+        // Check out-of-bounds. Lose time.
+        if (collider.gameObject.tag == "Bounds")
+        {
+            Debug.Log("Hit bounds");
+            currentTime -= oOBLostTime;
         }
     }
 }

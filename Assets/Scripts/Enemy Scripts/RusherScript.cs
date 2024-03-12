@@ -27,8 +27,28 @@ public class RusherScript : MonoBehaviour
     public void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction)
     {
         if (properties.type == "Tool")
-        {
-            Destroy(gameObject);
+        {  
+            GameObject tool = collider.transform.parent.gameObject;
+            bool initiated = false;
+            switch (tool.name.Replace("(Clone)", ""))
+            {
+                case "HomingMissile":
+                    initiated = tool.GetComponent<HomingMissileScript>().Initiated;
+                    break;
+                case "DummyEnemy":
+                    initiated = tool.GetComponent<Knockback>().Initiated;
+                    break;
+                case "Pillar":
+                    initiated = tool.GetComponent<PillarScript>().Initiated;
+                    break;
+                default:
+                    break;
+            }
+
+            if (initiated)
+            {
+                Destroy(gameObject);
+            }
         }
     }
     
