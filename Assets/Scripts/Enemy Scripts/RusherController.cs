@@ -25,9 +25,11 @@ public class RusherController : MonoBehaviour
     private Hurtbox hurtbox;
     private Knockback knockback;
     private GravityComponent gravity;
+    private HealthComponent health;
 
     void Start()
     {
+        health = GetComponent<HealthComponent>();
         gravity = GetComponent<GravityComponent>();
         controller = GetComponent<CharacterController>();
         hurtbox = GetComponentInChildren<Hurtbox>();
@@ -101,9 +103,10 @@ public class RusherController : MonoBehaviour
                 break;
         }
 
-        if (transform.position.y < -50.0f)
+        if (transform.position.y < -50.0f && gravity.falling)
         {
             StartReturn(250.0f);
+            health.Damage(20.0f);
         }
     }
 

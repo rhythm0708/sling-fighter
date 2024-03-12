@@ -13,6 +13,11 @@ public class GravityComponent : MonoBehaviour
         get { return _grounded; }
     }
 
+    public bool falling
+    {
+        get { return gravity > 0.0f; }
+    }
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
