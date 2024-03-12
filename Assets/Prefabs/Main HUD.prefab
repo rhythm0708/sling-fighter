@@ -982,8 +982,6 @@ MonoBehaviour:
   bossHitTime: 0
   bossKilledTime: 0
   oOBLostTime: 5
-  throttle: 0.2
-  timeStamp: 0
 --- !u!1 &5930085098214963277
 GameObject:
   m_ObjectHideFlags: 0
