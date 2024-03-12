@@ -65,8 +65,10 @@ public class TimeManager : MonoBehaviour
 
     private void HitAddTime(Collider collider)
     {
+        var hitbox = collider.gameObject.transform.parent.gameObject.GetComponentInChildren<Hitbox>();
+
         // Simple add time system.
-        if(collider.gameObject.tag == "Enemy")
+        if (hitbox.properties.type == "Enemy")
         {
             // TODO: can be varied for if enemy dies.
             Debug.Log("add time");
@@ -77,7 +79,7 @@ public class TimeManager : MonoBehaviour
     private void OOBLoseTime(Collider collider, Hitbox.Properties properties, Vector3 direction)
     {
         // Check out-of-bounds. Lose time.
-        if (collider.gameObject.tag == "Bounds")
+        if (properties.type == "Bounds")
         {
             Debug.Log("Hit bounds");
             currentTime -= oOBLostTime;

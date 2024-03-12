@@ -70,7 +70,9 @@ public class ScoreManager : MonoBehaviour
 
     private void IncrementScore(Collider collider)
     {
-        if(collider.gameObject.tag == "Enemy")
+        var hitbox = collider.gameObject.transform.parent.gameObject.GetComponentInChildren<Hitbox>();
+
+        if (hitbox.properties.type == "Enemy")
         {
             comboScore += (enemyKilledScore * multiplierValue);
             sfxManager.PlaySfx("On Hit");
@@ -79,7 +81,9 @@ public class ScoreManager : MonoBehaviour
 
     private void IncrementMultiplier(Collider collider)
     {
-        if (collider.gameObject.tag == "Enemy")
+        var hitbox = collider.gameObject.transform.parent.gameObject.GetComponentInChildren<Hitbox>();
+
+        if (hitbox.properties.type == "Enemy")
         {
             timeSinceHit = 0f;
             multiplierRawScore += 1;

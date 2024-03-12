@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Hurtbox : MonoBehaviour
 {
+    [Serializable]
+    public struct Properties
+    {
+        public string type;
+    }
+
     delegate void OnHurt();
 
     public delegate void OnHurtEventHandler(Collider param, Hitbox.Properties properties, Vector3 direction);

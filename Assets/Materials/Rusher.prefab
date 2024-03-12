@@ -136,6 +136,7 @@ MonoBehaviour:
     damage: 50
     knockback: 0
     type: Enemy
+  _active: 1
 --- !u!1 &7875551903354274487
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +149,7 @@ GameObject:
   - component: {fileID: 22762720002703666}
   - component: {fileID: 2409939128523213495}
   - component: {fileID: 8114497108722040479}
+  - component: {fileID: 3784814778596177644}
   m_Layer: 7
   m_Name: Rusher
   m_TagString: Enemy
@@ -235,3 +237,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackingSpeed: 30
+--- !u!114 &3784814778596177644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7875551903354274487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c7654fa66f840d3ab2ad17c0c17661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  huntTime: 2
+  chargeSpeed: 250
+  stunTime: 2

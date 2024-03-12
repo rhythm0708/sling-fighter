@@ -51,8 +51,10 @@ public class LivesComponent : MonoBehaviour
 
     void LoseLife(Collider collider, Hitbox.Properties properties, Vector3 direction)
     {
+        var hitbox = collider.gameObject.transform.parent.gameObject.GetComponentInChildren<Hitbox>();
         var enemySpeed = collider.gameObject.GetComponent<Knockback>()?.Speed;
-        if (collider.gameObject.tag == "Enemy" && enemySpeed < 50)
+
+        if (hitbox.properties.type == "Enemy" && enemySpeed < 50)
         {
             // Debug.Log($"Enemy speed: {enemySpeed}");
             lives -= 1;
@@ -61,8 +63,10 @@ public class LivesComponent : MonoBehaviour
 
     void CheckOutOfBounds(Collider collider, Hitbox.Properties properties, Vector3 direction)
     {
+        var hitbox = collider.gameObject.transform.parent.gameObject.GetComponentInChildren<Hitbox>();
+
         // Check out-of-bounds. Lose life.
-        if (collider.gameObject.tag == "Bounds")
+        if (hitbox.properties.type == "Bounds")
         {
             Debug.Log("Out of bounds.");
             lives -= 1;
