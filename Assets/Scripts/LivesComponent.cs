@@ -37,8 +37,7 @@ public class LivesComponent : MonoBehaviour
     {
         // Subscribe to player hurtbox.
         playerHurtbox.SubscribeOnHurt(LoseLife);
-        playerHurtbox.SubscribeOnHurt(CheckOutOfBounds);
-
+        
         lives = startLives;
         timeStamp = 0f;
     }
@@ -47,17 +46,6 @@ public class LivesComponent : MonoBehaviour
     {
         timeStamp += Time.deltaTime;        
         CheckGameOver();
-
-        // Check out-of-bounds. Lose life.
-        if (transform.position.y < -25.0)
-        {
-            Debug.Log("Out of bounds.");
-            lives -= 1;
-            RespawnRandomPoint();
-
-            // Play Death sound.
-            sfxManager.PlaySfx("Death");
-        }
     }
 
     void LoseLife(Collider collider, Hitbox.Properties properties, Vector3 direction)
@@ -72,32 +60,6 @@ public class LivesComponent : MonoBehaviour
         }
     }
 
-    void CheckOutOfBounds(Collider collider, Hitbox.Properties properties, Vector3 direction)
-    {
-        var hitbox = collider.gameObject.transform.parent.gameObject.GetComponentInChildren<Hitbox>();
-
-        // Check out-of-bounds. Lose life.
-        if (transform.position.y < -25.0)
-        {
-            Debug.Log("Out of bounds.");
-            lives -= 1;
-            RespawnRandomPoint();
-
-            // Play Death sound.
-            sfxManager.PlaySfx("Death");
-        }
-    }
-
-    void RespawnRandomPoint()
-    {
-        // Select a random spawnPoint.
-        Vector3 spawnPoint = gameManager.playerSpawnPoints[Random.Range(0, gameManager.playerSpawnPoints.Count)].transform.position;
-
-        // Return to spawn point.
-        player.transform.position = spawnPoint;
-        playerSpeed = 0f;
-
-    }
     void CheckGameOver()
     {
         if(lives<=0)

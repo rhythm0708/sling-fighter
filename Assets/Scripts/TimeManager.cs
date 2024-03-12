@@ -72,10 +72,8 @@ public class TimeManager : MonoBehaviour
 
     private void HitAddTime(Collider collider)
     {
-        var hitbox = collider.gameObject.transform.parent.gameObject.GetComponentInChildren<Hitbox>();
-
         // Simple add time system.
-        if (hitbox.properties.type == "Enemy")
+        if (collider.gameObject.tag == "Enemy")
         {
             // TODO: can be varied for if enemy dies.
             Debug.Log("add time");

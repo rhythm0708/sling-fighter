@@ -252,7 +252,7 @@ public class PlayerMovement : MonoBehaviour
             if (axisInput.magnitude > 0.1f && Vector3.Dot(-axisInput.normalized, ropeForward) > 0.25f) {
                 // Once the sling is released, start moving forward
                 // (opposite of stick direction)
-                transform.position = ropeStart - axisInput.normalized * 2.0f;
+                transform.position = ropeStart - axisInput.normalized * 3.0f;
                 forward = -axisInput.normalized;
                 speed = slingSpeed;
                 state = State.Move;
@@ -342,7 +342,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Once we hit a rope, go into the
             // WaitSling stat
-            ropeForward = hit.normal;
+            ropeForward = hit.gameObject.transform.forward;
 
             // Prevent attaching to incorrect ropes
             if (Vector3.Dot(ropeForward, GetVelocity().normalized) > 0.0f)
