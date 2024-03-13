@@ -8,12 +8,13 @@ TagManager:
   - Reflect
   - Rope
   - Enemy
-  - Ball
   - Obstacle
   - Tool
   - Arena
   - SFX Manager
   - Bounds
+  - Sound
+  - PlayerInMenu
   layers:
   - Default
   - TransparentFX
