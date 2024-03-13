@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : MonoBehaviour
+public class PlayerInMenu : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float movementSpeed;
     private float dirX, dirZ;
-    private static Ball instance;
+    private static PlayerInMenu instance;
     private void Awake()
     {
         // Ensure only one instance of Ball exists

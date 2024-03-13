@@ -36,7 +36,7 @@ public class SettingsMenu : MonoBehaviour
     private void OnTriggerStay(Collider collision)
     {
         // Check if the colliding object is the ball
-        if (collision.gameObject.CompareTag("Ball") && !startDetected)
+        if (collision.gameObject.CompareTag("PlayerInMenu") && !startDetected)
         {
             // Set startDetected to true to prevent multiple scene switches
             startDetected = true;
