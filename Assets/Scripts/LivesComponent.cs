@@ -8,6 +8,7 @@ public class LivesComponent : MonoBehaviour
     // Related scripts.
     GameObject player;
     Hurtbox playerHurtbox;
+    ArenaBounds bounds;
     GameManager gameManager;
     SFXManager sfxManager;
 
@@ -29,6 +30,7 @@ public class LivesComponent : MonoBehaviour
         player = GameObject.Find("Player");
         playerSpeed = player.GetComponent<PlayerMovement>().Speed;
         playerHurtbox = GetComponentInChildren<Hurtbox>();
+        bounds = GameObject.Find("Arena").GetComponent<ArenaBounds>();
         gameManager = GameObject.Find("Arena").GetComponent<GameManager>();
         sfxManager = GameObject.Find("SFX Manager").GetComponent<SFXManager>();
     }
@@ -37,6 +39,7 @@ public class LivesComponent : MonoBehaviour
     {
         // Subscribe to player hurtbox.
         playerHurtbox.SubscribeOnHurt(LoseLife);
+        bounds.SubscribeOnHit(BoundsLoseLife);
         
         lives = startLives;
         timeStamp = 0f;
@@ -58,6 +61,11 @@ public class LivesComponent : MonoBehaviour
             // Debug.Log($"Enemy speed: {enemySpeed}");
             lives -= 1;
         }
+    }
+
+    void BoundsLoseLife()
+    {
+        lives -= 1;
     }
 
     void CheckGameOver()

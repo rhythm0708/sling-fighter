@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Hurtbox hurtbox;
     private Hitbox hitbox;
     private PlayerMovement movement;
+    private ArenaBounds bounds;
     private ShoulderCameraController cameraController;
     private float damageCooldown;
     private float timeElapsed = 0;
@@ -20,7 +21,11 @@ public class PlayerController : MonoBehaviour
         hurtbox.SubscribeOnHurt(OnHurt);
         hitbox = GetComponentInChildren<Hitbox>();
         movement = GetComponent<PlayerMovement>();
+        bounds = GameObject.Find("Arena").GetComponent<ArenaBounds>();
         damageCooldown = UnityEngine.Random.Range(2, 5);
+
+        bounds.SubscribeOnHit(movement.AttachToLastRope);
+        bounds.SubscribeOnHit(SnapCameraForward);
     }
 
     // Lose appropriate amount of health.
@@ -48,11 +53,11 @@ public class PlayerController : MonoBehaviour
         {
             hitbox.active = false;
         }
+    }
 
-        if (transform.position.y < -25.0f)
-        {
-            movement.AttachToLastRope();
-            cameraController.SnapToForward(movement.GetForward());
-        }
+    private void SnapCameraForward()
+    {
+        var forward = movement.GetForward();
+        cameraController.SnapToForward(forward);
     }
 }

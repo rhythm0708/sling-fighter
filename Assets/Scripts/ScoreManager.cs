@@ -70,7 +70,7 @@ public class ScoreManager : MonoBehaviour
 
     private void IncrementScore(Collider collider)
     {
-        if (collider.gameObject.tag == "Enemy")
+        if (collider.gameObject.transform.root.tag == "Enemy")
         {
             comboScore += (enemyKilledScore * multiplierValue);
             sfxManager.PlaySfx("On Hit");
@@ -79,7 +79,7 @@ public class ScoreManager : MonoBehaviour
 
     private void IncrementMultiplier(Collider collider)
     {
-        if (collider.gameObject.tag == "Enemy")
+        if (collider.gameObject.transform.root.tag == "Enemy")
         {
             timeSinceHit = 0f;
             multiplierRawScore += 1;

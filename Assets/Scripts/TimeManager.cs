@@ -8,8 +8,7 @@ public class TimeManager : MonoBehaviour
     // References.
     GameObject player;
     Hitbox playerHitbox;
-    Hurtbox playerHurtbox;
-    GameManager gameManager;
+    ArenaBounds bounds;
 
     // Related to timer values.
     [Header("TIMER VALUES")]
@@ -38,11 +37,10 @@ public class TimeManager : MonoBehaviour
         // Get reference to playerHitbox.
         player = GameObject.Find("Player");
         playerHitbox = GameObject.Find("Player").transform.Find("Hitbox").gameObject.GetComponent<Hitbox>();
-        playerHurtbox = GameObject.Find("Player").transform.Find("Hurtbox").gameObject.GetComponent<Hurtbox>();
-        gameManager = GameObject.Find("Arena").GetComponent<GameManager>();
+        bounds = GameObject.Find("Arena").GetComponent<ArenaBounds>();
 
         playerHitbox.SubscribeOnHit(HitAddTime);
-        playerHurtbox.SubscribeOnHurt(OOBLoseTime);
+        bounds.SubscribeOnHit(OOBLoseTime);
     }
 
     void Start()
@@ -73,7 +71,7 @@ public class TimeManager : MonoBehaviour
     private void HitAddTime(Collider collider)
     {
         // Simple add time system.
-        if (collider.gameObject.tag == "Enemy")
+        if (collider.gameObject.transform.root.tag == "Enemy")
         {
             // TODO: can be varied for if enemy dies.
             Debug.Log("add time");
@@ -81,13 +79,8 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    private void OOBLoseTime(Collider collider, Hitbox.Properties properties, Vector3 direction)
+    private void OOBLoseTime()
     {
-        // Check out-of-bounds. Lose time.
-        if (transform.position.y < -25.0)
-        {
-            Debug.Log("Hit bounds");
-            currentTime -= oOBLostTime;
-        }
+         currentTime -= oOBLostTime;
     }
 }
