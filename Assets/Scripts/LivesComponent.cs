@@ -25,7 +25,6 @@ public class LivesComponent : MonoBehaviour
     private void Awake()
     {
         player = GameObject.Find("Player");
-        playerSpeed = player.GetComponent<PlayerMovement>().Speed;
         playerHurtbox = GetComponentInChildren<Hurtbox>();
         bounds = GameObject.Find("Arena").GetComponent<ArenaBounds>();
         sfxManager = GameObject.Find("SFX Manager").GetComponent<SFXManager>();
