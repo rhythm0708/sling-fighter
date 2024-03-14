@@ -27,11 +27,11 @@ public class WizardScript : MonoBehaviour
 
     public void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction)
     {
-        if (properties.type == "Player")
-        {  
-            Destroy(projectile);
-            Destroy(gameObject);
-        }
+        // if (properties.type == "Player")
+        // {  
+        //     Destroy(projectile);
+        //     Destroy(gameObject);
+        // }
     }
     
     void Update()
