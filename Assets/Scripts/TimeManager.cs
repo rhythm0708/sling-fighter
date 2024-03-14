@@ -74,7 +74,6 @@ public class TimeManager : MonoBehaviour
         if (collider.gameObject.transform.root.tag == "Enemy")
         {
             // TODO: can be varied for if enemy dies.
-            Debug.Log("add time");
             currentTime += enemyHitTime;
         }
     }
