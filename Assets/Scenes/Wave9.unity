@@ -638,9 +638,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deltaY: 47
-  moveSpeed: 10
-  lingerDuration: 3
+  moveSpeed: 3
+  lingerDurationDown: 16.67186
+  lingerDurationUp: 0
   initDelay: 1
+  firstPass: 1
 --- !u!1001 &617807056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -733,9 +735,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deltaY: 47
-  moveSpeed: 10
-  lingerDuration: 3
-  initDelay: 15
+  moveSpeed: 3
+  lingerDurationDown: 16.67186
+  lingerDurationUp: 0
+  initDelay: 16.67186
+  firstPass: 0
 --- !u!1 &650179573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,9 +1850,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deltaY: 47
-  moveSpeed: 10
-  lingerDuration: 3
+  moveSpeed: 3
+  lingerDurationDown: 16.67186
+  lingerDurationUp: 0
   initDelay: 1
+  firstPass: 1
 --- !u!1 &1650304276
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,9 +2085,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deltaY: 47
-  moveSpeed: 10
-  lingerDuration: 3
-  initDelay: 15
+  moveSpeed: 3
+  lingerDurationDown: 16.67186
+  lingerDurationUp: 0
+  initDelay: 16.67186
+  firstPass: 0
 --- !u!1 &1833206149
 GameObject:
   m_ObjectHideFlags: 0
