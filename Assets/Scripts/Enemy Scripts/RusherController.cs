@@ -7,25 +7,29 @@ public class RusherController : MonoBehaviour
         Hunt,
         Return,
         Charge,
-        Stun,
+        Dizzy,
         Hit
     };
 
     [SerializeField] private float huntTime = 2.0f;
     [SerializeField] private float chargeSpeed = 250.0f;
-    [SerializeField] private float stunTime = 2.0f;
+    [SerializeField] private float dizzyTime = 2.0f;
 
+
+    private bool landDizzy;
     private float huntTimer;
-    private float stunTimer;
+    private float dizzyTimer;
     private float returnSpeed;
     private Vector3 direction;
     private CharacterController controller;
     private State state;
     private GameObject player;
     private Hurtbox hurtbox;
+    private Hitbox hitbox;
     private Knockback knockback;
     private GravityComponent gravity;
     private HealthComponent health;
+    private Renderer renderer;
 
     void Start()
     {
@@ -33,8 +37,11 @@ public class RusherController : MonoBehaviour
         gravity = GetComponent<GravityComponent>();
         controller = GetComponent<CharacterController>();
         hurtbox = GetComponentInChildren<Hurtbox>();
+        hitbox = GetComponentInChildren<Hitbox>();
         knockback = GetComponent<Knockback>();
+        renderer = GetComponentInChildren<Renderer>();
         hurtbox.SubscribeOnHurt(OnHurt);
+        hitbox.SubscribeOnHit(OnHit);
         player = GameObject.FindGameObjectWithTag("Player");
         huntTimer = 0.0f;
     }
@@ -47,7 +54,8 @@ public class RusherController : MonoBehaviour
 
         Vector3 planarPosition = transform.position;
         planarPosition.y = 0.0f;
-        Vector3 directionToOrigin = Vector3.zero - planarPosition;
+        Vector3 origin = Random.onUnitSphere * Random.Range(0.0f, 30.0f);
+        Vector3 directionToOrigin = origin - planarPosition;
         float distanceToOrigin = directionToOrigin.magnitude;
         directionToOrigin /= distanceToOrigin;
 
@@ -74,7 +82,16 @@ public class RusherController : MonoBehaviour
                 controller.Move(direction * returnSpeed * Time.deltaTime);
                 if (gravity.grounded)
                 {
-                    state = State.Hunt;
+                    if (landDizzy)
+                    {
+                        landDizzy = false;
+                        state = State.Dizzy;
+                        dizzyTimer = dizzyTime;
+                    }
+                    else
+                    {
+                        state = State.Hunt;
+                    }
                     huntTimer = 0.0f;
                 }
                 break;
@@ -83,15 +100,11 @@ public class RusherController : MonoBehaviour
                 controller.Move(direction * chargeSpeed * Time.deltaTime);
                 break;
 
-            case State.Stun:
-                stunTimer -= Time.deltaTime;
-                if (stunTimer <= 0.0f)
+            case State.Dizzy:
+                dizzyTimer -= Time.deltaTime;
+                if (dizzyTimer <= 0.0f)
                 {
-                    StartReturn();
-                }
-                else
-                {
-                    controller.Move(direction * chargeSpeed * (stunTimer / stunTime) * Time.deltaTime);
+                    state = State.Hunt;
                 }
                 break;
 
@@ -103,8 +116,40 @@ public class RusherController : MonoBehaviour
                 break;
         }
 
+        if (state == State.Charge)
+        {
+            hitbox.active = true;
+        }
+        else
+        {
+            hitbox.active = false;
+        }
+
+        if (state == State.Dizzy || state == State.Hit || state == State.Hunt)
+        {
+            hurtbox.invincible = false;
+        }
+        else
+        {
+            hurtbox.invincible = true;
+        }
+
+        if (state == State.Charge)
+        {
+            renderer.material.color = Color.red;
+        }
+        else if (state == State.Dizzy || state == State.Hit || state == State.Hunt)
+        {
+            renderer.material.color = Color.green;
+        }
+        else
+        {
+            renderer.material.color = Color.blue;
+        }
+
         if (transform.position.y < -50.0f && gravity.falling)
         {
+            landDizzy = false;
             StartReturn(250.0f);
             health.Damage(20.0f);
         }
@@ -143,6 +188,7 @@ public class RusherController : MonoBehaviour
 
         if (state == State.Charge)
         {
+            landDizzy = true;
             StartReturn();
         }
     }
@@ -150,5 +196,11 @@ public class RusherController : MonoBehaviour
     void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction) 
     {
         state = State.Hit;
+    }
+
+    void OnHit(Collider collider)
+    {
+        landDizzy = false;
+        StartReturn();
     }
 }

@@ -163,10 +163,10 @@ public class UIManager : MonoBehaviour
     private void TimerTextPopOut(Collider collider)
     {
         // Makes timer text "pop out" if time is increased.
-        var originalFontSize = timerText.fontSize;
+        //var originalFontSize = timerText.fontSize;
 
-        timerText.fontSize *= textPopRatio;
-        StartCoroutine(PopText(timerText, originalFontSize, popDelayRate));
+        //timerText.fontSize *= textPopRatio;
+        //StartCoroutine(PopText(timerText, originalFontSize, popDelayRate));
     }
 
     private void TimerTextShrink()

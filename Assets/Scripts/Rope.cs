@@ -7,11 +7,13 @@ public class Rope : MonoBehaviour
     private Renderer renderer;
     private Vector3 localTargetPos;
     private Vector3 velocity;
+    private BoxCollider collider;
     private float power = 1.25f;
 
     void Start()
     {
         renderer = GetComponent<Renderer>();
+        collider = GetComponent<BoxCollider>();
     }
 
     public Vector3 Attach(GameObject gameObject)
@@ -45,6 +47,7 @@ public class Rope : MonoBehaviour
             localTargetPos = transform.InverseTransformPoint(target.transform.position) + apexOffset;
             localTargetPos.y = 0.0f;
             power = 1.0f;
+            collider.center = new Vector3(collider.center.x, collider.center.y, localTargetPos.z);
         }
         else 
         {
@@ -81,6 +84,7 @@ public class Rope : MonoBehaviour
 
             // Apply the position to local space
             localTargetPos = transform.InverseTransformPoint(worldPosition);
+            collider.center = Vector3.zero;
         }
 
         // Apply the position to the shader

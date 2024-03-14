@@ -41,6 +41,7 @@ public class HealthBar : MonoBehaviour
             bossHealth.ratio,
             1.0f - Mathf.Exp(-4.0f * Time.deltaTime)
         );
+
         trailRect.sizeDelta = new Vector2(maxWidth * trailValue, 50.0f);
         healthRect.sizeDelta = new Vector2(maxWidth * bossHealth.ratio, 50.0f);
     }

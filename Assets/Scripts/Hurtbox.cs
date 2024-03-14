@@ -9,6 +9,12 @@ public class Hurtbox : MonoBehaviour
     public delegate void OnHurtEventHandler(Collider param, Hitbox.Properties properties, Vector3 direction);
     private event OnHurtEventHandler onHurtEvent;
 
+    [SerializeField] private bool _invincible = false;
+    public bool invincible {
+        get { return _invincible; }
+        set { _invincible = value; }
+    }
+
     public void Awake()
     {
         // For trigger to trigger collision, on trigger must have
@@ -28,6 +34,10 @@ public class Hurtbox : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        if (invincible)
+        {
+            return;
+        }
         Hitbox hitbox = collider.gameObject.GetComponent<Hitbox>();
 
         // Only check for hits if we actually contact a hitbox

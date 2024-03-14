@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthComponent : MonoBehaviour
 {
     [SerializeField] float maxHealth = 100.0f;
     private float _value;
     private Hurtbox hurtbox;
+
+    [SerializeField] private bool reloadOnDeath = false;
 
     public float value 
     {
@@ -21,6 +24,12 @@ public class HealthComponent : MonoBehaviour
         _value -= amount;
         if (_value < 0.0f)
         {
+            if (reloadOnDeath)
+            {
+                string currentSceneName = SceneManager.GetActiveScene().name;
+                SceneManager.LoadScene(currentSceneName);
+            }
+            Destroy(gameObject);
             _value = 0.0f;
         }
     }

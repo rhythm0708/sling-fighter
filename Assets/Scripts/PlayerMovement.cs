@@ -37,9 +37,22 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController controller;
 
+    private void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction)
+    {
+        if (state == State.Move)
+        {
+            forward = direction;
+        }
+        else
+        {
+            recoilVelocity = direction * 50.0f;
+        }
+    }
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        GetComponentInChildren<Hurtbox>().SubscribeOnHurt(OnHurt);
         forward = transform.forward;
         ropeForward = forward;
         mouseAxis = Vector3.zero;

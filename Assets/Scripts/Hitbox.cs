@@ -64,6 +64,11 @@ public class Hitbox : MonoBehaviour
             return;
         }
 
+        if (hurtbox.invincible)
+        {
+            return;
+        }
+
         // A hitbox that shares the same root object as the
         // hurtbox should not trigger a hurt action, since
         // we don't want objects hurting themselves :)

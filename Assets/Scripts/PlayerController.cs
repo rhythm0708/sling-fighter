@@ -10,12 +10,14 @@ public class PlayerController : MonoBehaviour
     private Hitbox hitbox;
     private PlayerMovement movement;
     private ShoulderCameraController cameraController;
+    private Timer timer;
     private float damageCooldown;
     private float timeElapsed = 0;
 
     void Start()
     {
         cameraController = GetComponentInChildren<ShoulderCameraController>();
+        timer = GetComponentInChildren<Timer>();
         hurtbox = GetComponentInChildren<Hurtbox>();
         hurtbox.SubscribeOnHurt(OnHurt);
         hitbox = GetComponentInChildren<Hitbox>();
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
         {
             movement.AttachToLastRope();
             cameraController.SnapToForward(movement.GetForward());
+            timer.SubtractTime(10.0f);
         }
     }
 }
