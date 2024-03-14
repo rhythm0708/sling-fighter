@@ -9,10 +9,7 @@ public class LivesComponent : MonoBehaviour
     GameObject player;
     Hurtbox playerHurtbox;
     ArenaBounds bounds;
-    GameManager gameManager;
     SFXManager sfxManager;
-
-    float playerSpeed;
 
     // Lives variables.
     [SerializeField] int lives;
@@ -31,7 +28,6 @@ public class LivesComponent : MonoBehaviour
         playerSpeed = player.GetComponent<PlayerMovement>().Speed;
         playerHurtbox = GetComponentInChildren<Hurtbox>();
         bounds = GameObject.Find("Arena").GetComponent<ArenaBounds>();
-        gameManager = GameObject.Find("Arena").GetComponent<GameManager>();
         sfxManager = GameObject.Find("SFX Manager").GetComponent<SFXManager>();
     }
 
