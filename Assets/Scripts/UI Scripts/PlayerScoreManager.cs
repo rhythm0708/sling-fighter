@@ -66,6 +66,9 @@ public class PlayerScoreManager : MonoBehaviour
             int score = UnityEngine.Random.Range(1, 10000);
             InsertScore(userName.GetComponent<TextMeshProUGUI>().text, score);
             userName.GetComponent<TextMeshProUGUI>().text = string.Empty;
+            nameDialog.SetActive(false);
+
+            ShowScores();
         }
     }
 
