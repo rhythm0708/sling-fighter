@@ -8,7 +8,7 @@ public class StartMenu : MonoBehaviour
     private Color startingColor;
     private bool startDetected = false;
     private float triggerTimer = 0f;
-    private float triggerDuration = 3f;
+    private float triggerDuration = 1.5f;
 
     void Start()
     {
