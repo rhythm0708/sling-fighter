@@ -51,16 +51,18 @@ public class PlayerScoreManager : MonoBehaviour
         this.userName.GetComponent<TextMeshProUGUI>().text = userName;
     }
 
+    void Update()
+    {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                nameDialog.SetActive(!nameDialog.activeSelf);
+            }
+    }
+
     public void UserName()
     {
         if (userName.GetComponent<TextMeshProUGUI>().text != string.Empty)
         {
-            // On mouse click the enter name screen will appear after the game has ended
-            if (Input.GetMouseButtonDown(0))
-            {
-                nameDialog.SetActive(!nameDialog.activeSelf);
-            }
-
             int score = UnityEngine.Random.Range(1, 10000);
             InsertScore(userName.GetComponent<TextMeshProUGUI>().text, score);
             userName.GetComponent<TextMeshProUGUI>().text = string.Empty;
