@@ -11,6 +11,8 @@ public class DummyController : MonoBehaviour
 
     // For playtesting.
     [SerializeField] private bool reloadOnDeath = false;
+    [SerializeField] GameObject dummyPrefab;
+    Transform spawnPoint;
 
     // Public getters.
     public float GetMaxHealth { get => maxHealth; }
@@ -23,6 +25,8 @@ public class DummyController : MonoBehaviour
         hurtbox.SubscribeOnHurt(OnHurt);
 
         health = maxHealth;
+        dummyPrefab = this.gameObject;
+        spawnPoint = this.gameObject.transform;
     }
 
     void Damage(float amount)
@@ -33,6 +37,7 @@ public class DummyController : MonoBehaviour
             if(reloadOnDeath)
             {
                 // Spawn enemy back in the center.
+                Instantiate(dummyPrefab,spawnPoint);
             }
             health = 0f;
             Destroy(gameObject);

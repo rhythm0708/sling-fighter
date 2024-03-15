@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class TimeManager : MonoBehaviour
 {
     // References.
-    GameObject player;
     Hitbox playerHitbox;
     ArenaBounds bounds;
 
@@ -35,7 +34,6 @@ public class TimeManager : MonoBehaviour
     private void Awake()
     {
         // Get reference to playerHitbox.
-        player = GameObject.Find("Player");
         playerHitbox = GameObject.Find("Player").transform.Find("Hitbox").gameObject.GetComponent<Hitbox>();
         bounds = GameObject.Find("Arena").GetComponent<ArenaBounds>();
 
