@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class DummyController : MonoBehaviour
 {
+    // States.
+    private enum State
+    {
+
+    }
+
     // Variables.
     [SerializeField] private float maxHealth;
     [SerializeField] private float health;
