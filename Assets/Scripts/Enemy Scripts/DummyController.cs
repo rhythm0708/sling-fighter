@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class DummyController : MonoBehaviour
 {
-    // States.
-    private enum State
-    {
-
-    }
-
     // Variables.
+    private Hurtbox hurtbox;
     [SerializeField] private float maxHealth;
     [SerializeField] private float health;
+
+    // For playtesting.
+    [SerializeField] private bool reloadOnDeath = false;
 
     // Public getters.
     public float GetMaxHealth { get => maxHealth; }
@@ -20,11 +18,29 @@ public class DummyController : MonoBehaviour
 
     void Start()
     {
-        
+        // Get hurtbox.
+        hurtbox = GetComponentInChildren<Hurtbox>();
+        hurtbox.SubscribeOnHurt(OnHurt);
+
+        health = maxHealth;
     }
 
-    void Update()
+    void Damage(float amount)
     {
-        
+        health -= amount;
+        if(health <= 0.0f)
+        {
+            if(reloadOnDeath)
+            {
+                // Spawn enemy back in the center.
+            }
+            health = 0f;
+            Destroy(gameObject);
+        }
+    }
+
+    void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction)
+    {
+        Damage(properties.damage);
     }
 }
