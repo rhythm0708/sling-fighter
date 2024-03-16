@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Tracks player and explodes on collision with anything.
-public class WizardProjectileScript : MonoBehaviour
+public class WizardProjectileController  : MonoBehaviour
 {
     [SerializeField] private float trackingSpeed;
     private PlayerController player;
@@ -15,20 +15,26 @@ public class WizardProjectileScript : MonoBehaviour
 
     void Update()
     {
+        Vector3 planarPlayerPosition = new Vector3
+        (
+            player.transform.position.x,
+            transform.position.y,
+            player.transform.position.z
+        );
+
         transform.position = Vector3.MoveTowards
         (
             transform.position, 
-            player.transform.position, 
+            planarPlayerPosition, 
             trackingSpeed * Time.deltaTime
         );
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player.gameObject)
+        if (other.transform.root == player.transform.root)
         {
-            Destroy(this);
-            Debug.Log("Projectile break");
+            Destroy(gameObject);
         }
     }
 }

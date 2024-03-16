@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SmasherScript : MonoBehaviour
+public class Smasher : MonoBehaviour
 {
     [SerializeField] private float deltaY;
     [SerializeField] private float moveSpeed;

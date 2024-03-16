@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
@@ -24,10 +22,16 @@ public class GameManager : MonoBehaviour
     
     void Awake()
     {
-        Assert.IsNull(Instance);
-        Instance = this;
-        timer = INITIAL_TIME;
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        if (Instance != null && Instance != this) {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            timer = INITIAL_TIME;
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     void Update()
