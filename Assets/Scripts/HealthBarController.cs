@@ -1,61 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class HealthBarController : MonoBehaviour
 {
-    // Variables.
     [SerializeField] Slider healthBarSlider;
     [SerializeField] RectTransform trailBar;
+    [SerializeField] TMP_Text dummyName;
 
-    // Enemy name.
-    EnemyNames enemyNames;
-    [SerializeField] TMP_Text enemyNameTextBox;
-
-    DummyController dummyController;
-
+    private DummyController dummy;
     private float trailValue;
-
-    public bool enemyAlive;
 
     void Start()
     {
-        enemyAlive = true;
-
-        // Get dummy GameObject.
-        dummyController = GameObject.FindWithTag("Enemy")?.GetComponent<DummyController>();
-        dummyController.SubscribeOnSlain(OnSlain);
+        dummy = GameManager.Instance.dummy;
 
         // Assign starting slider values.
         healthBarSlider.minValue = 0;
-        healthBarSlider.maxValue = dummyController.GetMaxHealth;
-        healthBarSlider.value = dummyController.GetMaxHealth;
+        healthBarSlider.maxValue = dummy.maxHealth;
+        healthBarSlider.value = dummy.maxHealth;
 
-        // Set enemy name.
-        // enemyNames = this.GetComponentInChildren<EnemyNames>();
-        enemyNames = GameObject.Find("ScoreTracker").GetComponent<EnemyNames>();
-        enemyNameTextBox.text = enemyNames.CurrentEnemyName;
+        dummyName.text = dummy.displayName;
     }
 
     void Update()
     {
         // Update trail value.
-        trailValue = Mathf.Lerp(
+        trailValue = Mathf.Lerp
+        (
             trailValue,
-            dummyController.GetHealth / dummyController.GetMaxHealth,
+            dummy.health / dummy.maxHealth,
             1.0f - Mathf.Exp(-4.0f * Time.deltaTime)
-            );
+        );
         trailBar.sizeDelta = new Vector2(trailValue * 1592f, 75f);
 
         // Update slider value.
-        healthBarSlider.value = dummyController.GetHealth;
-    }
-
-    void OnSlain()
-    {
-        healthBarSlider.value = 0;
-        enemyAlive = false;
+        healthBarSlider.value = dummy.health;
     }
 }

@@ -1,65 +1,141 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class DummyController : MonoBehaviour
 {
-    // Variables.
-    private Hurtbox hurtbox;
-    [SerializeField] private float maxHealth;
-    [SerializeField] private float health;
+    [SerializeField] private string _displayName;
+    public string displayName { get => _displayName; }
 
-    // For playtesting.
-    [SerializeField] private bool reloadOnDeath = false;
-    [SerializeField] GameObject dummyPrefab;
-    Transform spawnPoint;
+    [SerializeField] private float _maxHealth = 100.0f;
+    public float maxHealth { get => _maxHealth; }
+    public float health { get; private set; }
 
-    // Public getters.
-    public float GetMaxHealth { get => maxHealth; }
-    public float GetHealth { get => health; set { health = value; } }
+    private PlayerController player;
+
+    private bool returning;
+    private float returnSpeed;
+    private Vector3 returnDirection;
+
+    [SerializeField] private float knockbackStrength = 400.0f;
+    [SerializeField] private float knockbackDecay = 2.0f;
+    private Vector3 knockbackVelocity;
+
+    private CharacterController controller;
+    private GravityComponent gravity;
+    private HitlagComponent hitlag;
+
+    private Action onSlainActions;
 
     void Start()
     {
-        // Get hurtbox.
-        hurtbox = GetComponentInChildren<Hurtbox>();
-        hurtbox.SubscribeOnHurt(OnHurt);
+        gravity = GetComponent<GravityComponent>();
+        controller = GetComponent<CharacterController>();
+        hitlag = GetComponent<HitlagComponent>();
 
         health = maxHealth;
-        dummyPrefab = this.gameObject;
-        spawnPoint = this.gameObject.transform;
+
+        player = GameManager.Instance.player;
+        returning = false;
+        knockbackVelocity = Vector3.zero;
     }
 
-    public void Damage(float amount)
+    void StartReturn(float jumpStrength = 100.0f)
     {
-        health -= amount;
-        if(health <= 0.0f)
+        knockbackVelocity = Vector3.zero;
+        float airTime = gravity.Jump(jumpStrength, 5.0f);
+
+        Vector3 planarPosition = transform.position;
+        planarPosition.y = 0.0f;
+        Vector3 directionToOrigin = Vector3.zero - planarPosition;
+        float distanceToOrigin = directionToOrigin.magnitude;
+        directionToOrigin /= distanceToOrigin;
+
+        returnDirection = directionToOrigin;
+        returnSpeed = distanceToOrigin / airTime;
+        returning = true;
+    }
+
+    void Update()
+    {
+        if (returning) 
         {
-            if(reloadOnDeath)
+            controller.Move(returnDirection * returnSpeed * Time.deltaTime);
+            if (gravity.grounded)
             {
-                // Spawn enemy back in the center.
-                Instantiate(dummyPrefab,spawnPoint);
+                returning = false;
             }
-            onSlainEvent?.Invoke();
-            Destroy(gameObject);
+        }
+        else
+        {
+            knockbackVelocity = Vector3.Lerp
+            (
+                knockbackVelocity, 
+                Vector3.zero,
+                1.0f - Mathf.Exp(-knockbackDecay * Time.deltaTime)
+            );
+            controller.Move(knockbackVelocity * Time.deltaTime);
+        }
+
+        if (transform.position.y < -50.0f)
+        {
+            StartReturn(250.0f);
         }
     }
 
-    void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction)
+    void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Damage(properties.damage);
+        if (hit.gameObject.tag != "Reflect" && hit.gameObject.tag != "Rope")
+        {
+            return;
+        }
+        
+        // Do bounce physics on the rope upon contanct
+        Rope rope = hit.gameObject.GetComponent<Rope>();
+        if (rope != null)
+        {
+            rope.Bounce(hit.point, knockbackVelocity);
+        }
+
+        // If we hit something that reflects, get the
+        // normal of the surface and flatten it
+        Vector3 flatNormal = hit.normal;
+        flatNormal.y = 0.0f;
+        flatNormal = flatNormal.normalized;
+
+        // Determine the direction of travel.
+        // This calcualtion accounts for sidestepping
+        Vector3 direction = knockbackVelocity.normalized;
+        
+        // Using the direction of travel and the normal,
+        // calculate the vector of reflection and use that
+        // as the new forward vector
+        direction = direction - 2 * Vector3.Dot(direction, flatNormal) * flatNormal;
+        direction = direction.normalized;
+        knockbackVelocity = direction * knockbackVelocity.magnitude; 
     }
 
-    public delegate void OnSlainEventHandler();
-
-    private event OnSlainEventHandler onSlainEvent;
-
-    public void SubscribeOnSlain(OnSlainEventHandler action)
+    private void OnTriggerEnter(Collider other)
     {
-        onSlainEvent += action;
+        if (other.transform.root == player.transform.root && player.moving)
+        {
+            Vector3 direction = transform.position - player.transform.position;
+            direction.y = 0.0f;
+            direction = direction.normalized;
+            direction = Vector3.Lerp(direction, player.GetComponent<PlayerMovement>().GetVelocity().normalized, 0.75f).normalized;
+            knockbackVelocity = direction * knockbackStrength;
+
+            // TODO: Detect player damage
+            health -= 20.0f;
+            if (health < 0.0f)
+            {
+                onSlainActions?.Invoke();
+            }
+            hitlag.StartHitlag();
+        }
     }
 
-    public void UnsubscribeOnSlain(OnSlainEventHandler action)
+    public void SubscribeOnSlain(Action action)
     {
-        onSlainEvent -= action;
+        onSlainActions += action;
     }
 }

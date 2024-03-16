@@ -6,35 +6,29 @@ using UnityEngine;
 public class WizardProjectileScript : MonoBehaviour
 {
     [SerializeField] private float trackingSpeed;
-    private Hurtbox hurtbox;
-    private GameObject player;
+    private PlayerController player;
 
-    void Awake()
-    {
-        player = GameObject.Find("Player");
-    }
-    
     void Start()
     {
-        hurtbox = GetComponentInChildren<Hurtbox>();
-        if (hurtbox != null)
-        {
-            hurtbox.SubscribeOnHurt(OnHurt);
-        }
+        player = GameManager.Instance.player;
     }
 
-    public void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction)
-    {
-        if (properties.type != "Enemy")
-        {  
-            Destroy(gameObject);
-        }
-    }
-    
     void Update()
     {
-        var currPos = transform.position;
-        var playerPos = player.transform.position;
-        transform.position = Vector3.MoveTowards(currPos, playerPos, trackingSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards
+        (
+            transform.position, 
+            player.transform.position, 
+            trackingSpeed * Time.deltaTime
+        );
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == player.gameObject)
+        {
+            Destroy(this);
+            Debug.Log("Projectile break");
+        }
     }
 }

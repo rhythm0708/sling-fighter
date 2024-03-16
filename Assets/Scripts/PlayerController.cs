@@ -1,57 +1,34 @@
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float health;
-    // [SerializeField] private Vector3 respawnLocation;
-    private Hurtbox hurtbox;
-    private Hitbox hitbox;
     private PlayerMovement movement;
-    private ArenaBounds bounds;
     private ShoulderCameraController cameraController;
-    private float damageCooldown;
-    private float timeElapsed = 0;
+    private DummyController dummy;
+    private HitlagComponent hitlag;
+
+    private Action onFallActions;
+
+    public bool moving
+    {
+        get { return movement.GetState() == PlayerMovement.State.Move; }
+    }
 
     void Start()
     {
+        dummy = GameManager.Instance.dummy;
         cameraController = GetComponentInChildren<ShoulderCameraController>();
-        hurtbox = GetComponentInChildren<Hurtbox>();
-        hurtbox.SubscribeOnHurt(OnHurt);
-        hitbox = GetComponentInChildren<Hitbox>();
         movement = GetComponent<PlayerMovement>();
-        bounds = GameObject.Find("Arena").GetComponent<ArenaBounds>();
-        damageCooldown = UnityEngine.Random.Range(2, 5);
-
-        bounds.SubscribeOnHit(movement.AttachToLastRope);
-        bounds.SubscribeOnHit(SnapCameraForward);
-    }
-
-    // Lose appropriate amount of health.
-    private void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction)
-    {
-        // Make sure that cooldown has expired.
-        if (timeElapsed >= damageCooldown &&
-            (properties.type == "Enemy" || properties.type == "Obstacle"))
-        {
-            health -= properties.damage;
-            timeElapsed = 0;
-        }
+        hitlag = GetComponent<HitlagComponent>();
     }
 
     private void Update()
     {
-        timeElapsed += Time.deltaTime;
-        hitbox.directionOverride = movement.GetVelocity().normalized;
-
-        if (movement.GetState() == PlayerMovement.State.Move)
+        if (transform.position.y < -25.0f)
         {
-            hitbox.active = true;
-        }
-        else
-        {
-            hitbox.active = false;
+            SnapCameraForward();
+            movement.AttachToLastRope();
+            onFallActions?.Invoke();
         }
     }
 
@@ -59,5 +36,18 @@ public class PlayerController : MonoBehaviour
     {
         var forward = movement.GetForward();
         cameraController.SnapToForward(forward);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.root == dummy.transform.root && moving)
+        {
+            hitlag.StartHitlag();
+        }
+    }
+
+    public void SubscribeOnFall(Action action)
+    {
+        onFallActions += action;
     }
 }

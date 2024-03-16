@@ -209,6 +209,13 @@ public class PlayerMovement : MonoBehaviour
             state = State.ChargeSling;
             mouseAxis = Vector3.zero;
         }
+
+        int layerMask = 1 << 6;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, layerMask))
+        {
+            transform.position = new Vector3(transform.position.x, hit.point.y + 0.1f, transform.position.z);
+        }
     }
 
     void ChargeSlingUpdate()
@@ -268,6 +275,14 @@ public class PlayerMovement : MonoBehaviour
                 // return to the waiting state
                 state = State.WaitSling;
             }
+        }
+
+        int layerMask = 1 << 6;
+        RaycastHit hit;
+        Vector3 offset = new Vector3(0.0f, 1.0f, 0.0f);
+        if (Physics.Raycast(transform.position + offset, Vector3.down, out hit, Mathf.Infinity, layerMask))
+        {
+            transform.position = new Vector3(transform.position.x, hit.point.y + 0.1f, transform.position.z);
         }
     }
 

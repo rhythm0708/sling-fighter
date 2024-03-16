@@ -29,9 +29,9 @@ public class ShoulderCameraController : MonoBehaviour, IIgnoreHitlag
     {
         if (hitlagComponent.time > 0.0f)
         {
-            float x = Mathf.Pow(Mathf.Sin(Time.time * shakeSpeed + 16.0f), 2.0f) * shakeStrength * hitlagComponent.time;
-            float y = Mathf.Pow(Mathf.Sin(Time.time * shakeSpeed + 32.0f), 2.0f) * shakeStrength * hitlagComponent.time;
-            float z = Mathf.Pow(Mathf.Sin(Time.time * shakeSpeed + 64.0f), 2.0f) * shakeStrength * hitlagComponent.time;
+            float x = Mathf.Pow(Mathf.Sin(Time.time * shakeSpeed + 16.0f), 1.0f) * shakeStrength * hitlagComponent.time;
+            float y = Mathf.Pow(Mathf.Sin(Time.time * shakeSpeed + 32.0f), 1.0f) * shakeStrength * hitlagComponent.time;
+            float z = Mathf.Pow(Mathf.Sin(Time.time * shakeSpeed + 64.0f), 1.0f) * shakeStrength * hitlagComponent.time;
             transform.localPosition = new Vector3(x, y, z);
             return;
         }

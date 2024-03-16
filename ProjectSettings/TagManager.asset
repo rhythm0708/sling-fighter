@@ -4,17 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Score
   - Reflect
   - Rope
-  - Enemy
-  - Obstacle
-  - Tool
-  - Arena
-  - SFX Manager
-  - Bounds
-  - Sound
-  - PlayerInMenu
+  - Dummy
   layers:
   - Default
   - TransparentFX

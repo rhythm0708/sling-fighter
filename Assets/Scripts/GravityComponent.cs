@@ -6,12 +6,7 @@ public class GravityComponent : MonoBehaviour
     private const float ACCELERATION = 250.0f;
     private float gravity;
     private CharacterController controller;
-    private bool _grounded;
-
-    public bool grounded
-    {
-        get { return _grounded; }
-    }
+    public bool grounded { get; private set; }
 
     void Start()
     {
@@ -44,13 +39,13 @@ public class GravityComponent : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Vector3.down, out hit, traceDistance, layerMask) && gravity >= 0.0f)
         {
-            _grounded = true;
+            grounded = true;
             gravity = 0.0f;
             controller.Move(Vector3.down * 1000.0f * Time.deltaTime);
         }
         else
         {
-            _grounded = false;
+            grounded = false;
             controller.Move(Vector3.down * gravity * Time.deltaTime);
             gravity += ACCELERATION * Time.deltaTime;
         }
