@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _displayName: DEFAULT DUMMY
-  _maxHealth: 1
+  _maxHealth: 100
   knockbackStrength: 400
   knockbackDecay: 2
 --- !u!114 &5278187252479211818

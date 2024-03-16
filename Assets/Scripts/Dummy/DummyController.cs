@@ -7,6 +7,7 @@ public class DummyController : MonoBehaviour
     public string displayName { get => _displayName; }
 
     [SerializeField] private float _maxHealth = 100.0f;
+    [SerializeField] private float falloffDamage = 20.0f;
     public float maxHealth { get => _maxHealth; }
     public float health { get; private set; }
 
@@ -53,6 +54,7 @@ public class DummyController : MonoBehaviour
         returnDirection = directionToOrigin;
         returnSpeed = distanceToOrigin / airTime;
         returning = true;
+        Damage(falloffDamage, false);
     }
 
     void Update()
@@ -124,13 +126,21 @@ public class DummyController : MonoBehaviour
             direction = Vector3.Lerp(direction, player.GetComponent<PlayerMovement>().GetVelocity().normalized, 0.75f).normalized;
             knockbackVelocity = direction * knockbackStrength;
 
-            // TODO: Detect player damage
-            health -= 20.0f;
-            if (health <= 0.0f)
+            Damage(player.damageOutput);
+            hitlag.StartHitlag();
+        }
+    }
+
+    public void Damage(float damage, bool canKill = true)
+    {
+        health -= damage;
+        if (health <= 0.0f)
+        {
+            health = 0.0f;
+            if (canKill)
             {
                 onSlainActions?.Invoke();
             }
-            hitlag.StartHitlag();
         }
     }
 

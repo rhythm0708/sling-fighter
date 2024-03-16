@@ -14,6 +14,19 @@ public class PlayerController : MonoBehaviour
         get { return movement.GetState() == PlayerMovement.State.Move; }
     }
 
+    [SerializeField] private float baseDamageOutput = 10.0f; 
+    
+    // This property can be modified later to adjust the damage
+    // output. This is where someone would write damage scaling 
+    // for combo counter.
+    public float damageOutput
+    {
+        get 
+        {
+            return baseDamageOutput;
+        }
+    }
+
     void Start()
     {
         dummy = GameManager.Instance.dummy;

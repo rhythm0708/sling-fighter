@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Instance = this;
-            timer = INITIAL_TIME;
+            timer = 0.0f;
             SceneManager.sceneLoaded += OnSceneLoaded;
             DontDestroyOnLoad(gameObject);
         }
