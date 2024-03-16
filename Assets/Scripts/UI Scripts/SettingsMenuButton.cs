@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -9,26 +10,34 @@ public class SettingsMenu : MonoBehaviour
     private bool startDetected = false;
     private float triggerTimer = 0f;
     private float triggerDuration = 1.5f;
+    [SerializeField] private Slider settingsLoading;
 
     void Start()
     {
         mat = GetComponent<Renderer>().material;
         startingColor = mat.color;
+
+        // Hide the loading slider initially
+        settingsLoading.gameObject.SetActive(false); 
     }
 
     void Update()
     {
         if (startDetected)
         {
-            // Increment the timer while the ball is in the trigger zone
+            // Increment the timer while the player is in the trigger zone
             triggerTimer += Time.deltaTime;
+
+            // Update loading progress
+            settingsLoading.value = Mathf.Clamp01(triggerTimer / triggerDuration);
 
             // Check if the timer exceeds the desired duration
             if (triggerTimer >= triggerDuration)
             {
-                // Switch scene after 3 seconds
+                // Switch scene after 1.5 seconds
                 StartCoroutine(LoadNextScene());
-                startDetected = false; // Reset detection
+                // Reset detection
+                startDetected = false;
             }
         }
     }
@@ -46,6 +55,9 @@ public class SettingsMenu : MonoBehaviour
 
             // Restart the timer when the ball re-enters the trigger zone
             triggerTimer = 0f;
+
+            // Show the loading slider
+            settingsLoading.gameObject.SetActive(true);
         }
     }
 
@@ -55,11 +67,14 @@ public class SettingsMenu : MonoBehaviour
         
         // Reset button color on exit
         mat.color = startingColor; 
+
+        // Hide the loading slider
+        settingsLoading.gameObject.SetActive(false);
     }
 
     IEnumerator LoadNextScene()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.01f);
 
         // Load the next scene
         SceneManager.LoadScene("Settings");
