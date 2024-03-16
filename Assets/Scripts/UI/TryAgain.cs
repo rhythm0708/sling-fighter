@@ -6,6 +6,6 @@ public class TryAgain : MonoBehaviour
 {
     private void OnMouseUpAsButton()
     {
-        SceneManager.LoadScene("ThirdPersonTest");
+        SceneManager.LoadScene("Wave1");
     }
 }
