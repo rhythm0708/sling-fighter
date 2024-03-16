@@ -3108,8 +3108,56 @@ PrefabInstance:
       value: Main HUD
       objectReference: {fileID: 0}
     - target: {fileID: 5959164284674071143, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: enemyNames.Array.size
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959164284674071143, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: enemyNames.Array.data[8]
       value: Oozergoober
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959164284674071143, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: enemyNames.Array.data[9]
+      value: Final Frontier
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959164284674071143, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: enemyNames.Array.data[10]
+      value: Just Give Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959164284674071143, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: enemyNames.Array.data[11]
+      value: Ender of Worlds
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959164284674071143, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: enemyNames.Array.data[12]
+      value: ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959164284674071143, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: enemyNames.Array.data[13]
+      value: Six Star General
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959164284674071143, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: enemyNames.Array.data[14]
+      value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959164284674071143, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: enemyNames.Array.data[15]
+      value: The Choker
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959164284674071143, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: enemyNames.Array.data[16]
+      value: Three-Headed Dragon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959164284674071143, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: enemyNames.Array.data[17]
+      value: 404
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959164284674071143, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: enemyNames.Array.data[18]
+      value: Warhammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959164284674071143, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: enemyNames.Array.data[19]
+      value: Divne Messenger
       objectReference: {fileID: 0}
     - target: {fileID: 7165251991086834112, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_AnchorMax.x
