@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StartMenu : MonoBehaviour
 {
@@ -8,27 +9,35 @@ public class StartMenu : MonoBehaviour
     private Color startingColor;
     private bool startDetected = false;
     private float triggerTimer = 0f;
-    private float triggerDuration = 3f;
+    private float triggerDuration = 1.5f;
+    [SerializeField] private Slider startLoading;
 
     void Start()
     {
         mat = GetComponent<Renderer>().material;
         startingColor = mat.color;
+        
+        // Hide the loading slider initially
+        startLoading.gameObject.SetActive(false); 
     }
 
     void Update()
     {
         if (startDetected)
         {
-            // Increment the timer while the ball is in the trigger zone
+            // Increment the timer while the player is in the trigger zone
             triggerTimer += Time.deltaTime;
+
+            // Update loading progress
+            startLoading.value = Mathf.Clamp01(triggerTimer / triggerDuration);
 
             // Check if the timer exceeds the desired duration
             if (triggerTimer >= triggerDuration)
             {
-                // Switch scene after 3 seconds
+                // Switch scene after 1.5 seconds
                 StartCoroutine(LoadNextScene());
-                startDetected = false; // Reset detection
+                // Reset detection
+                startDetected = false;
             }
         }
     }
@@ -38,14 +47,17 @@ public class StartMenu : MonoBehaviour
         // Check if the colliding object is the ball
         if (collision.gameObject.CompareTag("PlayerInMenu") && !startDetected)
         {
-            // Set startDetected to true to prevent multiple scene switches
+            // Set startDetected to true 
             startDetected = true;
 
             // Change button color
             mat.color = Color.Lerp(startingColor, Color.white, Mathf.PingPong(Time.time, 1));
 
-            // Restart the timer when the ball re-enters the trigger zone
+            // Restart the timer when the player re-enters the trigger zone
             triggerTimer = 0f;
+
+            // Show the loading slider
+            startLoading.gameObject.SetActive(true);
         }
     }
 
@@ -54,12 +66,15 @@ public class StartMenu : MonoBehaviour
         startDetected = false;
 
         // Reset button color on exit
-        mat.color = startingColor; 
+        mat.color = startingColor;
+
+        // Hide the loading slider
+        startLoading.gameObject.SetActive(false);
     }
 
     IEnumerator LoadNextScene()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.01f);
 
         // Load the next scene
         SceneManager.LoadScene("ThirdPersonTest");
