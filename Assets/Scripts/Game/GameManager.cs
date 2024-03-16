@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
             // Assign the singleton GameManager and bind
             // its scene load action
             Instance = this;
-            timer = 0.0f;
+            timer = INITIAL_TIME;
             SceneManager.sceneLoaded += OnSceneLoaded;
             DontDestroyOnLoad(gameObject);
         }
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         // reset the timer
         totalTime += timer;
         timer = INITIAL_TIME;
-        
+
         // To determine the next wave, we parse the name of the scene
         // and find its number at the end. We increment this number then
         // construct the string of the next scene. Note that scene names
