@@ -9,23 +9,23 @@ public class GameManager : MonoBehaviour
 
     // Dummy reference.
     private GameObject dummy;
+    DummyController dummyController;
     
     void Start()
     {
-        dummy = GameObject.Find("Rusher");
+        dummy = GameObject.FindWithTag("Enemy");
+        dummyController = dummy?.GetComponent<DummyController>();
+
+        dummyController.SubscribeOnSlain(NextWave);
     }
 
     // Get current wave.
     public float Wave { get => currWave; }
-    
-    void Update()
+
+    void NextWave()
     {
-        // Uncomment once Health getter is implemented.
-        // if (dummy.GetComponent<RusherController>().Health <= 0)
-        // {
-        //     currWave++;
-        //     SceneManager.LoadScene("Wave" + currWave);
-        //     dummy = GameObject.Find("Rusher");
-        // }
+        currWave++;
+        SceneManager.LoadScene("Wave" + currWave);
+        dummy = GameObject.FindWithTag("Enemy");
     }
 }
