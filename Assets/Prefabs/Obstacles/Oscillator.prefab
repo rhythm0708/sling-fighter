@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1151592482444103036}
   - component: {fileID: 9161611737765002405}
   - component: {fileID: 1881575839480443347}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Oscillator
-  m_TagString: Obstacle
+  m_TagString: Reflect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

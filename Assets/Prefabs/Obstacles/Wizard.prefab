@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3437049648904255438}
   - component: {fileID: 5798773417666083122}
   - component: {fileID: 4129773395150082903}
-  m_Layer: 7
+  - component: {fileID: 731617195636998063}
+  m_Layer: 6
   m_Name: Wizard
-  m_TagString: Enemy
+  m_TagString: Reflect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,3 +99,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projTemplate: {fileID: 852886805900577107, guid: 7c42dba8344f6443a86d15019828c34b, type: 3}
   rotationSpeed: 0.75
+--- !u!136 &731617195636998063
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199914579079848680}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

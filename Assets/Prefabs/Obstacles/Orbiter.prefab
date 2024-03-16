@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3744811688943397759}
   - component: {fileID: 4532615500650092818}
   - component: {fileID: 95906151472271652}
-  m_Layer: 7
-  m_Name: OrbitEnemy
-  m_TagString: Obstacle
+  - component: {fileID: 6955708134967146677}
+  m_Layer: 6
+  m_Name: Orbiter
+  m_TagString: Reflect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +85,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &6955708134967146677
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773025803232599178}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &4536965831502036624
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,8 +119,8 @@ GameObject:
   - component: {fileID: 5188429598168504310}
   - component: {fileID: 7952218467401146421}
   - component: {fileID: 3757523995942995179}
-  m_Layer: 7
-  m_Name: Orbiter
+  m_Layer: 0
+  m_Name: Rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,9 +180,10 @@ GameObject:
   - component: {fileID: 1058435373560657462}
   - component: {fileID: 579923871429371290}
   - component: {fileID: 5577618340731755016}
-  m_Layer: 8
-  m_Name: Hitbox
-  m_TagString: Untagged
+  - component: {fileID: 629172351190343730}
+  m_Layer: 6
+  m_Name: Ball
+  m_TagString: Reflect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,3 +253,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &629172351190343730
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9040974507107339606}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
