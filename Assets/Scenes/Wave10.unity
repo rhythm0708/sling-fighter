@@ -373,6 +373,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes
       objectReference: {fileID: 0}
+    - target: {fileID: 5941614170580278917, guid: 2e7318a0fe63c40469fc921bb6decc62, type: 3}
+      propertyPath: deltaY
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941614170580278917, guid: 2e7318a0fe63c40469fc921bb6decc62, type: 3}
+      propertyPath: initDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941614170580278917, guid: 2e7318a0fe63c40469fc921bb6decc62, type: 3}
+      propertyPath: moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941614170580278917, guid: 2e7318a0fe63c40469fc921bb6decc62, type: 3}
+      propertyPath: lingerDurationUp
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941614170580278917, guid: 2e7318a0fe63c40469fc921bb6decc62, type: 3}
+      propertyPath: lingerDurationDown
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1231,6 +1251,26 @@ PrefabInstance:
     - target: {fileID: 3720689766640708358, guid: 2e7318a0fe63c40469fc921bb6decc62, type: 3}
       propertyPath: m_Name
       value: Spikes (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941614170580278917, guid: 2e7318a0fe63c40469fc921bb6decc62, type: 3}
+      propertyPath: deltaY
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941614170580278917, guid: 2e7318a0fe63c40469fc921bb6decc62, type: 3}
+      propertyPath: initDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941614170580278917, guid: 2e7318a0fe63c40469fc921bb6decc62, type: 3}
+      propertyPath: moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941614170580278917, guid: 2e7318a0fe63c40469fc921bb6decc62, type: 3}
+      propertyPath: lingerDurationUp
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941614170580278917, guid: 2e7318a0fe63c40469fc921bb6decc62, type: 3}
+      propertyPath: lingerDurationDown
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
