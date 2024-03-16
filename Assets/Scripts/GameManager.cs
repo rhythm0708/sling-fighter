@@ -72,9 +72,9 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < enemyCount; i++)
         {
             // Instantiate a random enemy prefab at the given position.
-            GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
-            Vector3 pos = enemySpawnpoints[Random.Range(0, enemySpawnpoints.Count)].transform.position;
-            Instantiate(prefab, pos, Quaternion.identity);
+            // GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
+            // Vector3 pos = enemySpawnpoints[Random.Range(0, enemySpawnpoints.Count)].transform.position;
+            // Instantiate(prefab, pos, Quaternion.identity);
         }
 
         for (int i = 0; i < obstacleCount; i++)

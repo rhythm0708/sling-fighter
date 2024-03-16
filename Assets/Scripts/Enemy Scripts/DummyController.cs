@@ -39,7 +39,7 @@ public class DummyController : MonoBehaviour
                 // Spawn enemy back in the center.
                 Instantiate(dummyPrefab,spawnPoint);
             }
-            health = 0f;
+            onSlainEvent?.Invoke();
             Destroy(gameObject);
         }
     }
@@ -47,5 +47,19 @@ public class DummyController : MonoBehaviour
     void OnHurt(Collider collider, Hitbox.Properties properties, Vector3 direction)
     {
         Damage(properties.damage);
+    }
+
+    public delegate void OnSlainEventHandler();
+
+    private event OnSlainEventHandler onSlainEvent;
+
+    public void SubscribeOnSlain(OnSlainEventHandler action)
+    {
+        onSlainEvent += action;
+    }
+
+    public void UnsubscribeOnSlain(OnSlainEventHandler action)
+    {
+        onSlainEvent -= action;
     }
 }

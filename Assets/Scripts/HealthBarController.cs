@@ -2,37 +2,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HealthBarController : MonoBehaviour
 {
     // Variables.
     [SerializeField] Slider healthBarSlider;
-    [SerializeField] string enemyName;
-    DummyController dummy;
+    [SerializeField] RectTransform trailBar;
+
+    // Enemy name.
+    EnemyNames enemyNames;
+    [SerializeField] TMP_Text enemyNameTextBox;
+
+    DummyController dummyController;
+
+    private float trailValue;
 
     public bool enemyAlive;
 
     void Start()
     {
-        // Get dummy GameObject.
-        dummy = GameObject.Find("DummyEnemy")?.GetComponent<DummyController>();
         enemyAlive = true;
+
+        // Get dummy GameObject.
+        dummyController = GameObject.FindWithTag("Enemy")?.GetComponent<DummyController>();
+        dummyController.SubscribeOnSlain(OnSlain);
 
         // Assign starting slider values.
         healthBarSlider.minValue = 0;
-        healthBarSlider.maxValue = dummy.GetMaxHealth;
-        healthBarSlider.value = dummy.GetMaxHealth;
+        healthBarSlider.maxValue = dummyController.GetMaxHealth;
+        healthBarSlider.value = dummyController.GetMaxHealth;
+
+        // Set enemy name.
+        enemyNames = this.GetComponentInChildren<EnemyNames>();
+        enemyNameTextBox.text = enemyNames.CurrentEnemyName;
     }
 
     void Update()
     {
-        // Update slider value.
-        healthBarSlider.value = dummy.GetHealth;
+        // Update trail value.
+        trailValue = Mathf.Lerp(
+            trailValue,
+            dummyController.GetHealth / dummyController.GetMaxHealth,
+            1.0f - Mathf.Exp(-4.0f * Time.deltaTime)
+            );
+        trailBar.sizeDelta = new Vector2(trailValue * 1592f, 75f);
 
-        // Enemy dies when healthBar is at zero.
-        if(healthBarSlider.value <= 0)
-        {
-            enemyAlive = false;
-        }
+        // Update slider value.
+        healthBarSlider.value = dummyController.GetHealth;
+    }
+
+    void OnSlain()
+    {
+        healthBarSlider.value = 0;
+        enemyAlive = false;
     }
 }
