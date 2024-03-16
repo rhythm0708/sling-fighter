@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class GravityComponent : MonoBehaviour
 {
+    // The max distance the ground can be from the object's origin
     [SerializeField] private float traceDistance = 10.0f;
+
     private const float ACCELERATION = 250.0f;
     private float gravity;
     private CharacterController controller;
@@ -34,17 +36,19 @@ public class GravityComponent : MonoBehaviour
         }
         RaycastHit hit;
 
-        // Only raycast on the aerna
+        // Only raycast on the arena
         int layerMask = 1 << 6;
 
         if (Physics.Raycast(transform.position, Vector3.down, out hit, traceDistance, layerMask) && gravity >= 0.0f)
         {
+            // Stick to the ground once touching it and disable gravity
             grounded = true;
             gravity = 0.0f;
             controller.Move(Vector3.down * 1000.0f * Time.deltaTime);
         }
         else
         {
+            // Apply gravity when off the ground
             grounded = false;
             controller.Move(Vector3.down * gravity * Time.deltaTime);
             gravity += ACCELERATION * Time.deltaTime;

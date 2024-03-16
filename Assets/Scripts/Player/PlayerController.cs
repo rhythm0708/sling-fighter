@@ -2,12 +2,13 @@ using System;
 using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
-    private PlayerMovement movement;
+    public PlayerMovement movement { get; private set; }
     private ShoulderCameraController cameraController;
     private DummyController dummy;
     private HitlagComponent hitlag;
 
     private Action onFallActions;
+    private Action hitDummyActions;
 
     public bool moving
     {
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.transform.root == dummy.transform.root && moving)
         {
+            hitDummyActions?.Invoke();
             hitlag.StartHitlag();
         }
     }
@@ -62,5 +64,10 @@ public class PlayerController : MonoBehaviour
     public void SubscribeOnFall(Action action)
     {
         onFallActions += action;
+    }
+
+    public void SubscribeOnHitDummy(Action action)
+    {
+        hitDummyActions += action;
     }
 }

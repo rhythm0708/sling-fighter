@@ -26,6 +26,7 @@ public class DummyController : MonoBehaviour
     private HitlagComponent hitlag;
 
     private Action onSlainActions;
+    private Action hitByPlayerActions;
 
     void Start()
     {
@@ -61,7 +62,10 @@ public class DummyController : MonoBehaviour
     {
         if (returning) 
         {
+            // Use returning velocity when in returning state
             controller.Move(returnDirection * returnSpeed * Time.deltaTime);
+
+            // Returning state ends upon touching the ground
             if (gravity.grounded)
             {
                 returning = false;
@@ -69,6 +73,8 @@ public class DummyController : MonoBehaviour
         }
         else
         {
+            // Smoothly interpolate the knockback velocity to zero
+            // this simulates friction.
             knockbackVelocity = Vector3.Lerp
             (
                 knockbackVelocity, 
@@ -120,6 +126,7 @@ public class DummyController : MonoBehaviour
     {
         if (other.transform.root == player.transform.root && player.moving)
         {
+            // Apply knockback by determing the direction of approach
             Vector3 direction = transform.position - player.transform.position;
             direction.y = 0.0f;
             direction = direction.normalized;
@@ -127,6 +134,7 @@ public class DummyController : MonoBehaviour
             knockbackVelocity = direction * knockbackStrength;
 
             Damage(player.damageOutput);
+            hitByPlayerActions?.Invoke();
             hitlag.StartHitlag();
         }
     }
@@ -147,5 +155,10 @@ public class DummyController : MonoBehaviour
     public void SubscribeOnSlain(Action action)
     {
         onSlainActions += action;
+    }
+
+    public void SubscribeOnHitByPlayer(Action action)
+    {
+        hitByPlayerActions += action;
     }
 }

@@ -45,6 +45,11 @@ public class GameManager : MonoBehaviour
     // Move to next wave.
     void NextWave()
     {
+        // Add the last wave's timer to the total time, then
+        // reset the timer
+        totalTime += timer;
+        timer = INITIAL_TIME;
+        
         // To determine the next wave, we parse the name of the scene
         // and find its number at the end. We increment this number then
         // construct the string of the next scene. Note that scene names
@@ -82,11 +87,6 @@ public class GameManager : MonoBehaviour
         // Assign the dummy and player from the scene
         FindDummy();
         FindPlayer();
-
-        // Add the last wave's timer to the total time, then
-        // reset the timer
-        totalTime += timer;
-        timer = INITIAL_TIME;
     }
 
     public void SubtractTime(float amount)
