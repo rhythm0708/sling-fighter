@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
@@ -5,11 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     // Current wave.
-    private static int _wave = 1;
-    public float wave 
-    { 
-        get {return _wave; }
-    }
+    public int wave { get; private set; } = 1;
 
     public DummyController dummy { get; private set; }
     public PlayerController player { get; private set; }
@@ -57,8 +54,20 @@ public class GameManager : MonoBehaviour
     // Move to next wave.
     void NextWave()
     {
-        _wave++;
-        SceneManager.LoadScene("Wave" + _wave);
+        // To determine the next wave, we parse the name of the scene
+        // and find its number at the end. We increment this number then
+        // construct the string of the next scene. Note that scene names
+        // must be formtted as "Wave[#]"
+        string sceneName = SceneManager.GetActiveScene().name;
+        try 
+        {
+            int waveNumber = Convert.ToInt32(sceneName.Remove(0, 4));
+            SceneManager.LoadScene("Wave" + Convert.ToString(waveNumber + 1));
+        }
+        catch
+        {
+            Debug.Log("Tried loading next Wave, but scene name does not contain Wave[#]");
+        }
     }
     
     // Kill dummy (for debugging).
@@ -71,6 +80,19 @@ public class GameManager : MonoBehaviour
     
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // Once a scene is loaded, we try to detect the wave number by
+        // parsing the scene's name. This allows automatic assignment
+        // based on the scene name. Note the scene's name must be
+        // formatted "Wave[#]"
+        try 
+        {
+            wave = Convert.ToInt32(scene.name.Remove(0, 4));
+        }
+        catch
+        {
+            Debug.Log("Tried assigning wave number, but scene name does not contain Wave[#]");
+        }
+
         FindDummy();
         FindPlayer();
         totalTime += timer;
