@@ -17,6 +17,9 @@ public class EnemyNames : MonoBehaviour
 
     void Awake()
     {
+        // DDOL.
+
+
         // Generate an Enemy Name to start.
         currentEnemyName = GenerateNewEnemyName();
     }

@@ -1346,6 +1346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1308045430}
   - component: {fileID: 1308045429}
+  - component: {fileID: 1308045431}
   m_Layer: 0
   m_Name: ScoreTracker
   m_TagString: Untagged
@@ -1382,6 +1383,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1308045431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308045428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbe3f3bde90843e7bbd009f4087e856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentEnemyName: 
+  enemyNames:
+  - The All-Slayer
+  - Harbinger of Doom
+  - Darren The Mighty
+  - Four Star General
+  - Guardian of the Deep
+  - Teemo
+  - No Name
+  - Stalking Menace
+  - Oozergoober
+  - Final Frontier
+  - Just Give Up
+  - Ender of Worlds
+  - ...
+  - Six Star General
+  - Cube
+  - The Choker
+  - Three-Headed Dragon
+  - 404
+  - Warhammer
+  - Divne Messenger
+  slainEnemyNames: []
 --- !u!1 &1417618910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,7 +2715,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5959164284674071143, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

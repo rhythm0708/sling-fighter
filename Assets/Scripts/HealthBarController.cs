@@ -34,7 +34,8 @@ public class HealthBarController : MonoBehaviour
         healthBarSlider.value = dummyController.GetMaxHealth;
 
         // Set enemy name.
-        enemyNames = this.GetComponentInChildren<EnemyNames>();
+        // enemyNames = this.GetComponentInChildren<EnemyNames>();
+        enemyNames = GameObject.Find("ScoreTracker").GetComponent<EnemyNames>();
         enemyNameTextBox.text = enemyNames.CurrentEnemyName;
     }
 
