@@ -11,13 +11,15 @@ public class ShoulderCameraController : MonoBehaviour, IIgnoreHitlag
     [SerializeField] private float shakeSpeed = 100.0f;
     private PlayerMovement playerMovement;
     private HitlagComponent hitlagComponent;
-    private float initialY;
+    private GravityComponent gravity;
+    private float lastGroundedY;
 
     void Start()
     {
         playerMovement = GetComponentInParent<PlayerMovement>(); 
         hitlagComponent = GetComponentInParent<HitlagComponent>();
-        initialY = transform.position.y;
+        gravity = GetComponentInParent<GravityComponent>();
+        lastGroundedY = transform.position.y;
     }
 
     public void SnapToForward(Vector3 snapForward)
@@ -25,15 +27,14 @@ public class ShoulderCameraController : MonoBehaviour, IIgnoreHitlag
         transform.rotation = Quaternion.LookRotation(snapForward);
     }
 
-    void LateUpdate()
+    void Update()
     {
         if (hitlagComponent.time > 0.0f)
         {
-            float x = Mathf.Pow(Mathf.Sin(Time.time * shakeSpeed + 16.0f), 1.0f) * shakeStrength * hitlagComponent.time;
-            float y = Mathf.Pow(Mathf.Sin(Time.time * shakeSpeed + 32.0f), 1.0f) * shakeStrength * hitlagComponent.time;
-            float z = Mathf.Pow(Mathf.Sin(Time.time * shakeSpeed + 64.0f), 1.0f) * shakeStrength * hitlagComponent.time;
+            float x = Mathf.Pow(Mathf.Sin(Time.time * shakeSpeed + 16.0f), 2.0f) * shakeStrength * hitlagComponent.time;
+            float y = Mathf.Pow(Mathf.Sin(Time.time * shakeSpeed + 32.0f), 2.0f) * shakeStrength * hitlagComponent.time;
+            float z = Mathf.Pow(Mathf.Sin(Time.time * shakeSpeed + 64.0f), 2.0f) * shakeStrength * hitlagComponent.time;
             transform.localPosition = new Vector3(x, y, z);
-            return;
         }
         else
         {
@@ -57,15 +58,6 @@ public class ShoulderCameraController : MonoBehaviour, IIgnoreHitlag
             forward = playerMovement.GetForward(); 
         }
 
-        if (transform.position.y < initialY)
-        {
-            transform.position = new Vector3(transform.position.x, initialY, transform.position.z);
-        }
-        else
-        {
-            transform.localPosition = Vector3.zero;
-        }
-
         // Interpolate the camera's rotation towards the
         // forward direction with framerate independence
         transform.rotation = Quaternion.Slerp
@@ -74,5 +66,15 @@ public class ShoulderCameraController : MonoBehaviour, IIgnoreHitlag
             Quaternion.LookRotation(forward),
             1.0f - Mathf.Exp(-followSpeed * Time.deltaTime)
         );
+
+        if (gravity.grounded)
+        {
+            lastGroundedY = transform.position.y;
+        }
+
+        if (transform.position.y < lastGroundedY)
+        {
+            transform.position = new Vector3(transform.position.x, lastGroundedY, transform.position.z);
+        }
     }
 }

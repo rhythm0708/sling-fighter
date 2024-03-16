@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -26,8 +27,6 @@ public class GameManager : MonoBehaviour
         Assert.IsNull(Instance);
         Instance = this;
         timer = INITIAL_TIME;
-        FindDummy();
-        FindPlayer();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -46,6 +45,9 @@ public class GameManager : MonoBehaviour
     void FindPlayer()
     {
         player = FindObjectOfType<PlayerController>();
+        player.SubscribeOnFall(() => {
+            timer -= 10.0f;
+        });
     }
 
     // Move to next wave.
@@ -63,7 +65,6 @@ public class GameManager : MonoBehaviour
         //dummyController.Damage(0);
     }
     
-
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         FindDummy();

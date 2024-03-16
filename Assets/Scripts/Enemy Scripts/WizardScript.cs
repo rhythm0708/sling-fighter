@@ -10,13 +10,9 @@ public class WizardScript : MonoBehaviour
     private PlayerController player;
     private GameObject projectile;
 
-    void Awake()
-    {
-        player = GameManager.Instance.player;
-    }
-    
     void Start()
     {
+        player = GameManager.Instance.player;
     }
 
     void Update()

@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followSpeed: 10
-  shakeStrength: 0.5
+  shakeStrength: 3
   shakeSpeed: 150
 --- !u!1 &3151369963214516114
 GameObject:

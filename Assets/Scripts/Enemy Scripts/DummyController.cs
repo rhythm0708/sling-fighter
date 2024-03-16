@@ -126,7 +126,7 @@ public class DummyController : MonoBehaviour
 
             // TODO: Detect player damage
             health -= 20.0f;
-            if (health < 0.0f)
+            if (health <= 0.0f)
             {
                 onSlainActions?.Invoke();
             }
