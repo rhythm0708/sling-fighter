@@ -22,10 +22,19 @@ public class GameManager : MonoBehaviour
     // Get current wave.
     public float Wave { get => currWave; }
 
+    // Move to next wave.
     void NextWave()
     {
         currWave++;
         SceneManager.LoadScene("Wave" + currWave);
         dummy = GameObject.FindWithTag("Enemy");
+    }
+    
+    // Kill dummy (for debugging).
+    [ContextMenu("Kill Dummy")]
+    public void KillDummy()
+    {
+        dummyController.GetHealth = 0;
+        dummyController.Damage(0);
     }
 }

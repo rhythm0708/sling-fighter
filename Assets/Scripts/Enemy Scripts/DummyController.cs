@@ -16,7 +16,7 @@ public class DummyController : MonoBehaviour
 
     // Public getters.
     public float GetMaxHealth { get => maxHealth; }
-    public float GetHealth { get => health; }
+    public float GetHealth { get => health; set { health = value; } }
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class DummyController : MonoBehaviour
         spawnPoint = this.gameObject.transform;
     }
 
-    void Damage(float amount)
+    public void Damage(float amount)
     {
         health -= amount;
         if(health <= 0.0f)
