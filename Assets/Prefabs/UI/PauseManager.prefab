@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5392070656788449053}
   - component: {fileID: 3873019429311256162}
   - component: {fileID: 8478166665151760430}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,10 +90,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 3307530878501948697}
+    m_SelectOnDown: {fileID: 7355978855589067420}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 1105621209355253746}
   - component: {fileID: 8569716917518449500}
   - component: {fileID: 7355978855589067420}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: 'Settings '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,10 +223,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 8478166665151760430}
+    m_SelectOnDown: {fileID: 8698752781270652126}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 5076163037949127063}
   - component: {fileID: 3657742176254022708}
   - component: {fileID: 6956835032567011661}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Quit txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 2168991091429075938}
   - component: {fileID: 2870331710772914886}
   - component: {fileID: 7534028295655262937}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Settings txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -755,7 +755,7 @@ GameObject:
   - component: {fileID: 2101076663859069050}
   - component: {fileID: 3112235960791201045}
   - component: {fileID: 3307530878501948697}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,10 +833,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 8698752781270652126}
+    m_SelectOnDown: {fileID: 8478166665151760430}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -889,6 +889,7 @@ GameObject:
   - component: {fileID: 5962702952130557092}
   - component: {fileID: 6196406439363207325}
   - component: {fileID: 6405504450401661735}
+  - component: {fileID: 5957992372090206707}
   m_Layer: 5
   m_Name: PauseManager
   m_TagString: Untagged
@@ -909,6 +910,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3984106964084748073}
+  - {fileID: 2365973189755233820}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -992,6 +994,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 7416027004370417530}
+--- !u!114 &5957992372090206707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930085098214963277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9afb3feee87dd6b42b29769f3bad0f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primaryButton: {fileID: 3307530878501948697}
 --- !u!1 &7416027004370417530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,7 +1016,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3984106964084748073}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1017,7 +1032,7 @@ Transform:
   m_GameObject: {fileID: 7416027004370417530}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -583, y: 456, z: 0}
+  m_LocalPosition: {x: -874, y: 456, z: 0}
   m_LocalScale: {x: 2.3044097, y: 2.3044097, z: 2.3044097}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1029,6 +1044,74 @@ Transform:
   - {fileID: 776574955977716109}
   m_Father: {fileID: 8638840799975320928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7682863750092924880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2365973189755233820}
+  - component: {fileID: 3560079636174859594}
+  - component: {fileID: 3104454140120066671}
+  m_Layer: 5
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2365973189755233820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7682863750092924880}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -429.695, y: -539.99994, z: 0}
+  m_LocalScale: {x: 2.469512, y: 2.469512, z: 2.469512}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8638840799975320928}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3560079636174859594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7682863750092924880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 5857791653622881546}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!114 &3104454140120066671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7682863750092924880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &7715108050416055258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1200,7 @@ GameObject:
   - component: {fileID: 1212272279969979958}
   - component: {fileID: 523555755298998803}
   - component: {fileID: 8698752781270652126}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1195,10 +1278,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 7355978855589067420}
+    m_SelectOnDown: {fileID: 3307530878501948697}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -1225,7 +1308,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 523555755298998803}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6405504450401661735}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: GoToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7948638798868139250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,7 +1332,7 @@ GameObject:
   - component: {fileID: 4284390006537270}
   - component: {fileID: 6905522500437443828}
   - component: {fileID: 8230731858638432249}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Restart txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1371,7 +1466,7 @@ GameObject:
   - component: {fileID: 2857219756843099539}
   - component: {fileID: 7705609028714624839}
   - component: {fileID: 8553574380786705708}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Resume txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
