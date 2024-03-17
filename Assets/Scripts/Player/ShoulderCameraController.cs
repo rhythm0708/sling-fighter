@@ -47,9 +47,9 @@ public class ShoulderCameraController : MonoBehaviour, IIgnoreHitlag
         if (GameManager.Instance.clearedWave)
         {
             forward = transform.forward;
-            forward = Quaternion.AngleAxis(100.0f * Time.deltaTime, transform.right) * forward;
-            forward = Quaternion.AngleAxis(-50.0f * Time.deltaTime, Vector3.up) * forward;
-            clearCamera.GetComponent<Camera>().fieldOfView += 150.0f * Time.deltaTime;
+            forward = Quaternion.AngleAxis(50.0f * Time.deltaTime, transform.right) * forward;
+            forward = Quaternion.AngleAxis(-100.0f * Time.deltaTime, Vector3.up) * forward;
+            clearCamera.GetComponent<Camera>().fieldOfView += 50.0f * Time.deltaTime;
             transform.rotation = Quaternion.LookRotation(forward);
         }
         else if (
