@@ -7,6 +7,9 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] private AudioMixerGroup musicGroup;
     [SerializeField] private List<Sound> musicTracks;
+    [SerializeField] private AudioMixerGroup sfxGroup;
+    [SerializeField] private List<Sound> sfxClips;
+
     private string currentScene;
     private string lastScene;
     public static SoundManager instance;
@@ -14,6 +17,7 @@ public class SoundManager : MonoBehaviour
     void Awake()
     {
         InitializeMusicTracks();
+        InitializeSFX();
         
         if (instance != null)
         {
@@ -53,6 +57,20 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    // Initializes each sfx
+    void InitializeSFX()
+    {
+        foreach (var clip in this.sfxClips)
+        {
+            clip.audioSource = this.gameObject.AddComponent<AudioSource>();
+            clip.audioSource.clip = clip.clip;
+            clip.audioSource.volume = clip.volume;
+            clip.audioSource.pitch = clip.pitch;
+            clip.audioSource.loop = clip.loop;
+            clip.audioSource.outputAudioMixerGroup = this.sfxGroup;
+        }
+    }
+
     void PlayMusicByScene()
     {
         // Determine the current scene name
@@ -64,7 +82,7 @@ public class SoundManager : MonoBehaviour
             StopMusic("In Game");
             PlayMusic("In Menu");
         }
-        else if (currentScene == "ThirdPersonTest")
+        else if (currentScene == "Wave1")
         {
             StopMusic("In Menu");
             PlayMusic("In Game");
@@ -85,12 +103,40 @@ public class SoundManager : MonoBehaviour
         track.audioSource.Play();
     }
 
+    // Plays the desired SFX
+    public void PlaySfx(string name)
+    {
+        var track = this.sfxClips.Find(track => track.name == name);
+
+        if(null == track) 
+        {
+            Debug.Log("Sound not found: " + name);
+            return;
+        }
+
+        track.audioSource.Play();
+    }
+
     // Stops playing the desired Song 
     public void StopMusic(string name)
     {
         var track = this.musicTracks.Find(track => track.name == name);
 
         if (track == null)
+        {
+            Debug.Log("Sound not found: " + name);
+            return;
+        }
+
+        track.audioSource.Stop();
+    }
+
+    // Stops playing the desired SFX
+    public void StopSfx(string name)
+    {
+        var track = this.sfxClips.Find(track => track.name == name);
+
+        if(null == track) 
         {
             Debug.Log("Sound not found: " + name);
             return;

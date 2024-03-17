@@ -52,3 +52,11 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 1
+  - clip: {fileID: 8300000, guid: ce333079e86a336438d15493f0767df3, type: 3}
+    audioSource: {fileID: 0}
+    name: In Menu
+    volume: 1
+    pitch: 1
+    loop: 1
+  sfxGroup: {fileID: 3468307724742771576, guid: 46a75691ae517a14785ba1d49e35066d, type: 2}
+  sfxClips: []
