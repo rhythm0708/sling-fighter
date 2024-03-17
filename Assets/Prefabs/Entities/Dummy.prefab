@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6138548109357083944}
-  - component: {fileID: 8672625153902305127}
+  - component: {fileID: 5385282821509741301}
   m_Layer: 8
   m_Name: Hurtbox
   m_TagString: Untagged
@@ -32,8 +32,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2476285101232716435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &8672625153902305127
-SphereCollider:
+--- !u!65 &5385282821509741301
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -51,7 +51,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
+  m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5200037979278232284
 GameObject:
@@ -214,7 +214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _displayName: DEFAULT DUMMY
   _maxHealth: 100
-  knockbackStrength: 400
+  falloffDamage: 20
+  knockbackStrength: 500
   knockbackDecay: 2
 --- !u!114 &5278187252479211818
 MonoBehaviour:

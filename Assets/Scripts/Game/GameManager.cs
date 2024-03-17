@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public float timer { get; private set; }
     public float totalTime { get; private set; }
 
+    public bool clearedWave { get; private set; }
+    public float clearTimer { get; private set;}
+
     public static GameManager Instance { get; private set; } = null;
     
     private Action subtractTimeActions;
@@ -32,6 +35,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             timer = INITIAL_TIME;
             SceneManager.sceneLoaded += OnSceneLoaded;
+            clearTimer = 0.0f;
             DontDestroyOnLoad(gameObject);
         }
     }
@@ -39,12 +43,29 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        // TODO: Game over on time out;
+        
+        if (clearedWave)
+        {
+            Time.timeScale = 0.1f;
+            clearTimer += Time.deltaTime / Time.timeScale;
+
+            if (clearTimer >= 5.0f)
+            {
+                NextWave();
+            }
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
     }
 
     // Move to next wave.
     void NextWave()
     {
+        clearedWave = false;
+        clearTimer = 0.0f;
+
         // Add the last wave's timer to the total time, then
         // reset the timer
         totalTime += timer;
@@ -103,7 +124,9 @@ public class GameManager : MonoBehaviour
     void FindDummy()
     {
         dummy = FindObjectOfType<DummyController>();
-        dummy.SubscribeOnSlain(NextWave);
+        dummy.SubscribeOnSlain(() => {
+            clearedWave = true;
+        });
     }
 
     void FindPlayer()

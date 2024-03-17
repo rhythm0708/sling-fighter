@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     private Action onFallActions;
     private Action hitDummyActions;
 
+    [SerializeField] private GameObject shoulderCam;
+    [SerializeField] private GameObject clearCam;
+
     public bool moving
     {
         get { return movement.GetState() == PlayerMovement.State.Move; }

@@ -2123,11 +2123,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
---- !u!20 &1281220897 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 5687576951541721727, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
-  m_PrefabInstance: {fileID: 1008313120}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1301573748
 GameObject:
   m_ObjectHideFlags: 0
@@ -3581,14 +3576,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3706274618078830627, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
-      propertyPath: startTime
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3706274618078830627, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
-      propertyPath: enemyHitTime
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5930085098214963277, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Name
       value: Main HUD
@@ -3601,10 +3588,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7840601591776188063, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1281220897}
     - target: {fileID: 8638840799975320928, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Pivot.x
       value: 0
