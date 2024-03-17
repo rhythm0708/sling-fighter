@@ -1052,22 +1052,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 81539996431719636, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1279445027}
-    - target: {fileID: 81539996431719636, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetSFXVolume
-      objectReference: {fileID: 0}
-    - target: {fileID: 720806472740053353, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1279445027}
-    - target: {fileID: 720806472740053353, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetMusicVolume
-      objectReference: {fileID: 0}
     - target: {fileID: 2712268366292653088, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1095,14 +1079,6 @@ PrefabInstance:
     - target: {fileID: 4478930183429039966, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4846310390492727440, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1279445027}
-    - target: {fileID: 4846310390492727440, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetMasterVolume
       objectReference: {fileID: 0}
     - target: {fileID: 5598525691765305553, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1223,65 +1199,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 877973161497310440, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1279445027}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
---- !u!1 &1279445026 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 877973161497310440, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-  m_PrefabInstance: {fileID: 1279445025}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1279445027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1279445026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db30bb56cb310ed48b65fce46a8abf87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMixer: {fileID: 24100000, guid: 46a75691ae517a14785ba1d49e35066d, type: 2}
-  masterSlider: {fileID: 1279445030}
-  musicSlider: {fileID: 1279445029}
-  sfxSlider: {fileID: 1279445028}
---- !u!114 &1279445028 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 81539996431719636, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-  m_PrefabInstance: {fileID: 1279445025}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1279445029 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 720806472740053353, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-  m_PrefabInstance: {fileID: 1279445025}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1279445030 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4846310390492727440, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-  m_PrefabInstance: {fileID: 1279445025}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!20 &1281220897 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5687576951541721727, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
