@@ -6,6 +6,8 @@ using UnityEngine;
 // position. The anchor rotates then to move the camera
 public class ShoulderCameraController : MonoBehaviour, IIgnoreHitlag
 {
+    [SerializeField] private GameObject mainCamera;
+    [SerializeField] private GameObject clearCamera;
     [SerializeField] private float followSpeed = 0.95f;
     [SerializeField] private float shakeStrength = 2.0f;
     [SerializeField] private float shakeSpeed = 100.0f;
@@ -42,7 +44,15 @@ public class ShoulderCameraController : MonoBehaviour, IIgnoreHitlag
         }
 
         Vector3 forward;
-        if (
+        if (GameManager.Instance.clearedWave)
+        {
+            forward = transform.forward;
+            forward = Quaternion.AngleAxis(100.0f * Time.deltaTime, transform.right) * forward;
+            forward = Quaternion.AngleAxis(-100.0f * Time.deltaTime, Vector3.up) * forward;
+            clearCamera.GetComponent<Camera>().fieldOfView += 150.0f * Time.deltaTime;
+            transform.rotation = Quaternion.LookRotation(forward);
+        }
+        else if (
             playerMovement.GetState() == PlayerMovement.State.ChargeSling || 
             playerMovement.GetState() == PlayerMovement.State.WaitSling
         )
@@ -75,6 +85,17 @@ public class ShoulderCameraController : MonoBehaviour, IIgnoreHitlag
         if (transform.position.y < lastGroundedY)
         {
             transform.position = new Vector3(transform.position.x, lastGroundedY, transform.position.z);
+        }
+
+        if (GameManager.Instance.clearedWave)
+        {
+            clearCamera.SetActive(true);
+            mainCamera.SetActive(false);
+        }
+        else
+        {
+            clearCamera.SetActive(false);
+            mainCamera.SetActive(true);
         }
     }
 }
