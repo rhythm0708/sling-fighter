@@ -1,26 +1,23 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpikesScript : MonoBehaviour
 {
     [SerializeField] private float deltaY;
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float lingerDurationDown;
-    [SerializeField] private float lingerDurationUp;
-    [SerializeField] private float initDelay;
-    [SerializeField] private bool firstPass;
+    private float lingerDurationDown;
+    private float lingerDurationUp;
     private Vector3 initialPos;
     private Vector3 minPos;
     private float timeElapsed = 0;
     private int state = 2;
-    private bool initiated = false;
     private float speedMultiplier = 1;
 
     void Awake()
     {
         initialPos = transform.position;
         minPos = initialPos + new Vector3(0, deltaY, 0);
+        lingerDurationDown = Random.Range(2, 7);
+        lingerDurationUp = Random.Range(2, 7);
     }
 
     private void PerformRelease()
@@ -29,8 +26,8 @@ public class SpikesScript : MonoBehaviour
         {
             state = 0;
             timeElapsed = 0;
-            firstPass = false;
             speedMultiplier = 1;
+            lingerDurationUp = Random.Range(2, 7);
         }
         else
         {
@@ -45,6 +42,7 @@ public class SpikesScript : MonoBehaviour
         {
             state = 2;
             timeElapsed = 0;
+            lingerDurationDown = Random.Range(2, 7);
         }
         else
         {
@@ -54,40 +52,32 @@ public class SpikesScript : MonoBehaviour
 
     void Update()
     {
-        if (!initiated)
+        switch (state)
         {
-            initiated = timeElapsed >= initDelay;
-        }
-
-        if (initiated)
-        {
-            switch (state)
-            {
-                case 0:
-                    // Resting state (maximum displacement).
-                    if (timeElapsed >= lingerDurationUp)
-                    {
-                        state = 1;
-                    }
-                    break;
-                case 1:
-                    // Moving up.
-                    ChargeRelease();
-                    break;
-                case 2:
-                    // Lingering state (minimum displacement).
-                    if (timeElapsed >= lingerDurationDown || firstPass)
-                    {
-                        state = 3;
-                    }
-                    break;
-                case 3:
-                    // Moving down
-                    PerformRelease();
-                    break;
-                default:
-                    break;
-            }
+            case 0:
+                // Resting state (maximum displacement).
+                if (timeElapsed >= lingerDurationUp)
+                {
+                    state = 1;
+                }
+                break;
+            case 1:
+                // Moving up.
+                ChargeRelease();
+                break;
+            case 2:
+                // Lingering state (minimum displacement).
+                if (timeElapsed >= lingerDurationDown)
+                {
+                    state = 3;
+                }
+                break;
+            case 3:
+                // Moving down
+                PerformRelease();
+                break;
+            default:
+                break;
         }
         timeElapsed += Time.deltaTime;
     }
