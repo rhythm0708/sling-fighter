@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HitlagComponent : MonoBehaviour
 {
-    private const float LENGTH = 0.075f;
+    private const float LENGTH = 0.1f;
     private float timer;
     List<MonoBehaviour> monoBehaviours;
     public float time 

@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MT_Rope
-  m_Shader: {fileID: -6465566751694194690, guid: c660498cd300a6d4ead82847dd69c633, type: 3}
+  m_Name: MTL_CelDefault
+  m_Shader: {fileID: -6465566751694194690, guid: a23eeda76608ff34e9aaf0a18d683add, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -113,16 +113,14 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _A: {r: 0, g: 0, b: 0, a: 0}
-    - _B: {r: -0.41, g: 0, b: -4.16, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _C: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DarkColor: {r: 0.09202562, g: 0.322789, b: 0.41509432, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Point: {r: 0, g: 0, b: 0, a: 0}
+    - _LightColor: {r: 0.7372549, g: 0.9254902, b: 0.6156863, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &788230088537283268
+--- !u!114 &8288012093168480568
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
