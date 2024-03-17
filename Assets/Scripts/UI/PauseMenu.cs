@@ -7,11 +7,13 @@ public class PauseMenu : MonoBehaviour
 {
     private bool isPaused;
     [SerializeField]private GameObject pauseMenu;
+    [SerializeField]private GameObject settingsMenu;
 
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
+        settingsMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,6 +24,7 @@ public class PauseMenu : MonoBehaviour
             if (isPaused)
             {
                 ResumeGame();
+                
             }
             else
             {
@@ -42,6 +45,7 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
+        settingsMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
@@ -59,7 +63,7 @@ public class PauseMenu : MonoBehaviour
     public void Settings()
     {
         pauseMenu.SetActive(false);
-        SceneManager.LoadScene("In Game Settings", LoadSceneMode.Additive);
+        settingsMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
     }
@@ -77,7 +81,7 @@ public class PauseMenu : MonoBehaviour
     public void Back()
     {
         pauseMenu.SetActive(true);
-        SceneManager.UnloadSceneAsync("In Game Settings");
+        settingsMenu.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
     }

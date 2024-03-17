@@ -77,6 +77,6 @@ public class StartMenu : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
 
         // Load the next scene
-        SceneManager.LoadScene("ThirdPersonTest");
+        SceneManager.LoadScene("Wave1");
     }
 }
