@@ -81,6 +81,7 @@ public class SoundManager : MonoBehaviour
         {
             StopMusic("In Game");
             PlayMusic("In Menu");
+            StopSfx("Rope");
         }
         else if (currentScene == "Wave1")
         {
