@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.66767114, g: 0.8494335, b: 0.91549146, a: 1}
+  m_IndirectSpecularColor: {r: 0.6676871, g: 0.84954053, b: 0.91589737, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -886,10 +886,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 399554466502190171, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
-      propertyPath: m_Name
-      value: Model
-      objectReference: {fileID: 0}
     - target: {fileID: 1099372703501436292, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
       propertyPath: initialRope
       value: 
@@ -938,10 +934,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2691972716229720792, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 1325155755510872218, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
