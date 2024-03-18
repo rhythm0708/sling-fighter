@@ -139,6 +139,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             slingPrevew.SetActive(false);
+            // Play "Rope" SFX
+            SoundManager.instance.PlaySfx("Rope");
         }
     }
 

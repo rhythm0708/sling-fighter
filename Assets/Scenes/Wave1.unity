@@ -2253,8 +2253,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 260d85fabecd7824b9f208289fe8377d, type: 3}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
+      propertyPath: sfxClips.Array.data[4].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: sfxClips.Array.data[4].name
-      value: Ropes
+      value: Rope
       objectReference: {fileID: 0}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: sfxClips.Array.data[5].clip
@@ -2314,7 +2318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: sfxClips.Array.data[3].volume
-      value: 1
+      value: 0.698
       objectReference: {fileID: 0}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: sfxClips.Array.data[4].volume
