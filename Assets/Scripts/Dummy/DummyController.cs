@@ -148,8 +148,15 @@ public class DummyController : MonoBehaviour
             if (canKill)
             {
                 onSlainActions?.Invoke();
+
+                // Play "Slain" sound
+                SoundManager.instance.StopSfx("Rope");
+                SoundManager.instance.PlaySfx("Slain");
             }
         }
+        // Play the "On Damage" sound
+        SoundManager.instance.PlaySfx("On Hit");
+        SoundManager.instance.StopSfx("Rope");
     }
 
     public void SubscribeOnSlain(Action action)

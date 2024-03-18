@@ -27,6 +27,9 @@ public class Rope : MonoBehaviour
     {
         target = null;
         velocity = releaseVelocity;
+
+        // Play "Launch" SFX
+        SoundManager.instance.PlaySfx("Launch");
     }
 
     public void Bounce(Vector3 position, Vector3 bounceVelocity) 

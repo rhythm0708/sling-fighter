@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
     {
         timer -= amount;
         subtractTimeActions?.Invoke();
+
     }
 
     public void SubscribeOnSubtractTime(Action action)
@@ -135,6 +136,9 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         player.SubscribeOnFall(() => {
             SubtractTime(FALL_TIME);
+
+            // Play the "Out Of Bounds")
+            SoundManager.instance.PlaySfx("Out Of Bounds");
         });
     }
 

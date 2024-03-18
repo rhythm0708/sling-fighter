@@ -139,6 +139,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             slingPrevew.SetActive(false);
+            // Play "Rope" SFX
+            SoundManager.instance.PlaySfx("Rope");
         }
     }
 
@@ -308,10 +310,16 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("StepLeft"))
         {
             sideStepTimer = sideStepLength;
+
+            // Play "Side Step" SFX
+            SoundManager.instance.PlaySfx("Side Step");
         }
         if (Input.GetButtonDown("StepRight"))
         {
             sideStepTimer = -sideStepLength;
+
+            // Play "Side Step" SFX
+            SoundManager.instance.PlaySfx("Side Step");
         }
     
         // The side step timer will go towards 0.0
@@ -360,6 +368,9 @@ public class PlayerMovement : MonoBehaviour
             forward = direction - 2 * Vector3.Dot(direction, flatNormal) * flatNormal;
             forward = forward.normalized;
             sideStepTimer = 0.0f;
+
+            // Play the "Reflect" Sound
+            SoundManager.instance.PlaySfx("Reflect");
         }
         else if (hit.gameObject.tag == "Rope")
         {
