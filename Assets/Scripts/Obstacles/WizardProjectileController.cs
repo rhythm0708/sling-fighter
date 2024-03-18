@@ -6,10 +6,12 @@ public class WizardProjectileController  : MonoBehaviour
     [SerializeField] private float timeSubtraction = 5.0f;
     [SerializeField] private float trackingSpeed;
     private PlayerController player;
+    private DummyController dummy;
 
     void Start()
     {
         player = GameManager.Instance.player;
+        dummy = GameManager.Instance.dummy; 
     }
 
     void Update()
@@ -34,7 +36,8 @@ public class WizardProjectileController  : MonoBehaviour
         if (other.transform.root == player.transform.root)
         {
             GameManager.Instance.SubtractTime(timeSubtraction);
-            Destroy(gameObject);
         }
+
+        Destroy(gameObject);
     }
 }

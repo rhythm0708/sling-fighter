@@ -4,16 +4,21 @@ public class SpikesScript : MonoBehaviour
 {
     [SerializeField] private float deltaY;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float timeSubtraction = 5.0f;
+    [SerializeField] private float damageCooldown = 1.0f;
+    private int state = 2;
     private float lingerDurationDown;
     private float lingerDurationUp;
+    private float lingerTimeElapsed = 0;
+    private float damageTimeElapsed = 0;
+    private float speedMultiplier = 1;
     private Vector3 initialPos;
     private Vector3 minPos;
-    private float timeElapsed = 0;
-    private int state = 2;
-    private float speedMultiplier = 1;
+    private PlayerController player;
 
-    void Awake()
+    void Start()
     {
+        player = GameManager.Instance.player;
         initialPos = transform.position;
         minPos = initialPos + new Vector3(0, deltaY, 0);
         lingerDurationDown = Random.Range(2, 7);
@@ -25,13 +30,18 @@ public class SpikesScript : MonoBehaviour
         if (transform.position == minPos)
         {
             state = 0;
-            timeElapsed = 0;
+            lingerTimeElapsed = 0;
             speedMultiplier = 1;
             lingerDurationUp = Random.Range(2, 7);
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, minPos, Time.deltaTime * moveSpeed * speedMultiplier);
+            transform.position = Vector3.MoveTowards
+            (
+                transform.position,
+                minPos,
+                Time.deltaTime * moveSpeed * speedMultiplier
+            );
             speedMultiplier += 0.1f;
         }
     }
@@ -41,12 +51,27 @@ public class SpikesScript : MonoBehaviour
         if (transform.position == initialPos)
         {
             state = 2;
-            timeElapsed = 0;
+            lingerTimeElapsed = 0;
             lingerDurationDown = Random.Range(2, 7);
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, initialPos, Time.deltaTime * moveSpeed);
+            transform.position = Vector3.MoveTowards
+            (
+                transform.position,
+                initialPos,
+                Time.deltaTime * moveSpeed
+            );
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.root == player.transform.root &&
+            damageTimeElapsed >= damageCooldown)
+        {
+            GameManager.Instance.SubtractTime(timeSubtraction);
+            damageTimeElapsed = 0;
         }
     }
 
@@ -56,7 +81,7 @@ public class SpikesScript : MonoBehaviour
         {
             case 0:
                 // Resting state (maximum displacement).
-                if (timeElapsed >= lingerDurationUp)
+                if (lingerTimeElapsed >= lingerDurationUp)
                 {
                     state = 1;
                 }
@@ -67,7 +92,7 @@ public class SpikesScript : MonoBehaviour
                 break;
             case 2:
                 // Lingering state (minimum displacement).
-                if (timeElapsed >= lingerDurationDown)
+                if (lingerTimeElapsed >= lingerDurationDown)
                 {
                     state = 3;
                 }
@@ -79,6 +104,7 @@ public class SpikesScript : MonoBehaviour
             default:
                 break;
         }
-        timeElapsed += Time.deltaTime;
+        lingerTimeElapsed += Time.deltaTime;
+        damageTimeElapsed += Time.deltaTime;
     }
 }

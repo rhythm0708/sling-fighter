@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     private const float FALL_TIME = 5.0f;
     public float timer { get; private set; }
     public float totalTime { get; private set; }
+    // Whether or not player has entered wave select mode.
+    // Do not go through game progression if did.
+    public bool waveSelectMode { get; set; }
 
     public bool clearedWave { get; private set; }
     public float clearTimer { get; private set;}
@@ -34,9 +37,7 @@ public class GameManager : MonoBehaviour
             // Assign the singleton GameManager and bind
             // its scene load action
             Instance = this;
-            timer = INITIAL_TIME;
-            SceneManager.sceneLoaded += OnSceneLoaded;
-            clearTimer = 0.0f;
+            SetUpRun();
             DontDestroyOnLoad(gameObject);
         }
     }
@@ -44,6 +45,13 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+
+        if (timer <= 0.0f)
+        {
+            totalTime -= INITIAL_TIME;
+            // TODO: query for retry, handle accordingly.
+            timer = INITIAL_TIME;
+        }
         
         if (clearedWave)
         {
@@ -64,6 +72,12 @@ public class GameManager : MonoBehaviour
     // Move to next wave.
     void NextWave()
     {
+        if (waveSelectMode)
+        {
+            waveSelectMode = false;
+            SceneManager.LoadScene("Main Menu");
+        }
+
         clearedWave = false;
         clearTimer = 0.0f;
 
@@ -109,6 +123,15 @@ public class GameManager : MonoBehaviour
         // Assign the dummy and player from the scene
         FindDummy();
         FindPlayer();
+    }
+
+    // Resets everything back to default.
+    public void SetUpRun()
+    {
+        timer = INITIAL_TIME;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        totalTime = 0.0f;
+        clearTimer = 0.0f;
     }
 
     public void SubtractTime(float amount)
