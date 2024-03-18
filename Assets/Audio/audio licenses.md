@@ -4,9 +4,9 @@
 
 "Kubbi - Digestive biscuit" from [kubbi.bandcamp](https://kubbi.bandcamp.com/track/digestive-biscuit) by Kubbi and licensed undeded [Creative Commons Attribution 3.0 ](https://creativecommons.org/licenses/by-sa/3.0/)
 
-"Sfx - Launch" By Chang
+"Sfx - Launch" By Chang, made by playing a random Bass sound and modified it's settings by using an [Audio Cutter](https://mp3cut.net/)
 
-"Reflect - Sfx" By Chang
+"Reflect - Sfx" By Chang, made by using a home-made squeaking sound and modifying it's volume settings using an [Audio Cutter](https://mp3cut.net/)
 
 "repeating-arcade-beep" from [mixkit](https://mixkit.co/free-sound-effects/arcade/) licensed under [mixkit](https://mixkit.co/license/#sfxFree)
 
