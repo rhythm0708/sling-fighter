@@ -585,7 +585,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LEVEL 1
+  m_text: WAVE 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -790,7 +790,8 @@ PrefabInstance:
       propertyPath: m_ProvidesContacts
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3857462712701388388, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6393175206293392471, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
     m_AddedGameObjects:
@@ -804,6 +805,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4359691357791455224, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
       insertIndex: -1
       addedObject: {fileID: 45064377}
+    - targetCorrespondingSourceObject: {fileID: 4359691357791455224, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 45064383}
   m_SourcePrefab: {fileID: 100100000, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
 --- !u!4 &45064375 stripped
 Transform:
@@ -842,6 +846,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &45064383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45064376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504854de1d1d11449bb48182d59a1065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 29cc093a92f8cfb4e937825869d00cb2, type: 2}
+  startLoading: {fileID: 1898908265}
 --- !u!1 &50179226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,7 +1447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 2
+  m_text: WAVE 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -1827,7 +1845,7 @@ GameObject:
   m_Component:
   - component: {fileID: 315902188}
   m_Layer: 0
-  m_Name: L1-5
+  m_Name: W1-5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1846,10 +1864,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 668154143}
-  - {fileID: 45064375}
   - {fileID: 25422213}
+  - {fileID: 668154143}
   - {fileID: 2044298457}
+  - {fileID: 45064375}
   - {fileID: 1084008638}
   m_Father: {fileID: 630487679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1910,7 +1928,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LEVEL 6
+  m_text: WAVE 6
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -2044,9 +2062,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level 5
-
-'
+  m_text: WAVE 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -2469,7 +2485,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 3
+  m_text: WAVE 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -2961,10 +2977,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level 10
-
-
-'
+  m_text: WAVE 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -3718,7 +3731,8 @@ PrefabInstance:
       propertyPath: m_ProvidesContacts
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3857462712701388388, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6393175206293392471, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
     m_AddedGameObjects:
@@ -3732,6 +3746,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4359691357791455224, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
       insertIndex: -1
       addedObject: {fileID: 668154145}
+    - targetCorrespondingSourceObject: {fileID: 4359691357791455224, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 668154146}
   m_SourcePrefab: {fileID: 100100000, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
 --- !u!4 &668154143 stripped
 Transform:
@@ -3770,6 +3787,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &668154146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668154144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04bfc8ecf5efef54ea62095709b1a3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: e8f3fc7295d952b4b86b5e05887743f9, type: 2}
+  startLoading: {fileID: 1040294736}
 --- !u!1 &671503817
 GameObject:
   m_ObjectHideFlags: 0
@@ -4603,7 +4634,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 7
+  m_text: WAVE 7
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -5588,7 +5619,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 2
+  m_text: WAVE 12
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -5861,7 +5892,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1292201942}
   m_Layer: 0
-  m_Name: L5-10
+  m_Name: W5-10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6150,7 +6181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1353609913}
   m_Layer: 0
-  m_Name: L11-15
+  m_Name: W11-15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6969,9 +7000,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level 8
-
-'
+  m_text: WAVE 9
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -7105,7 +7134,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 3
+  m_text: WAVE 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -7775,9 +7804,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'LEVEL 11
-
-'
+  m_text: WAVE 11
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -8836,7 +8863,8 @@ PrefabInstance:
       propertyPath: m_ProvidesContacts
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3857462712701388388, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6393175206293392471, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
     m_AddedGameObjects:
@@ -8850,6 +8878,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4359691357791455224, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2044298459}
+    - targetCorrespondingSourceObject: {fileID: 4359691357791455224, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2044298465}
   m_SourcePrefab: {fileID: 100100000, guid: 370f403d2182d954eb91c53ca275bf68, type: 3}
 --- !u!4 &2044298457 stripped
 Transform:
@@ -8888,6 +8919,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &2044298465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044298458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56f6dec9ad225847996db99aff23eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 346fb0c8aad80f6499a66379e608f031, type: 2}
+  startLoading: {fileID: 1018671871}
 --- !u!1 &2049796838
 GameObject:
   m_ObjectHideFlags: 0
