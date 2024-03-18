@@ -33,6 +33,17 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Producer
 
+As the producer, I adopted a flexible leadership style in the sense that I did not make all of the decisions. I viewed my role in a more organizational sense.
+
+One of my goals was for everyone to get the credit that they deserved for their work. I looked over the [GameProject.md](https://github.com/dr-jam/GameplayProgramming/blob/master/GameProject.md) very carefully before assigning roles and tasks. For example, I ensured that our team received at least **10** pieces of feedback and they were shared to the rest of the team in a timely manner. I managed our [Google Drive](https://drive.google.com/drive/folders/1RleSwVFyKq-hQuMPw-QvtK3InfTamqMV?usp=sharing) as a central hub of communication and resources. 
+I ensured that every person kept documentation for each of their roles, and that the Press Kit & Trailer was not left to the last minute. Another goal that I had was to Here are some more specific examples of work that I did:
+
+- Meeting Notes - My meeting notes
+- Rooms for Meetings - 
+- Playtest Documents-
+- Arranging Progress Reports Meetings -
+- Merging Branches - 
+
 **Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
 
 ## User Interface and Input
