@@ -49,14 +49,68 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: c3abf9f70bf8ce0478d4e04c52b6bb46, type: 3}
     audioSource: {fileID: 0}
     name: In Game
-    volume: 1
+    volume: 0.4
     pitch: 1
     loop: 1
   - clip: {fileID: 8300000, guid: ce333079e86a336438d15493f0767df3, type: 3}
     audioSource: {fileID: 0}
     name: In Menu
-    volume: 1
+    volume: 0.4
     pitch: 1
     loop: 1
   sfxGroup: {fileID: 3468307724742771576, guid: 46a75691ae517a14785ba1d49e35066d, type: 2}
-  sfxClips: []
+  sfxClips:
+  - clip: {fileID: 8300000, guid: 43bcbeb4fc2b0e44bbe065b6832c1614, type: 3}
+    audioSource: {fileID: 0}
+    name: Launch
+    volume: 0.8
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: 8e57359b31d72184f832b9e487d1c206, type: 3}
+    audioSource: {fileID: 0}
+    name: Low Health
+    volume: 1
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: 67d730f45f3233645983ac5c71adc4f6, type: 3}
+    audioSource: {fileID: 0}
+    name: On Hit
+    volume: 0.65
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: 5ab06144f4ccccf4ba356cd14a74edb3, type: 3}
+    audioSource: {fileID: 0}
+    name: Out Of Bounds
+    volume: 0.65
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: 260d85fabecd7824b9f208289fe8377d, type: 3}
+    audioSource: {fileID: 0}
+    name: Rope
+    volume: 0.7
+    pitch: 1
+    loop: 1
+  - clip: {fileID: 8300000, guid: d087f2e86f63bf24999aef41702f6834, type: 3}
+    audioSource: {fileID: 0}
+    name: Swing
+    volume: 1
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: ae493b864fb34144ba7b1ed7b97895c6, type: 3}
+    audioSource: {fileID: 0}
+    name: Side Step
+    volume: 0.5
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: f752d8035540e394aa28ca95a0d02cd1, type: 3}
+    audioSource: {fileID: 0}
+    name: Slain
+    volume: 0.8
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: d90a2f1da0ced104f8550d98e533efe2, type: 3}
+    audioSource: {fileID: 0}
+    name: Reflect
+    volume: 0.8
+    pitch: 1
+    loop: 0
