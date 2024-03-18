@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public PlayerController player { get; private set; }
 
     private const float INITIAL_TIME = 90.0f;
+    private const float FALL_TIME = 5.0f;
     public float timer { get; private set; }
     public float totalTime { get; private set; }
 
@@ -133,7 +134,7 @@ public class GameManager : MonoBehaviour
     {
         player = FindObjectOfType<PlayerController>();
         player.SubscribeOnFall(() => {
-            SubtractTime(10.0f);
+            SubtractTime(FALL_TIME);
         });
     }
 

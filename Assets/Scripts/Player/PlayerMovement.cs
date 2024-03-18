@@ -210,8 +210,9 @@ public class PlayerMovement : MonoBehaviour
             mouseAxis = Vector3.zero;
         }
 
-        // Player faces forward.
-        this.gameObject.transform.rotation = Quaternion.LookRotation(-smoothRopeAim);
+        // Player model faces forward.
+        var playerModel = this.gameObject.transform.Find("Model");
+        playerModel.transform.rotation = Quaternion.LookRotation(cam.transform.forward) * Quaternion.Euler(0, 90, 0);
 
         int layerMask = 1 << 6;
         RaycastHit hit;
@@ -257,8 +258,9 @@ public class PlayerMovement : MonoBehaviour
         // Apply the offsets from the rope rest position
         transform.position = ropeStart + smoothRopeAim * 10.0f + recoilOffset;
 
-        // Player faces forward.
-        // this.gameObject.transform.rotation = Quaternion.LookRotation(-smoothRopeAim);
+        // Player model faces forward.
+        var playerModel = this.gameObject.transform.Find("Model");
+        playerModel.transform.rotation = Quaternion.LookRotation(-smoothRopeAim) * Quaternion.Euler(0, 90, 0);
 
         if (Input.GetButtonUp("Action"))
         {
@@ -336,10 +338,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Move the player
         controller.Move(forward * speed * Time.deltaTime);
-
-        // Player faces forward.
-        // this.gameObject.transform.rotation = Quaternion.LookRotation(forward);
-
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)

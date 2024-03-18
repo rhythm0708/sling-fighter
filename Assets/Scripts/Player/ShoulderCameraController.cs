@@ -60,14 +60,12 @@ public class ShoulderCameraController : MonoBehaviour, IIgnoreHitlag
             // When preparing the sling, face the camera in
             // the direction of the rope
             forward = playerMovement.GetRopeForward();
-            // forward = Vector3.Lerp(transform.rotation.eulerAngles, playerMovement.GetRopeForward(), Time.deltaTime);
         }
         else
         {
             // When doing anything else, use the players forward
             // travel direction
             forward = playerMovement.GetForward();
-            // forward = Vector3.Lerp(transform.rotation.eulerAngles, playerMovement.GetForward(), Time.deltaTime);
         }
 
         // Interpolate the camera's rotation towards the
