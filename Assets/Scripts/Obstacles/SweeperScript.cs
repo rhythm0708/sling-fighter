@@ -7,10 +7,17 @@ public class SweeperScript : MonoBehaviour
 {
     [SerializeField] private Vector3[] checkPoints;
     [SerializeField] private float speedChangeCooldown;
+    [SerializeField] private float timeSubtraction = 10.0f;
+    private PlayerController player;
     private float speed = 150;
     private float timeElapsed = 0;
     // Index of checkpoint Sweeper is moving towards right now.
     private int targetCheckpoint = 1;
+
+    void Start()
+    {
+        player = GameManager.Instance.player;
+    }
     
     void Update()
     {
@@ -31,4 +38,13 @@ public class SweeperScript : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
         timeElapsed += Time.deltaTime;
     }
+
+    // TODO: implement damage.
+    // private void OnCollisionEnter(Collider other)
+    // {
+    //     if (other.transform.root == player.transform.root)
+    //     {
+    //         GameManager.Instance.SubtractTime(timeSubtraction);
+    //     }
+    // }
 }
