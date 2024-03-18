@@ -368,6 +368,9 @@ public class PlayerMovement : MonoBehaviour
             forward = direction - 2 * Vector3.Dot(direction, flatNormal) * flatNormal;
             forward = forward.normalized;
             sideStepTimer = 0.0f;
+
+            // Play the "Reflect" Sound
+            SoundManager.instance.PlaySfx("Reflect");
         }
         else if (hit.gameObject.tag == "Rope")
         {
