@@ -150,6 +150,8 @@ public class DummyController : MonoBehaviour
                 onSlainActions?.Invoke();
             }
         }
+        // Play the "On Damage" sound
+        SoundManager.instance.PlaySfx("On Hit");
     }
 
     public void SubscribeOnSlain(Action action)

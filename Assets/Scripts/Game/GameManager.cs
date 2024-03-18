@@ -115,6 +115,9 @@ public class GameManager : MonoBehaviour
     {
         timer -= amount;
         subtractTimeActions?.Invoke();
+
+        // Play the "Out Of Bounds")
+        SoundManager.instance.PlaySfx("Out Of Bounds");
     }
 
     public void SubscribeOnSubtractTime(Action action)

@@ -308,10 +308,16 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("StepLeft"))
         {
             sideStepTimer = sideStepLength;
+
+            // Play "Side Step" SFX
+            SoundManager.instance.PlaySfx("Side Step");
         }
         if (Input.GetButtonDown("StepRight"))
         {
             sideStepTimer = -sideStepLength;
+
+            // Play "Side Step" SFX
+            SoundManager.instance.PlaySfx("Side Step");
         }
     
         // The side step timer will go towards 0.0
