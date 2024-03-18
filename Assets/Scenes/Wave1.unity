@@ -2210,7 +2210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: sfxClips.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: musicTracks.Array.size
@@ -2277,6 +2277,14 @@ PrefabInstance:
       value: Side Step
       objectReference: {fileID: 0}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
+      propertyPath: sfxClips.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f752d8035540e394aa28ca95a0d02cd1, type: 3}
+    - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
+      propertyPath: sfxClips.Array.data[7].name
+      value: Slain
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: sfxClips.Array.data[0].pitch
       value: 1
       objectReference: {fileID: 0}
@@ -2305,8 +2313,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
-      propertyPath: sfxClips.Array.data[0].volume
+      propertyPath: sfxClips.Array.data[7].pitch
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
+      propertyPath: sfxClips.Array.data[0].volume
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: sfxClips.Array.data[1].volume
@@ -2314,15 +2326,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: sfxClips.Array.data[2].volume
-      value: 1
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: sfxClips.Array.data[3].volume
-      value: 0.698
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: sfxClips.Array.data[4].volume
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: sfxClips.Array.data[5].volume
@@ -2330,7 +2342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: sfxClips.Array.data[6].volume
-      value: 0.35
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
+      propertyPath: sfxClips.Array.data[7].volume
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: musicTracks.Array.data[1].clip
@@ -2349,8 +2365,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
+      propertyPath: musicTracks.Array.data[0].volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: musicTracks.Array.data[1].volume
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7624001716655658488, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: m_Name

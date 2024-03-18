@@ -18,6 +18,8 @@
 
 "sound4" from [creatorassets.com](https://creatorassets.com/a/8-bit-jump-sound-effects) by Sonido libre licensed under [idmanagement](https://www.idmanagement.gov/license/)
 
+"mixkit-arcade-game-explosion-echo-1698" from [mixkit](https://mixkit.co/free-sound-effects/arcade/) licensed under [mixkit](https://mixkit.co/license/#sfxFree)
+
 "throwing-item-swing-epic-stock-media-1-00-00" from [uppbeat.io](https://uppbeat.io/sfx/arcade-game-retro-8-bit-big-shot-1/912/1601) by Uppbeat and licensed under [Uppbeat](https://uppbeat.io/user-agreement)
 
 “Player 1” from [panda beats music](https://pandabeatsmusic.com) by pandabeatsmusic licensed under [Panda Beats Music](https://pandabeatsmusic.com/usage-policy/)
@@ -29,6 +31,8 @@
 "8bit Dungeon Boss" from [incompetech](https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1200067&Search=Search) by Kevin MacLeod licensed licensed under  [Creative Commons Attribution 3.0](https://creativecommons.org/licenses/by/4.0/)
 
 "Virtual Reality" from [inaudio,org](https://inaudio.org/track/virtual-reality-cyberpunk/) by Infraction licensed under [Creative Commons Attribution 3.0](https://creativecommons.org/licenses/by/4.0/) and also [more information on licensing](https://inaudio.org/license-terms/)
+
+
 
 
 
