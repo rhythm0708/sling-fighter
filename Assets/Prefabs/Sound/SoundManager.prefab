@@ -55,7 +55,13 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: ce333079e86a336438d15493f0767df3, type: 3}
     audioSource: {fileID: 0}
     name: In Menu
-    volume: 0.4
+    volume: 1
+    pitch: 1
+    loop: 1
+  - clip: {fileID: 8300000, guid: 6629646462e105a478b7e24368ec6f51, type: 3}
+    audioSource: {fileID: 0}
+    name: EG
+    volume: 1
     pitch: 1
     loop: 1
   sfxGroup: {fileID: 3468307724742771576, guid: 46a75691ae517a14785ba1d49e35066d, type: 2}
@@ -111,6 +117,30 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: d90a2f1da0ced104f8550d98e533efe2, type: 3}
     audioSource: {fileID: 0}
     name: Reflect
+    volume: 0.8
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: 2e64502e2ce8edb48ae75d0a8379f4e3, type: 3}
+    audioSource: {fileID: 0}
+    name: Unused1
+    volume: 0.8
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: 963bf624beabf7241ad073f9c2f44ae8, type: 3}
+    audioSource: {fileID: 0}
+    name: Unused2
+    volume: 0.8
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: 5249471203f3a924dae10db61e7c1812, type: 3}
+    audioSource: {fileID: 0}
+    name: Unused3
+    volume: 0.8
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: b57e9a26afe35bd4fa26f224f95c242a, type: 3}
+    audioSource: {fileID: 0}
+    name: Unused4
     volume: 0.8
     pitch: 1
     loop: 0

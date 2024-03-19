@@ -60,7 +60,7 @@ public class L11 : MonoBehaviour
             startLoading.gameObject.SetActive(true);
 
             // Play SFX
-            SoundManager.instance.PlaySfx("Unused2");
+            SoundManager.instance.PlaySfx("Rope");
         }
     }
 
@@ -75,7 +75,7 @@ public class L11 : MonoBehaviour
         startLoading.gameObject.SetActive(false);
 
         // Play SFX
-        SoundManager.instance.StopSfx("Unused3");
+        SoundManager.instance.StopSfx("Rope");
     }
 
     IEnumerator LoadNextScene()

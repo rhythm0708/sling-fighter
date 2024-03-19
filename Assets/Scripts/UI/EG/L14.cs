@@ -75,7 +75,7 @@ public class L14 : MonoBehaviour
         startLoading.gameObject.SetActive(false);
 
         // Play SFX
-        SoundManager.instance.StopSfx("Unused3");
+        SoundManager.instance.StopSfx("Unused2");
     }
 
     IEnumerator LoadNextScene()

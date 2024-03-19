@@ -3,22 +3,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class L15 : MonoBehaviour
+public class EasterEgg : MonoBehaviour
 {
     [SerializeField] private Material mat;
     private Color startingColor;
     private bool startDetected = false;
     private float triggerTimer = 0f;
     private float triggerDuration = 1.5f;
-    [SerializeField] private Slider startLoading;
 
     void Start()
     {
         mat = GetComponent<Renderer>().material;
         startingColor = mat.color;
-        
-        // Hide the loading slider initially
-        startLoading.gameObject.SetActive(false); 
     }
 
     void Update()
@@ -27,9 +23,6 @@ public class L15 : MonoBehaviour
         {
             // Increment the timer while the player is in the trigger zone
             triggerTimer += Time.deltaTime;
-
-            // Update loading progress
-            startLoading.value = Mathf.Clamp01(triggerTimer / triggerDuration);
 
             // Check if the timer exceeds the desired duration
             if (triggerTimer >= triggerDuration)
@@ -55,12 +48,6 @@ public class L15 : MonoBehaviour
 
             // Restart the timer when the player re-enters the trigger zone
             triggerTimer = 0f;
-
-            // Show the loading slider
-            startLoading.gameObject.SetActive(true);
-
-            // Play SFX
-            SoundManager.instance.PlaySfx("Unused3");
         }
     }
 
@@ -70,12 +57,6 @@ public class L15 : MonoBehaviour
 
         // Reset button color on exit
         mat.color = startingColor;
-
-        // Hide the loading slider
-        startLoading.gameObject.SetActive(false);
-
-        // Play SFX
-        SoundManager.instance.StopSfx("Unused3");
     }
 
     IEnumerator LoadNextScene()
@@ -83,6 +64,6 @@ public class L15 : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
 
         // Load the next scene
-        SceneManager.LoadScene("Wave15");
+        SceneManager.LoadScene("EG");
     }
 }
