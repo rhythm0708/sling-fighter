@@ -18,7 +18,9 @@ public class PlayerController : MonoBehaviour
         get { return movement.GetState() == PlayerMovement.State.Move; }
     }
 
-    [SerializeField] private float baseDamageOutput = 10.0f; 
+    [SerializeField] private float baseDamageOutput = 10.0f;
+    [SerializeField] private int comboCount;
+    private const float COMBO_MULTIPLIER = 2.5f;
     
     // This property can be modified later to adjust the damage
     // output. This is where someone would write damage scaling 
@@ -27,7 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         get 
         {
-            return baseDamageOutput;
+            return baseDamageOutput + (comboCount * COMBO_MULTIPLIER);
         }
     }
 
