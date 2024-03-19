@@ -67,7 +67,14 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector3 GetForward()
     {
-        return forward;
+        if (state == State.Move)
+        {
+            return forward;
+        }
+        else
+        {
+            return ropeForward;
+        }
     }
 
     public Vector3 GetRopeForward()

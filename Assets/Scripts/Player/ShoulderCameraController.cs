@@ -48,7 +48,7 @@ public class ShoulderCameraController : MonoBehaviour, IIgnoreHitlag
         {
             forward = transform.forward;
             forward = Quaternion.AngleAxis(50.0f * Time.deltaTime, transform.right) * forward;
-            forward = Quaternion.AngleAxis(-100.0f * Time.deltaTime, Vector3.up) * forward;
+            forward = Quaternion.AngleAxis(-200.0f * Time.deltaTime, Vector3.up) * forward;
             clearCamera.GetComponent<Camera>().fieldOfView += 50.0f * Time.deltaTime;
             transform.rotation = Quaternion.LookRotation(forward);
         }
