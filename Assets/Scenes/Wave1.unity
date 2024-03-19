@@ -2279,9 +2279,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1827339780340101514, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864501015621372843, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: rightLength
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864501015621372843, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: timeStampTotalScore
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864501015621372843, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: rightAnimationLength
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894730039609061013, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -202.99995
+      objectReference: {fileID: 0}
     - target: {fileID: 5930085098214963277, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Name
       value: Main HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481581553067696400, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -203.00002
       objectReference: {fileID: 0}
     - target: {fileID: 7165251991086834112, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_AnchorMax.x

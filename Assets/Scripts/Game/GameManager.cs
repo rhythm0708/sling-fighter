@@ -14,9 +14,12 @@ public class GameManager : MonoBehaviour
     private const float INITIAL_TIME = 90.0f;
     private const float FALL_TIME = 5.0f;
     public float timer { get; private set; }
-    public float Score { get; private set; }
     public float totalTime { get; private set; }
+
+    private bool computedScore;
+    public float Score { get; private set; }
     public float TotalScore { get; private set; }
+
     // Whether or not player has entered wave select mode.
     // Do not go through game progression if did.
     public bool waveSelectMode { get; set; }
@@ -57,10 +60,16 @@ public class GameManager : MonoBehaviour
         
         if (clearedWave)
         {
+            if(!computedScore)
+            {
+                ComputeScore();
+                computedScore = true;
+            }
+
             Time.timeScale = 0.1f;
             clearTimer += Time.deltaTime / Time.timeScale;
 
-            if (clearTimer >= 30.0f)
+            if (clearTimer >= 12.0f)
             {
                 NextWave();
             }
@@ -83,6 +92,9 @@ public class GameManager : MonoBehaviour
 
         clearedWave = false;
         clearTimer = 0.0f;
+
+        this.Score = 0;
+        computedScore = false;
 
         // Add the last wave's timer to the total time, then
         // reset the timer
@@ -132,6 +144,8 @@ public class GameManager : MonoBehaviour
     public void SetUpRun()
     {
         timer = INITIAL_TIME;
+        this.Score = 0;
+        computedScore = false;
         SceneManager.sceneLoaded += OnSceneLoaded;
         totalTime = 0.0f;
         clearTimer = 0.0f;
@@ -141,7 +155,6 @@ public class GameManager : MonoBehaviour
     {
         timer -= amount;
         subtractTimeActions?.Invoke();
-
     }
 
     public void SubscribeOnSubtractTime(Action action)
@@ -166,6 +179,16 @@ public class GameManager : MonoBehaviour
             // Play the "Out Of Bounds".
             SoundManager.instance.PlaySfx("Out Of Bounds");
         });
+    }
+
+    // Score Formula: (100*Time) + (10*MaxCombo*Time) - (500*FallCount)
+    void ComputeScore()
+    {
+        var maxCombo = DamageEngine.Instance.maxComboThisWave;
+        var fallCount = player.fallCount;
+        this.Score = (100*timer) + (10*maxCombo*timer) - (500*fallCount);
+
+        this.TotalScore += this.Score;
     }
 
     // Kill dummy (for debugging).

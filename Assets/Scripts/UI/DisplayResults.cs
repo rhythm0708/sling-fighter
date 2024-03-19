@@ -11,11 +11,13 @@ public class DisplayResults : MonoBehaviour
     [SerializeField] List<Vector2> resultsScreenTextPos;
 
     // Animating the text boxes moving right.
-    [SerializeField] private float rightLength = 100f;
-    private float rightAnimationTime;
+    [SerializeField] private float rightLength;
+    private float rightAnimationTime1;
+    private float rightAnimationTime2;
+    private float rightAnimationTime3;
+    [SerializeField] float rightAnimationLength;
 
     // Time stamps when the text boxes will be animated.
-    [SerializeField] float timeStamp;
     [SerializeField] float timeStampResults;
     [SerializeField] float timeStampWaveScore;
     [SerializeField] float timeStampTotalScore;
@@ -26,10 +28,12 @@ public class DisplayResults : MonoBehaviour
 
     void Start()
     {
-        rightAnimationTime = 0.0f;
+        rightAnimationTime1 = 0.0f;
+        rightAnimationTime2 = 0.0f;
+        rightAnimationTime3 = 0.0f;
 
         // Set location, make all text transparent to start.
-        foreach(TMP_Text textBox in resultsScreenText)
+        foreach (TMP_Text textBox in resultsScreenText)
         {
             var index = resultsScreenText.IndexOf(textBox);
             resultsScreenTextPos[index] = textBox.rectTransform.localPosition;
@@ -38,12 +42,10 @@ public class DisplayResults : MonoBehaviour
             // Prepare for the animation.
             textBox.rectTransform.localPosition = resultsScreenTextPos[index] + new Vector2(-rightLength, 0f);
         }
-
     }
 
     void Update()
     {
-        
         // Update score after wave is complete.
         if(GameManager.Instance.clearedWave == true)
         {
@@ -53,27 +55,26 @@ public class DisplayResults : MonoBehaviour
         var clearTimer = GameManager.Instance.clearTimer;
         if (clearTimer > 5.0f)
         {
-            Debug.Log("cleared");
-            timeStamp += Time.deltaTime;
+            // Debug.Log("cleared");
             // Reveal results line.
             if(clearTimer >= timeStampResults)
             {
-                Debug.Log("1");
-                StartCoroutine(RevealText(resultsScreenText[0]));
+                rightAnimationTime1 += Time.deltaTime / Time.timeScale;
+                StartCoroutine(RevealText(resultsScreenText[0], rightAnimationTime1));
             }
             // Reveal wave score.
             if(clearTimer >= timeStampWaveScore)
             {
-                Debug.Log("2");
-                StartCoroutine(RevealText(resultsScreenText[1]));
-                StartCoroutine(RevealText(resultsScreenText[2]));
+                rightAnimationTime2 += Time.deltaTime / Time.timeScale;
+                StartCoroutine(RevealText(resultsScreenText[1], rightAnimationTime2));
+                StartCoroutine(RevealText(resultsScreenText[2], rightAnimationTime2));
             }
             // Reveal total score.
             if(clearTimer >= timeStampTotalScore)
             {
-                Debug.Log("3");
-                StartCoroutine(RevealText(resultsScreenText[3]));
-                StartCoroutine(RevealText(resultsScreenText[4]));
+                rightAnimationTime3 += Time.deltaTime / Time.timeScale;
+                StartCoroutine(RevealText(resultsScreenText[3], rightAnimationTime3));
+                StartCoroutine(RevealText(resultsScreenText[4], rightAnimationTime3));
             }
         }
     }
@@ -100,34 +101,46 @@ public class DisplayResults : MonoBehaviour
         }
 
         // Set total score.
-        if (GameManager.Instance.Score >= 100000)
+        if(GameManager.Instance.Score >= 1000000)
         {
-            resultsScreenText[4].text = GameManager.Instance.Score.ToString("000 000");
+            resultsScreenText[4].text = GameManager.Instance.TotalScore.ToString("0 000 000");
+        }
+        else if (GameManager.Instance.Score >= 100000)
+        {
+            resultsScreenText[4].text = GameManager.Instance.TotalScore.ToString("000 000");
         }
         else if (GameManager.Instance.Score >= 10000)
         {
-            resultsScreenText[4].text = GameManager.Instance.Score.ToString("00 000");
+            resultsScreenText[4].text = GameManager.Instance.TotalScore.ToString("00 000");
         }
         else if (GameManager.Instance.Score >= 1000)
         {
-            resultsScreenText[4].text = GameManager.Instance.Score.ToString("0 000");
+            resultsScreenText[4].text = GameManager.Instance.TotalScore.ToString("0 000");
         }
         else
         {
-            resultsScreenText[4].text = GameManager.Instance.Score.ToString("000");
+            resultsScreenText[4].text = GameManager.Instance.TotalScore.ToString("000");
         }
     }
 
-    private IEnumerator RevealText(TMP_Text textbox)
+    private IEnumerator RevealText(TMP_Text textbox, float rightAnimationTime)
     {
         // Apply the animation.
-        float t = rightAnimationTime / rightLength;
+        float t = rightAnimationTime / rightAnimationLength;
         int index = resultsScreenText.IndexOf(textbox);
 
-        Color lerpedColor = Color.Lerp(transparentColor, originalColor, t);
-        textbox.color = lerpedColor;
-        
-        textbox.rectTransform.localPosition = resultsScreenTextPos[index] + new Vector2(rightLength,0f) * t;
-        yield return null;
+        if(t>=1)
+        {
+            textbox.color = originalColor;
+            yield return null;
+        }
+        else
+        {
+            Color lerpedColor = Color.Lerp(transparentColor, originalColor, t);
+            textbox.color = lerpedColor;
+
+            textbox.rectTransform.localPosition = resultsScreenTextPos[index] + new Vector2(rightLength, 0f) * t;
+            yield return null;
+        }
     }
 }

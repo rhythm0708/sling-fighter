@@ -18,18 +18,17 @@ public class PlayerController : MonoBehaviour
         get { return movement.GetState() == PlayerMovement.State.Move; }
     }
 
-    [SerializeField] private float baseDamageOutput = 10.0f;
-    [SerializeField] private int comboCount;
-    private const float COMBO_MULTIPLIER = 2.5f;
-    
+    [SerializeField] public int comboCount { get; set; }
+    [SerializeField] public int fallCount { get; set; }
+
     // This property can be modified later to adjust the damage
     // output. This is where someone would write damage scaling 
     // for combo counter.
     public float damageOutput
     {
-        get 
+        get
         {
-            return baseDamageOutput + (comboCount * COMBO_MULTIPLIER);
+            return DamageEngine.Instance.ComputeDamage(comboCount);
         }
     }
 
@@ -39,6 +38,8 @@ public class PlayerController : MonoBehaviour
         cameraController = GetComponentInChildren<ShoulderCameraController>();
         movement = GetComponent<PlayerMovement>();
         hitlag = GetComponent<HitlagComponent>();
+
+        SubscribeOnFall(() => { fallCount += 1; });
     }
 
     private void Update()
@@ -49,6 +50,17 @@ public class PlayerController : MonoBehaviour
             movement.AttachToLastRope();
             onFallActions?.Invoke();
         }
+
+        // Increment combo count when moving.
+        if(GameManager.Instance.player.GetComponent<PlayerMovement>().GetState() == PlayerMovement.State.Move)
+        {
+            SubscribeOnHitDummy(() => { comboCount += 1; });
+        }
+        else
+        {
+            comboCount = 0;
+        }
+
     }
 
     private void SnapCameraForward()
@@ -74,5 +86,10 @@ public class PlayerController : MonoBehaviour
     public void SubscribeOnHitDummy(Action action)
     {
         hitDummyActions += action;
+    }
+
+    public void UnsubscribeOnHitDummy(Action action)
+    {
+        hitDummyActions -= action;
     }
 }
