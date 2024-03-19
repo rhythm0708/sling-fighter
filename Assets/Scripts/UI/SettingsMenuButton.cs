@@ -44,7 +44,7 @@ public class SettingsMenu : MonoBehaviour
 
     private void OnTriggerStay(Collider collision)
     {
-        // Check if the colliding object is the ball
+        // Check if the colliding object is the player
         if (collision.gameObject.CompareTag("PlayerInMenu") && !startDetected)
         {
             // Set startDetected to true to prevent multiple scene switches
@@ -53,7 +53,7 @@ public class SettingsMenu : MonoBehaviour
             // Change button color
             mat.color = Color.Lerp(startingColor, Color.white, Mathf.PingPong(Time.time, 1));
 
-            // Restart the timer when the ball re-enters the trigger zone
+            // Restart the timer when the player re-enters the trigger zone
             triggerTimer = 0f;
 
             // Show the loading slider

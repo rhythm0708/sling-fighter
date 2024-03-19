@@ -10,7 +10,7 @@ public class PlayerInMenu : MonoBehaviour
     private static PlayerInMenu instance;
     private void Awake()
     {
-        // Ensure only one instance of Ball exists
+        // Ensure only one instance of Player exists
         if (instance == null)
         {
             instance = this;

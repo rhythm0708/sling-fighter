@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class StartMenu : MonoBehaviour
+public class L2 : MonoBehaviour
 {
     [SerializeField] private Material mat;
     private Color startingColor;
@@ -44,7 +44,7 @@ public class StartMenu : MonoBehaviour
 
     private void OnTriggerStay(Collider collision)
     {
-        // Check if the colliding object is the player
+        // Check if the colliding object is the ball
         if (collision.gameObject.CompareTag("PlayerInMenu") && !startDetected)
         {
             // Set startDetected to true 
@@ -58,6 +58,9 @@ public class StartMenu : MonoBehaviour
 
             // Show the loading slider
             startLoading.gameObject.SetActive(true);
+
+            // Play SFX
+            SoundManager.instance.PlaySfx("On Hit");
         }
     }
 
@@ -70,6 +73,9 @@ public class StartMenu : MonoBehaviour
 
         // Hide the loading slider
         startLoading.gameObject.SetActive(false);
+
+        // Play SFX
+        SoundManager.instance.StopSfx("On Hit");
     }
 
     IEnumerator LoadNextScene()
@@ -77,6 +83,6 @@ public class StartMenu : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
 
         // Load the next scene
-        SceneManager.LoadScene("Wave1");
+        SceneManager.LoadScene("Wave2");
     }
 }

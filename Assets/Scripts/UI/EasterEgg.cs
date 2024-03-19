@@ -3,24 +3,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class StartMenu : MonoBehaviour
+public class EasterEgg : MonoBehaviour
 {
     [SerializeField] private Material mat;
-    private Color startingColor;
     private bool startDetected = false;
     private float triggerTimer = 0f;
-    private float triggerDuration = 1.5f;
-    [SerializeField] private Slider startLoading;
-
-    void Start()
-    {
-        mat = GetComponent<Renderer>().material;
-        startingColor = mat.color;
-        
-        // Hide the loading slider initially
-        startLoading.gameObject.SetActive(false); 
-    }
-
+    private float triggerDuration = 3f;
     void Update()
     {
         if (startDetected)
@@ -28,13 +16,10 @@ public class StartMenu : MonoBehaviour
             // Increment the timer while the player is in the trigger zone
             triggerTimer += Time.deltaTime;
 
-            // Update loading progress
-            startLoading.value = Mathf.Clamp01(triggerTimer / triggerDuration);
-
             // Check if the timer exceeds the desired duration
             if (triggerTimer >= triggerDuration)
             {
-                // Switch scene after 1.5 seconds
+                // Switch scene after 3 seconds
                 StartCoroutine(LoadNextScene());
                 // Reset detection
                 startDetected = false;
@@ -50,26 +35,20 @@ public class StartMenu : MonoBehaviour
             // Set startDetected to true 
             startDetected = true;
 
-            // Change button color
-            mat.color = Color.Lerp(startingColor, Color.white, Mathf.PingPong(Time.time, 1));
-
             // Restart the timer when the player re-enters the trigger zone
             triggerTimer = 0f;
 
-            // Show the loading slider
-            startLoading.gameObject.SetActive(true);
+            // Play SFX
+            SoundManager.instance.PlaySfx("EasterEgg");
+            SoundManager.instance.StopMusic("In Menu");
         }
     }
 
     private void OnTriggerExit(Collider collision)
     {
         startDetected = false;
-
-        // Reset button color on exit
-        mat.color = startingColor;
-
-        // Hide the loading slider
-        startLoading.gameObject.SetActive(false);
+        SoundManager.instance.StopSfx("EasterEgg");
+        SoundManager.instance.PlayMusic("In Menu");
     }
 
     IEnumerator LoadNextScene()
@@ -77,6 +56,6 @@ public class StartMenu : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
 
         // Load the next scene
-        SceneManager.LoadScene("Wave1");
+        SceneManager.LoadScene("EG");
     }
 }
