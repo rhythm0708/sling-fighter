@@ -449,37 +449,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
-      propertyPath: musicTracks.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
-      propertyPath: musicTracks.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: ce333079e86a336438d15493f0767df3, type: 3}
-    - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
-      propertyPath: musicTracks.Array.data[1].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
-      propertyPath: musicTracks.Array.data[1].name
-      value: In Menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
-      propertyPath: musicTracks.Array.data[1].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
-      propertyPath: musicTracks.Array.data[1].volume
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7624001716655658488, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: m_Name
       value: SoundManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7624001716655658488, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
-      propertyPath: m_TagString
-      value: Sound
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

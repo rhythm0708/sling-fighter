@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.667725, g: 0.84946305, b: 0.91550404, a: 1}
+  m_IndirectSpecularColor: {r: 0.6676871, g: 0.84954053, b: 0.91589737, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1238,17 +1238,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
---- !u!114 &1023911462 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6405504450401661735, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-  m_PrefabInstance: {fileID: 1270668162}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aee451c3f5ddc1141b0d492fa1629b74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1057449575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,7 +1495,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: babad7b1c6d574f7fab9dfb74c4541ac, type: 3}
---- !u!1001 &1270668162
+--- !u!1001 &1245248984
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1521,10 +1510,6 @@ PrefabInstance:
     - target: {fileID: 2712268366292653088, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3984106964084748073, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -340.32
       objectReference: {fileID: 0}
     - target: {fileID: 4381291024136645891, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1649,34 +1634,6 @@ PrefabInstance:
     - target: {fileID: 8641462303304035682, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8698752781270652126, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8698752781270652126, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8698752781270652126, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1023911462}
-    - target: {fileID: 8698752781270652126, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8698752781270652126, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToMainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 8698752781270652126, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8698752781270652126, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8781500110311802291, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2898,6 +2855,6 @@ SceneRoots:
   - {fileID: 8713105385436838728}
   - {fileID: 6996642787117547394}
   - {fileID: 1008313120}
-  - {fileID: 1270668162}
   - {fileID: 217984106}
   - {fileID: 1210278621}
+  - {fileID: 1245248984}

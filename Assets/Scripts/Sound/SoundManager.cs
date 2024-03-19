@@ -82,12 +82,21 @@ public class SoundManager : MonoBehaviour
             StopMusic("In Game");
             PlayMusic("In Menu");
             StopSfx("Rope");
+            StopMusic("EG");
         }
         else if (currentScene == "Wave1")
         {
             StopMusic("In Menu");
             PlayMusic("In Game");
+            StopMusic("EG");
         }
+        else if (currentScene == "EG")
+        {
+            StopMusic("In Menu");
+            StopMusic("In Game");
+            PlayMusic("EG");
+        }
+
     }
 
     // Plays the desired Song 
