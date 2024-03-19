@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 recoilVelocity;
     private Rope lastRope;
 
+    private Action onAttachToRope;
+
     // Public getter for speed.
     public float Speed { get => speed; set => speed = value; }
 
@@ -53,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         if (currentRope != null)
         {
             ropeStart = currentRope.Attach(gameObject);
+            onAttachToRope?.Invoke();
         }
     }
 
@@ -63,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position = currentRope.transform.position;
         ropeStart = currentRope.Attach(gameObject);
         forward = ropeForward;
+        onAttachToRope?.Invoke();
     }
 
     public Vector3 GetForward()
@@ -397,6 +402,7 @@ public class PlayerMovement : MonoBehaviour
             if (currentRope != null)
             {
                 ropeStart = currentRope.Attach(gameObject);
+                onAttachToRope?.Invoke();
             }
             smoothRopeAim = Vector3.zero;
             recoilVelocity = GetVelocity();
@@ -404,5 +410,10 @@ public class PlayerMovement : MonoBehaviour
             state = State.WaitSling;
             sideStepTimer = 0.0f;
         }
+    }
+
+    public void SubscribeOnAttachToRope(Action action)
+    {
+        onAttachToRope += action;
     }
 }

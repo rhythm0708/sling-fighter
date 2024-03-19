@@ -28,6 +28,8 @@ public class DummyController : MonoBehaviour
     private Action onSlainActions;
     private Action hitByPlayerActions;
 
+    private Action onReturnActions;
+
     void Start()
     {
         gravity = GetComponent<GravityComponent>();
@@ -55,6 +57,7 @@ public class DummyController : MonoBehaviour
         returnDirection = directionToOrigin;
         returnSpeed = distanceToOrigin / airTime;
         returning = true;
+        onReturnActions?.Invoke();
         Damage(falloffDamage, false);
     }
 
@@ -167,5 +170,10 @@ public class DummyController : MonoBehaviour
     public void SubscribeOnHitByPlayer(Action action)
     {
         hitByPlayerActions += action;
+    }
+
+    public void SubscribeOnReturn(Action action)
+    {
+        onReturnActions += action;
     }
 }
