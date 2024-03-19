@@ -13,6 +13,7 @@ public class DummyController : MonoBehaviour
 
     private PlayerController player;
 
+    [SerializeField] bool returnOnStop = true;
     private bool returning;
     private float returnSpeed;
     private Vector3 returnDirection;
@@ -20,6 +21,7 @@ public class DummyController : MonoBehaviour
     [SerializeField] private float knockbackStrength = 400.0f;
     [SerializeField] private float knockbackDecay = 2.0f;
     private Vector3 knockbackVelocity;
+    bool knockedBack;
 
     private CharacterController controller;
     private GravityComponent gravity;
@@ -39,11 +41,13 @@ public class DummyController : MonoBehaviour
         player = GameManager.Instance.player;
         returning = false;
         knockbackVelocity = Vector3.zero;
+        knockedBack = false;
     }
 
-    void StartReturn(float jumpStrength = 100.0f)
+    void StartReturn(float jumpStrength = 100.0f, bool damage = true)
     {
         knockbackVelocity = Vector3.zero;
+        knockedBack = false;
         float airTime = gravity.Jump(jumpStrength, 5.0f);
 
         Vector3 planarPosition = transform.position;
@@ -55,13 +59,25 @@ public class DummyController : MonoBehaviour
         returnDirection = directionToOrigin;
         returnSpeed = distanceToOrigin / airTime;
         returning = true;
-        Damage(falloffDamage, false);
+        if (damage)
+        {
+            Damage(falloffDamage, false);
+        }
+
+        // Change layer to ignore collision
+        gameObject.layer = 9;
     }
 
     void Update()
     {
         if (returning) 
         {
+            // Reenable collision layer when falling
+            if (gravity.gravity > 0.0f)
+            {
+                gameObject.layer = 7;
+            }
+
             // Use returning velocity when in returning state
             controller.Move(returnDirection * returnSpeed * Time.deltaTime);
 
@@ -81,6 +97,16 @@ public class DummyController : MonoBehaviour
                 Vector3.zero,
                 1.0f - Mathf.Exp(-knockbackDecay * Time.deltaTime)
             );
+            if 
+            (
+                knockedBack && 
+                returnOnStop && 
+                knockbackVelocity.magnitude < 5.0f &&
+                GameManager.Instance.player.movement.GetState() != PlayerMovement.State.Move
+            )
+            {
+                StartReturn(100.0f, false);
+            }
             controller.Move(knockbackVelocity * Time.deltaTime);
         }
 
@@ -134,6 +160,7 @@ public class DummyController : MonoBehaviour
             knockbackVelocity = direction * knockbackStrength;
 
             Damage(player.damageOutput);
+            knockedBack = true;
             hitByPlayerActions?.Invoke();
             hitlag.StartHitlag();
         }

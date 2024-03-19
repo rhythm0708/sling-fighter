@@ -134,8 +134,9 @@ MonoBehaviour:
   _displayName: DEFAULT DUMMY
   _maxHealth: 100
   falloffDamage: 20
-  knockbackStrength: 600
-  knockbackDecay: 3
+  returnOnStop: 1
+  knockbackStrength: 500
+  knockbackDecay: 1
 --- !u!114 &5278187252479211818
 MonoBehaviour:
   m_ObjectHideFlags: 0
