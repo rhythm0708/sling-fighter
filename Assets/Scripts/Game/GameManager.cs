@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour
     private const float INITIAL_TIME = 90.0f;
     private const float FALL_TIME = 5.0f;
     public float timer { get; private set; }
+    public float Score { get; private set; }
     public float totalTime { get; private set; }
+    public float TotalScore { get; private set; }
     // Whether or not player has entered wave select mode.
     // Do not go through game progression if did.
     public bool waveSelectMode { get; set; }
@@ -58,7 +60,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0.1f;
             clearTimer += Time.deltaTime / Time.timeScale;
 
-            if (clearTimer >= 5.0f)
+            if (clearTimer >= 30.0f)
             {
                 NextWave();
             }
@@ -69,6 +71,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Show score
     // Move to next wave.
     void NextWave()
     {
@@ -160,7 +163,7 @@ public class GameManager : MonoBehaviour
         player.SubscribeOnFall(() => {
             SubtractTime(FALL_TIME);
 
-            // Play the "Out Of Bounds")
+            // Play the "Out Of Bounds".
             SoundManager.instance.PlaySfx("Out Of Bounds");
         });
     }
