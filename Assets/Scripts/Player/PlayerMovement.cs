@@ -220,8 +220,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Player model faces forward.
-        var playerModel = this.gameObject.transform.Find("Model");
-        playerModel.transform.rotation = Quaternion.LookRotation(cam.transform.forward) * Quaternion.Euler(0, 90, 0);
+        // var playerModel = this.gameObject.transform.Find("MDL_CactusTall");
+        // playerModel.transform.rotation = Quaternion.LookRotation(cam.transform.forward) * Quaternion.Euler(0, 90, 0);
 
         int layerMask = 1 << 6;
         RaycastHit hit;
@@ -268,8 +268,8 @@ public class PlayerMovement : MonoBehaviour
         transform.position = ropeStart + smoothRopeAim * 10.0f + recoilOffset;
 
         // Player model faces forward.
-        var playerModel = this.gameObject.transform.Find("Model");
-        playerModel.transform.rotation = Quaternion.LookRotation(-smoothRopeAim) * Quaternion.Euler(0, 90, 0);
+        // var playerModel = this.gameObject.transform.Find("MDL_CactusTall");
+        // playerModel.transform.rotation = Quaternion.LookRotation(-smoothRopeAim) * Quaternion.Euler(0, 90, 0);
 
         if (Input.GetButtonUp("Action"))
         {
