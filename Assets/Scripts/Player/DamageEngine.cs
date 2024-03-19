@@ -33,7 +33,7 @@ public class DamageEngine : MonoBehaviour
         maxComboThisWave = 0;
     }
 
-    // Damage Formula: BASE_DAMAGE + (0.5c^2 + 2.5c - 6)
+    // Damage Formula: BASE_DAMAGE + (0.5c^2 + 2.5c)
     public float ComputeDamage(int combo)
     {
         // Update highest combo.
@@ -42,6 +42,8 @@ public class DamageEngine : MonoBehaviour
             maxComboThisWave = combo;
         }
 
-        return BASE_DAMAGE + (0.5f * Mathf.Pow(combo, 2f) + 2.5f * combo - 6f);
+        var damage = BASE_DAMAGE + (0.5f * Mathf.Pow(combo, 2f) + 2.5f * combo);
+        Debug.Log($"Damage: {damage}, Combo: {combo}");
+        return damage;
     }
 }

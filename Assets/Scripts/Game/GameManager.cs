@@ -96,6 +96,8 @@ public class GameManager : MonoBehaviour
         this.Score = 0;
         computedScore = false;
 
+        DamageEngine.Instance.maxComboThisWave = 0;
+
         // Add the last wave's timer to the total time, then
         // reset the timer
         totalTime += timer;

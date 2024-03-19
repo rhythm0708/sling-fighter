@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
         hitlag = GetComponent<HitlagComponent>();
 
         SubscribeOnFall(() => { fallCount += 1; });
+        SubscribeOnHitDummy(() => { comboCount += 1; });
     }
 
     private void Update()
@@ -51,16 +52,11 @@ public class PlayerController : MonoBehaviour
             onFallActions?.Invoke();
         }
 
-        // Increment combo count when moving.
-        if(GameManager.Instance.player.GetComponent<PlayerMovement>().GetState() == PlayerMovement.State.Move)
-        {
-            SubscribeOnHitDummy(() => { comboCount += 1; });
-        }
-        else
+        // Increment combo count only when moving.
+        if(GameManager.Instance.player.GetComponent<PlayerMovement>().GetState() != PlayerMovement.State.Move)
         {
             comboCount = 0;
         }
-
     }
 
     private void SnapCameraForward()
