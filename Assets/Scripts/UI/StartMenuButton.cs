@@ -44,7 +44,7 @@ public class StartMenu : MonoBehaviour
 
     private void OnTriggerStay(Collider collision)
     {
-        // Check if the colliding object is the ball
+        // Check if the colliding object is the player
         if (collision.gameObject.CompareTag("PlayerInMenu") && !startDetected)
         {
             // Set startDetected to true 
