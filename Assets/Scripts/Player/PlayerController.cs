@@ -73,4 +73,9 @@ public class PlayerController : MonoBehaviour
     {
         hitDummyActions += action;
     }
+
+    public void SubscribeOnAttachToRope(Action action)
+    {
+        movement.SubscribeOnAttachToRope(action);
+    }
 }
