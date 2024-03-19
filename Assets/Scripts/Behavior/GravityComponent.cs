@@ -6,7 +6,7 @@ public class GravityComponent : MonoBehaviour
     [SerializeField] private float traceDistance = 10.0f;
 
     private const float ACCELERATION = 250.0f;
-    private float gravity;
+    public float gravity { get; private set; }
     private CharacterController controller;
     public bool grounded { get; private set; }
 
