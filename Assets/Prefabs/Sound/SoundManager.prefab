@@ -150,3 +150,27 @@ MonoBehaviour:
     volume: 0.8
     pitch: 1
     loop: 0
+  - clip: {fileID: 8300000, guid: d3f002094ae494c4c992289e9adba768, type: 3}
+    audioSource: {fileID: 0}
+    name: Ready?
+    volume: 0.8
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: c90acfd58ef840a4da8e50fc1eabf9da, type: 3}
+    audioSource: {fileID: 0}
+    name: Ready?
+    volume: 0.8
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: 0125e6aaaa647aa4ebd3f220276ca51d, type: 3}
+    audioSource: {fileID: 0}
+    name: Continue
+    volume: 0.8
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: 6a4f0d192557eb1469cd7c268400117a, type: 3}
+    audioSource: {fileID: 0}
+    name: No
+    volume: 0.8
+    pitch: 1
+    loop: 0
