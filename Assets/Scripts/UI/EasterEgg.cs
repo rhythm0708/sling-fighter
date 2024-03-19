@@ -8,7 +8,7 @@ public class EasterEgg : MonoBehaviour
     [SerializeField] private Material mat;
     private bool startDetected = false;
     private float triggerTimer = 0f;
-    private float triggerDuration = 1.5f;
+    private float triggerDuration = 3f;
     void Update()
     {
         if (startDetected)
@@ -19,7 +19,7 @@ public class EasterEgg : MonoBehaviour
             // Check if the timer exceeds the desired duration
             if (triggerTimer >= triggerDuration)
             {
-                // Switch scene after 1.5 seconds
+                // Switch scene after 3 seconds
                 StartCoroutine(LoadNextScene());
                 // Reset detection
                 startDetected = false;
@@ -37,12 +37,18 @@ public class EasterEgg : MonoBehaviour
 
             // Restart the timer when the player re-enters the trigger zone
             triggerTimer = 0f;
+
+            // Play SFX
+            SoundManager.instance.PlaySfx("EasterEgg");
+            SoundManager.instance.StopMusic("In Menu");
         }
     }
 
     private void OnTriggerExit(Collider collision)
     {
         startDetected = false;
+        SoundManager.instance.StopSfx("EasterEgg");
+        SoundManager.instance.PlayMusic("In Menu");
     }
 
     IEnumerator LoadNextScene()

@@ -144,3 +144,9 @@ MonoBehaviour:
     volume: 0.8
     pitch: 1
     loop: 0
+  - clip: {fileID: 8300000, guid: 701e0fd5608164b43921d29dd9c641c8, type: 3}
+    audioSource: {fileID: 0}
+    name: EasterEgg
+    volume: 0.8
+    pitch: 1
+    loop: 0
