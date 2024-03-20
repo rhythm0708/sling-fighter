@@ -6,29 +6,30 @@ public class PlayerController : MonoBehaviour
     private ShoulderCameraController cameraController;
     private DummyController dummy;
     private HitlagComponent hitlag;
+    private GravityComponent gravity;
 
     private Action onFallActions;
     private Action hitDummyActions;
 
     [SerializeField] private GameObject shoulderCam;
     [SerializeField] private GameObject clearCam;
+    [SerializeField] private ParticleSystem moveParticles;
 
     public bool moving
     {
         get { return movement.GetState() == PlayerMovement.State.Move; }
     }
 
-    [SerializeField] public int comboCount { get; set; }
-    [SerializeField] public int fallCount { get; set; }
-
+    [SerializeField] private float baseDamageOutput = 10.0f; 
+    
     // This property can be modified later to adjust the damage
     // output. This is where someone would write damage scaling 
     // for combo counter.
     public float damageOutput
     {
-        get
+        get 
         {
-            return DamageEngine.Instance.ComputeDamage(comboCount);
+            return baseDamageOutput;
         }
     }
 
@@ -38,9 +39,7 @@ public class PlayerController : MonoBehaviour
         cameraController = GetComponentInChildren<ShoulderCameraController>();
         movement = GetComponent<PlayerMovement>();
         hitlag = GetComponent<HitlagComponent>();
-
-        SubscribeOnFall(() => { fallCount += 1; });
-        SubscribeOnHitDummy(() => { comboCount += 1; });
+        gravity = GetComponent<GravityComponent>();
     }
 
     private void Update()
@@ -52,10 +51,13 @@ public class PlayerController : MonoBehaviour
             onFallActions?.Invoke();
         }
 
-        // Increment combo count only when moving.
-        if(GameManager.Instance.player.GetComponent<PlayerMovement>().GetState() != PlayerMovement.State.Move)
+        if (movement.GetState() == PlayerMovement.State.Move && gravity.grounded)
         {
-            comboCount = 0;
+            moveParticles.Play();
+        }
+        else
+        {
+            moveParticles.Stop();
         }
     }
 
@@ -69,6 +71,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.transform.root == dummy.transform.root && moving)
         {
+            moveParticles.Pause();
             hitDummyActions?.Invoke();
             hitlag.StartHitlag();
         }
@@ -82,10 +85,5 @@ public class PlayerController : MonoBehaviour
     public void SubscribeOnHitDummy(Action action)
     {
         hitDummyActions += action;
-    }
-
-    public void UnsubscribeOnHitDummy(Action action)
-    {
-        hitDummyActions -= action;
     }
 }
