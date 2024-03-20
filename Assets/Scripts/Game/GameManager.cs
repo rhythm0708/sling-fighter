@@ -127,7 +127,11 @@ public class GameManager : MonoBehaviour
         // Once a scene is loaded, we try to detect the wave number by
         // parsing the scene's name. This allows automatic assignment
         // based on the scene name. Note the scene's name must be
-        // formatted "Wave[#]"
+        // formatted "Wave[#]".
+        //
+        // This number is only assigned via string if it hasn't been
+        // assigned yet (-1). NOTE: We'll have to set wave = -1 upon
+        // ending a run.
         if (wave == -1 && inWaveScene)
         {
             wave = Convert.ToInt32(scene.name.Remove(0, 4));
