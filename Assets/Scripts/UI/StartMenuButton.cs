@@ -36,6 +36,8 @@ public class StartMenu : MonoBehaviour
             {
                 // Switch scene after 1.5 seconds
                 StartCoroutine(LoadNextScene());
+                // Set up run.
+                GameManager.Instance.SetUpRun();
                 // Reset detection
                 startDetected = false;
             }

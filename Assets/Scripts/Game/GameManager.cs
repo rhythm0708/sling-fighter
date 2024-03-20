@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
             // Assign the singleton GameManager and bind
             // its scene load action
             Instance = this;
-            SetUpRun();
             DontDestroyOnLoad(gameObject);
         }
     }
