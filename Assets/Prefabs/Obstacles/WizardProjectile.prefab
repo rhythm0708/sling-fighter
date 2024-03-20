@@ -51,6 +51,7 @@ MonoBehaviour:
   trackingSpeed: 45
   model: {fileID: 6629101119327711998}
   destroyOnPlayerOnly: 1
+  onlyHitOnRopes: 0
 --- !u!54 &6722713200544706625
 Rigidbody:
   m_ObjectHideFlags: 0

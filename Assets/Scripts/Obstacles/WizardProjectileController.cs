@@ -7,6 +7,7 @@ public class WizardProjectileController  : MonoBehaviour
     [SerializeField] private float trackingSpeed;
     [SerializeField] private Transform model;
     [SerializeField] private bool destroyOnPlayerOnly = true;
+    [SerializeField] private bool onlyHitOnRopes = true;
     private Vector3 initialScale;
     private PlayerController player;
     private DummyController dummy;
@@ -43,10 +44,18 @@ public class WizardProjectileController  : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.transform.root);
+        bool ropeValid = true;
+        if (onlyHitOnRopes && player.movement.GetState() == PlayerMovement.State.Move)
+        {
+            ropeValid = false;
+        }
+
         if (other.transform.root == player.transform.root)
         {
-            GameManager.Instance.SubtractTime(timeSubtraction);
+            if (ropeValid)
+            {
+                GameManager.Instance.SubtractTime(timeSubtraction);
+            }
             Destroy(gameObject);
         }
         else if (!destroyOnPlayerOnly)

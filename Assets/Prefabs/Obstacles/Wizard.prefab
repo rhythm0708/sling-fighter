@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projTemplate: {fileID: 852886805900577107, guid: 7c42dba8344f6443a86d15019828c34b, type: 3}
-  projSpawnCooldown: 0.25
+  projSpawnCooldown: 0.5
   rotationSpeed: 16
 --- !u!136 &731617195636998063
 CapsuleCollider:
