@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject clearCam;
     [SerializeField] private ParticleSystem moveParticles;
 
+    [SerializeField] public int comboCount { get; set; }
+    [SerializeField] public int fallCount { get; set; }
+
     public bool moving
     {
         get { return movement.GetState() == PlayerMovement.State.Move; }
@@ -29,7 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         get 
         {
-            return baseDamageOutput;
+            return DamageEngine.Instance.ComputeDamage(comboCount);
         }
     }
 
@@ -40,6 +43,9 @@ public class PlayerController : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         hitlag = GetComponent<HitlagComponent>();
         gravity = GetComponent<GravityComponent>();
+
+        SubscribeOnFall(() => { fallCount += 1; });
+        SubscribeOnHitDummy(() => { comboCount += 1; });
     }
 
     private void Update()
@@ -58,6 +64,12 @@ public class PlayerController : MonoBehaviour
         else
         {
             moveParticles.Stop();
+        }
+
+        // Increment combo count only when moving.
+        if (GameManager.Instance.player.GetComponent<PlayerMovement>().GetState() != PlayerMovement.State.Move)
+        {
+            comboCount = 0;
         }
     }
 
