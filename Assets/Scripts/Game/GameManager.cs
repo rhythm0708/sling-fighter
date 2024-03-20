@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
             // its scene load action
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            SetUpRun();
         }
     }
 
@@ -153,7 +155,6 @@ public class GameManager : MonoBehaviour
         timer = INITIAL_TIME;
         this.Score = 0;
         computedScore = false;
-        SceneManager.sceneLoaded += OnSceneLoaded;
         totalTime = 0.0f;
         clearTimer = 0.0f;
     }
