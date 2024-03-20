@@ -1032,6 +1032,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7840601591776188063, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8638840799975320928, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2187,6 +2191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ContinueManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8319902585298943010, guid: 2bea98948cd683f418410299a4b36d1d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2210,7 +2218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2563606479207635648, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2700952898170271881, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Color.b
@@ -2259,6 +2267,10 @@ PrefabInstance:
     - target: {fileID: 6237627288450318795, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Color.r
       value: 0.09411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 6385191072032291043, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6481581553067696400, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2354,6 +2366,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8638840799975320928, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993912594233787043, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

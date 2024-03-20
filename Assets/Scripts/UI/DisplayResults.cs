@@ -40,6 +40,7 @@ public class DisplayResults : MonoBehaviour
             textBox.color = transparentColor;
 
             // Prepare for the animation.
+            textBox.gameObject.SetActive(true);
             textBox.rectTransform.localPosition = resultsScreenTextPos[index] + new Vector2(-rightLength, 0f);
         }
     }
