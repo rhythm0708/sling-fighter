@@ -8,13 +8,11 @@ public class ContinueMenu : MonoBehaviour
     // Set this to true when you want the ContinueMenu to pop-up
     private bool isContinue;
     [SerializeField]private GameObject continueMenu;
-    [SerializeField] private Button primaryButton;
 
     void Start()
     {
         // Set continueMenu to false initially so that it doesn't show up
         continueMenu.SetActive(false);
-        primaryButton.Select();
 
     }
 
@@ -23,9 +21,10 @@ public class ContinueMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             continueMenu.SetActive(true);
-            
             // Play Continue Soundn
             SoundManager.instance.PlaySfx("Continue");
+            Time.timeScale = 0f;
+            SoundManager.instance.StopMusic("In Game");
         }
     }
 
@@ -40,6 +39,18 @@ public class ContinueMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Results Screen");
         continueMenu.SetActive(false);
+    }
+
+    public void YesHover()
+    {
+        // Play Continue Sound
+        SoundManager.instance.PlaySfx("Ready?");
+    }
+
+    public void NoHover()
+    {
+        // Play Continue Soundn
+        SoundManager.instance.PlaySfx("No");
     }
 }
 
