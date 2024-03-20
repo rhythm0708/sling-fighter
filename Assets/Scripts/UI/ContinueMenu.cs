@@ -1,44 +1,62 @@
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ContinueMenu : MonoBehaviour
 {
-    // Set this to true when you want the ContinueMenu to pop-up
-    private bool isContinue;
-    [SerializeField]private GameObject continueMenu;
+    [SerializeField] private GameObject continueMenu;
+    public static ContinueMenu instance;
 
     void Start()
     {
-        // Set continueMenu to false initially so that it doesn't show up
         continueMenu.SetActive(false);
-
     }
 
-    void Update()
+    void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (instance != null)
         {
-            continueMenu.SetActive(true);
-            // Play Continue Soundn
-            SoundManager.instance.PlaySfx("Continue");
-            Time.timeScale = 0f;
-            SoundManager.instance.StopMusic("In Game");
+            Destroy(gameObject);
+            return;
         }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    // Show the continue menu
+    public void ShowContinueMenu()
+    {
+        continueMenu.SetActive(true);
+        // Pause the game
+        Time.timeScale = 0f; 
+
+        SoundManager.instance.PlaySfx("Continue");
+        SoundManager.instance.StopSfx("Rope");
+        SoundManager.instance.StopMusic("In Game");
+    }
+
+    // Hide the continue menu and resume the game
+    public void HideContinueMenu()
+    {
+        continueMenu.SetActive(false);
+        // Resume the game
+        Time.timeScale = 1f; 
     }
 
     public void Restart()
     {
-        continueMenu.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1f;
+        // Hide the continue menu before reloading the scene
+        HideContinueMenu(); 
     }
 
     public void GameOver()
     {
         SceneManager.LoadScene("Results Screen");
-        continueMenu.SetActive(false);
+        // Hide the continue menu before loading the results screen
+        HideContinueMenu(); 
     }
 
     public void YesHover()
