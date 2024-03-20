@@ -160,6 +160,8 @@ public class DummyController : MonoBehaviour
         direction = direction - 2 * Vector3.Dot(direction, flatNormal) * flatNormal;
         direction = direction.normalized;
         knockbackVelocity = direction * knockbackVelocity.magnitude; 
+
+        //transform.rotation = Quaternion.LookRotation(direction);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -182,6 +184,7 @@ public class DummyController : MonoBehaviour
             Damage(player.damageOutput);
             knockedBack = true;
             hitByPlayerActions?.Invoke();
+            transform.rotation = Quaternion.LookRotation(direction);
             hitlag.StartHitlag();
         }
     }
