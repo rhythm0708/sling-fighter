@@ -56,6 +56,9 @@ public class GameManager : MonoBehaviour
             totalTime -= INITIAL_TIME;
             // TODO: query for retry, handle accordingly.
             timer = INITIAL_TIME;
+
+            // Show the continue menu when totalTime reaches or falls below 0
+            ContinueMenu.instance.ShowContinueMenu();
         }
         
         if (clearedWave)
