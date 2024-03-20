@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5412855288967034488}
   - component: {fileID: 3348574253016268171}
+  - component: {fileID: 1081378254747340547}
   m_Layer: 6
   m_Name: Pillar
   m_TagString: Reflect
@@ -56,6 +57,21 @@ CapsuleCollider:
   m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &1081378254747340547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4856569184131947632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4e8cbd25b0173418376cb07ca48390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 5323608599740704827}
+  bounceDelta: 0.25
+  shrinkSpeed: 16
 --- !u!1001 &5650883582206349264
 PrefabInstance:
   m_ObjectHideFlags: 0
