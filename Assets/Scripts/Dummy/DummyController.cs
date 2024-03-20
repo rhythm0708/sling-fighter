@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public class DummyController : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class DummyController : MonoBehaviour
 
     private Action onSlainActions;
     private Action hitByPlayerActions;
+
+    [SerializeField] private ParticleSystem moveParticles;
+    [SerializeField] private List<ParticleSystem> hitParticles;
 
     void Start()
     {
@@ -70,6 +74,7 @@ public class DummyController : MonoBehaviour
             {
                 returning = false;
             }
+            moveParticles.Stop();
         }
         else
         {
@@ -82,6 +87,15 @@ public class DummyController : MonoBehaviour
                 1.0f - Mathf.Exp(-knockbackDecay * Time.deltaTime)
             );
             controller.Move(knockbackVelocity * Time.deltaTime);
+
+            if (knockbackVelocity.magnitude > 20.0f && gravity.grounded)
+            {
+                moveParticles.Play();
+            }
+            else
+            {
+                moveParticles.Stop();
+            }
         }
 
         if (transform.position.y < -50.0f)
@@ -133,6 +147,12 @@ public class DummyController : MonoBehaviour
             direction = Vector3.Lerp(direction, player.GetComponent<PlayerMovement>().GetVelocity().normalized, 0.75f).normalized;
             knockbackVelocity = direction * knockbackStrength;
 
+            moveParticles.Pause();
+
+            foreach (ParticleSystem particleSystem in hitParticles)
+            {
+                particleSystem.Play();
+            }
             Damage(player.damageOutput);
             hitByPlayerActions?.Invoke();
             hitlag.StartHitlag();

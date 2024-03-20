@@ -6,12 +6,14 @@ public class PlayerController : MonoBehaviour
     private ShoulderCameraController cameraController;
     private DummyController dummy;
     private HitlagComponent hitlag;
+    private GravityComponent gravity;
 
     private Action onFallActions;
     private Action hitDummyActions;
 
     [SerializeField] private GameObject shoulderCam;
     [SerializeField] private GameObject clearCam;
+    [SerializeField] private ParticleSystem moveParticles;
 
     public bool moving
     {
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
         cameraController = GetComponentInChildren<ShoulderCameraController>();
         movement = GetComponent<PlayerMovement>();
         hitlag = GetComponent<HitlagComponent>();
+        gravity = GetComponent<GravityComponent>();
     }
 
     private void Update()
@@ -46,6 +49,15 @@ public class PlayerController : MonoBehaviour
             SnapCameraForward();
             movement.AttachToLastRope();
             onFallActions?.Invoke();
+        }
+
+        if (movement.GetState() == PlayerMovement.State.Move && gravity.grounded)
+        {
+            moveParticles.Play();
+        }
+        else
+        {
+            moveParticles.Stop();
         }
     }
 
@@ -59,6 +71,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.transform.root == dummy.transform.root && moving)
         {
+            moveParticles.Pause();
             hitDummyActions?.Invoke();
             hitlag.StartHitlag();
         }
