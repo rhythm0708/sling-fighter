@@ -376,6 +376,8 @@ public class PlayerMovement : MonoBehaviour
             forward = forward.normalized;
             sideStepTimer = 0.0f;
 
+            hit.gameObject.GetComponent<Bouncer>()?.Bounce();
+
             // Play the "Reflect" Sound
             SoundManager.instance.PlaySfx("Reflect");
         }

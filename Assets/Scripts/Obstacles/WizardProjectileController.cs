@@ -5,6 +5,10 @@ public class WizardProjectileController  : MonoBehaviour
 {
     [SerializeField] private float timeSubtraction = 5.0f;
     [SerializeField] private float trackingSpeed;
+    [SerializeField] private Transform model;
+    [SerializeField] private bool destroyOnPlayerOnly = true;
+    [SerializeField] private bool onlyHitOnRopes = true;
+    private Vector3 initialScale;
     private PlayerController player;
     private DummyController dummy;
 
@@ -12,6 +16,7 @@ public class WizardProjectileController  : MonoBehaviour
     {
         player = GameManager.Instance.player;
         dummy = GameManager.Instance.dummy; 
+        initialScale = model.localScale;
     }
 
     void Update()
@@ -29,15 +34,33 @@ public class WizardProjectileController  : MonoBehaviour
             planarPlayerPosition, 
             trackingSpeed * Time.deltaTime
         );
+
+        float sinTime = (Mathf.Sin(Time.time * 25.0f) + 1.0f) * 0.5f;
+        sinTime *= sinTime;
+        model.transform.localScale = 
+            initialScale + 
+            Vector3.one * 0.5f * sinTime;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.root == player.transform.root)
+        bool ropeValid = true;
+        if (onlyHitOnRopes && player.movement.GetState() == PlayerMovement.State.Move)
         {
-            GameManager.Instance.SubtractTime(timeSubtraction);
+            ropeValid = false;
         }
 
-        Destroy(gameObject);
+        if (other.transform.root == player.transform.root)
+        {
+            if (ropeValid)
+            {
+                GameManager.Instance.SubtractTime(timeSubtraction);
+            }
+            Destroy(gameObject);
+        }
+        else if (!destroyOnPlayerOnly)
+        {
+            Destroy(gameObject);
+        }
     }
 }

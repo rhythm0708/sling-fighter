@@ -144,6 +144,8 @@ public class DummyController : MonoBehaviour
             rope.Bounce(hit.point, knockbackVelocity);
         }
 
+        hit.gameObject.GetComponent<Bouncer>()?.Bounce();
+
         // If we hit something that reflects, get the
         // normal of the surface and flatten it
         Vector3 flatNormal = hit.normal;
