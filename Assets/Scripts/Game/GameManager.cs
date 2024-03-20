@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     // Current wave.
-    public int wave { get; private set; } = 1;
+    public int wave { get; private set; } = -1;
+    public bool inWaveScene { get; private set; }
 
     public DummyController dummy { get; private set; }
     public PlayerController player { get; private set; }
@@ -50,17 +51,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-
-        if (timer <= 0.0f)
+        if (timer <= 0.0f && inWaveScene)
         {
-            totalTime -= INITIAL_TIME;
-            // TODO: query for retry, handle accordingly.
-            timer = INITIAL_TIME;
-
-            // Show the continue menu when totalTime reaches or falls below 0
-            ContinueMenu.instance.ShowContinueMenu();
+            SceneManager.LoadScene("ContinueMenu");
         }
-        
+
         if (clearedWave)
         {
             if(!computedScore)
@@ -106,43 +101,47 @@ public class GameManager : MonoBehaviour
         totalTime += timer;
         timer = INITIAL_TIME;
 
-        // To determine the next wave, we parse the name of the scene
-        // and find its number at the end. We increment this number then
-        // construct the string of the next scene. Note that scene names
-        // must be formtted as "Wave[#]"
-        string sceneName = SceneManager.GetActiveScene().name;
-        try 
-        {
-            int waveNumber = Convert.ToInt32(sceneName.Remove(0, 4));
-            SceneManager.LoadScene("Wave" + Convert.ToString(waveNumber + 1));
-        }
-        catch
-        {
-            Debug.Log("Tried loading next Wave, but scene name does not contain Wave[#]");
-        }
+        wave += 1;
+        SceneManager.LoadScene("Wave" + Convert.ToString(wave));
+    }
+
+    public void RetryWave()
+    {
+        // TODO: Sutract score before loading scene
+        clearedWave = false;
+        clearTimer = 0.0f;
+
+        this.Score = 0;
+        computedScore = false;
+
+        DamageEngine.Instance.maxComboThisWave = 0;
+        timer = INITIAL_TIME;
+
+        SceneManager.LoadScene("Wave" + Convert.ToString(wave));
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        inWaveScene = scene.name.Substring(0, 4) == "Wave";
+
         // Once a scene is loaded, we try to detect the wave number by
         // parsing the scene's name. This allows automatic assignment
         // based on the scene name. Note the scene's name must be
         // formatted "Wave[#]"
-        try 
+        if (wave == -1 && inWaveScene)
         {
             wave = Convert.ToInt32(scene.name.Remove(0, 4));
-        }
-        catch
-        {
-            Debug.Log("Tried assigning wave number, but scene name does not contain Wave[#]");
         }
 
         // Clear all actions, since the objects got removed on scene load
         subtractTimeActions = null;
 
         // Assign the dummy and player from the scene
-        FindDummy();
-        FindPlayer();
+        if (inWaveScene)
+        {
+            FindDummy();
+            FindPlayer();
+        }
     }
 
     // Resets everything back to default.
