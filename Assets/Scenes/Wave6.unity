@@ -1957,7 +1957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129773395150082903, guid: 3d7b50ff5406f4e709030b2191d93f79, type: 3}
       propertyPath: projSpawnCooldown
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2018,7 +2018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129773395150082903, guid: 3d7b50ff5406f4e709030b2191d93f79, type: 3}
       propertyPath: projSpawnCooldown
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
