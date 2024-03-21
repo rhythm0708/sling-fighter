@@ -60,11 +60,6 @@ public class Tutorial : MonoBehaviour
         sidestep.SetActive(true);
     }
 
-    void Test()
-    {
-        Debug.Log("t");
-    }
-
     void Update()
     {
         

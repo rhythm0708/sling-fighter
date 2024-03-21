@@ -1097,7 +1097,7 @@ MonoBehaviour:
   sidestep: {fileID: 3279235716171279387}
   promptSling: 0
   promptSidestep: 0
-  slingsTillSidestepPrompt: 3
+  slingsTillSidestepPrompt: 4
 --- !u!1 &5321920633650659956
 GameObject:
   m_ObjectHideFlags: 0
