@@ -10,7 +10,8 @@ public class SettingsMenu : MonoBehaviour
     private bool startDetected = false;
     private float triggerTimer = 0f;
     private float triggerDuration = 1.5f;
-    [SerializeField] private Slider settingsLoading;
+    [SerializeField] private Transform settingsLoading;
+    private Vector3 initalLoadScale;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class SettingsMenu : MonoBehaviour
 
         // Hide the loading slider initially
         settingsLoading.gameObject.SetActive(false); 
+        initalLoadScale = settingsLoading.localScale;
     }
 
     void Update()
@@ -29,7 +31,8 @@ public class SettingsMenu : MonoBehaviour
             triggerTimer += Time.deltaTime;
 
             // Update loading progress
-            settingsLoading.value = Mathf.Clamp01(triggerTimer / triggerDuration);
+            float finalLengthScale = initalLoadScale.x * Mathf.Clamp01(triggerTimer / triggerDuration);
+            settingsLoading.transform.localScale = new Vector3(finalLengthScale, initalLoadScale.y, initalLoadScale.z);
 
             // Check if the timer exceeds the desired duration
             if (triggerTimer >= triggerDuration)
