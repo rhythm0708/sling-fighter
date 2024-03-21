@@ -63,7 +63,7 @@ I ensured that every person kept documentation for each of their roles, and that
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
-## Game Logic (Frontend)
+## Wave System and Layout | Obstacle Behavior
 
 **Document the game states and game data you managed and the design patterns you used to complete your task.**
 
