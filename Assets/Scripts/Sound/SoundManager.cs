@@ -98,7 +98,12 @@ public class SoundManager : MonoBehaviour
         }
         else if(currentScene == "ContinueMenu")
         {
+            StopAllSFX();
             StopMusic("In Game");
+        }
+        else if(currentScene == "Results Screen")
+        {
+            StopAllSFX();
         }
 
     }
@@ -157,5 +162,15 @@ public class SoundManager : MonoBehaviour
         }
 
         track.audioSource.Stop();
+    }
+
+    // Stops playing all SFX.
+    public void StopAllSFX()
+    {
+        foreach (var clip in this.sfxClips)
+        {
+
+            clip.audioSource.Stop();
+        }
     }
 }
