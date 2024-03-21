@@ -10,6 +10,7 @@ public class HealthBarController : MonoBehaviour
 
     private DummyController dummy;
     private float trailValue;
+    private Vector2 initialDimensions;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class HealthBarController : MonoBehaviour
         healthBarSlider.minValue = 0;
         healthBarSlider.maxValue = dummy.maxHealth;
         healthBarSlider.value = dummy.maxHealth;
+        initialDimensions = new Vector2(trailBar.rect.width, trailBar.rect.height);
 
         dummyName.text = dummy.displayName;
     }
@@ -32,7 +34,7 @@ public class HealthBarController : MonoBehaviour
             dummy.health / dummy.maxHealth,
             1.0f - Mathf.Exp(-4.0f * Time.deltaTime)
         );
-        trailBar.sizeDelta = new Vector2(trailValue * 1592f, 75f);
+        trailBar.sizeDelta = new Vector2(trailValue * initialDimensions.x, initialDimensions.y);
 
         // Update slider value.
         healthBarSlider.value = dummy.health;
