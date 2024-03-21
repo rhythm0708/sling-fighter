@@ -58,7 +58,8 @@ public class WizardProjectileController  : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        else if (!destroyOnPlayerOnly)
+        else if (!other.transform.parent.gameObject.name.Contains("Spikes")
+                && !destroyOnPlayerOnly)
         {
             Destroy(gameObject);
         }
