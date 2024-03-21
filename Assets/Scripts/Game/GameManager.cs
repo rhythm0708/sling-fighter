@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0.0f && inWaveScene)
         {
+            // Play Continue Soundn
+            SoundManager.instance.PlaySfx("Continue");
             SceneManager.LoadScene("ContinueMenu");
         }
 
