@@ -7,6 +7,7 @@ public class ComboController : MonoBehaviour
 {
     [SerializeField] TMP_Text comboText;
     [SerializeField] Color originalTextColor;
+    [SerializeField] Color waveEndTextColor;
     private int prevCombo;
     private float timeStamp;
     [SerializeField] float resetTime;
@@ -21,9 +22,11 @@ public class ComboController : MonoBehaviour
     void Start()
     {
         timeStamp = 0.0f;
+        comboText.color = originalTextColor;
 
-        // Subscribe on hit.
         GameManager.Instance.dummy.SubscribeOnHitByPlayer(AnimateNumber);
+        GameManager.Instance.dummy.SubscribeOnSlain(FreezeCombo);
+
     }
 
     void Update()
@@ -59,13 +62,13 @@ public class ComboController : MonoBehaviour
 
     private void AnimateNumber()
     {
+        /*
         var t = animationTime / animationLength;
         comboText.fontSize = minFontSize;
         comboText.color = originalTextColor;
-
+        
         while (t<1)
         {
-            Debug.Log("cycles");
             // Pop out.
             var textFont = Mathf.Lerp(minFontSize, maxFontSize, t);
             comboText.fontSize = textFont;
@@ -77,6 +80,7 @@ public class ComboController : MonoBehaviour
             animationTime += Time.deltaTime;
             t = animationTime / animationLength;
         }
+        */
         animationTime = 0f;
         comboText.fontSize = maxFontSize;
         comboText.color = new Color(originalTextColor.r, originalTextColor.g, originalTextColor.b, 255f);
@@ -84,6 +88,7 @@ public class ComboController : MonoBehaviour
 
     private IEnumerator ShrinkNumber()
     {
+        /*
         var t = animationTime / animationLength;
 
         while (t < 1)
@@ -99,10 +104,17 @@ public class ComboController : MonoBehaviour
             animationTime += Time.deltaTime;
             t = animationTime / animationLength;
         }
+        */
         animationTime = 0;
         comboText.fontSize = minFontSize;
         comboText.color = originalTextColor;
 
         yield return null;
+    }
+
+    private void FreezeCombo()
+    {
+        comboText.color = waveEndTextColor;
+        this.enabled = false;
     }
 }

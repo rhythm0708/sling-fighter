@@ -43,7 +43,7 @@ public class DamageEngine : MonoBehaviour
         }
 
         var damage = BASE_DAMAGE + (0.5f * Mathf.Pow(combo, 2f) + 2.5f * combo);
-        Debug.Log($"Damage: {damage}, Combo: {combo}");
+        // Debug.Log($"Damage: {damage}, Combo: {combo}");
         return damage;
     }
 }
