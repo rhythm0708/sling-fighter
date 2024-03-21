@@ -60,7 +60,7 @@ public class TimerController : MonoBehaviour
             // Ease out of the animation
             t = Mathf.Pow(1.0f - t, 2.0f);
 
-            // Apply the animation
+            // Apply the animation.
             numberText.alpha = 1.0f - t;
             numberText.rectTransform.localPosition = initialPos + new Vector2(0.0f, -50.0f) * t;
             numberText.text = ((int)GameManager.Instance.timer).ToString();
