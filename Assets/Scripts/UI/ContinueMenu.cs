@@ -23,7 +23,7 @@ public class ContinueMenu : MonoBehaviour
 
     public void NoHover()
     {
-        // Play Continue Soundn
+        // Play Continue Sounnd
         SoundManager.instance.PlaySfx("No");
     }
 }
