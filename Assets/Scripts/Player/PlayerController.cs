@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public int comboCount { get; set; }
     [SerializeField] public int fallCount { get; set; }
 
+    [SerializeField] private bool resetComboOnDummyReturn = false;
+
     public bool moving
     {
         get { return movement.GetState() == PlayerMovement.State.Move; }
@@ -50,6 +52,13 @@ public class PlayerController : MonoBehaviour
 
         SubscribeOnFall(() => { fallCount += 1; });
         SubscribeOnHitDummy(() => { comboCount += 1; });
+
+        if (resetComboOnDummyReturn)
+        {
+            GameManager.Instance.dummy.SubscribeOnReturn(() => {
+                comboCount = 0;
+            });
+        }
     }
 
     private void Update()
@@ -71,7 +80,11 @@ public class PlayerController : MonoBehaviour
         }
 
         // Increment combo count only when moving.
-        if (GameManager.Instance.player.GetComponent<PlayerMovement>().GetState() != PlayerMovement.State.Move)
+        if 
+        (
+            GameManager.Instance.player.GetComponent<PlayerMovement>().GetState() != PlayerMovement.State.Move &&
+            !resetComboOnDummyReturn
+        )
         {
             comboCount = 0;
         }
