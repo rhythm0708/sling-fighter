@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e7e5c38d06c474785c729621d93de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeSubtraction: 5
-  trackingSpeed: 45
+  timeSubtraction: 15
+  trackingSpeed: 55
   model: {fileID: 6629101119327711998}
   destroyOnPlayerOnly: 0
   onlyHitOnRopes: 0
