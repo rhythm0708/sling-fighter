@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deltaY: 4
   moveSpeed: 10
-  timeSubtraction: 3
+  timeSubtraction: 2.5
   damageCooldown: 1.2
 --- !u!54 &542679332935363735
 Rigidbody:
