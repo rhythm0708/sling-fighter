@@ -63,7 +63,7 @@ I ensured that every person kept documentation for each of their roles, and that
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
-## Game Logic
+## Game Logic (Frontend)
 
 **Document the game states and game data you managed and the design patterns you used to complete your task.**
 
@@ -83,8 +83,9 @@ I ensured that every person kept documentation for each of their roles, and that
 
 **Summarize the key findings from your gameplay tests.**
 
-## Narrative Design
+## Game Logic (Backend)
 
+For my sub-role, I also worked on game logic (more towards the backend side).
 **Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
 
 ## Press Kit and Trailer
