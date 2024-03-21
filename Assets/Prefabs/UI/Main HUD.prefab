@@ -862,8 +862,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2835349503
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.65882355}
+    rgba: 2197815295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.50980395}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1035,6 +1035,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboText: {fileID: 7167515734900211697}
+  originalTextColor: {r: 1, g: 1, b: 1, a: 0.50980395}
+  resetTime: 1
+  animationTime: 0
+  animationLength: 5
+  minFontSize: 128
+  maxFontSize: 144
 --- !u!1 &5930085098214963277
 GameObject:
   m_ObjectHideFlags: 0
