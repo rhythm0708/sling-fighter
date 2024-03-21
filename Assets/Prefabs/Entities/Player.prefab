@@ -314,6 +314,7 @@ MonoBehaviour:
   shoulderCam: {fileID: 2988449428516651103}
   clearCam: {fileID: 7376168197203708417}
   moveParticles: {fileID: 9009857603673965322}
+  resetComboOnDummyReturn: 1
   baseDamageOutput: 10
 --- !u!114 &1099372703501436292
 MonoBehaviour:

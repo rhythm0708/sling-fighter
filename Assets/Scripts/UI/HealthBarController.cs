@@ -15,7 +15,8 @@ public class HealthBarController : MonoBehaviour
     void Start()
     {
         dummy = GameManager.Instance.dummy;
-
+        trailValue = 1.0f;
+        
         // Assign starting slider values.
         healthBarSlider.minValue = 0;
         healthBarSlider.maxValue = dummy.maxHealth;
@@ -28,13 +29,16 @@ public class HealthBarController : MonoBehaviour
     void Update()
     {
         // Update trail value.
-        trailValue = Mathf.Lerp
-        (
-            trailValue,
-            dummy.health / dummy.maxHealth,
-            1.0f - Mathf.Exp(-4.0f * Time.deltaTime)
-        );
-        trailBar.sizeDelta = new Vector2(trailValue * initialDimensions.x, initialDimensions.y);
+        if (!GameManager.Instance.dummy.inKnockback)
+            {
+            trailValue = Mathf.Lerp
+            (
+                trailValue,
+                dummy.health / dummy.maxHealth,
+                1.0f - Mathf.Exp(-4.0f * Time.deltaTime)
+            );
+            trailBar.sizeDelta = new Vector2(trailValue * initialDimensions.x, initialDimensions.y);
+        }
 
         // Update slider value.
         healthBarSlider.value = dummy.health;

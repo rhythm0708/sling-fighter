@@ -30,9 +30,14 @@ public class DummyController : MonoBehaviour
 
     private Action onSlainActions;
     private Action hitByPlayerActions;
+    private Action returnActions;
 
     [SerializeField] private ParticleSystem moveParticles;
     [SerializeField] private List<ParticleSystem> hitParticles;
+    public bool inKnockback 
+    {
+        get { return knockbackVelocity.magnitude >= 5.0f; }
+    }
 
     void Start()
     {
@@ -66,6 +71,11 @@ public class DummyController : MonoBehaviour
         if (damage)
         {
             Damage(falloffDamage, false);
+        }
+        else
+        {
+            // Non-fall off returns should invoke actions
+            returnActions?.Invoke();
         }
 
         // Change layer to ignore collision
@@ -219,5 +229,10 @@ public class DummyController : MonoBehaviour
     public void SubscribeOnHitByPlayer(Action action)
     {
         hitByPlayerActions += action;
+    }
+
+    public void SubscribeOnReturn(Action action)
+    {
+        returnActions += action;
     }
 }
