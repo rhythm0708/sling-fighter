@@ -105,7 +105,14 @@ public class GameManager : MonoBehaviour
         timer = INITIAL_TIME;
 
         wave += 1;
-        SceneManager.LoadScene("Wave" + Convert.ToString(wave));
+        if (wave <= 15)
+        {
+            SceneManager.LoadScene("Wave" + Convert.ToString(wave));
+        }
+        else
+        {
+            SceneManager.LoadScene("Results Screen");
+        }
     }
 
     public void RetryWave()
@@ -156,9 +163,17 @@ public class GameManager : MonoBehaviour
     {
         timer = INITIAL_TIME;
         this.Score = 0;
+        TotalScore = 0;
         computedScore = false;
         totalTime = 0.0f;
         clearTimer = 0.0f;
+    }
+
+    public void StartRun()
+    {
+        waveSelectMode = false;
+        SetUpRun();
+        SceneManager.LoadScene("Wave1");
     }
 
     public void SubtractTime(float amount)
@@ -175,6 +190,11 @@ public class GameManager : MonoBehaviour
     void FindDummy()
     {
         dummy = FindObjectOfType<DummyController>();
+        if (dummy == null)
+        {
+            return;
+        }
+
         dummy.SubscribeOnSlain(() => {
             clearedWave = true;
         });
@@ -183,6 +203,11 @@ public class GameManager : MonoBehaviour
     void FindPlayer()
     {
         player = FindObjectOfType<PlayerController>();
+        if (player == null)
+        {
+            return;
+        }
+        
         player.SubscribeOnFall(() => {
             SubtractTime(FALL_TIME);
 

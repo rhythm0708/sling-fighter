@@ -9,7 +9,8 @@ public class QuitMenu : MonoBehaviour
     private bool startDetected = false;
     private float triggerTimer = 0f;
     private float triggerDuration = 1.5f;
-    [SerializeField] private Slider quitLoading;
+    [SerializeField] private Transform quitLoading;
+    private Vector3 initalLoadScale;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class QuitMenu : MonoBehaviour
 
         // Hide the loading slider initially
         quitLoading.gameObject.SetActive(false); 
+        initalLoadScale = quitLoading.localScale;
     }
 
     void Update()
@@ -28,7 +30,8 @@ public class QuitMenu : MonoBehaviour
             triggerTimer += Time.deltaTime;
 
             // Update loading progress
-            quitLoading.value = Mathf.Clamp01(triggerTimer / triggerDuration);
+            float finalLengthScale = initalLoadScale.x * Mathf.Clamp01(triggerTimer / triggerDuration);
+            quitLoading.transform.localScale = new Vector3(finalLengthScale, initalLoadScale.y, initalLoadScale.z);
 
             // Check if the timer exceeds the desired duration
             if (triggerTimer >= triggerDuration)
