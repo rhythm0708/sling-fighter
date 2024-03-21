@@ -140,8 +140,7 @@ public class GameManager : MonoBehaviour
         // formatted "Wave[#]".
         //
         // This number is only assigned via string if it hasn't been
-        // assigned yet (-1). NOTE: We'll have to set wave = -1 upon
-        // ending a run.
+        // assigned yet (-1).
         if (wave == -1 && inWaveScene)
         {
             wave = Convert.ToInt32(scene.name.Remove(0, 4));
@@ -172,6 +171,7 @@ public class GameManager : MonoBehaviour
     public void StartRun()
     {
         waveSelectMode = false;
+        wave = 1;
         SetUpRun();
         SceneManager.LoadScene("Wave1");
     }
