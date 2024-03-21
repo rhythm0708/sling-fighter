@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -36,6 +38,9 @@ public class PlayerMovement : MonoBehaviour
     public float Speed { get => speed; set => speed = value; }
 
     private CharacterController controller;
+
+    private Action slingActions;
+    private Action sidestepActions;
 
     void Start()
     {
@@ -285,6 +290,8 @@ public class PlayerMovement : MonoBehaviour
                     currentRope.Release(forward * speed);
                     currentRope = null;
                 }
+
+                slingActions?.Invoke();
             }
             else
             {
@@ -317,14 +324,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("StepLeft"))
         {
             sideStepTimer = sideStepLength;
-
+            sidestepActions?.Invoke();
             // Play "Side Step" SFX
             SoundManager.instance.PlaySfx("Side Step");
         }
         if (Input.GetButtonDown("StepRight"))
         {
             sideStepTimer = -sideStepLength;
-
+            sidestepActions?.Invoke();
             // Play "Side Step" SFX
             SoundManager.instance.PlaySfx("Side Step");
         }
@@ -406,5 +413,15 @@ public class PlayerMovement : MonoBehaviour
             state = State.WaitSling;
             sideStepTimer = 0.0f;
         }
+    }
+
+    public void SubscribeOnSling(Action action)
+    {
+        slingActions += action;
+    }
+
+    public void SubscribeOnSidestep(Action action)
+    {
+        sidestepActions += action;
     }
 }
