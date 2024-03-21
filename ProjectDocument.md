@@ -65,7 +65,7 @@ I ensured that every person kept documentation for each of their roles, and that
 
 ## Wave System and Layout | Obstacle Behavior – Matvey Volkov
 
-# Shift from Frontend Game Logic to Current Role
+### Shift from Frontend Game Logic to Current Role
 At the start of our project, our team decided to split up the role of Game Logic into two parts – frontend and backend. Having taken the former, I was initially tasked with integrating user-facing logic, such as player-enemy interaction and enemy behavior, as well as the wave system and layout. I was also in charge of handling However, with time, certain responsibilities of my role have been taken on by other members of my group, such as UI-related scripting (ex. start game upon button press in main menu), and a lot of my code was rewritten in the two refactors that were handled by the Movement/Physics/Game Feel team member.
 
 The first of these introduced hitboxes and hurtboxes into the game, while my own code relied on 
