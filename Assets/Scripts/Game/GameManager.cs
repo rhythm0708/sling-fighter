@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
 
     public void RetryWave()
     {
-        // TODO: Sutract score before loading scene
+        TotalScore -= 10000;
         clearedWave = false;
         clearTimer = 0.0f;
 
