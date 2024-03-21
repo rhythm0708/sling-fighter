@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deltaY: 4
   moveSpeed: 10
-  timeSubtraction: 5
-  damageCooldown: 1
+  timeSubtraction: 3
+  damageCooldown: 1.2
 --- !u!54 &542679332935363735
 Rigidbody:
   m_ObjectHideFlags: 0
