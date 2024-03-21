@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641228, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1394,6 +1394,10 @@ PrefabInstance:
     - target: {fileID: 4685525084612689712, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217182121706057438, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
+      propertyPath: musicTracks.Array.data[1].volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7624001716655658488, guid: bdfe20583d5ee2f478745722376d7dc3, type: 3}
       propertyPath: m_Name
