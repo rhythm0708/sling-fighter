@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded;
             SetUpRun();
+            FindDummy();
+            FindPlayer();
         }
     }
 

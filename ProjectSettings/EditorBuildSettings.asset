@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes UI/Title Screen.unity
     guid: f6ff2e10f2a09424a8d85a74db03ddb3
   - enabled: 1
+    path: Assets/Scenes UI/ContinueMenu.unity
+    guid: aaf6703822af6864c8da74ecbc61dfa3
+  - enabled: 1
     path: Assets/Scenes UI/Settings.unity
     guid: 59f134e3180091d4db813be7a77cc114
   - enabled: 1

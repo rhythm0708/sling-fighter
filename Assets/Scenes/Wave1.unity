@@ -866,14 +866,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5248716215018071907, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 4176657717175308934, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
+      propertyPath: promptSling
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6976362191931299149, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
-      propertyPath: clearCam
-      value: 
-      objectReference: {fileID: 1071053913}
+    - target: {fileID: 4176657717175308934, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
+      propertyPath: promptSidestep
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -984,11 +984,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057449575}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1071053913 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7376168197203708417, guid: cd6c0a229a7aa8c4db3d80188a96e1db, type: 3}
-  m_PrefabInstance: {fileID: 1008313120}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1270668162
 PrefabInstance:
   m_ObjectHideFlags: 0
