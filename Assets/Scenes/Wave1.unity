@@ -2131,33 +2131,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5139547853873046155, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
-      propertyPath: animationLength
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5139547853873046155, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
-      propertyPath: waveEndTextColor.a
-      value: 0.7372549
-      objectReference: {fileID: 0}
-    - target: {fileID: 5139547853873046155, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
-      propertyPath: waveEndTextColor.b
-      value: 0.4575472
-      objectReference: {fileID: 0}
-    - target: {fileID: 5139547853873046155, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
-      propertyPath: waveEndTextColor.g
-      value: 0.5019608
-      objectReference: {fileID: 0}
-    - target: {fileID: 5139547853873046155, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
-      propertyPath: waveEndTextColor.r
-      value: 0.8784314
-      objectReference: {fileID: 0}
     - target: {fileID: 5930085098214963277, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Name
       value: Main HUD
-      objectReference: {fileID: 0}
-    - target: {fileID: 5935025923141481016, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 113
       objectReference: {fileID: 0}
     - target: {fileID: 7165251991086834112, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2166,26 +2142,6 @@ PrefabInstance:
     - target: {fileID: 7165251991086834112, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7167515734900211697, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
-      propertyPath: m_fontColor.a
-      value: 0.7372549
-      objectReference: {fileID: 0}
-    - target: {fileID: 7167515734900211697, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.45882353
-      objectReference: {fileID: 0}
-    - target: {fileID: 7167515734900211697, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.5019608
-      objectReference: {fileID: 0}
-    - target: {fileID: 7167515734900211697, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.8784314
-      objectReference: {fileID: 0}
-    - target: {fileID: 7167515734900211697, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 3161817312
       objectReference: {fileID: 0}
     - target: {fileID: 8638840799975320928, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Pivot.x

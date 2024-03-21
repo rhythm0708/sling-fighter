@@ -49,7 +49,7 @@ public class ComboController : MonoBehaviour
                 prevCombo = comboCount;
                 timeStamp = 0;
 
-                // Reset
+                // Reset.
                 StartCoroutine(ShrinkNumber());
             }
             else

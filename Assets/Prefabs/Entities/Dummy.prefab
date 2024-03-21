@@ -14659,8 +14659,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _displayName: DEFAULT DUMMY
-  _maxHealth: 100
+  _maxHealth: 150
   falloffDamage: 20
+  returnOnStop: 1
   knockbackStrength: 600
   knockbackDecay: 3
   moveParticles: {fileID: 1338092863745479868}
