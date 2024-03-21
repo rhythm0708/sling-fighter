@@ -63,9 +63,21 @@ I ensured that every person kept documentation for each of their roles, and that
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
-## Wave System and Layout | Obstacle Behavior
+## Wave System and Layout | Obstacle Behavior – Matvey Volkov
 
-**Document the game states and game data you managed and the design patterns you used to complete your task.**
+# Shift from Frontend Game Logic to Current Role
+At the start of our project, our team decided to split up the role of Game Logic into two parts – frontend and backend. Having taken the former, I was initially tasked with integrating user-facing logic, such as player-enemy interaction and enemy behavior, as well as the wave system and layout. I was also in charge of handling However, with time, certain responsibilities of my role have been taken on by other members of my group, such as UI-related scripting (ex. start game upon button press in main menu), and a lot of my code was rewritten in the two refactors that were handled by the Movement/Physics/Game Feel team member.
+
+The first of these introduced hitboxes and hurtboxes into the game, while my own code relied on 
+
+[Talk about Alpha Build: factory design pattern, randomization of spawn locations]
+[Talk about Beta Build: refactor, fixed spawn locations but randomization in terms of which enemies spawn there]
+[Talk about Final Build: fixed wave layouts]
+
+- From obstacles to obstacles, tools, and enemies, to obstacles and one main "enemy"
+- Handling collisions before and after the refactor
+- Handling obstacle behavior
+- Setting up various wave systems and GameManager that starts out in an in-game state and transitions to end game
 
 # Sub-Roles
 
@@ -77,11 +89,14 @@ I ensured that every person kept documentation for each of their roles, and that
 
 **Document the sound style.** 
 
-## Gameplay Testing
+## Gameplay Testing – Matvey Volkov
 
-**Add a link to the full results of your gameplay tests.**
+All Observations and Playtester Comments forms can be found [here](https://drive.google.com/drive/folders/1lVFY1_KWUtM6W7QnpbIup4yGOXumRsbz?usp=sharing).
 
-**Summarize the key findings from your gameplay tests.**
+As a means of receiving objective feedback, I sought out a total of ten people that playtested our game during its various stages of development – the Alpha Build, the Beta Build, and the Final Build.
+
+[Talk about findings]
+[Talk about how we made adjustments to our game based on those findings]
 
 ## Game Logic (Backend)
 
