@@ -50,7 +50,7 @@ MonoBehaviour:
   timeSubtraction: 5
   trackingSpeed: 45
   model: {fileID: 6629101119327711998}
-  destroyOnPlayerOnly: 1
+  destroyOnPlayerOnly: 0
   onlyHitOnRopes: 0
 --- !u!54 &6722713200544706625
 Rigidbody:
