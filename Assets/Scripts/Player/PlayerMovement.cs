@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-using System;
-using Unity.VisualScripting;
-=======
-
 using System.Collections.Generic;
->>>>>>> origin/aim-fix
 using UnityEngine;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
