@@ -2208,6 +2208,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1025408149845359522, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2583
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025408149845359522, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -645
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139547853873046155, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
+      propertyPath: resetTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5930085098214963277, guid: c9c53df7b3b294c288c6cafa0bbdaadb, type: 3}
       propertyPath: m_Name
       value: Main HUD
