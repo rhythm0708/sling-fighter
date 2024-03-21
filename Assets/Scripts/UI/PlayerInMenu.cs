@@ -7,19 +7,10 @@ public class PlayerInMenu : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float movementSpeed;
     private float dirX, dirZ;
-    private static PlayerInMenu instance;
+
     private void Awake()
     {
-        // Ensure only one instance of Player exists
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+
     }
     // Update is called once per frame
     void Update()

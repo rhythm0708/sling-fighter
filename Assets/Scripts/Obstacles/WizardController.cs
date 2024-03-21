@@ -1,47 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 // Have to run into it in order to kill.
-public class WizardScript : MonoBehaviour
+public class WizardController : MonoBehaviour
 {
     [SerializeField] private GameObject projTemplate;
-    [SerializeField] private float rotationSpeed;
     [SerializeField] private float projSpawnCooldown;
-    private float timeElapsed = 0;
+    [SerializeField] private float rotationSpeed;
     private PlayerController player;
     private GameObject projectile;
+    private Bouncer bouncer;
+
+    private float timeElapsed = 0;
     private bool projDestroyed = false;
 
     void Start()
     {
         player = GameManager.Instance.player;
+        bouncer = GetComponent<Bouncer>();
     }
 
     void Update()
     {
-        // Rotate to face the player.
-        var targetRot = Quaternion.LookRotation(player.transform.position - transform.transform.position);
-        transform.rotation = Quaternion.Lerp
+        Vector3 planarPlayer = player.transform.position;
+        planarPlayer.y = 0.0f;
+
+        Vector3 planarPosition = transform.position;
+        planarPosition.y = 0.0f;
+
+        var targetRot = Quaternion.LookRotation(planarPlayer- planarPosition);
+        transform.rotation = Quaternion.Slerp
         (
-            transform.rotation,
+            transform.rotation, 
             targetRot,
-            Time.deltaTime * rotationSpeed
+            1.0f - Mathf.Exp(-rotationSpeed * Time.deltaTime)
         );
 
         if (!projDestroyed && projectile == null)
         {
             projDestroyed = true;
-            timeElapsed = 0;
+            timeElapsed = 0.0f;
         }
-        
-        if (projDestroyed && timeElapsed >= projSpawnCooldown)
+
+        if (projDestroyed && timeElapsed > projSpawnCooldown)
         {
-            projectile = Instantiate
-            (
-                projTemplate,
-                transform.position,
+            bouncer.Bounce();
+            projectile = Instantiate(
+                projTemplate, 
+                transform.position + new Vector3(0.0f, 8.0f, 0.0f),
                 Quaternion.identity
             );
             projDestroyed = false;

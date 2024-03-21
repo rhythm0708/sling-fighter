@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -27,6 +29,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 ropeStart;
     private Vector3 smoothRopeAim;
+    private List<Vector3> ropeAimBuffer;
+    private int MAX_ROPE_AIMS = 20;
+    private float lastValidAimTime;
+
     private Rope currentRope;
     private Vector3 recoilOffset;
     private Vector3 recoilVelocity;
@@ -37,8 +43,13 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController controller;
 
+    private Action slingActions;
+    private Action sidestepActions;
+
     void Start()
     {
+        ropeAimBuffer = new List<Vector3>();
+        lastValidAimTime = 0.0f;
         controller = GetComponent<CharacterController>();
         forward = transform.forward;
         ropeForward = forward;
@@ -267,17 +278,37 @@ public class PlayerMovement : MonoBehaviour
         // Apply the offsets from the rope rest position
         transform.position = ropeStart + smoothRopeAim * 10.0f + recoilOffset;
 
-        // Player model faces forward.
-        // var playerModel = this.gameObject.transform.Find("MDL_CactusTall");
-        // playerModel.transform.rotation = Quaternion.LookRotation(-smoothRopeAim) * Quaternion.Euler(0, 90, 0);
+        // If the aim is valid, add it to the buffer
+        if (axisInput.magnitude > 0.1f && Vector3.Dot(-axisInput.normalized, ropeForward) > 0.25f) {
+            lastValidAimTime = Time.time;
+            ropeAimBuffer.Add(axisInput);
+            if (ropeAimBuffer.Count > MAX_ROPE_AIMS)
+            {
+                ropeAimBuffer.RemoveAt(0);
+            }
+        }
 
         if (Input.GetButtonUp("Action"))
         {
-            if (axisInput.magnitude > 0.1f && Vector3.Dot(-axisInput.normalized, ropeForward) > 0.25f) {
+            // Allow leniency upon release of stick and action button
+            if (Time.time - lastValidAimTime < 0.25f)
+            {
+                // Iterate the aim buffer in reverse, using the
+                // largest and most recent aim vector
+                Vector3 finalRopeAim = Vector3.zero;
+                for (int i = ropeAimBuffer.Count - 1; i >= 0; i--)
+                {
+                    Vector3 ropeAim = ropeAimBuffer[i];
+                    if (ropeAim.magnitude > finalRopeAim.magnitude + 0.1f)
+                    {
+                        finalRopeAim = ropeAim;
+                    }
+                }
+
                 // Once the sling is released, start moving forward
                 // (opposite of stick direction)
-                transform.position = ropeStart - axisInput.normalized * 3.0f;
-                forward = -axisInput.normalized;
+                transform.position = ropeStart - finalRopeAim.normalized * 3.0f;
+                forward = -finalRopeAim.normalized;
                 speed = slingSpeed;
                 state = State.Move;
                 if (currentRope != null) 
@@ -285,6 +316,8 @@ public class PlayerMovement : MonoBehaviour
                     currentRope.Release(forward * speed);
                     currentRope = null;
                 }
+
+                slingActions?.Invoke();
             }
             else
             {
@@ -317,14 +350,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("StepLeft"))
         {
             sideStepTimer = sideStepLength;
-
+            sidestepActions?.Invoke();
             // Play "Side Step" SFX
             SoundManager.instance.PlaySfx("Side Step");
         }
         if (Input.GetButtonDown("StepRight"))
         {
             sideStepTimer = -sideStepLength;
-
+            sidestepActions?.Invoke();
             // Play "Side Step" SFX
             SoundManager.instance.PlaySfx("Side Step");
         }
@@ -376,6 +409,8 @@ public class PlayerMovement : MonoBehaviour
             forward = forward.normalized;
             sideStepTimer = 0.0f;
 
+            hit.gameObject.GetComponent<Bouncer>()?.Bounce();
+
             // Play the "Reflect" Sound
             SoundManager.instance.PlaySfx("Reflect");
         }
@@ -404,5 +439,15 @@ public class PlayerMovement : MonoBehaviour
             state = State.WaitSling;
             sideStepTimer = 0.0f;
         }
+    }
+
+    public void SubscribeOnSling(Action action)
+    {
+        slingActions += action;
+    }
+
+    public void SubscribeOnSidestep(Action action)
+    {
+        sidestepActions += action;
     }
 }

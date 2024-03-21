@@ -36,13 +36,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Start()
+    void Awake()
     {
-        dummy = GameManager.Instance.dummy;
         cameraController = GetComponentInChildren<ShoulderCameraController>();
         movement = GetComponent<PlayerMovement>();
         hitlag = GetComponent<HitlagComponent>();
         gravity = GetComponent<GravityComponent>();
+    }
+
+    void Start()
+    {
+        dummy = GameManager.Instance.dummy;
 
         SubscribeOnFall(() => { fallCount += 1; });
         SubscribeOnHitDummy(() => { comboCount += 1; });

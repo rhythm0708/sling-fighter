@@ -10,7 +10,8 @@ public class StartMenu : MonoBehaviour
     private bool startDetected = false;
     private float triggerTimer = 0f;
     private float triggerDuration = 1.5f;
-    [SerializeField] private Slider startLoading;
+    [SerializeField] private Transform startLoading;
+    private Vector3 initalLoadScale;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class StartMenu : MonoBehaviour
         
         // Hide the loading slider initially
         startLoading.gameObject.SetActive(false); 
+        initalLoadScale = startLoading.localScale;
     }
 
     void Update()
@@ -28,8 +30,9 @@ public class StartMenu : MonoBehaviour
             // Increment the timer while the player is in the trigger zone
             triggerTimer += Time.deltaTime;
 
-            // Update loading progress
-            startLoading.value = Mathf.Clamp01(triggerTimer / triggerDuration);
+             // Update loading progress
+            float finalLengthScale = initalLoadScale.x * Mathf.Clamp01(triggerTimer / triggerDuration);
+            startLoading.transform.localScale = new Vector3(finalLengthScale, initalLoadScale.y, initalLoadScale.z);
 
             // Check if the timer exceeds the desired duration
             if (triggerTimer >= triggerDuration)
@@ -77,6 +80,6 @@ public class StartMenu : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
 
         // Load the next scene
-        SceneManager.LoadScene("Wave1");
+        GameManager.Instance.StartRun();
     }
 }

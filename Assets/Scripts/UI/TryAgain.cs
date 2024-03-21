@@ -6,6 +6,6 @@ public class TryAgain : MonoBehaviour
 {
     private void OnMouseUpAsButton()
     {
-        SceneManager.LoadScene("Wave1");
+        GameManager.Instance.StartRun();
     }
 }

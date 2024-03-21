@@ -43,8 +43,11 @@ public class GameManager : MonoBehaviour
             // Assign the singleton GameManager and bind
             // its scene load action
             Instance = this;
-            SetUpRun();
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            SetUpRun();
+            FindDummy();
+            FindPlayer();
         }
     }
 
@@ -102,7 +105,14 @@ public class GameManager : MonoBehaviour
         timer = INITIAL_TIME;
 
         wave += 1;
-        SceneManager.LoadScene("Wave" + Convert.ToString(wave));
+        if (wave <= 15)
+        {
+            SceneManager.LoadScene("Wave" + Convert.ToString(wave));
+        }
+        else
+        {
+            SceneManager.LoadScene("Results Screen");
+        }
     }
 
     public void RetryWave()
@@ -130,8 +140,7 @@ public class GameManager : MonoBehaviour
         // formatted "Wave[#]".
         //
         // This number is only assigned via string if it hasn't been
-        // assigned yet (-1). NOTE: We'll have to set wave = -1 upon
-        // ending a run.
+        // assigned yet (-1).
         if (wave == -1 && inWaveScene)
         {
             wave = Convert.ToInt32(scene.name.Remove(0, 4));
@@ -153,10 +162,18 @@ public class GameManager : MonoBehaviour
     {
         timer = INITIAL_TIME;
         this.Score = 0;
+        TotalScore = 0;
         computedScore = false;
-        SceneManager.sceneLoaded += OnSceneLoaded;
         totalTime = 0.0f;
         clearTimer = 0.0f;
+    }
+
+    public void StartRun()
+    {
+        waveSelectMode = false;
+        wave = 1;
+        SetUpRun();
+        SceneManager.LoadScene("Wave1");
     }
 
     public void SubtractTime(float amount)
@@ -173,6 +190,11 @@ public class GameManager : MonoBehaviour
     void FindDummy()
     {
         dummy = FindObjectOfType<DummyController>();
+        if (dummy == null)
+        {
+            return;
+        }
+
         dummy.SubscribeOnSlain(() => {
             clearedWave = true;
         });
@@ -181,6 +203,11 @@ public class GameManager : MonoBehaviour
     void FindPlayer()
     {
         player = FindObjectOfType<PlayerController>();
+        if (player == null)
+        {
+            return;
+        }
+        
         player.SubscribeOnFall(() => {
             SubtractTime(FALL_TIME);
 
