@@ -80,11 +80,43 @@ I was assigned the main role of UI and Input. At the beginning of the project I 
 
 **Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
 
-## Animation and Visuals
+## Art and Visuals
 
-**List your assets, including their sources and licenses.**
+For our game, we wanted a visual style that was fit for a fast-pace arcade style fighting game. I decided characters that were cute, yet mean looking would be the best direction for this kind of game. We also agreed that a boxing theme would best fit the world we wanted to build. Since our game is 3D and from the start I wanted original artwork, so I used AI to generate images that I could use as reference for the game. Once I decided which characters I thought were a good fit, I proceeded to model them. I used Blender to make the models. At first it was tough because I had not made a 3D model before, but as time went on, I learned keyboard shortcuts and many tips on Youtube for making models.
 
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
+# Player
+
+The player character went through multiple stages of evolution until we decided on a final model. At first it was a kangaroo. This kangaroo took me a while to model, as it was my first attempt at creating a 3D model.
+
+![Image 1](https://drive.google.com/uc?export=view&id=17jD410bBZZ57xvs2DhjlMbgaoAQ0TfX6)
+![Image 2](https://drive.google.com/uc?export=view&id=1JriiezRFA5oNBVpidmyy4kZR1eBgWuiU)
+
+There was trouble with the mesh in Unity on my first import, but I was able to resolve it by merging vertices, and recalculating outside normals.
+
+When we decided that a cel-shaded style of game mainly focused on shades of green would look best for Sling Fighter, we switched one of our enemies to the main character. Spike Slugger, the cactus also underwent an evolution of his own.
+
+![Image 3](https://drive.google.com/uc?export=view&id=1PezASwT8jzuh6YA2WcCrs28cpNbl9-nl)
+![Image 4](https://drive.google.com/uc?export=view&id=1_JDf65lpE5dTsN2vGK-n1d4IEVvuffo3)
+
+# Notable enemies
+
+Many original models did not make it into the final version of the game because we listened to feedback from our gameplay testers. The cat was our original orbiter, but, since we moved towards obstacles and not literal enemies that were doing damage, it did not survive the cut.
+
+![Image 5](https://drive.google.com/uc?export=view&id=1m97y7U9sRT4L9gxQYCqwawLyHSBP5KWU)
+
+Another enemy that didn’t quite make it into our final game was the wizard.
+
+![Image 6](https://drive.google.com/uc?export=view&id=1Cogvjp9lM99425kDqrt3MpRnepX3icy3)
+
+Finally, we realized that a dummy was the best option. The dummy served as an inanimate object that players could beat upon without guilt. It would complete our final vision of the two main characters in the game.
+
+![Image 7](https://drive.google.com/uc?export=view&id=1dE2oAE26kanYYJY9aPdOeVWMZd5Q_sHM)
+![Image 8](https://drive.google.com/uc?export=view&id=1FFrOncVizKu9oe8bjAPCFSHlpLaWRLFg)
+
+# Arena
+
+Near the beginning of development we opted to go with a boxing ring. This material was licensed from TurboSquid. [Here](https://www.google.com/url?q=https://www.turbosquid.com/3d-models/boxing-3ds-free/1008777&sa=D&source=editors&ust=1711145430384745&usg=AOvVaw1recJ2xABXAPYVl3VFPBlS) is the link to the ring. I colored the ring using a monochromatic style, so that if we eventually went in that direction it would fit. After the beta stage, we decided it wouldn’t fit our vision because the ropes did not work well with our physics, so we kept our original arena
+
 
 ## Wave System and Layout | Obstacle Behavior – Matvey Volkov
 
@@ -265,9 +297,15 @@ As mentioned, the roles got pretty mixed up during this project. A lot of us did
 
 ## Press Kit and Trailer
 
-**Include links to your presskit materials and trailer.**
+The trailer was more difficult than I had anticipated at the start. First I played the game progressing through the waves while using a screen recorder I have in Google Chrome. Then, I sorted through the footage to find what seemed most appealing about the game. I uploaded these clips to a platform called Nova, which I found through Google. Here, I made an outline of what text I wanted to appear in the trailer, then added it to the video timeline. Once I had these text scenes in place, I proceeded to cut the video and merge the footage to make a complete trailer. When I was done with the video, I used the audio file from our main menu because I felt its intensity matched the game. Finally, I uploaded it to Youtube, so that it could be viewed by the public.I have attached the link below.
 
-**Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
+Link Trailer
+
+# Presskit
+
+The presskit was done entirely on itch.io. I used screenshots of the models and logo to make the banner. Then, I wrote a description of the game that gives details on the purpose and goal of the game, also adding notes on controls and penalties to player score. The screenshots were taken while I progressed through the game, so that I could highlight its various aspects. I have attached a link to the presskit below.
+
+Link Presskit
 
 ## Game Feel and Polish
 
