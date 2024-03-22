@@ -1,4 +1,4 @@
-# Sling! #
+# Sling Fighter! #
 
 ## Summary ##
 
@@ -98,23 +98,30 @@ As a means of receiving objective feedback, I sought out a total of ten people t
 [Talk about findings]
 [Talk about how we made adjustments to our game based on those findings]
 
-## Game Logic (Backend)
+## Game Logic (Backend) - Lucas Wang
 
-For my sub-role, I worked on backend game logic which encompassed data, randomization, scoring, and HUD logic. Admittedly the differences between frontend and backend game logic grew murky as the project progressed. Below are some of the main things that I worked on that fit broadly in the Game Logic (Backend) role:
+For my sub-role, I worked on Game Logic (Backend) which encompasses data, randomization, scoring, and HUD logic. Admittedly the differences between frontend and backend game logic grew murky as the project progressed. Below are some of the main things that I worked on that fit broadly in the Game Logic (Backend) role:
 
 # HUD Logic
 
-I did a majority of the HUD UI for our game. This includes
+I programmed and hooked up the HUD logic for our game. This includes:
 
-- HUD LogicHealth Bar
+- _Health Bar Controller_ - Inspired by Jet's prototype during the GDAC, I developed `HealthBarController.cs` with a fader.
+I also wrote a ContextMenu to insta-kill the Dummy which helped during playtesting. 
+- _Combo Controller_ -
+- _Timer Controller_ - Players start each wave with 90s, and are tasked with beating each wave
+- _Results Screen_ - 
 - 
+
+**Note**: Most of the above scripts have been touched and simplified by Jet during his refactor of the whole project. 
 
 # Miscellaneous / Ambiguous
 
 - Damage Engine
-- Combos and Multipliers
+- Scoring System
 - Alpha Build: (old) Score + Multiplier System, Lives System
 - Beta Build: Timer Incrementation
+- SubscribeOnHit - observers
 
 ## Press Kit and Trailer
 
