@@ -118,11 +118,15 @@ https://github.com/rhythm0708/sling-fighter/blob/2634f29ce29682b2dc4953a14ba652e
 The Pillar would become activated upon collision with the player. The Rusher, guided into the Pillar, would be destroyed upon collision.
 https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/PillarScript.cs#L1
 
+The Dummy had knockback physics that Jethro implemented, and could be knocked into the Rusher to destroy it. It is important to note, however, that the Dummy, just like all tools, had to be activated by contact with the player. That is to say, hitting a Dummy and not having it fall of the stage or collide with a Rusher would result in it essentially acting as a Pillar. The majority of the following code is not mine, but I implemented the OnHurt logic and initiation.
+https://github.com/rhythm0708/sling-fighter/blob/2634f29ce29682b2dc4953a14ba652ee61dce3d7/Assets/Scripts/Knockback.cs#L48
+
 ### Final Wave System, Fixed Layouts and Obstacle Design
 
-The final version of the game features a sequential progression through a series of predefined waves. The team decided to scrap the idea of using the enemy, obstacle, and tool triplet after the GDAC Playtester Event, and to stick to one damage-wise passive Dummy per wave, which was implemented by Jethro.
+The final version of the game features a sequential progression through a series of predefined waves. The team decided to scrap the idea of using the enemy, obstacle, and tool triplet after the GDAC Playtester Event, and to stick to one damage-wise passive Dummy per wave, which was implemented by Jethro. I implemented the basic version of the wave system that was later built upon in the second major refactor. After that, I added in functionality for level selection in easter egg menu, and for retrying.
+https://github.com/rhythm0708/sling-fighter/blob/394b87bcd602498d89d451350c573c505403a7cb/Assets/Scripts/GameManager.cs#L1
 
-There is a total of fifteen waves in the current version of the game, and visual references to each can be found [here](https://drive.google.com/drive/folders/1OhQsjXMOsAeWCNaky4L6jDyxyEo_w0na?usp=sharing).
+There is a total of fifteen waves in the current version of the game, and visual references to each can be found [here](https://drive.google.com/drive/folders/1OhQsjXMOsAeWCNaky4L6jDyxyEo_w0na?usp=sharing). One can also experience each of the levels by using the previously mentioned easter egg menu created by Chang.
 
 #### Obstacles
 
@@ -132,6 +136,8 @@ The Wizard was eventually renamed to officially be the Turret, but the internal 
 
 The Oscillator is a simple platform that moves side-to-side at the assigned speed.
 https://github.com/rhythm0708/sling-fighter/blob/bdc50cbcbcfaa2f133bb96d04fc21bc021a1ed77/Assets/Scripts/Obstacles/Oscillator.cs#L1
+
+https://www.mariowiki.com/Thwomp
 
 #### Waves
 
