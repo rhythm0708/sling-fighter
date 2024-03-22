@@ -117,12 +117,11 @@ There is a total of fifteen waves in the current version of the game, and visual
 
 Obstacles are indestructible and have fixed locations in each wave.
 
-The Wizard was eventually renamed to officially be the Turret, but the internal name is still the same. It generates 
+The Wizard was eventually renamed to officially be the Turret, but the internal name is still the same. It draws inspiration from _Quake_'s [Shalrath](https://quake.fandom.com/wiki/Vore), as it is mainly stationary and shoots homing [projectiles](https://github.com/rhythm0708/sling-fighter/blob/2c1a090b927d7f4093d06e9fc1941c3d623c440e/Assets/Scripts/Obstacles/WizardProjectileController.cs#L1) that deal damage to the player, but can be destroyed by either making them run into one-another, another obstacle (except for the Spikes), or the Dummy. Note that projectile code is a fusion of mine and Jethro's, as he refactored some of my tracking code, added in pulsation logic (sine-based), and modified my collision logic. It is not entirely my own. Jethro applied reflect logic to the obstacle, so contact causes the player to bounce off.
 
-The Oscillator is a simple platform that moves side-to-side at the assigned speed.
-https://github.com/rhythm0708/sling-fighter/blob/bdc50cbcbcfaa2f133bb96d04fc21bc021a1ed77/Assets/Scripts/Obstacles/Oscillator.cs#L1
+The [Oscillator](https://github.com/rhythm0708/sling-fighter/blob/2c1a090b927d7f4093d06e9fc1941c3d623c440e/Assets/Scripts/Obstacles/Oscillator.cs#L1) is a simple platform that moves side-to-side at the assigned speed. Jethro applied reflect logic to the obstacle, so contact causes the player to bounce off.
 
-https://www.mariowiki.com/Thwomp
+The now-obsolete [Smasher](https://github.com/rhythm0708/sling-fighter/blob/2c1a090b927d7f4093d06e9fc1941c3d623c440e/Assets/Scripts/Obstacles/Smasher.cs#L1) was inspired by [Thwomp](https://www.mariowiki.com/Thwomp). It essentially acted as a reversed version of the Spikes. The platform would fall after lingering for a set amount of time, and then linger at the ground before coming back up to its initial position. The process would repeat, and the platform was intended to deal damage to the player and potentially the Dummy. However, testing revealed visibility issues upon the platform coming down, so the obstacle served as a template for the Spikes.
 
 #### Waves
 
