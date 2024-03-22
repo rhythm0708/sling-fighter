@@ -48,7 +48,7 @@ I created a broad timeline overview for our [Initial Plan](https://docs.google.c
 - _Coordinating Progress Reports_ - I coordinated progress report meetings with other teams and found times that also worked with my team. I also checked other teams' progress reports on us and caught errors; for example, one team omitted Daniel's name when writing down which members were present. I went back and corrected that.
 - _Managing Communication and Organizational Procedures_ - Our team used Discord as our main channel of communication. On it, I posted updates and important information that I wanted to share with the team. I think that our team communicated well, as we were in constant communication and spoke up when we needed help. I also managed a [Google Drive folder](https://drive.google.com/drive/folders/1RleSwVFyKq-hQuMPw-QvtK3InfTamqMV?usp=drive_link) where team members could find all (external) resources that we used for this project.
 
-# One final note
+### One final note
 
 As Producer, I believe that it is important for every member of the team to be fairly credited for the work that they did. Our game has gone through an [alpha stage](https://github.com/rhythm0708/sling-fighter/tree/alpha-build), a [beta stage](https://github.com/rhythm0708/sling-fighter/tree/beta-build), and a [full game loop](https://github.com/rhythm0708/sling-fighter/tree/full-game-loop) stage- all of which looks significantly different. Below I have compiled a document listing the name of each member and their individual contributions to the project. I hope that this is useful for grading, and for clarifying the work that has been done by each person. I truly believe that each member pulled their weight for this project and that this is reflected in our final product. Please 
 
@@ -124,7 +124,7 @@ As a means of receiving objective feedback, I sought out a total of ten people t
 
 For my sub-role, I worked on Game Logic (Backend) which encompasses data, randomization, scoring, and HUD logic. Admittedly the differences between frontend and backend game logic grew murky as the project progressed. Below are some of the main things that I worked on that fit broadly in the Game Logic (Backend) role:
 
-# HUD Logic
+### HUD Logic
 
 I programmed and hooked up the HUD logic for our game. This includes:
 
@@ -136,7 +136,7 @@ I programmed and hooked up the HUD logic for our game. This includes:
 
 - _Results Screen_ - Between waves, players are privy to a snapshot of their `Wave [#] Score` and `Total Score`. I designed the transition between `waveCleared` and the results screen, which then naturally linked to the next wave. This involved work in [GameManager.cs](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/Game/GameManager.cs#L64) and [DisplayResults.cs](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/UI/DisplayResults.cs#L1). I designed the accompanying animation which causes the text to increase in opacity and shift slightly to the right. This was simple, but I thought it gave the screen a bit of life. I know that the score-displaying part isn't optimal, but unfortunately I never got around to changing it
 
-# Systems
+### Systems
 
 Some other systems that I programmed into the game:
 
@@ -146,7 +146,7 @@ Some other systems that I programmed into the game:
 
 - (scrapped) _Score + Multiplier System, Lives System_ - For the alpha and beta builds, I made a live scoring system and a lives system to test out. The live scoring system would increment a 'held' score to the 'total' score when the multiplier ended. You would lose lives if the player traveled off the stage or got hit by an enemy. These systems worked in our previous vision of the game, but our new vision necessitated them getting scrapped. [ScoreManager.cs](https://github.com/rhythm0708/sling-fighter/blob/884d84db09b2bfef11d799d6551792e9db4ed0fc/Assets/Scripts/ScoreManager.cs#L1) and [LivesComponent.cs](https://github.com/rhythm0708/sling-fighter/blob/884d84db09b2bfef11d799d6551792e9db4ed0fc/Assets/Scripts/LivesComponent.cs#L1).
 
-# Miscellaneous
+### Miscellaneous
 
 There was some additional work I did that did not necessarily fit into my role. I attributed most of these instances to 'bug fixing' for my Producer role, but here are some honorable mentions that are at least somewhat relevant.
 
