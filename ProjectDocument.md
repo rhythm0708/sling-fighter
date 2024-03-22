@@ -205,7 +205,7 @@ To help the everyone else transition to the refactored code, I created a brief d
 
 FINAL NOTE: Lucas mentioned this earlier, but **everyone** in this project worked hard and was crucial to the team. Lots of stuff got removed in this refactor in terms of design, art, and code. Still, these initial works were crucial in helping us understand what our game is and how to make it better. Elements from these removed works are still present in the final verision of the game, and I want to make sure my group members get their due credit even with these removals.
 
-## Art and Visuals
+## Art and Visuals - Daniel Heredia
 
 For our game, we wanted a visual style that was fit for a fast-pace arcade style fighting game. I decided characters that were cute, yet mean looking would be the best direction for this kind of game. We also agreed that a boxing theme would best fit the world we wanted to build. Since our game is 3D and from the start I wanted original artwork, so I used AI to generate images that I could use as reference for the game. Once I decided which characters I thought were a good fit, I proceeded to model them. I used Blender to make the models. At first it was tough because I had not made a 3D model before, but as time went on, I learned keyboard shortcuts and many tips on Youtube for making models.
 
@@ -248,7 +248,7 @@ Finally, we realized that a dummy was the best option. The dummy served as an in
 
 #### Arena
 
-Near the beginning of development, we opted to go with a boxing ring. This material was licensed from TurboSquid.  is the link to the ring. I colored the ring using a monochromatic style, so that if we eventually went in that direction it would fit. After the beta stage, we decided it wouldn't fit our vision because the ropes did not work well with our physics, so we kept our original arena and added corners to make gameplay better.
+Near the beginning of development, we opted to go with a boxing ring. This material was licensed from TurboSquid. [Here](https://www.turbosquid.com/3d-models/boxing-3ds-free/1008777) is the link to the ring. I colored the ring using a monochromatic style, so that if we eventually went in that direction it would fit. After the beta stage, we decided it wouldn't fit our vision because the ropes did not work well with our physics, so we kept our original arena and added corners to make gameplay better.
 
 <p>
   <img src="https://drive.google.com/uc?export=view&id=1FLSvpcy_yftLP9eETcvMW_jgn6C_vX9q" width="400" alt="Boxing Ring Initial" style="margin-right: 20px;"/>
