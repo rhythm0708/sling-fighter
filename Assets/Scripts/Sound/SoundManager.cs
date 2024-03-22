@@ -84,7 +84,7 @@ public class SoundManager : MonoBehaviour
             StopSfx("Rope");
             StopMusic("EG");
         }
-        else if (currentScene.Substring(0, 4) == "Wave")
+        else if (currentScene.Length >= 4 && currentScene.Substring(0, 4) == "Wave")
         {
             StopMusic("In Menu");
             PlayMusic("In Game");
