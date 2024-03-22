@@ -70,7 +70,7 @@ At the start of our project, our team decided to split up the role of Game Logic
 
 The early wave system followed the Factory Design Pattern, where enemies were instantiated in conformance to specs, just like in Exercise 4.
 
-https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/GameManager.cs
+https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/GameManager.cs#L1
 
 The first of these introduced hitboxes and hurtboxes into the game, while my own code relied on 
 
