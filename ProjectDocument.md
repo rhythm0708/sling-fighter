@@ -132,7 +132,7 @@ There was some additional work I did that did not necessarily fit into my role. 
 
 - _ContextMenu for debugging_ - I wrote a `ContextMenu` which would instakill the dummy if you clicked a button in the editor. This was useful for me, at least, while playtesting and bug-fixing the project. Linked [here](https://github.com/rhythm0708/sling-fighter/blob/bbd0c03a3ef2d53075021c666f27e09d17c50e57/Assets/Scripts/Game/GameManager.cs#L231).
 
-As mentioned, the roles got pretty mixed up while developing this project. A lot of us did work on each other's scripts; a lot of wires were crossed. But these are the main things that I remember (and can find evidence of) coding for this project,
+As mentioned, the roles got pretty mixed up while developing this project. A lot of us did work on each other's scripts; a lot of wires were crossed. But these are the main things that I remember (and can find evidence of) coding for this project.
 
 ## Press Kit and Trailer
 
