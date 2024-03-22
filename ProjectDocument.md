@@ -8,8 +8,8 @@ _Sling Fighter!_ is a slingshot-style arcade game where you launch into a dummy 
 
 [Itch page](https://slingfighter.itch.io/sling-fighter)
 [Trailor](https://youtu.be/LsbTWjYsmSs)  
-[Press Kit](https://dopresskit.com/)  
-[Proposal: make your own copy of the linked doc.](https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing)  
+[Press Kit]([https://dopresskit.com/](https://slingfighter.itch.io/sling-fighter))  
+[Proposal: make your own copy of the linked doc.]([https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing](https://docs.google.com/document/d/1C83mvbO1hN6x2nOqhr4wfracJC8zQ0X5KEP7wMynV6c/edit?usp=sharing))  
 
 ## Gameplay Explanation ##
 
