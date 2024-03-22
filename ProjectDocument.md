@@ -69,7 +69,7 @@ At the start of our project, our team decided to split up the role of Game Logic
 
 ### Early Wave System
 
-The early wave system followed the Factory Design Pattern, where enemies were instantiated in conformance to specs, just like in Exercise 4. Enemy spawn locations and specs were randomly generated for the sake of variety.
+The early wave system followed the Factory Design Pattern, where enemies were instantiated in conformance to specs, just like in Exercise 4. Enemy spawn locations and specs were randomly generated for the sake of variety. Killing all the enemies generated at the start of the wave would advance one onto the next wave, with adjusted enemy count.
 https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/GameManager.cs#L1
 https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemyFactoryController.cs#L1
 https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemySpec.cs#L1
@@ -80,11 +80,17 @@ https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813
 
 In Jethro's first major refactor, the Factory Design Pattern would become scrapped and collider interactions would take on a more sophisticated form with the addition of hiboxes and hurtboxes; it also introduced a Publisher/Subscriber Design Pattern for OnHit and OnHurt actions. After some feedback during our meeting, I made it so that enemies would no longer spawn at random locations on the arena, but rather random enemies would spawn at randomly selected, fixed spawnpoints. GameObjects were be created for this purpose and assigned to a spawnpoint list in GameManager.
 https://github.com/rhythm0708/sling-fighter/blob/6b845d5abff1e625a6f717621e22c0a32ec33593/Assets/Scripts/GameManager.cs#L1
+With these changed came the addition of the transition to game over state (upon falling off the arena) and retry functionality.
+https://github.com/rhythm0708/sling-fighter/blob/745bf32b6ab141cc4a49eae952df452e3c46f42c/Assets/UI%20Scripts/TryAgain.cs#L1
+Player now also took damage.
+https://github.com/rhythm0708/sling-fighter/blob/745bf32b6ab141cc4a49eae952df452e3c46f42c/Assets/Scripts/PlayerController.cs#L1
+And enemies had different tracking speeds depending on their type.
+https://github.com/rhythm0708/sling-fighter/blob/0fb211e7858f238e2916122adbdd7361969fb898/Assets/Scripts/Tracker.cs#L1
 
-The first of these introduced hitboxes and hurtboxes into the game, while my own code relied on 
+### Enemy Rework and Wave System V.2
 
-[Talk about Alpha Build: factory design pattern, randomization of spawn locations]
-[Talk about Beta Build: refactor, fixed spawn locations but randomization in terms of which enemies spawn there]
+### Fixed Layouts and Obstacle Design
+
 [Talk about Final Build: fixed wave layouts]
 
 - From obstacles to obstacles, tools, and enemies, to obstacles and one main "enemy"
