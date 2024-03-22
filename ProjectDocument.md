@@ -15,6 +15,8 @@ _Sling Fighter!_ is a slingshot-style arcade game where you launch into a dummy 
 
 This game was designed for controller, but it will also work for keyboard and mouse. Use 'A' and the 'left stick' to pull back on the ropes, and let go to fire onto enemies. 'LB' and 'RB' are your sidesteps.
 
+There's an Easter Egg Menu, where players will be able to test out and select all the different waves in our game upon "discovering" the Easter Egg Menu. [Players are able to trigger the button that will map them into the Easter Egg Menu Scene inside the Main Menu]((https://drive.google.com/file/d/1MRuQmWAHXB4nzQJ3c6h2hkBnrZ8gLeAD/view?usp=sharing).). Upon successfully triggering for 1.5 seconds. They'll be able to [interact with the Easter Egg Menu](https://drive.google.com/file/d/141eaEayj4F0xNze3OUZja2-lK-uOQjl5/view?usp=sharing). 
+
 Read more on itch!
 
 # Main Roles #
@@ -45,12 +47,31 @@ As Producer, I believe that it is important for every member of the team to be f
 
 [Vouch](https://docs.google.com/document/d/1aawnozYWJXqzhWCNuq6DW1AvTqfJCFlKV03uqT-946Q/edit?usp=sharing).
 
-## User Interface and Input
+## User Interface and Input - Chang Da Su Liang 
 
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
-**Describe the default input configuration.**
+I was assigned the main role of UI and Input. At the beginning of the project I was assigned the task of developing multiple menus such as: Main Menu, Settings Menu, and a Result Screen. While being in this role, I learned that UI is an important form of communication and form of expressing ideas because it maps the initial connection between players and developers by using scenes, menus, buttons, input systems and UI components. 
 
-**Add an entry for each platform or input style your project supports.**
+- Inspired by the [3D menus of unrailed](https://interfaceingame.com/screenshots/unrailed-main-menu/) and also suggested by our Producer as I needed some inspiration. It took some time learning to use Blender 2.0 to mold the 3D buttons for the Main Menu, I was motivated by Our Movement/Physics teammate because he had previously worked with Blender and suggested me this tool. [the mesh and models I've built could be found under our assets folder](https://github.com/rhythm0708/sling-fighter/tree/7a12a30ec7240a073a6fd4819b3bf2e35124daba/Assets/Prefabs/Buttons). Our Main Menu has a[ Start Game Button](https://github.com/rhythm0708/sling-fighter/blob/7a12a30ec7240a073a6fd4819b3bf2e35124daba/Assets/Scripts/UI/StartMenuButton.cs#L6), [Settings Button](https://github.com/rhythm0708/sling-fighter/blob/7a12a30ec7240a073a6fd4819b3bf2e35124daba/Assets/Scripts/UI/SettingsMenuButton.cs#L6) and a [Quit Button](https://github.com/rhythm0708/sling-fighter/blob/7a12a30ec7240a073a6fd4819b3bf2e35124daba/Assets/Scripts/UI/QuitMenu.cs#L5). For each of them I also programmed their functionality, and I also used Unity UI systems to make the buttons interactable similar to those of unrailed. Buttons also have loaders that will progress upon player's trigger. Upon triggering/standing on the button for 1.5 seconds, it'll map the player into the desired scene, [Here's an example.](https://drive.google.com/file/d/1AAcmL2TFS5vWnvmkfvkyP3ZS4iqRJxEv/view?usp=sharing) 
+
+- [For the Settings Menu](https://drive.google.com/file/d/1fGyXxgMr2cmos-dY0Tz7Bkd9__BOHaBl/view?usp=sharing), I've created 3 sliders that would map to the mixer for the Sound Manager. By using this mapping and also some programming I was able to interact with the volume of sounds and adjust the mixers. By using [the Volume Settings Script](https://github.com/rhythm0708/sling-fighter/blob/973c52452da1cbc9aa6501e435caf24f0997c7cc/Assets/Scripts/UI/VolumeSettings.cs#L5) allowed me to put in sliders for master, music and sfx volume as serializable objects and by using different functions it allowed me to adjust their volume. Also for the settings menu I've created a button[(includes a script)](https://github.com/rhythm0708/sling-fighter/blob/973c52452da1cbc9aa6501e435caf24f0997c7cc/Assets/Scripts/UI/BackMenu.cs#L6) and a script for that button to map it back to main menu. 
+
+- For the [Results Screen](https://drive.google.com/file/d/1nyHzoH3_H4_go_vRnxigs4BkBcGiHgzB/view?usp=sharing) I used some resources to learn about SQLite [(free of copyright)](https://www.sqlite.org/copyright.html), and being able to take a database course this quarter gave me a great idea about how I could use SQLite to implement a database to store Rankings, Scores, Player names and also sort it based on Score number and date inserted. We have a [local database](https://github.com/rhythm0708/sling-fighter/blob/973c52452da1cbc9aa6501e435caf24f0997c7cc/Assets/PlayerScoreDB.sqlite) that stores everything in tables and rows. Additionally I created a [Script](https://github.com/rhythm0708/sling-fighter/blob/973c52452da1cbc9aa6501e435caf24f0997c7cc/Assets/Scripts/UI/PlayerScoreManager.cs) that connects to this database to perform different operations like [insert](https://github.com/rhythm0708/sling-fighter/blob/a6e8d7bf5472e2713d1c65fc72b1bffd87bcdea1/Assets/Scripts/UI/PlayerScoreManager.cs#L91), [update](https://github.com/rhythm0708/sling-fighter/blob/a6e8d7bf5472e2713d1c65fc72b1bffd87bcdea1/Assets/Scripts/UI/PlayerScoreManager.cs#L180), [read](https://github.com/rhythm0708/sling-fighter/blob/a6e8d7bf5472e2713d1c65fc72b1bffd87bcdea1/Assets/Scripts/UI/PlayerScoreManager.cs#L148) and [delete](https://github.com/rhythm0708/sling-fighter/blob/a6e8d7bf5472e2713d1c65fc72b1bffd87bcdea1/Assets/Scripts/UI/PlayerScoreManager.cs#L127). The advantage of a database is that it's durable (stores [information](https://github.com/rhythm0708/sling-fighter/blob/973c52452da1cbc9aa6501e435caf24f0997c7cc/Assets/Scripts/UI/PlayerScore.cs)) and it has query operations as mentioned. Having teammates that were able to build a Game Manager and implemented efficient ways to retrieve data, team work was essential when it came to retrieving information like score from the Game Manager. Additionally I also created a Back to main menu button and Try again button. As we progressed in our build, Matvey helped me map the buttons from the Result Screen into the right scenes.
+
+- There's also a [Pause Menu](https://github.com/rhythm0708/sling-fighter/blob/a6e8d7bf5472e2713d1c65fc72b1bffd87bcdea1/Assets/Scripts/UI/PauseMenu.cs#L6) that will popup in game when pressing the "ESC" key. When using a joystick upon hitting the "home/hide home" button, the [Pause Menu](https://drive.google.com/file/d/1XeX2RI5uNDRetz2NIA2P3Ava0bet-gDy/view?usp=sharing) will popup. Inside the Pause Menu, upon hitting the "ESC" Key again or hitting "home/hide home" button in joystick, the Pause Menu will close. The pause menu has 4 buttons are selectable by using the left joystick in controller and "W" and "S" keys on the keyboard. Jet helped us map all of the controller buttons inside the Input settings. Each button: [resume](https://github.com/rhythm0708/sling-fighter/blob/a6e8d7bf5472e2713d1c65fc72b1bffd87bcdea1/Assets/Scripts/UI/PauseMenu.cs#L45), [restart](https://github.com/rhythm0708/sling-fighter/blob/a6e8d7bf5472e2713d1c65fc72b1bffd87bcdea1/Assets/Scripts/UI/PauseMenu.cs#L54), [settings](https://github.com/rhythm0708/sling-fighter/blob/a6e8d7bf5472e2713d1c65fc72b1bffd87bcdea1/Assets/Scripts/UI/PauseMenu.cs#L63) and [quit to main menu](https://github.com/rhythm0708/sling-fighter/blob/a6e8d7bf5472e2713d1c65fc72b1bffd87bcdea1/Assets/Scripts/UI/PauseMenu.cs#L72) take in a function from the Pause Menu Script. Our pause menu won't pause the time like other pause menus. With the excelled implementation of the wave systems and wave scenes from other teammates, I was able to create the Pause Menu inside each wave scene as a gameobject and it was really easy to test it out. Lucas helped me implement so that on pause, the players controllers are ignored. There's also a In-Game Settings popup inside the Pause Menu.
+
+- As we were on our final stages of build, Jet and Lucas suggested that we should have a menu that would grant the opportunity for players to pick between contunuing or quitting. Inspired by the [continue scene of Super Smash Bros](https://www.smashbros.com/wii/en_us/gamemode/various/various29.html). I initially made a popup Continue Menu inside our game, but I had difficulties displaying it after time hits 0 seconds. Jet helped me [create a scene for Continue Menu](https://) and he also helped me with the mapping from in game -> continue menu. Inside the Continue Menu if you press ["Yes"](https://github.com/rhythm0708/sling-fighter/blob/a83b80e757713c0bdd9457be7c68d93844043d40/Assets/Scripts/UI/ContinueMenu.cs#L8), -10,000 points will be deducted and you'll be granted another chance to beat the wave you're on, this idea was set up by other teammates. Upon hitting ["No"](https://github.com/rhythm0708/sling-fighter/blob/a83b80e757713c0bdd9457be7c68d93844043d40/Assets/Scripts/UI/ContinueMenu.cs#L13) you'll be mapped to the results screen where you'll be able to input your name into the leaderboard. The options for yes and no are selectable by using the left joystick or "A" and "D" keys. I set up the structure for the Continue Menu and also most of the script for functionality, Jet also took part on helping me set up a scene and implement some functionality of the Continue Menu and also mapping.
+
+- For the UI Scenes, I initially created a "[PlayerInMenu](https://github.com/rhythm0708/sling-fighter/blob/e18affc72a93a8be3e0045e4015809217aeb485c/Assets/Scripts/UI/PlayerInMenu.cs#L5)" object which consisted of a 3D capsule with basic Scripts for movements used for testing the interactive menus. It was set to be an initial place holder for the player inside the interactive menus. Later on the "PlayerInMenu" was replaced by the models other teammates created. 
+
+- Also our team suggested that we should have a Easter Egg Menu where players would be able to test out different waves, this grants the opportunities for players to prepare themselves and be able to experience all the implemented waves by other teammates. Inside the Easter Egg Menu there's 12 different buttons for each wave with different sound effects and 3 hidden buttons for waves 13-15. Each button have their own script that will map to the next scene upon being triggered for 3 secs. [Here's how to trigger the Easter Egg Menu inside Main Menu.](https://drive.google.com/file/d/1MRuQmWAHXB4nzQJ3c6h2hkBnrZ8gLeAD/view?usp=sharing). [Here's an overview on how the Easter Egg Menu looks from the inside](https://drive.google.com/file/d/141eaEayj4F0xNze3OUZja2-lK-uOQjl5/view?usp=sharing).
+
+- The UI scenes work are contained within our [assets folder -> Scenes UI](https://github.com/rhythm0708/sling-fighter/tree/a9794c9f8014fec831b111929fcc85fb420c10b4/Assets/Scenes%20UI)
+
+- The Prefabs for UI are contained within our [assets folder -> prefabs -> UI](https://github.com/rhythm0708/sling-fighter/tree/a9794c9f8014fec831b111929fcc85fb420c10b4/Assets/Prefabs)
+
+- With the team work and input/ideas from everyone, things for the UI and Menu are functional and controllable with mouse, keyboard and also controller except for the settings menu and the results menu where controller could be a future feature for those two scenes. Molding plain 3D buttons and being able to make something so complicated into something simple where players would be able to interact with as something as small as a button was really a great experience and programming skills to gain from. I was satisfied with the overall product and work of everyone and how cool everything looks at the end.
+
+- Main Menu, Easter Egg Menu, All the buttons are supported for interactions by using keyboard, joystick controller and mouse. Except for settings sliders and result screen, that are not supported by joystick just yet.
 
 ## Movement/Physics
 
@@ -135,13 +156,64 @@ Playtesting and feedback allowed me to revise the wave layouts in a way that app
 
 # Sub-Roles
 
-## Audio
+## Audio - Chang Da Su Liang 
 
-**List your assets, including their sources and licenses.**
+"KL Peach Game Over II" from [pixabay.com](https://pixabay.com/) by Lightyeartraxx licensed undeer [Pixabay](https://pixabay.com/service/license-summary/)
 
-**Describe the implementation of your audio system.**
+"A Night Of Dizzy Spells" from [EricSkiff.com](https://ericskiff.com/music/) by Eric Skiff licensed under  [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)
 
-**Document the sound style.** 
+"Kubbi - Digestive biscuit" from [kubbi.bandcamp](https://kubbi.bandcamp.com/track/digestive-biscuit) by Kubbi and licensed undeded [Creative Commons Attribution 3.0 ](https://creativecommons.org/licenses/by-sa/3.0/)
+
+"Sfx - Launch" By Chang, made by playing a random Bass sound and modified it's settings by using an [Audio Cutter](https://mp3cut.net/)
+
+"Reflect - Sfx" By Chang, made by using a home-made squeaking sound and modifying it's volume settings using an [Audio Cutter](https://mp3cut.net/)
+
+"repeating-arcade-beep" from [mixkit](https://mixkit.co/free-sound-effects/arcade/) licensed under [mixkit](https://mixkit.co/license/#sfxFree)
+
+"arcade-game-retro-8-bit-big-shot-1" from [uppbeat.io](https://uppbeat.io/sfx/arcade-game-retro-8-bit-big-shot-1/912/1601) by Uppbeat and licensed under [Uppbeat](https://uppbeat.io/user-agreement)
+
+"mixkit-arcade-bonus-229" from [mixkit](https://mixkit.co/free-sound-effects/arcade/) licensed under [mixkit](https://mixkit.co/license/#sfxFree)
+
+"mixkit-arcade-retro-game-over-213" from [mixkit](https://mixkit.co/free-sound-effects/arcade/) licensed under [mixkit](https://mixkit.co/license/#sfxFree)
+
+"rope-tighten-and-stretch-1-171531 (2)" from [pixabay.com](https://pixabay.com/) by floraphonic and licensed under [Pixabay] (https://pixabay.com/service/license-summary/)
+
+"sound4" from [creatorassets.com](https://creatorassets.com/a/8-bit-jump-sound-effects) by Sonido libre licensed under [idmanagement](https://www.idmanagement.gov/license/)
+
+"mixkit-arcade-game-explosion-echo-1698" from [mixkit](https://mixkit.co/free-sound-effects/arcade/) licensed under [mixkit](https://mixkit.co/license/#sfxFree)
+
+"throwing-item-swing-epic-stock-media-1-00-00" from [uppbeat.io](https://uppbeat.io/sfx/arcade-game-retro-8-bit-big-shot-1/912/1601) by Uppbeat and licensed under [Uppbeat](https://uppbeat.io/user-agreement)
+
+“Player 1” from [panda beats music](https://pandabeatsmusic.com) by pandabeatsmusic licensed under [Panda Beats Music](https://pandabeatsmusic.com/usage-policy/)
+
+"Jump High" from [panda beats music](https://pandabeatsmusic.com) by pandabeatsmusic licensed under [Panda Beats Music](https://pandabeatsmusic.com/usage-policy/)
+
+"Underclocked" from [EricSkiff.com](https://ericskiff.com/music/) by Eric Skiff licensed under  [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+"8bit Dungeon Boss" from [incompetech](https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1200067&Search=Search) by Kevin MacLeod licensed licensed under  [Creative Commons Attribution 3.0](https://creativecommons.org/licenses/by/4.0/)
+
+"Virtual Reality" from [inaudio,org](https://inaudio.org/track/virtual-reality-cyberpunk/) by Infraction licensed under [Creative Commons Attribution 3.0](https://creativecommons.org/licenses/by/4.0/) and also [more information on licensing](https://inaudio.org/license-terms/)
+
+"evil-demonic-laugh-6925" from [pixabay.com](https://pixabay.com/) by Pixabay licensed undeer [Pixabay](https://pixabay.com/service/license-summary/) created by using TTS (Text to Speech)
+
+"fakeyou_0t6e95hynhk51xf76a2tykgw4qet8nry" from [FakeYou](https://fakeyou.com/tts) by vaporwavefun licensed under [FakeYou](https://fakeyou.com/privacy) created by using TTS (Text to Speech)
+
+"fakeyou_qj0z8m14jkp0cft4v0z1crg5a4saxmea" from [FakeYou](https://fakeyou.com/tts) by Vegito1089 licensed under [FakeYou](https://fakeyou.com/privacy) created by using TTS (Text to Speech)
+
+"fakeyou_zpx4rxfna51geedq1wnwd528b8a6t9j4" from [FakeYou](https://fakeyou.com/tts) by vaporwavefun licensed under [FakeYou](https://fakeyou.com/privacy) created by using TTS (Text to Speech)
+
+"laugh-made-with-Voicemod" from [VoiceMod](https://tuna.voicemod.net/sound/e0657c8d-64c8-43ec-ac48-d7ee9d0103b2) by Triggerito licensed under [VoiceMod](https://www.voicemod.net/terms-of-use/)
+
+
+- All the audio sources are contained within the Sound Manager. [The Sound Manager](https://github.com/rhythm0708/sling-fighter/blob/main/Assets/Scripts/Sound/SoundManager.cs) takes in two mixer groups, one for Music and one for sfx. I followed the examples from the [Pikmini Exercise were we also had a similar form of Sound Management](https://github.com/ensemble-ai/exercise-3-observer-pattern-XiaoSu0131/blob/master/Pikmini/Assets/Scripts/SoundManager.cs) to implement and program the Sound Manager. The Sound Manager inside our scenes allows me to load multiple audio tracks and sfx tracks, and at the same time I'd be able to play sounds by invoking the [SoundManager.instance.PlaySfx()](https://github.com/rhythm0708/sling-fighter/blob/658d8086f4ab8386defc9cff44536ab28642070d/Assets/Scripts/Sound/SoundManager.cs#L112) or [SoundManager.instance.PlayMusic()](https://github.com/rhythm0708/sling-fighter/blob/658d8086f4ab8386defc9cff44536ab28642070d/Assets/Scripts/Sound/SoundManager.cs#L126), I also implemented functions to stop playing sfx or music and play music by scene accordingly. The Sound Manager contains sfx tracks and music or background tracks for our game. I also mapped the right sfx and music behind every scene. Including the Easter Egg Menu, Continue Menu, etc. Sound Manager is a singleton object and it can be called in other Scripts by using one line or so. This idea of singleton object for Sound manager was suggested by Jet. 
+
+- Initially I was heading for an Orchestral type of music similar as an inspiration for the sound type for our game. Sound type in games like [Blood Brothers](https://www.youtube.com/watch?v=nDcDm9Z_vU4&ab_channel=Lex_Light), [Super Smash Bros](https://www.youtube.com/watch?v=BR9XTjdIppE&list=PLAs1Kha_R9dIRnAGCbzdRyWw7IFNBFRXx&ab_channel=VideoGamesMusic) and [Unrailed](https://www.youtube.com/watch?v=mjHNRe71usQ&ab_channel=Knaddersound), but as we were heading for a cartoon type and "rolling with punches" theme, I realized that the most appropiate type of sounds would be [8-bit](https://www.youtube.com/watch?v=Hvdfx9avekU&list=PLwJjxqYuirCLkq42mGw4XKGQlpZSfxsYd&index=4&ab_channel=FreeMusic) and also similar to those of [Street Fighter](https://www.youtube.com/watch?v=LQw-a8sApLQ&list=PL7D6CF7B0A10F2FC6&ab_channel=LamarJohnson). That's how I came with the inspiration for the sound effects and music tracks. One of my favourite sound effects is the "Reflect - Sfx" because I made it myself and because it gives a silly vibe compared to the other sound effects. And also with the amazing work for the wave scenes, obstacles from Matvey, it was cool to be able to map the sound effects accordingly and also the ropes implementation and functionality by Jet. 
+
+- All the music for background are contained within our [assets folder -> Audio. ](https://github.com/rhythm0708/sling-fighter/tree/2c1a090b927d7f4093d06e9fc1941c3d623c440e/Assets/Audio)
+
+- All the sfx for our game are contained within our [assets folder -> Audio -> sfx](https://github.com/rhythm0708/sling-fighter/tree/2c1a090b927d7f4093d06e9fc1941c3d623c440e/Assets/Audio/SFX) and each sfx is contained within their sub-folder.
+
+- All the licenses are contained within our [audio licenses.md.](https://github.com/rhythm0708/sling-fighter/blob/2c1a090b927d7f4093d06e9fc1941c3d623c440e/Assets/Audio/audio%20licenses.md)
 
 ## Gameplay Testing – Matvey Volkov
 
