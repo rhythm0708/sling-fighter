@@ -84,38 +84,45 @@ I was assigned the main role of UI and Input. At the beginning of the project I 
 
 For our game, we wanted a visual style that was fit for a fast-pace arcade style fighting game. I decided characters that were cute, yet mean looking would be the best direction for this kind of game. We also agreed that a boxing theme would best fit the world we wanted to build. Since our game is 3D and from the start I wanted original artwork, so I used AI to generate images that I could use as reference for the game. Once I decided which characters I thought were a good fit, I proceeded to model them. I used Blender to make the models. At first it was tough because I had not made a 3D model before, but as time went on, I learned keyboard shortcuts and many tips on Youtube for making models.
 
-# Player
+#### Player
 
-The player character went through multiple stages of evolution until we decided on a final model. At first it was a kangaroo. This kangaroo took me a while to model, as it was my first attempt at creating a 3D model.
+The player character went through multiple stages of evolution until we decided on a final model. At first, it was a kangaroo. This kangaroo took me a while to model, as it was my first attempt at creating a 3D model.
 
-![Image 1](https://drive.google.com/uc?export=view&id=17jD410bBZZ57xvs2DhjlMbgaoAQ0TfX6)
-![Image 2](https://drive.google.com/uc?export=view&id=1JriiezRFA5oNBVpidmyy4kZR1eBgWuiU)
+<p>
+  <img src="https://drive.google.com/uc?export=view&id=17jD410bBZZ57xvs2DhjlMbgaoAQ0TfX6" width="300" alt="First Kangaroo Model" style="margin-right: 20px;"/>
+  <img src="https://drive.google.com/uc?export=view&id=1JriiezRFA5oNBVpidmyy4kZR1eBgWuiU" width="300" alt="Revised Kangaroo Model"/>
+</p>
 
-There was trouble with the mesh in Unity on my first import, but I was able to resolve it by merging vertices, and recalculating outside normals.
+There was trouble with the mesh in Unity on my first import, but I was able to resolve it by merging vertices and recalculating outside normals.
 
-When we decided that a cel-shaded style of game mainly focused on shades of green would look best for Sling Fighter, we switched one of our enemies to the main character. Spike Slugger, the cactus also underwent an evolution of his own.
+When we decided that a cel-shaded style of game mainly focused on shades of green would look best for Sling Fighter, we switched one of our enemies to the main character. Spike Slugger, the cactus, also underwent an evolution of his own.
 
-![Image 3](https://drive.google.com/uc?export=view&id=1PezASwT8jzuh6YA2WcCrs28cpNbl9-nl)
-![Image 4](https://drive.google.com/uc?export=view&id=1_JDf65lpE5dTsN2vGK-n1d4IEVvuffo3)
+<p>
+  <img src="https://drive.google.com/uc?export=view&id=1PezASwT8jzuh6YA2WcCrs28cpNbl9-nl" width="300" alt="Initial Cactus Model" style="margin-right: 20px;"/>
+  <img src="https://drive.google.com/uc?export=view&id=1_JDf65lpE5dTsN2vGK-n1d4IEVvuffo3" width="300" alt="Final Cactus Model"/>
+</p>
 
-# Notable enemies
+#### Notable Enemies
 
-Many original models did not make it into the final version of the game because we listened to feedback from our gameplay testers. The cat was our original orbiter, but, since we moved towards obstacles and not literal enemies that were doing damage, it did not survive the cut.
+Many original models did not make it into the final version of the game because we listened to feedback from our gameplay testers. The cat was our original orbiter, but since we moved towards obstacles and not literal enemies that were doing damage, it did not survive the cut.
 
-![Image 5](https://drive.google.com/uc?export=view&id=1m97y7U9sRT4L9gxQYCqwawLyHSBP5KWU)
+<p>
+  <img src="https://drive.google.com/uc?export=view&id=1m97y7U9sRT4L9gxQYCqwawLyHSBP5KWU" width="300" alt="Cat Orbiter Model" style="margin-right: 20px;"/>
+  <img src="https://drive.google.com/uc?export=view&id=1Cogvjp9lM99425kDqrt3MpRnepX3icy3" width="300" alt="Wizard Model"/>
+</p>
 
 Another enemy that didn’t quite make it into our final game was the wizard.
 
-![Image 6](https://drive.google.com/uc?export=view&id=1Cogvjp9lM99425kDqrt3MpRnepX3icy3)
-
 Finally, we realized that a dummy was the best option. The dummy served as an inanimate object that players could beat upon without guilt. It would complete our final vision of the two main characters in the game.
 
-![Image 7](https://drive.google.com/uc?export=view&id=1dE2oAE26kanYYJY9aPdOeVWMZd5Q_sHM)
-![Image 8](https://drive.google.com/uc?export=view&id=1FFrOncVizKu9oe8bjAPCFSHlpLaWRLFg)
+<p>
+  <img src="https://drive.google.com/uc?export=view&id=1dE2oAE26kanYYJY9aPdOeVWMZd5Q_sHM" width="300" alt="Dummy Model" style="margin-right: 20px;"/>
+  <img src="https://drive.google.com/uc?export=view&id=1FFrOncVizKu9oe8bjAPCFSHlpLaWRLFg" width="300" alt="Final Dummy Model"/>
+</p>
 
-# Arena
+#### Arena
 
-Near the beginning of development we opted to go with a boxing ring. This material was licensed from TurboSquid. [Here](https://www.google.com/url?q=https://www.turbosquid.com/3d-models/boxing-3ds-free/1008777&sa=D&source=editors&ust=1711145430384745&usg=AOvVaw1recJ2xABXAPYVl3VFPBlS) is the link to the ring. I colored the ring using a monochromatic style, so that if we eventually went in that direction it would fit. After the beta stage, we decided it wouldn’t fit our vision because the ropes did not work well with our physics, so we kept our original arena
+Near the beginning of development, we opted to go with a boxing ring. This material was licensed from TurboSquid. [Here](https://www.google.com/url?q=https://www.turbosquid.com/3d-models/boxing-3ds-free/1008777&sa=D&source=editors&ust=1711145430384745&usg=AOvVaw1recJ2xABXAPYVl3VFPBlS) is the
 
 
 ## Wave System and Layout | Obstacle Behavior – Matvey Volkov
