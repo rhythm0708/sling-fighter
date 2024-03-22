@@ -89,7 +89,7 @@ https://github.com/rhythm0708/sling-fighter/blob/0fb211e7858f238e2916122adbdd736
 
 ### Enemy Rework and Wave System V.2
 
-After trying out these changes, the team decided to go in a different direction. We decided to objects that the player interacts with into three categories: enemies, obstacles, and tools. Enemies would deal damage to the player upon interaction, and had very specific ways of being killed, one of which would be through the use of tools. Obstacles acted in a similar way, but were indestructible until the end of the wave.
+After trying out these changes, the team decided to go in a different direction. We decided to split the objects that the player interacts with into three categories: enemies, obstacles, and tools. Enemies would deal damage to the player upon interaction, and had very specific ways of being killed, one of which would be through the use of tools. Obstacles acted in a similar way, and interactions between these objects were handled by me using Jethro's hurtbox and hitbox system.
 
 The wave system was essentially the same, save for the three different object types having different sets of spawn locations and variation in number spawned per wave (and how that number increased as the game progressed). Wave completion would be achieved upon killing all the enemies, which would then lead to a clean-up of all three object types, an update to the count of each, and generation in preparation for the next wave.
 https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/GameManager.cs#L1
@@ -99,18 +99,23 @@ https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e0
 The Rusher would "rush" the player, dealing damage upon contact. It could only be killed with the use of a tool.
 https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/Enemy%20Scripts/RusherScript.cs#L1
 
+The Wizard would shoot one homing projectile at the player at a time, and could only be destroyed upon collision with the player.
+https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/Enemy%20Scripts/WizardScript.cs#L1
+https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/Enemy%20Scripts/WizardProjectileScript.cs#L1
+
 #### Obstacles
 
-The Orbiter would have a sphere hitbox rotating around it
+The Orbiter was an object with a sphere hitbox rotating around it, with the hitbox being the main body that was at the center of the rotating system. There was a gap between the hitbox and hurtbox that the player could go through.
+https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/OrbiterScript.cs#L1
 
 #### Tools
 
 Tools would require activation in order to be used for the purpose of killing the Rusher.
 
-The homing missile would, upon collision with the player, guide itself to the closest (initially random) Rusher, and upon contact would destroy both itself and the latter.
-[insert homing missile script here]
+The homing missile would, upon collision with the player, guide itself to a random Rusher, and upon contact would destroy both itself and the latter.
+https://github.com/rhythm0708/sling-fighter/blob/2634f29ce29682b2dc4953a14ba652ee61dce3d7/Assets/Scripts/HomingMissileScript.cs#L1
 
-The Pillar 
+The Pillar would become activated upon collision with the player. The Rusher, guided into the Pillar, would be destroyed upon collision.
 https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/PillarScript.cs#L1
 
 ### Final Wave System, Fixed Layouts and Obstacle Design
