@@ -2,7 +2,7 @@
 
 ## Summary ##
 
-**A paragraph-length pitch for your game.**
+_Sling Fighter!_ is a slingshot-style arcade game where you launch into a dummy at full force! Compete for the best score in this action-packed feel-good brawl. This game contains 15 waves and a local leaderboard system.
 
 ## Project Resources
 
@@ -13,14 +13,11 @@
 
 ## Gameplay Explanation ##
 
-**In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
-
+This game was designed for controller, but it will also work for keyboard and mouse. Use 'A' and the 'left stick' to pull back on the ropes, and let go to fire onto enemies. 'LB' and 'RB' are your sidesteps.
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
 # Main Roles #
-
-Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
 
 Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
 
@@ -33,9 +30,10 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Producer
 
-As the producer, I adopted a flexible leadership style in the sense that I did not make all of the decisions. I viewed my role in a more organizational sense.
+As the producer, my primary responsibility was to manage the direction of our game and make sure that everyone understood their role. I did not want to take over the project and have the final say over every decision, 
 
-One of my goals was for everyone to get the credit that they deserved for their work. I looked over the [GameProject.md](https://github.com/dr-jam/GameplayProgramming/blob/master/GameProject.md) very carefully before assigning roles and tasks. For example, I ensured that our team received at least **10** pieces of feedback and they were shared to the rest of the team in a timely manner. I managed our [Google Drive](https://drive.google.com/drive/folders/1RleSwVFyKq-hQuMPw-QvtK3InfTamqMV?usp=sharing) as a central hub of communication and resources. 
+
+One of my goals was for everyone to get the credit that they deserved for their work. I carefully looked over the [GameProject.md](https://github.com/dr-jam/GameplayProgramming/blob/master/GameProject.md) before assigning roles and tasks. For example, I ensured that our team received at least **10** pieces of feedback and they were shared to the rest of the team in a timely manner. I managed our [Google Drive](https://drive.google.com/drive/folders/1RleSwVFyKq-hQuMPw-QvtK3InfTamqMV?usp=sharing) as a central hub of communication and resources. 
 I ensured that every person kept documentation for each of their roles, and that the Press Kit & Trailer was not left to the last minute. Another goal that I had was to Here are some more specific examples of work that I did:
 
 - Meeting Notes - My meeting notes
