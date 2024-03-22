@@ -106,14 +106,20 @@ For my sub-role, I worked on Game Logic (Backend) which encompasses data, random
 
 I programmed and hooked up the HUD logic for our game. This includes:
 
-- _Health Bar Controller_ - Inspired by Jet's prototype during the GDAC, I developed `HealthBarController.cs` with a fader.
-I also wrote a ContextMenu to insta-kill the Dummy which helped during playtesting. 
-- _Combo Controller_ -
-- _Timer Controller_ - Players start each wave with 90s, and are tasked with beating each wave
-- _Results Screen_ - 
-- 
+- _Health Bar Controller_ - Inspired by Jet's prototype during GDAC, I developed `HealthBarController.cs` with a fader and no numerical values. The value of the health bar would immediately reduce, and the trail would follow after a calculated offset. I used `Mathf.Lerp` for this implementation. Jet later adapted it to work for all screen sizes. A link to the script can be found [here](https://github.com/rhythm0708/sling-fighter/blob/c7367e9394eafb7bd028e1af2005183167994dd8/Assets/Scripts/UI/HealthBarController.cs#L34).
 
-**Note**: Most of the above scripts have been touched and simplified by Jet during his refactor of the whole project. 
+- _Combo Controller_ - `ComboController.cs` originally had a pop-out animation, but I removed it last-minute because it was too intrusive. The implementation in the final build simply increases in size and opacity at a positive nonzero combo value. There is a slight delay before the animation resets to 0. I also designed the system for tracking and incrementing the combo which can be found in `PlayerController.cs`. Put simply, it increments `OnHit()` and resets when the player attaches to a rope, unless the dummy has been knocked off the stage. This was done to make combo-ing easier and more achievable. [ComboController.cs](https://github.com/rhythm0708/sling-fighter/blob/c7367e9394eafb7bd028e1af2005183167994dd8/Assets/Scripts/UI/ComboController.cs#L1) and [PlayerController.cs](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/Player/PlayerController.cs#L54) are linked here.
+
+- _Timer Controller_ - Players start each wave with 90s, and are tasked with beating it before time runs out. The animations for it was re-imagined during the refactor. My initial implementation was based on the idea that you could gain time by hitting enemies and was accompanied by a "PopOut" animation. Documentation of it can be found [here](https://github.com/rhythm0708/sling-fighter/blob/884d84db09b2bfef11d799d6551792e9db4ed0fc/Assets/Scripts/TimeManager.cs#L1) and [here](https://github.com/rhythm0708/sling-fighter/blob/884d84db09b2bfef11d799d6551792e9db4ed0fc/Assets/Scripts/UIManager.cs#L179), but it's pretty badly written and incomplete. The [new animation](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/UI/TimerController.cs#L1) made by Jet is well thought-out and aligned with our new game loop much better.
+
+- _Results Screen_ - Between waves, players are privy to a snapshot of their `Wave [#] Score` and `Total Score`. I designed the transition between `waveCleared` and the results screen, which then naturally linked to the next wave. This involved work in [GameManager.cs](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/Game/GameManager.cs#L64) and [DisplayResults.cs](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/UI/DisplayResults.cs#L1). I designed the accompanying animation which causes the text to increase in opacity and shift slightly to the right. This was simple, but I thought it gave the screen a bit of life.
+
+# 
+- _Scoring System_ - I also designed the [scoring system](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/Game/GameManager.cs#L221) used throughout the game. The formula considers the time taken to beat the level, the highest combo, and the number of times that the player fell off the arena. It is a value that can go negative. The formula tended to produce somewhat 'random' values that still made sense according to how players played. I think that it incentivized 'good' gameplay whilst being 'weird' enough so that players wouldn't dissect it.
+
+  
+
+
 
 # Miscellaneous / Ambiguous
 
@@ -122,6 +128,7 @@ I also wrote a ContextMenu to insta-kill the Dummy which helped during playtesti
 - Alpha Build: (old) Score + Multiplier System, Lives System
 - Beta Build: Timer Incrementation
 - SubscribeOnHit - observers
+- I also wrote a ContextMenu to insta-kill the Dummy which helped during playtesting. 
 
 ## Press Kit and Trailer
 
