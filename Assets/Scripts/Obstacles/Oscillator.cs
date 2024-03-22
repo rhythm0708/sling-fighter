@@ -14,7 +14,7 @@ public class OscillatorScript : MonoBehaviour
     
     void Update()
     {
-        // Oscillate.
+        // Oscillate between targetPos1 and targetPos2.
         if (transform.position == targetPos1)
         {
             currTargetPos = targetPos2;
@@ -24,6 +24,12 @@ public class OscillatorScript : MonoBehaviour
             currTargetPos = targetPos1;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, currTargetPos, sidestepSpeed);
+        // Move towards current target position.
+        transform.position = Vector3.MoveTowards
+        (
+            transform.position,
+            currTargetPos,
+            sidestepSpeed
+        );
     }
 }
