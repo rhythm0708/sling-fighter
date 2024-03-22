@@ -33,27 +33,18 @@ I created a broad timeline overview for our [Initial Plan](https://docs.google.c
 - _Designating workflow through Git_ - I knew that it was important for us to establish our GitHub workflow early, so I brought it up during an early meeting. I told my team to work in separate branches, and then @ me (in Discord) when they needed to merge. I would try to do this within a couple hours, or a day if this wasn't possible. After doing this project, I  realized that establishing branch-naming conventions would also be useful. I will remember this for future projects.
 - _Designating workflow through Unity_ - As we progressed through the project, I realized that a majority of merge conflicts came from Scenes. To avoid work from being erased, I encouraged my team to save their work in prefabs. This would ensure that their work translated consistently across scenes, but also that I could replace their work efficiently.
 
-- _Bug Fixing & Merge Conflicts_ - Quite a few bugs and merge conflicts emerged during our project, many of which I solved.
+- _Bug Fixing & Merge Conflicts_ - Quite a few bugs and merge conflicts emerged throughout our project. I solved most of these, including [the player model facing the wrong direction](https://github.com/rhythm0708/sling-fighter/blob/4538b1bf81eb0f0c06ded106905c0549548cde17/Assets/Scripts/Player/PlayerMovement.cs#L215), [music not stopping during the Continue scene](https://github.com/rhythm0708/sling-fighter/blob/c55e483a87fbad4349b597d06b550e2cdb5e026e/Assets/Scripts/Sound/SoundManager.cs#L99), and URP rendering issues amongst others. Jet was also very active in helping me fix bugs.
 
-Jet was also very active 
-- a lot of them not all of them
-- _Writing and Documentation_ - 
-- Completed most of the writing and
-- _Coordinating Progress Reports_ - missed daniel's name
+- _Writing and Documentation_ - I completed most of the writing for the Initial Plan and both Progress Reports, before letting my team edit and add observations. I did this to allow my team to focus on the project without having to worry about other tasks.
+- _Coordinating Progress Reports_ - I coordinated progress report meetings with other teams and found times that also worked with my team. I also checked other teams' progress reports on us and caught errors; for example, one team omitted Daniel's name when writing down which members were present. I went back and corrected that.
+- _Managing Communication and Organizational Procedures_ - Our team used Discord as our main channel of communication. On it, I posted updates and important information that I wanted to share with the team. I think that our team communicated well, as we were in constant communication and spoke up when we needed help. I also managed a [Google Drive folder](https://drive.google.com/drive/folders/1RleSwVFyKq-hQuMPw-QvtK3InfTamqMV?usp=drive_link) where team members could find all (external) resources that we used for this project.
 
 # One final note
 
-As Producer, I believe that it is important for every member of the team is fairly credited for the work that they did for this project. Our game has undergone an [alpha stage](https://github.com/rhythm0708/sling-fighter/tree/alpha-build), a [beta stage](https://github.com/rhythm0708/sling-fighter/tree/beta-build), and a [full game loop](https://github.com/rhythm0708/sling-fighter/tree/full-game-loop) stage. However, it is important to note that each stage looks quite different, meaning that a lot of work has gotten lost in the process. Below I have compiled a document listing the name of each member and their individual contributions. I hope that this is helpful for grading, and for clarifying the work that has been done by each person. I truly believe that each member of our team pulled their weight for this project, and I hope that this is evident in the final product.
+As Producer, I believe that it is important for every member of the team to be fairly credited for the work that they did. Our game has gone through an [alpha stage](https://github.com/rhythm0708/sling-fighter/tree/alpha-build), a [beta stage](https://github.com/rhythm0708/sling-fighter/tree/beta-build), and a [full game loop](https://github.com/rhythm0708/sling-fighter/tree/full-game-loop) stage- all of which looks significantly different. Below I have compiled a document listing the name of each member and their individual contributions to the project. I hope that this is useful for grading, and for clarifying the work that has been done by each person. I truly believe that each member pulled their weight for this project and that this is reflected in our final product. Please 
 
 Link to Vouch.
 
-
-- Meeting Notes - My meeting notes
-- Organized google drive
-- Arranging Progress Reports Meetings -
-- Merging Branches - 
-
-**Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
 
 ## User Interface and Input
 
