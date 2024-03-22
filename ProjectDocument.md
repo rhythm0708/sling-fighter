@@ -108,16 +108,17 @@ Many original models did not make it into the final version of the game because 
 
 <p>
   <img src="https://drive.google.com/uc?export=view&id=1m97y7U9sRT4L9gxQYCqwawLyHSBP5KWU" width="300" alt="Cat Orbiter Model" style="margin-right: 20px;"/>
-  <img src="https://drive.google.com/uc?export=view&id=1Cogvjp9lM99425kDqrt3MpRnepX3icy3" width="300" alt="Wizard Model"/>
 </p>
 
 Another enemy that didn’t quite make it into our final game was the wizard.
-
+<p>
+  <img src="https://drive.google.com/uc?export=view&id=1Cogvjp9lM99425kDqrt3MpRnepX3icy3" width="300" alt="Wizard Model"/>
+</p>
 Finally, we realized that a dummy was the best option. The dummy served as an inanimate object that players could beat upon without guilt. It would complete our final vision of the two main characters in the game.
 
 <p>
   <img src="https://drive.google.com/uc?export=view&id=1dE2oAE26kanYYJY9aPdOeVWMZd5Q_sHM" width="300" alt="Dummy Model" style="margin-right: 20px;"/>
-  <img src="https://drive.google.com/uc?export=view&id=1FFrOncVizKu9oe8bjAPCFSHlpLaWRLFg" width="300" alt="Final Dummy Model"/>
+  <img src="https://drive.google.com/uc?export=view&id=1FFrOncVizKu9oe8bjAPCFSHlpLaWRLFg" width="275" alt="Final Dummy Model"/>
 </p>
 
 #### Arena
