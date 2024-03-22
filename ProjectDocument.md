@@ -74,6 +74,8 @@ I was assigned the main role of UI and Input. At the beginning of the project I 
 
 - Main Menu, Easter Egg Menu, All the buttons are supported for interactions by using keyboard, joystick controller and mouse. Except for settings sliders and result screen, that are not supported by joystick just yet.
 
+- [Summarized documentation progress for UI](https://docs.google.com/document/d/1v3LFZFRjlG_7wzuvx6gE_2295Tsv3Zt4tbTjuhgrG3Q/edit?usp=sharing)
+
 ## Movement/Physics
 
 **Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
@@ -211,6 +213,8 @@ Playtesting and feedback allowed me to revise the wave layouts in a way that app
 - All the sfx for our game are contained within our [assets folder -> Audio -> sfx](https://github.com/rhythm0708/sling-fighter/tree/2c1a090b927d7f4093d06e9fc1941c3d623c440e/Assets/Audio/SFX) and each sfx is contained within their sub-folder.
 
 - All the licenses are contained within our [audio licenses.md.](https://github.com/rhythm0708/sling-fighter/blob/2c1a090b927d7f4093d06e9fc1941c3d623c440e/Assets/Audio/audio%20licenses.md)
+
+- [Summarized documentation progress for Audio](https://docs.google.com/document/d/1_EoBqt4PlOaQ8_wu-tYKRpCkqL7jda7abt5Eu5n7J1Y/edit?usp=sharing)
 
 ## Gameplay Testing – Matvey Volkov
 
