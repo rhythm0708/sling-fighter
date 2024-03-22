@@ -69,62 +69,47 @@ At the start of our project, our team decided to split up the role of Game Logic
 
 ### Early Wave System
 
-The early wave system was decided to be an endless one and followed the Factory Design Pattern, where enemies were instantiated in conformance to specs, just like in Exercise 4. Enemy spawn locations and specs were randomly generated for the sake of variety. Killing all the enemies generated at the start of the wave would advance one onto the next wave, with adjusted enemy count.
-https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/GameManager.cs#L1
-https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemyFactoryController.cs#L1
-https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemySpec.cs#L1
-Enemies had a set amount of health, damage, and catch-up speed. They blindly gravitated towards the player, with the distinction between damaging the player and taking damage themselves being whether or not they collided with the player's fist. Enemies became dazed upon collision, and then continued their search. Our initial idea was to allow the player to enter slow-mo that would allow them to use a punching mechanic. Enemies destroyed themselves upon falling off the arena.
-https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemyController.cs#L1
-Player shared similar defining characteristics, and also had a damage cooldown in order to avoid continuous damage that would result in an instant game-end. Contact with enemies and bumpers (stationary objects that could be used to ricochet) would inflict damage.
-https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/PlayerController.cs#L1
+The [early wave system](https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/GameManager.cs#L1) was decided to be an endless one and followed the [Factory Design Pattern](https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemyFactoryController.cs#L1), where enemies were instantiated in conformance to [specs](https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemySpec.cs#L1), just like in Exercise 4. Enemy spawn locations and specs were randomly generated for the sake of variety. Killing all the enemies generated at the start of the wave would advance one onto the next wave, with adjusted enemy count.
+
+[Enemies](https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemyController.cs#L1) had a set amount of health, damage, and catch-up speed. They blindly gravitated towards the player, with the distinction between damaging the player and taking damage themselves being whether or not they collided with the player's fist. Enemies became dazed upon collision, and then continued their search. Our initial idea was to allow the player to enter slow-mo that would allow them to use a punching mechanic. Enemies destroyed themselves upon falling off the arena.
+
+[Player](https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/PlayerController.cs#L1) shared similar defining characteristics, and also had a damage cooldown in order to avoid continuous damage that would result in an instant game-end. Contact with enemies and bumpers (stationary objects that could be used to ricochet) would inflict damage.
 
 In Jethro's first major refactor, the Factory Design Pattern would become scrapped and collider interactions would take on a more sophisticated form with the addition of hiboxes and hurtboxes; it also introduced a Publisher/Subscriber Design Pattern for OnHit and OnHurt actions. After some feedback during our meeting, I made it so that enemies would no longer spawn at random locations on the arena, but rather random enemies would spawn at randomly selected, fixed spawnpoints. GameObjects were be created for this purpose and assigned to a spawnpoint list in GameManager.
 https://github.com/rhythm0708/sling-fighter/blob/6b845d5abff1e625a6f717621e22c0a32ec33593/Assets/Scripts/GameManager.cs#L1
-With these changes came the addition of the transition to game over state (upon falling off the arena) and retry functionality.
-https://github.com/rhythm0708/sling-fighter/blob/745bf32b6ab141cc4a49eae952df452e3c46f42c/Assets/UI%20Scripts/TryAgain.cs#L1
-Player now also took damage.
-https://github.com/rhythm0708/sling-fighter/blob/745bf32b6ab141cc4a49eae952df452e3c46f42c/Assets/Scripts/PlayerController.cs#L1
-And enemies had different tracking speeds depending on their type.
-https://github.com/rhythm0708/sling-fighter/blob/0fb211e7858f238e2916122adbdd7361969fb898/Assets/Scripts/Tracker.cs#L1
+With these changes came the addition of the transition to game over state (upon falling off the arena) and [retry functionality](https://github.com/rhythm0708/sling-fighter/blob/745bf32b6ab141cc4a49eae952df452e3c46f42c/Assets/UI%20Scripts/TryAgain.cs#L1).
+Player now also [took damage](https://github.com/rhythm0708/sling-fighter/blob/745bf32b6ab141cc4a49eae952df452e3c46f42c/Assets/Scripts/PlayerController.cs#L1) and enemies had [different tracking speeds](https://github.com/rhythm0708/sling-fighter/blob/0fb211e7858f238e2916122adbdd7361969fb898/Assets/Scripts/Tracker.cs#L1) depending on their type.
 
 ### Enemy Rework and Wave System V.2
 
 After trying out these changes, the team decided to go in a different direction. We decided to split the objects that the player interacts with into three categories: enemies, obstacles, and tools. Enemies would deal damage to the player upon interaction, and had very specific ways of being killed, one of which would be through the use of tools. Obstacles acted in a similar way, and interactions between these objects were handled by me using Jethro's hurtbox and hitbox system.
 
-The wave system was essentially the same, save for the three different object types having different sets of spawn locations and variation in number spawned per wave (and how that number increased as the game progressed). Wave completion would be achieved upon killing all the enemies, which would then lead to a clean-up of all three object types, an update to the count of each, and generation in preparation for the next wave.
-https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/GameManager.cs#L1
+The [wave system](https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/GameManager.cs#L1) was essentially the same, save for the three different object types having different sets of spawn locations and variation in number spawned per wave (and how that number increased as the game progressed). Wave completion would be achieved upon killing all the enemies, which would then lead to a clean-up of all three object types, an update to the count of each, and generation in preparation for the next wave.
 
 #### Enemies
 
-The Rusher would "rush" the player, dealing damage upon contact. It could only be killed with the use of a tool.
-https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/Enemy%20Scripts/RusherScript.cs#L1
+The [Rusher](https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/Enemy%20Scripts/RusherScript.cs#L1) would "rush" the player, dealing damage upon contact. It could only be killed with the use of a tool.
 
-The Wizard would shoot one homing projectile at the player at a time, and could only be destroyed upon collision with the player.
-https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/Enemy%20Scripts/WizardScript.cs#L1
-https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/Enemy%20Scripts/WizardProjectileScript.cs#L1
+The [Wizard](https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/Enemy%20Scripts/WizardScript.cs#L1) would shoot one homing [projectile](https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/Enemy%20Scripts/WizardProjectileScript.cs#L1) at the player at a time, and could only be destroyed upon collision with the player.
 
 #### Obstacles
 
-The Orbiter was an object with a sphere hitbox rotating around it, with the hitbox being the main body that was at the center of the rotating system. There was a gap between the hitbox and hurtbox that the player could go through.
-https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/OrbiterScript.cs#L1
+The [Orbiter](https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/OrbiterScript.cs#L1) was an object with a sphere hitbox rotating around it, with the hitbox being the main body that was at the center of the rotating system. There was a gap between the hitbox and hurtbox that the player could go through.
 
 #### Tools
 
 Tools would require activation in order to be used for the purpose of killing the Rusher.
 
-The homing missile would, upon collision with the player, guide itself to a random Rusher, and upon contact would destroy both itself and the latter.
-https://github.com/rhythm0708/sling-fighter/blob/2634f29ce29682b2dc4953a14ba652ee61dce3d7/Assets/Scripts/HomingMissileScript.cs#L1
+The [Homing Missile](https://github.com/rhythm0708/sling-fighter/blob/2634f29ce29682b2dc4953a14ba652ee61dce3d7/Assets/Scripts/HomingMissileScript.cs#L1) would, upon collision with the player, guide itself to a random Rusher, and upon contact would destroy both itself and the latter.
 
-The Pillar would become activated upon collision with the player. The Rusher, guided into the Pillar, would be destroyed upon collision.
-https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/PillarScript.cs#L1
+The [Pillar](https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/PillarScript.cs#L1) would become activated upon collision with the player. The Rusher, guided into the Pillar, would be destroyed upon collision.
 
 The Dummy had knockback physics that Jethro implemented, and could be knocked into the Rusher to destroy it. It is important to note, however, that the Dummy, just like all tools, had to be activated by contact with the player. That is to say, hitting a Dummy and not having it fall of the stage or collide with a Rusher would result in it essentially acting as a Pillar. The majority of the following code is not mine, but I implemented the OnHurt logic and initiation.
 https://github.com/rhythm0708/sling-fighter/blob/2634f29ce29682b2dc4953a14ba652ee61dce3d7/Assets/Scripts/Knockback.cs#L48
 
 ### Final Wave System, Fixed Layouts and Obstacle Design
 
-The final version of the game features a sequential progression through a series of predefined waves. The team decided to scrap the idea of using the enemy, obstacle, and tool triplet after the GDAC Playtester Event, and to stick to one damage-wise passive Dummy per wave, which was implemented by Jethro. I implemented the basic version of the wave system that was later built upon in the second major refactor. After that, I added in functionality for level selection in easter egg menu, and for retrying.
-https://github.com/rhythm0708/sling-fighter/blob/394b87bcd602498d89d451350c573c505403a7cb/Assets/Scripts/GameManager.cs#L1
+The final version of the game features a sequential progression through a series of predefined waves. The team decided to scrap the idea of using the enemy, obstacle, and tool triplet after the GDAC Playtester Event, and to stick to one damage-wise passive Dummy per wave, which was implemented by Jethro. I implemented the [basic version](https://github.com/rhythm0708/sling-fighter/blob/394b87bcd602498d89d451350c573c505403a7cb/Assets/Scripts/GameManager.cs#L1) of the wave system that was later built upon in the second major refactor. After that, I added in functionality for level selection in easter egg menu, and for retrying.
 
 There is a total of fifteen waves in the current version of the game, and visual references to each can be found [here](https://drive.google.com/drive/folders/1OhQsjXMOsAeWCNaky4L6jDyxyEo_w0na?usp=sharing). One can also experience each of the levels by using the previously mentioned easter egg menu created by Chang.
 
@@ -141,12 +126,7 @@ https://www.mariowiki.com/Thwomp
 
 #### Waves
 
-Playtesting and feedback allowed me to revise the wave layouts in a way that appropriately challenges the player, while preserving the fun. There is a natural progression to the wave system in terms of difficulty, and each wave serves a purpose. The first two waves are meant to allow the player to familiarize themselves with the game's mechanics and movement system; wave one is a free-roam, and level two introduces the Pillars in such a way that the player can experiment with them without having to worry about any immediate danger. By placing an obstacle on the path from the starting point to the Dummy, Wave 3 encourages the player to explore the side-step mechanic and slinging to ropes on the sides. Waves 4 and 5 introduce new obstacles in a way that does feel overwhelming and allows the player to master dealing with them. Wave 6 marks the approximate half-way point in the game, and really tests the player's mastery of the core mechanics by introducing the Wizard, which requires dodging and savvy traversal of the environment in order to get rid of its projectiles.
-
-- From obstacles to obstacles, tools, and enemies, to obstacles and one main "enemy"
-- Handling collisions before and after the refactor
-- Handling obstacle behavior
-- Setting up various wave systems and GameManager that starts out in an in-game state and transitions to end game
+Playtesting and feedback allowed me to revise the wave layouts in a way that appropriately challenges the player, while preserving the fun. There is a natural progression to the wave system in terms of difficulty, and each wave serves a purpose. The first two waves are meant to allow the player to familiarize themselves with the game's mechanics and movement system; wave one is a free-roam, and level two introduces the Pillars in such a way that the player can experiment with them without having to worry about any immediate danger. By placing an obstacle on the path from the starting point to the Dummy, Wave 3 encourages the player to explore the side-step mechanic and slinging to ropes on the sides. Waves 4 and 5 introduce new obstacles in a way that does feel overwhelming and allows the player to master dealing with them. Wave 6 marks the approximate half-way point in the game, and really tests the player's mastery of the core mechanics by introducing the Wizard, which requires dodging and savvy traversal of the environment in order to get rid of its projectiles. Wave 7 is less stressful in order to accomodate for the pressure put on the player in the previous wave, and difficulty ramps up with each successive wave. Wave 9 introduces the spikes, which are the main focus of waves 9-11. Waves 12-14 capture the culmination of all the different obstacles the player has encountered thus far, and tests them on their mastery of each. Wave 15, the final wave, introduces the Sweeper and is a challenging but less stressful wave than the previous three. It rewards the player for making it this far while introducing something new and interesting at the same time.
 
 # Sub-Roles
 
