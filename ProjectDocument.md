@@ -89,7 +89,7 @@ For our game, we wanted a visual style that was fit for a fast-pace arcade style
 The player character went through multiple stages of evolution until we decided on a final model. At first, it was a kangaroo. This kangaroo took me a while to model, as it was my first attempt at creating a 3D model.
 
 <p>
-  <img src="https://drive.google.com/uc?export=view&id=17jD410bBZZ57xvs2DhjlMbgaoAQ0TfX6" width="300" alt="First Kangaroo Model" style="margin-right: 20px;"/>
+  <img src="https://drive.google.com/uc?export=view&id=17jD410bBZZ57xvs2DhjlMbgaoAQ0TfX6" width="300" alt="First Kangaroo Model" style="margin-right: 50px;"/>
   <img src="https://drive.google.com/uc?export=view&id=1JriiezRFA5oNBVpidmyy4kZR1eBgWuiU" width="300" alt="Revised Kangaroo Model"/>
 </p>
 
@@ -98,7 +98,7 @@ There was trouble with the mesh in Unity on my first import, but I was able to r
 When we decided that a cel-shaded style of game mainly focused on shades of green would look best for Sling Fighter, we switched one of our enemies to the main character. Spike Slugger, the cactus, also underwent an evolution of his own.
 
 <p>
-  <img src="https://drive.google.com/uc?export=view&id=1PezASwT8jzuh6YA2WcCrs28cpNbl9-nl" width="300" alt="Initial Cactus Model" style="margin-right: 20px;"/>
+  <img src="https://drive.google.com/uc?export=view&id=1PezASwT8jzuh6YA2WcCrs28cpNbl9-nl" width="300" alt="Initial Cactus Model" style="margin-right: 50px;"/>
   <img src="https://drive.google.com/uc?export=view&id=1_JDf65lpE5dTsN2vGK-n1d4IEVvuffo3" width="300" alt="Final Cactus Model"/>
 </p>
 
@@ -328,15 +328,13 @@ As mentioned, the roles got pretty mixed up during this project. A lot of us did
 
 ## Press Kit and Trailer
 
-The trailer was more difficult than I had anticipated at the start. First I played the game progressing through the waves while using a screen recorder I have in Google Chrome. Then, I sorted through the footage to find what seemed most appealing about the game. I uploaded these clips to a platform called Nova, which I found through Google. Here, I made an outline of what text I wanted to appear in the trailer, then added it to the video timeline. Once I had these text scenes in place, I proceeded to cut the video and merge the footage to make a complete trailer. When I was done with the video, I used the audio file from our main menu because I felt its intensity matched the game. Finally, I uploaded it to Youtube, so that it could be viewed by the public.I have attached the link below.
+### Trailer
 
-Link Trailer
+The trailer was more difficult than I had anticipated at the start. First I played the game progressing through the waves while using a screen recorder I have in Google Chrome. Then, I sorted through the footage to find what seemed most appealing about the game. I uploaded these clips to a platform called Nova, which I found through Google. Here, I made an outline of what text I wanted to appear in the trailer, then added it to the video timeline. Once I had these text scenes in place, I proceeded to cut the video and merge the footage to make a complete trailer. When I was done with the video, I used the audio file from our main menu because I felt its intensity matched the game. Finally, I uploaded it to Youtube, so that it could be viewed here.
 
-# Presskit
+### Presskit
 
-The presskit was done entirely on itch.io. I used screenshots of the models and logo to make the banner. Then, I wrote a description of the game that gives details on the purpose and goal of the game, also adding notes on controls and penalties to player score. The screenshots were taken while I progressed through the game, so that I could highlight its various aspects. I have attached a link to the presskit below.
-
-Link Presskit
+The presskit was done entirely on itch.io. I used screenshots of the models and logo to make the banner. Then, I wrote a description of the game that gives details on the purpose and goal of the game, also adding notes on controls and penalties to player score. The screenshots were taken while I progressed through the game, so that I could highlight its various aspects. You can view the presskit here.
 
 ## Game Feel and Polish
 
