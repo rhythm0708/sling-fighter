@@ -1032,14 +1032,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5930085098214963277, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7840601591776188063, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8638840799975320928, guid: 75b6df318dd7b3a4c995103b11c18325, type: 3}
       propertyPath: m_Pivot.x
       value: 0
