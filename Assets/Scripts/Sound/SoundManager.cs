@@ -84,17 +84,17 @@ public class SoundManager : MonoBehaviour
             StopSfx("Rope");
             StopMusic("EG");
         }
-        else if (currentScene.Substring(0, 4) == "Wave")
-        {
-            StopMusic("In Menu");
-            PlayMusic("In Game");
-            StopMusic("EG");
-        }
         else if (currentScene == "EG")
         {
             StopMusic("In Menu");
             StopMusic("In Game");
             PlayMusic("EG");
+        }
+        else if (currentScene.Substring(0, 4) == "Wave")
+        {
+            StopMusic("In Menu");
+            PlayMusic("In Game");
+            StopMusic("EG");
         }
         else if(currentScene == "ContinueMenu")
         {
