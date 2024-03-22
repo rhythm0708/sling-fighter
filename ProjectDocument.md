@@ -195,7 +195,7 @@ There was some additional work I did that did not necessarily fit into my role. 
 
 - _ContextMenu for debugging_ - I wrote a `ContextMenu` which would instakill the dummy if you clicked a button in the editor. This was useful for me, at least, while playtesting and bug-fixing the project. Linked [here](https://github.com/rhythm0708/sling-fighter/blob/bbd0c03a3ef2d53075021c666f27e09d17c50e57/Assets/Scripts/Game/GameManager.cs#L231).
 
-- _Fixed Pause and Easter Egg Menu_ - Chang created a pause system that does not stop time (like in Unrailed). I revamped the code to use public functions from `GameManager.cs` (to preserve encapsulation) and disabled `PlayerController.cs` onPause(). I also increased the font size and spacing between buttons in the Easter Egg Scene. See [PauseMenu.cs]() for an example of work.
+- _Fixed Pause and Easter Egg Menu_ - Chang created a pause system that does not stop time (like in Unrailed). I revamped the code to use public functions from `GameManager.cs` (to preserve encapsulation of variables) and disabled `PlayerController.cs` onPause(). I also increased font size of and spacing between buttons in the Easter Egg Scene. See [PauseMenu.cs](https://github.com/rhythm0708/sling-fighter/blob/275d14cf21beb816ac274ccea9e87cb58275cf19/Assets/Scripts/UI/PauseMenu.cs#L59) for an example of work.
 
 As mentioned, the roles got pretty mixed up while developing this project. A lot of us did work on each other's scripts; a lot of wires were crossed. But these are the main things that I remember (and can find evidence of) coding for this project.
 
