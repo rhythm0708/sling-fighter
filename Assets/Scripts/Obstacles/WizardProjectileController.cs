@@ -55,6 +55,9 @@ public class WizardProjectileController  : MonoBehaviour
             if (ropeValid)
             {
                 GameManager.Instance.SubtractTime(timeSubtraction);
+
+                // Play SFX
+                SoundManager.instance.PlaySfx("ProjectileHit");
             }
             Destroy(gameObject);
         }

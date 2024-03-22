@@ -58,12 +58,6 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 1
-  - clip: {fileID: 8300000, guid: 6629646462e105a478b7e24368ec6f51, type: 3}
-    audioSource: {fileID: 0}
-    name: EG
-    volume: 1
-    pitch: 1
-    loop: 1
   sfxGroup: {fileID: 3468307724742771576, guid: 46a75691ae517a14785ba1d49e35066d, type: 2}
   sfxClips:
   - clip: {fileID: 8300000, guid: 43bcbeb4fc2b0e44bbe065b6832c1614, type: 3}
@@ -173,4 +167,10 @@ MonoBehaviour:
     name: No
     volume: 0.8
     pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: c768060bae331fc4dbd1eef8466cdc1e, type: 3}
+    audioSource: {fileID: 0}
+    name: ProjectileHit
+    volume: 1
+    pitch: 1.5
     loop: 0
