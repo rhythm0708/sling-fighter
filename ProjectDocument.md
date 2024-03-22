@@ -2,7 +2,7 @@
 
 ## Summary ##
 
-_Sling Fighter!_ is a slingshot-style arcade game where you launch into a dummy at full force! Compete for the best score in this no-holds-barred action brawl. This game contains 15 waves and a local leaderboard system.
+_Sling Fighter!_ is a slingshot-style arcade game where you launch into a dummy at full force! Compete for the best score in this all-out action brawl. The game contains 15 waves and a local leaderboard system.
 
 ## Project Resources
 
