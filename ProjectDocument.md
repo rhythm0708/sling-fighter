@@ -235,10 +235,7 @@ For my sub-role, I also worked on game logic (more towards the backend side).
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 
 ## Game Feel and Polish - Jethro Immanuel Peralta
-
-**Document what you added to and how you tweaked your game to improve its game feel.**
-
-Even though this is listed as sub-role, this to me felt like my main role, as I spent the most time getting the game to just intrisically feel good. 
+Even though this is listed as sub-role, this to me felt like my main role, as I spent the most time getting the game to just intrisically feel good. It was intrisically linked to my main role of Movement/Physics anyway, so I don't think this distinction is too important. However, I ended overlapping on many other roles and polished up group members' work. Again, they provided lots of the initial work that I simply built on top of.
 
 ### Movement and Physics Were Key
 A core of the game feel was in the Physics/Movement: our mechanic of slinging needed to feel really good for the game to work. I've already went over most of the implmentation details in my main role section. In-terms of what makes this movement feel good, my main goal was to keep the player moving till they hit a rope. This give the game its snappy feeling as there's a "tension-and-release"; the player moves quickly and has to make quick sidesteps when slinging, then they have a pause to decide on their next sling when touching another rope. And again, the sense of tactility with the rope physics plays a big part in making the game feel good in a player's hands; there's a sense of physicality to the player hitting the ropes and slinging off them. 
@@ -292,11 +289,11 @@ As an overall, the hit effects are kept very quick and snappy to match the feeli
 *Additive blending. Hits look bright and light up the scene*
 
 ### Savor the Final Blow
-The final kill cam really makes players feel rewarded once they clear a wave. As corny as it can be, slow-mo does an amazing job of selling a moment and making someone really savor what's going on. The slow-mo on the kill cam dials up the hit effects from earlier as a player gets a longer look at the hitlag, shake, and hit effect. 
+The final kill cam really makes players feel rewarded once they clear a wave. As corny as it can be, slow-mo does an amazing job of selling a moment and making someone really savor what's going on. The slow-mo on the kill cam dials up the hit effects from earlier as a player gets a longer look at the hitlag, shake, and hit effect. The slow-mo was actually very easy to accompish: just set the `Time.timeScale` value to less than 1.0. This was done in the `GameManager` since it relied on knowing the game state we're in.
 
-Furthermore, it switches to a different camera to capture more of the moment. This does two things to better show the final blow. It first zooms in with a low FOV so player's can see the hit. It also circles around the player to show the hit from more angles. These two help accomplish the same goal: let the player see the whole hit.
+Furthermore, it switches to a different camera to capture more of the moment. This does two things to better show the final blow. It first zooms in with a low FOV so player's can see the hit. It also circles around the player to show the hit from more angles. These two help accomplish the same goal: let the player see the whole hit. We just have a pivot at the center of the player where the kill cam is attached to with an offset. Then, I just rotate this pivot to get it to spin around the player.
 
-Chang, who did all our sounds, added the final icing to the kill cam with the echoey final blow sound. This just made it feel amazing to beat up that dummy.
+Chang, who did all our sounds, added the final icing to the kill cam with the echoey final blow sound. This just made it feel amazing to beat up on that dummy.
 
 ### Animations and Shaders are the Icing
 The animations were the final icing on the cake to really make the game feel "slingy". Notable is the animation style: the game uses frame-by-frame animation akin to the Spiderverse movies. This style allows the animations to focus more on posing than motion, since the frames hold longer for a player to see. Striking poses like punching then really register for a player. I also used **extreme** squash-and-stretch to really sell the movements, especially since the moments are so fast.
