@@ -50,9 +50,9 @@ I created a broad timeline overview for our [Initial Plan](https://docs.google.c
 
 ### One final note
 
-As Producer, I believe that it is important for every member of the team to be fairly credited for the work that they did. Our game has gone through an [alpha stage](https://github.com/rhythm0708/sling-fighter/tree/alpha-build), a [beta stage](https://github.com/rhythm0708/sling-fighter/tree/beta-build), and a [full game loop](https://github.com/rhythm0708/sling-fighter/tree/full-game-loop) stage- all of which looks significantly different. Below I have compiled a document listing the name of each member and their individual contributions to the project. I hope that this is useful for grading, and for clarifying the work that has been done by each person. I truly believe that each member pulled their weight for this project and that this is reflected in our final product. Please 
+As Producer, I believe that it is important for every member of the team to be fairly credited for the work that they did. Our game has gone through an [alpha](https://github.com/rhythm0708/sling-fighter/tree/alpha-build), [beta](https://github.com/rhythm0708/sling-fighter/tree/beta-build), and a [full game loop](https://github.com/rhythm0708/sling-fighter/tree/full-game-loop) stage- all of which looks significantly different. Below I have compiled a document listing the name of each member and their individual contributions to the project. I hope that this is useful for grading, and for clarifying the work that has been done by each member. I truly believe that we all pulled our weight for this project and hopefully, this is reflected in our final game. Linked below.
 
-Link to Vouch.
+[Vouch](https://docs.google.com/document/d/1aawnozYWJXqzhWCNuq6DW1AvTqfJCFlKV03uqT-946Q/edit?usp=sharing).
 
 ## User Interface and Input
 
