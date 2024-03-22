@@ -91,25 +91,46 @@ https://github.com/rhythm0708/sling-fighter/blob/0fb211e7858f238e2916122adbdd736
 
 After trying out these changes, the team decided to go in a different direction. We decided to objects that the player interacts with into three categories: enemies, obstacles, and tools. Enemies would deal damage to the player upon interaction, and had very specific ways of being killed, one of which would be through the use of tools. Obstacles acted in a similar way, but were indestructible until the end of the wave.
 
-The wave system was essentially the same, save for the three different object types having different sets of spawn locations and variation in number spawned per wave (and how that number increased as the game progresses).
+The wave system was essentially the same, save for the three different object types having different sets of spawn locations and variation in number spawned per wave (and how that number increased as the game progressed). Wave completion would be achieved upon killing all the enemies, which would then lead to a clean-up of all three object types, an update to the count of each, and generation in preparation for the next wave.
+https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/GameManager.cs#L1
 
 #### Enemies
 
+The Rusher would "rush" the player, dealing damage upon contact. It could only be killed with the use of a tool.
+https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/Enemy%20Scripts/RusherScript.cs#L1
+
 #### Obstacles
+
+The Orbiter would have a sphere hitbox rotating around it
+
+#### Tools
+
+Tools would require activation in order to be used for the purpose of killing the Rusher.
+
+The homing missile would, upon collision with the player, guide itself to the closest (initially random) Rusher, and upon contact would destroy both itself and the latter.
+[insert homing missile script here]
+
+The Pillar 
+https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/PillarScript.cs#L1
 
 ### Final Wave System, Fixed Layouts and Obstacle Design
 
-The final version of the game features 
+The final version of the game features a sequential progression through a series of predefined waves. The team decided to scrap the idea of using the enemy, obstacle, and tool triplet after the GDAC Playtester Event, and to stick to one damage-wise passive Dummy per wave, which was implemented by Jethro.
 
-There is a total of fifteen predefined waves in the current version of the game, and visual references to each can be found [here](https://drive.google.com/drive/folders/1OhQsjXMOsAeWCNaky4L6jDyxyEo_w0na?usp=sharing).
+There is a total of fifteen waves in the current version of the game, and visual references to each can be found [here](https://drive.google.com/drive/folders/1OhQsjXMOsAeWCNaky4L6jDyxyEo_w0na?usp=sharing).
 
 #### Obstacles
 
+Obstacles are indestructible and have fixed locations in each wave.
 
+The Wizard was eventually renamed to officially be the Turret, but the internal name is still the same. It generates 
+
+The Oscillator is a simple platform that moves side-to-side at the assigned speed.
+https://github.com/rhythm0708/sling-fighter/blob/bdc50cbcbcfaa2f133bb96d04fc21bc021a1ed77/Assets/Scripts/Obstacles/Oscillator.cs#L1
 
 #### Waves
 
-Playtesting and feedback allowed me to revise the wave layouts in a way that appropriately challenges the player, while preserving the fun. There is a natural progression to the wave system in terms of difficulty, and each wave serves a purpose. The first two waves are meant to allow the player to familiarize themselves with the game's mechanics and movement system; wave one is a free-roam, and level two introduces the Pillars in such a way that the player can experiment with them without having to worry about any immediate danger. By placing an obstacle on the path from the starting point to the Dummy, Wave 3 encourages the player to explore the side-step mechanic and slinging to ropes on the sides. Waves 4 and 5 introduce new obstacles in a way that does feel overwhelming and allows the player to master dealing with them. Wave 6 marks the approximate half-way point in the game, and really tests the player's mastery of the core mechanics by introducing the Wizard
+Playtesting and feedback allowed me to revise the wave layouts in a way that appropriately challenges the player, while preserving the fun. There is a natural progression to the wave system in terms of difficulty, and each wave serves a purpose. The first two waves are meant to allow the player to familiarize themselves with the game's mechanics and movement system; wave one is a free-roam, and level two introduces the Pillars in such a way that the player can experiment with them without having to worry about any immediate danger. By placing an obstacle on the path from the starting point to the Dummy, Wave 3 encourages the player to explore the side-step mechanic and slinging to ropes on the sides. Waves 4 and 5 introduce new obstacles in a way that does feel overwhelming and allows the player to master dealing with them. Wave 6 marks the approximate half-way point in the game, and really tests the player's mastery of the core mechanics by introducing the Wizard, which requires dodging and savvy traversal of the environment in order to get rid of its projectiles.
 
 - From obstacles to obstacles, tools, and enemies, to obstacles and one main "enemy"
 - Handling collisions before and after the refactor
