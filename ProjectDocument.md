@@ -40,15 +40,14 @@ I created a broad timeline overview for our [Initial Plan](https://docs.google.c
 
 # One final note
 
-As producer, I believe that it is important for every member on the team to be fairly credited for the work that they have put into this project. Our game has undergona an 
-that everybody in the team is fairly credited for the work that they have done for this project. Our project has gone through an alpha-phase, beta-phase, and a full-game-loop phase - all of which are rather distinct from one another. 
+As Producer, I believe that it is important for every member of the team is fairly credited for the work that they did for this project. Our game has undergone an [alpha stage](https://github.com/rhythm0708/sling-fighter/tree/alpha-build), a [beta stage](https://github.com/rhythm0708/sling-fighter/tree/beta-build), and a [full game loop](https://github.com/rhythm0708/sling-fighter/tree/full-game-loop) stage. However, it is important to note that each stage looks quite different, meaning that a lot of work has gotten lost in the process. Below I have compiled a document listing the name of each member and their individual contributions. I hope that this is helpful for grading, and for clarifying the work that has been done by each person. I truly believe that each member of our team pulled their weight for this project, and I hope that this is evident in the final product.
 
-and I hope you'll agree that it reflects in the final product. 
-As a producer, I also believe it is my role to ensure that the work done by my team gets credited 
-One of my goals was for everyone to get the credit that they deserved for their work. I carefully looked over the [GameProject.md](https://github.com/dr-jam/GameplayProgramming/blob/master/GameProject.md) before assigning roles and tasks. For example, I ensured that our team received at least **10** pieces of feedback and they were shared to the rest of the team in a timely manner. I managed our [Google Drive](https://drive.google.com/drive/folders/1RleSwVFyKq-hQuMPw-QvtK3InfTamqMV?usp=sharing) as a central hub of communication and resources. 
-I ensured that every person kept documentation for each of their roles, and that the Press Kit & Trailer was not left to the last minute. Another goal that I had was to Here are some more specific examples of work that I did:
+Link to Vouch.
+
 
 - Meeting Notes - My meeting notes
+- Organized google drive
+- working hierarchy
 - Rooms for Meetings - 
 - Playtest Documents-
 - Arranging Progress Reports Meetings -
