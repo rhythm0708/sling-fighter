@@ -115,7 +115,7 @@ The [Wizard](https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1
 
 #### Obstacles
 
-The [Orbiter](https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/OrbiterScript.cs#L1) was an object with a sphere hitbox rotating around it, with the hitbox being the main body that was at the center of the rotating system. There was a gap between the hitbox and hurtbox that the player could go through.
+The [Orbiter](https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/OrbiterScript.cs#L1) was an object with a sphere hitbox rotating around it, with the hitbox being the main body that was at the center of the rotating system. There was a gap between the hitbox and hurtbox that the player could go through. The GameObject itself was created by Jethro.
 
 #### Tools
 
@@ -220,10 +220,19 @@ Playtesting and feedback allowed me to revise the wave layouts in a way that app
 
 All Observations and Playtester Comments forms can be found [here](https://drive.google.com/drive/folders/1lVFY1_KWUtM6W7QnpbIup4yGOXumRsbz?usp=sharing).
 
-As a means of receiving objective feedback, I sought out a total of ten people that playtested our game during its various stages of development – the Alpha Build, the Beta Build, and the Final Build.
+As a means of receiving objective feedback, I sought out a total of ten people that playtested our game during its various stages of development – the Alpha Build, the Beta Build, and the Final Build. It was important to have those external opinions, because it is often easy to overlook flaws in something that you have created.
 
-[Talk about findings]
-[Talk about how we made adjustments to our game based on those findings]
+For the earlier versions of our game, some of the feedback we received was that the game ended way too quickly due to lack of an integrated health system. Collisions with enemies or falling off the arena would result in instant death, which was very discouraging to the playtesters. Additionally, some playtesters felt like there was too much going on at once and were really overwhelmed – a feeling that was amplified by the incredibly fast movement speed of the player. Most of these issues would become resolved with time, save for perhaps the player movement speed, since that felt appropriate with the said modifications in place.
+
+Certain players also felt like dealing with tools was a bit difficult and confusing, as there is no clear indication of that they belong to that category and are different from obstacles and enemies, let alone what they actually do. This was one of the main reasons for why we decided to merge the triplet of enemies, obstacles, and tools into the Dummy and the obstacles pair. Another concern was how to interact with the main menu, since players kept trying to click the buttons instead of using WASD to move the model to the desired selection. Unfortunately, a guide never ended up being added. There were also mixed feelings about the multiplier interface feature – some seemed to want it there, while others were confused by it. In the end, the team went with leaving it out.
+
+Playtesting was also a way to see if wave layouts accomplished what was intended. Waves that were meant to encourage side-stepping and slinging from side-to-side were a success, but there were several waves that seemed to have a rather linear and trivial solution, such as earlier versions of Waves 6 and 9. Revisions to these and further observations seemed to present no further flaws.
+
+Players also felt like collisions with objects on the arena felt a bit awkward at times, especially the hitlag. This would later resolve itself with our addition of the reflect property for obstacles. For our Final Build, we added in the widely-requested wave count feature and transition, so that players would now have information on their progression and could take a little break between waves. We also added in a control guide, which was another popular request from playtesters.
+
+Several bugs were also discovered, such as the player clipping through the arena, the Dummy getting stuck in unreachable places, and the player getting stuck in the Dummy itself. These have been resolved as far as we know.
+
+One important detail to note is that at the time of playtesting, I did not have access to a controller, so the majority of the individuals that I sampled had to play on keyboard and mouse. Very frequently it was brought up that the said controls are not intuitive, even though they are meant to mirror the controller. Additionally, one of the playtesters had a particularly hard time interacting with the game due to a (potential) hand injury. As an afterthought, this raises a question about the extent to the accessiblity of the game.
 
 ## Game Logic (Backend) - Lucas Wang
 
