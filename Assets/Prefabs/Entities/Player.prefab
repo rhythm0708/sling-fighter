@@ -1058,6 +1058,7 @@ GameObject:
   m_Component:
   - component: {fileID: 639883807619115019}
   - component: {fileID: 4176657717175308934}
+  - component: {fileID: 6374811476801292436}
   m_Layer: 0
   m_Name: Tutorial
   m_TagString: Untagged
@@ -1096,9 +1097,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sling: {fileID: 2221565297448214335}
   sidestep: {fileID: 3279235716171279387}
-  promptSling: 0
-  promptSidestep: 0
+  promptSling: 1
+  promptSidestep: 1
   slingsTillSidestepPrompt: 4
+--- !u!114 &6374811476801292436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5244298190190083686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e975726725c17f438af92cb7fbb3453, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5321920633650659956
 GameObject:
   m_ObjectHideFlags: 0

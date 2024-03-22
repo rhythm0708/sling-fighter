@@ -2,12 +2,12 @@
 
 ## Summary ##
 
-_Sling Fighter!_ is a slingshot-style arcade game where you launch into a dummy at full force! Compete for the best score in this action-packed feel-good brawl. This game contains 15 waves and a local leaderboard system.
+_Sling Fighter!_ is a slingshot-style arcade game where you launch into a dummy at full force! Compete for the best score in this no-holds-barred action brawl. This game contains 15 waves and a local leaderboard system.
 
 ## Project Resources
 
 [Itch page](https://slingfighter.itch.io/sling-fighter)
-[Trailor](https://youtube.com)  
+[Trailor](https://youtu.be/LsbTWjYsmSs)  
 [Press Kit](https://dopresskit.com/)  
 [Proposal: make your own copy of the linked doc.](https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing)  
 
@@ -18,15 +18,6 @@ This game was designed for controller, but it will also work for keyboard and mo
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
 # Main Roles #
-
-Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
-
-*Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
-
-Here is an example:  
-*Procedural Terrain* - The game's background consists of procedurally generated terrain produced with Perlin noise. The game can modify this terrain at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
-
-You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
 ## Producer - Lucas Wang
 
@@ -50,9 +41,9 @@ I created a broad timeline overview for our [Initial Plan](https://docs.google.c
 
 ### One final note
 
-As Producer, I believe that it is important for every member of the team to be fairly credited for the work that they did. Our game has gone through an [alpha stage](https://github.com/rhythm0708/sling-fighter/tree/alpha-build), a [beta stage](https://github.com/rhythm0708/sling-fighter/tree/beta-build), and a [full game loop](https://github.com/rhythm0708/sling-fighter/tree/full-game-loop) stage- all of which looks significantly different. Below I have compiled a document listing the name of each member and their individual contributions to the project. I hope that this is useful for grading, and for clarifying the work that has been done by each person. I truly believe that each member pulled their weight for this project and that this is reflected in our final product. Please 
+As Producer, I believe that it is important for every member of the team to be fairly credited for the work that they did. Our game has gone through an [alpha](https://github.com/rhythm0708/sling-fighter/tree/alpha-build), [beta](https://github.com/rhythm0708/sling-fighter/tree/beta-build), and a [full game loop](https://github.com/rhythm0708/sling-fighter/tree/full-game-loop) stage- all of which looks significantly different. Below I have compiled a document listing the name of each member and their individual contributions to the project. I hope that this is useful for grading, and for clarifying the work that has been done by each member. I truly believe that we all pulled our weight for this project and hopefully, this is reflected in our final game. Linked below.
 
-Link to Vouch.
+[Vouch](https://docs.google.com/document/d/1aawnozYWJXqzhWCNuq6DW1AvTqfJCFlKV03uqT-946Q/edit?usp=sharing).
 
 ## User Interface and Input - Chang Da Su Liang 
 
@@ -87,7 +78,7 @@ At the start of our project, our team decided to split up the role of Game Logic
 
 ### Early Wave System
 
-The early wave system followed the Factory Design Pattern, where enemies were instantiated in conformance to specs, just like in Exercise 4. Enemy spawn locations and specs were randomly generated for the sake of variety.
+The early wave system was decided to be an endless one and followed the Factory Design Pattern, where enemies were instantiated in conformance to specs, just like in Exercise 4. Enemy spawn locations and specs were randomly generated for the sake of variety. Killing all the enemies generated at the start of the wave would advance one onto the next wave, with adjusted enemy count.
 https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/GameManager.cs#L1
 https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemyFactoryController.cs#L1
 https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemySpec.cs#L1
@@ -98,12 +89,68 @@ https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813
 
 In Jethro's first major refactor, the Factory Design Pattern would become scrapped and collider interactions would take on a more sophisticated form with the addition of hiboxes and hurtboxes; it also introduced a Publisher/Subscriber Design Pattern for OnHit and OnHurt actions. After some feedback during our meeting, I made it so that enemies would no longer spawn at random locations on the arena, but rather random enemies would spawn at randomly selected, fixed spawnpoints. GameObjects were be created for this purpose and assigned to a spawnpoint list in GameManager.
 https://github.com/rhythm0708/sling-fighter/blob/6b845d5abff1e625a6f717621e22c0a32ec33593/Assets/Scripts/GameManager.cs#L1
+With these changes came the addition of the transition to game over state (upon falling off the arena) and retry functionality.
+https://github.com/rhythm0708/sling-fighter/blob/745bf32b6ab141cc4a49eae952df452e3c46f42c/Assets/UI%20Scripts/TryAgain.cs#L1
+Player now also took damage.
+https://github.com/rhythm0708/sling-fighter/blob/745bf32b6ab141cc4a49eae952df452e3c46f42c/Assets/Scripts/PlayerController.cs#L1
+And enemies had different tracking speeds depending on their type.
+https://github.com/rhythm0708/sling-fighter/blob/0fb211e7858f238e2916122adbdd7361969fb898/Assets/Scripts/Tracker.cs#L1
 
-The first of these introduced hitboxes and hurtboxes into the game, while my own code relied on 
+### Enemy Rework and Wave System V.2
 
-[Talk about Alpha Build: factory design pattern, randomization of spawn locations]
-[Talk about Beta Build: refactor, fixed spawn locations but randomization in terms of which enemies spawn there]
-[Talk about Final Build: fixed wave layouts]
+After trying out these changes, the team decided to go in a different direction. We decided to split the objects that the player interacts with into three categories: enemies, obstacles, and tools. Enemies would deal damage to the player upon interaction, and had very specific ways of being killed, one of which would be through the use of tools. Obstacles acted in a similar way, and interactions between these objects were handled by me using Jethro's hurtbox and hitbox system.
+
+The wave system was essentially the same, save for the three different object types having different sets of spawn locations and variation in number spawned per wave (and how that number increased as the game progressed). Wave completion would be achieved upon killing all the enemies, which would then lead to a clean-up of all three object types, an update to the count of each, and generation in preparation for the next wave.
+https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/GameManager.cs#L1
+
+#### Enemies
+
+The Rusher would "rush" the player, dealing damage upon contact. It could only be killed with the use of a tool.
+https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/Enemy%20Scripts/RusherScript.cs#L1
+
+The Wizard would shoot one homing projectile at the player at a time, and could only be destroyed upon collision with the player.
+https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/Enemy%20Scripts/WizardScript.cs#L1
+https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/Enemy%20Scripts/WizardProjectileScript.cs#L1
+
+#### Obstacles
+
+The Orbiter was an object with a sphere hitbox rotating around it, with the hitbox being the main body that was at the center of the rotating system. There was a gap between the hitbox and hurtbox that the player could go through.
+https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/OrbiterScript.cs#L1
+
+#### Tools
+
+Tools would require activation in order to be used for the purpose of killing the Rusher.
+
+The homing missile would, upon collision with the player, guide itself to a random Rusher, and upon contact would destroy both itself and the latter.
+https://github.com/rhythm0708/sling-fighter/blob/2634f29ce29682b2dc4953a14ba652ee61dce3d7/Assets/Scripts/HomingMissileScript.cs#L1
+
+The Pillar would become activated upon collision with the player. The Rusher, guided into the Pillar, would be destroyed upon collision.
+https://github.com/rhythm0708/sling-fighter/blob/6bbe89535e0ec2c1e1be12c7d0435e09bdd36a32/Assets/Scripts/PillarScript.cs#L1
+
+The Dummy had knockback physics that Jethro implemented, and could be knocked into the Rusher to destroy it. It is important to note, however, that the Dummy, just like all tools, had to be activated by contact with the player. That is to say, hitting a Dummy and not having it fall of the stage or collide with a Rusher would result in it essentially acting as a Pillar. The majority of the following code is not mine, but I implemented the OnHurt logic and initiation.
+https://github.com/rhythm0708/sling-fighter/blob/2634f29ce29682b2dc4953a14ba652ee61dce3d7/Assets/Scripts/Knockback.cs#L48
+
+### Final Wave System, Fixed Layouts and Obstacle Design
+
+The final version of the game features a sequential progression through a series of predefined waves. The team decided to scrap the idea of using the enemy, obstacle, and tool triplet after the GDAC Playtester Event, and to stick to one damage-wise passive Dummy per wave, which was implemented by Jethro. I implemented the basic version of the wave system that was later built upon in the second major refactor. After that, I added in functionality for level selection in easter egg menu, and for retrying.
+https://github.com/rhythm0708/sling-fighter/blob/394b87bcd602498d89d451350c573c505403a7cb/Assets/Scripts/GameManager.cs#L1
+
+There is a total of fifteen waves in the current version of the game, and visual references to each can be found [here](https://drive.google.com/drive/folders/1OhQsjXMOsAeWCNaky4L6jDyxyEo_w0na?usp=sharing). One can also experience each of the levels by using the previously mentioned easter egg menu created by Chang.
+
+#### Obstacles
+
+Obstacles are indestructible and have fixed locations in each wave.
+
+The Wizard was eventually renamed to officially be the Turret, but the internal name is still the same. It generates 
+
+The Oscillator is a simple platform that moves side-to-side at the assigned speed.
+https://github.com/rhythm0708/sling-fighter/blob/bdc50cbcbcfaa2f133bb96d04fc21bc021a1ed77/Assets/Scripts/Obstacles/Oscillator.cs#L1
+
+https://www.mariowiki.com/Thwomp
+
+#### Waves
+
+Playtesting and feedback allowed me to revise the wave layouts in a way that appropriately challenges the player, while preserving the fun. There is a natural progression to the wave system in terms of difficulty, and each wave serves a purpose. The first two waves are meant to allow the player to familiarize themselves with the game's mechanics and movement system; wave one is a free-roam, and level two introduces the Pillars in such a way that the player can experiment with them without having to worry about any immediate danger. By placing an obstacle on the path from the starting point to the Dummy, Wave 3 encourages the player to explore the side-step mechanic and slinging to ropes on the sides. Waves 4 and 5 introduce new obstacles in a way that does feel overwhelming and allows the player to master dealing with them. Wave 6 marks the approximate half-way point in the game, and really tests the player's mastery of the core mechanics by introducing the Wizard, which requires dodging and savvy traversal of the environment in order to get rid of its projectiles.
 
 - From obstacles to obstacles, tools, and enemies, to obstacles and one main "enemy"
 - Handling collisions before and after the refactor
@@ -151,7 +198,7 @@ Some other systems that I programmed into the game:
 
 - _Scoring System_ - I also designed the [scoring system](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/Game/GameManager.cs#L221) used throughout the game. The formula considers the time taken to beat the level, the highest combo, and the number of times that the player fell off the arena. It can go negative. The formula tended to produce somewhat 'random' values that still made sense according to how players played. I think that it incentivized 'good' gameplay whilst being weird enough so that players wouldn't dissect it.
 
-- _Damage Engine_ - I programmed a simple damage engine that leaves room for mechanical expansion (in the form of power-ups, type effectiveness...). For now, it only calculates the damage based on `comboCount`. If I recall correctly, the scaling is 10-14-17- and so forth. It is a singleton. [`DamageEngine.cs`](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/Player/DamageEngine.cs#L1).
+- _Damage Engine_ - I programmed a simple damage engine that leaves room for mechanical expansion (in the form of power-ups, type effectiveness). For now, it calculates the damage based on `comboCount`. The scaling is 10-14-17- and so forth. It is a singleton. [`DamageEngine.cs`](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/Player/DamageEngine.cs#L1).
 
 - (scrapped) _Score + Multiplier System, Lives System_ - For the alpha and beta builds, I made a live scoring system and a lives system to test out. The live scoring system would increment a 'held' score to the 'total' score when the multiplier ended. You would lose lives if the player traveled off the stage or got hit by an enemy. These systems worked in our previous vision of the game, but our new vision necessitated them getting scrapped. [ScoreManager.cs](https://github.com/rhythm0708/sling-fighter/blob/884d84db09b2bfef11d799d6551792e9db4ed0fc/Assets/Scripts/ScoreManager.cs#L1) and [LivesComponent.cs](https://github.com/rhythm0708/sling-fighter/blob/884d84db09b2bfef11d799d6551792e9db4ed0fc/Assets/Scripts/LivesComponent.cs#L1).
 
@@ -163,7 +210,9 @@ There was some additional work I did that did not necessarily fit into my role. 
 
 - _ContextMenu for debugging_ - I wrote a `ContextMenu` which would instakill the dummy if you clicked a button in the editor. This was useful for me, at least, while playtesting and bug-fixing the project. Linked [here](https://github.com/rhythm0708/sling-fighter/blob/bbd0c03a3ef2d53075021c666f27e09d17c50e57/Assets/Scripts/Game/GameManager.cs#L231).
 
-As mentioned, the roles got pretty mixed up while developing this project. A lot of us did work on each other's scripts; a lot of wires were crossed. But these are the main things that I remember (and can find evidence of) coding for this project.
+- _Fixed Pause and Easter Egg Menu_ - Chang created a pause system that does not stop time (like in Unrailed). I revamped the code to use public functions from `GameManager.cs` (to preserve encapsulation of variables) and disabled `PlayerController.cs` onPause(). I also increased font size of and spacing between buttons in the Easter Egg Scene. See [PauseMenu.cs](https://github.com/rhythm0708/sling-fighter/blob/275d14cf21beb816ac274ccea9e87cb58275cf19/Assets/Scripts/UI/PauseMenu.cs#L59) for an example of work.
+
+As mentioned, the roles got pretty mixed up while developing this project. A lot of us did work on each other's scripts; a lot of wires were crossed. But these are the main things that I remember (and can find evidence of) doing for this project.
 
 ## Press Kit and Trailer
 
