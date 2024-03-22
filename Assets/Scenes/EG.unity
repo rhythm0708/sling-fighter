@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641228, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -814,14 +814,48 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8857644236426279087, guid: 429df001302a7e044bd134169eb3f492, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5476563480758044344, guid: 429df001302a7e044bd134169eb3f492, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8350911030730750259, guid: 429df001302a7e044bd134169eb3f492, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5973634700317017159}
   m_SourcePrefab: {fileID: 100100000, guid: 429df001302a7e044bd134169eb3f492, type: 3}
+--- !u!114 &5973634700317017157 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3452240443437608794, guid: 429df001302a7e044bd134169eb3f492, type: 3}
+  m_PrefabInstance: {fileID: 5973634700317017156}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5973634700317017158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8350911030730750259, guid: 429df001302a7e044bd134169eb3f492, type: 3}
+  m_PrefabInstance: {fileID: 5973634700317017156}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5973634700317017159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5973634700317017158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f3d31e46c553a4c826074dff3777d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 6e24c9d42e40b694988c7e8658969878, type: 2}
+  startLoading: {fileID: 5973634700317017157}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
