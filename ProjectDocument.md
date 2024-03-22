@@ -214,7 +214,7 @@ For our game, we wanted a visual style that was fit for a fast-pace arcade style
 The player character went through multiple stages of evolution until we decided on a final model. At first, it was a kangaroo. This kangaroo took me a while to model, as it was my first attempt at creating a 3D model.
 
 <p>
-  <img src="https://drive.google.com/uc?export=view&id=17jD410bBZZ57xvs2DhjlMbgaoAQ0TfX6" width="300" alt="First Kangaroo Model" style="margin-right: 50px;"/>
+  <img src="https://drive.google.com/uc?export=view&id=17jD410bBZZ57xvs2DhjlMbgaoAQ0TfX6" width="235" alt="First Kangaroo Model" style="margin-right: 20px;"/>
   <img src="https://drive.google.com/uc?export=view&id=1JriiezRFA5oNBVpidmyy4kZR1eBgWuiU" width="300" alt="Revised Kangaroo Model"/>
 </p>
 
@@ -223,7 +223,7 @@ There was trouble with the mesh in Unity on my first import, but I was able to r
 When we decided that a cel-shaded style of game mainly focused on shades of green would look best for Sling Fighter, we switched one of our enemies to the main character. Spike Slugger, the cactus, also underwent an evolution of his own.
 
 <p>
-  <img src="https://drive.google.com/uc?export=view&id=1PezASwT8jzuh6YA2WcCrs28cpNbl9-nl" width="300" alt="Initial Cactus Model" style="margin-right: 50px;"/>
+  <img src="https://drive.google.com/uc?export=view&id=1PezASwT8jzuh6YA2WcCrs28cpNbl9-nl" width="250" alt="Initial Cactus Model" style="margin-right: 20px;"/>
   <img src="https://drive.google.com/uc?export=view&id=1_JDf65lpE5dTsN2vGK-n1d4IEVvuffo3" width="300" alt="Final Cactus Model"/>
 </p>
 
@@ -232,27 +232,27 @@ When we decided that a cel-shaded style of game mainly focused on shades of gree
 Many original models did not make it into the final version of the game because we listened to feedback from our gameplay testers. The cat was our original orbiter, but since we moved towards obstacles and not literal enemies that were doing damage, it did not survive the cut.
 
 <p>
-  <img src="https://drive.google.com/uc?export=view&id=1m97y7U9sRT4L9gxQYCqwawLyHSBP5KWU" width="300" alt="Cat Orbiter Model" style="margin-right: 20px;"/>
+  <img src="https://drive.google.com/uc?export=view&id=1m97y7U9sRT4L9gxQYCqwawLyHSBP5KWU" width="250" alt="Cat Orbiter Model" style="margin-right: 20px;"/>
 </p>
 
 Another enemy that didn’t quite make it into our final game was the wizard.
 <p>
-  <img src="https://drive.google.com/uc?export=view&id=1Cogvjp9lM99425kDqrt3MpRnepX3icy3" width="300" alt="Wizard Model"/>
+  <img src="https://drive.google.com/uc?export=view&id=1Cogvjp9lM99425kDqrt3MpRnepX3icy3" width="250" alt="Wizard Model"/>
 </p>
 Finally, we realized that a dummy was the best option. The dummy served as an inanimate object that players could beat upon without guilt. It would complete our final vision of the two main characters in the game.
 
 <p>
-  <img src="https://drive.google.com/uc?export=view&id=1dE2oAE26kanYYJY9aPdOeVWMZd5Q_sHM" width="300" alt="Dummy Model" style="margin-right: 20px;"/>
-  <img src="https://drive.google.com/uc?export=view&id=1FFrOncVizKu9oe8bjAPCFSHlpLaWRLFg" width="275" alt="Final Dummy Model"/>
+  <img src="https://drive.google.com/uc?export=view&id=1dE2oAE26kanYYJY9aPdOeVWMZd5Q_sHM" width="250" alt="Dummy Model" style="margin-right: 20px;"/>
+  <img src="https://drive.google.com/uc?export=view&id=1FFrOncVizKu9oe8bjAPCFSHlpLaWRLFg" width="200" alt="Final Dummy Model"/>
 </p>
 
 #### Arena
 
-Near the beginning of development, we opted to go with a boxing ring. This material was licensed from TurboSquid. [Here](https://www.google.com/url?q=https://www.turbosquid.com/3d-models/boxing-3ds-free/1008777&sa=D&source=editors&ust=1711145430384745&usg=AOvVaw1recJ2xABXAPYVl3VFPBlS) is the link to the ring. I colored the ring using a monochromatic style, so that if we eventually went in that direction it would fit. After the beta stage, we decided it wouldn't fit our vision because the ropes did not work well with our physics, so we kept our original arena and added corners to make gameplay better.
+Near the beginning of development, we opted to go with a boxing ring. This material was licensed from TurboSquid.  is the link to the ring. I colored the ring using a monochromatic style, so that if we eventually went in that direction it would fit. After the beta stage, we decided it wouldn't fit our vision because the ropes did not work well with our physics, so we kept our original arena and added corners to make gameplay better.
 
 <p>
-  <img src="https://drive.google.com/uc?export=view&id=1FLSvpcy_yftLP9eETcvMW_jgn6C_vX9q" width="300" alt="Boxing Ring Initial" style="margin-right: 20px;"/>
-  <img src="https://drive.google.com/uc?export=view&id=1VuUJ1D8Jo4jeV_Vq3BMfrN6obxCzfdOa" width="300" alt="Boxing Ring Final"/>
+  <img src="https://drive.google.com/uc?export=view&id=1FLSvpcy_yftLP9eETcvMW_jgn6C_vX9q" width="400" alt="Boxing Ring Initial" style="margin-right: 20px;"/>
+  <img src="https://drive.google.com/uc?export=view&id=1VuUJ1D8Jo4jeV_Vq3BMfrN6obxCzfdOa" width="400" alt="Boxing Ring Final"/>
 </p>
 
 #### Obstacles
@@ -271,7 +271,8 @@ We needed a background for our main menu and settings menu. I wanted Sling Fight
 
 Towards the end of development, we implemented a shader in Unity to give the game a cel-shaded effect. The shader provides our game with a unique style, adding to the arcade-like feel we wanted to achieve. We chose lighter shades of green because it was the most visually pleasing aesthetic.
 
-Overall, it was a great experience making art for the game. To see the complete set of models, components, and materials we implemented, please refer to our visual style guide here
+Overall, it was a great experience making art for the game. To see the complete set of models, components, and materials we implemented, please refer to our visual style guide [here](./SlingFighter_VisualStyleGuide.pdf)
+
 
 
 ## Wave System and Layout | Obstacle Behavior – Matvey Volkov
@@ -455,11 +456,12 @@ As mentioned, the roles got pretty mixed up during this project. A lot of us did
 
 ### Trailer
 
-The trailer was more difficult than I had anticipated at the start. First I played the game progressing through the waves while using a screen recorder I have in Google Chrome. Then, I sorted through the footage to find what seemed most appealing about the game. I uploaded these clips to a platform called Nova, which I found through Google. Here, I made an outline of what text I wanted to appear in the trailer, then added it to the video timeline. Once I had these text scenes in place, I proceeded to cut the video and merge the footage to make a complete trailer. When I was done with the video, I used the audio file from our main menu because I felt its intensity matched the game. Finally, I uploaded it to Youtube, so that it could be viewed here.
+The trailer was more difficult than I had anticipated at the start. First I played the game progressing through the waves while using a screen recorder I have in Google Chrome. Then, I sorted through the footage to find what seemed most appealing about the game. I uploaded these clips to a platform called Nova, which I found through Google. Here, I made an outline of what text I wanted to appear in the trailer, then added it to the video timeline. Once I had these text scenes in place, I proceeded to cut the video and merge the footage to make a complete trailer. When I was done with the video, I used the audio file from our main menu because I felt its intensity matched the game. Finally, I uploaded it to Youtube, so that it could be viewed [here](https://youtu.be/LsbTWjYsmSs)
+.
 
 ### Presskit
 
-The presskit was done entirely on itch.io. I used screenshots of the models and logo to make the banner. Then, I wrote a description of the game that gives details on the purpose and goal of the game, also adding notes on controls and penalties to player score. The screenshots were taken while I progressed through the game, so that I could highlight its various aspects. You can view the presskit here.
+The presskit was done entirely on itch.io. I used screenshots of the models and logo to make the banner. Then, I wrote a description of the game that gives details on the purpose and goal of the game, also adding notes on controls and penalties to player score. The screenshots were taken while I progressed through the game, so that I could highlight its various aspects. You can view the presskit [here](https://slingfighter.itch.io/sling-fighter)
 
 ## Game Feel and Polish - Jethro Immanuel Peralta
 Even though this is listed as sub-role, this to me felt like my main role, as I spent the most time getting the game to just intrisically feel good. It was intrisically linked to my main role of Movement/Physics anyway, so I don't think this distinction is too important. However, I ended overlapping on many other roles and polished up group members' work. Again, they provided lots of the initial work that I simply built on top of.
