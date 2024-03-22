@@ -69,7 +69,7 @@ At the start of our project, our team decided to split up the role of Game Logic
 
 ### Early Wave System
 
-The early wave system followed the Factory Design Pattern, where enemies were instantiated in conformance to specs, just like in Exercise 4. Enemy spawn locations and specs were randomly generated for the sake of variety. Killing all the enemies generated at the start of the wave would advance one onto the next wave, with adjusted enemy count.
+The early wave system was decided to be an endless one and followed the Factory Design Pattern, where enemies were instantiated in conformance to specs, just like in Exercise 4. Enemy spawn locations and specs were randomly generated for the sake of variety. Killing all the enemies generated at the start of the wave would advance one onto the next wave, with adjusted enemy count.
 https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/GameManager.cs#L1
 https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemyFactoryController.cs#L1
 https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemySpec.cs#L1
@@ -89,15 +89,19 @@ https://github.com/rhythm0708/sling-fighter/blob/0fb211e7858f238e2916122adbdd736
 
 ### Enemy Rework and Wave System V.2
 
-After trying out these changes, the team decided to go in a different direction. We decided to objects that the player interacts with into three categories: enemies, obstacles, and tools. Enemies would deal damage to the player upon interaction, and had very specific ways of being killed, one of which would be through the use of tools. 
+After trying out these changes, the team decided to go in a different direction. We decided to objects that the player interacts with into three categories: enemies, obstacles, and tools. Enemies would deal damage to the player upon interaction, and had very specific ways of being killed, one of which would be through the use of tools. Obstacles acted in a similar way, but were indestructible until the end of the wave.
+
+The wave system was essentially the same, save for the three different object types having different sets of spawn locations and variation in number spawned per wave (and how that number increased as the game progresses).
 
 #### Enemies
 
 #### Obstacles
 
-### Fixed Layouts and Obstacle Design
+### Final Wave System, Fixed Layouts and Obstacle Design
 
-There is a total of fifteen waves in the current version of the game, and visual references to each can be found [here](https://drive.google.com/drive/folders/1OhQsjXMOsAeWCNaky4L6jDyxyEo_w0na?usp=sharing).
+The final version of the game features 
+
+There is a total of fifteen predefined waves in the current version of the game, and visual references to each can be found [here](https://drive.google.com/drive/folders/1OhQsjXMOsAeWCNaky4L6jDyxyEo_w0na?usp=sharing).
 
 #### Obstacles
 
