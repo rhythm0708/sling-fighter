@@ -2364,6 +2364,10 @@ PrefabInstance:
       propertyPath: checkPoints.Array.data[3].z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 1759000851659915729, guid: ce519d97ecc024489b5ab9b64618edec, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 567e1fdb8f663fa4f945f9a294f0236a, type: 2}
     - target: {fileID: 2102928731429537170, guid: ce519d97ecc024489b5ab9b64618edec, type: 3}
       propertyPath: m_Name
       value: Sweeper
