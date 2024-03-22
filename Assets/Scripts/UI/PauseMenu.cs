@@ -9,14 +9,12 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]private GameObject pauseMenu;
     [SerializeField]private GameObject settingsMenu;
 
-    // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause Xbox")) 
@@ -31,13 +29,23 @@ public class PauseMenu : MonoBehaviour
                 PauseGame();
             }
         }
+
+        // Shortcut for restarting levels.
+        // TODO: Add Xbox buttons.
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            GameManager.Instance.RetryWave();
+        }
     }
 
     // Pause the game
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
+
+        // Disable player controller.
+        GameManager.Instance.player.enabled = false;
+        GameManager.Instance.player.gameObject.GetComponent<PlayerMovement>().enabled = false;
         isPaused = true;
     }
     
@@ -46,17 +54,20 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
-        Time.timeScale = 1f;
+
+        // Enable player controller.
+        GameManager.Instance.player.enabled = true;
+        GameManager.Instance.player.gameObject.GetComponent<PlayerMovement>().enabled = true;
         isPaused = false;
     }
 
     // Restart Game
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        isPaused = false;
+        GameManager.Instance.RetryWave();
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // pauseMenu.SetActive(false);
+        // isPaused = false;
     }
 
     // Go into Settings
@@ -64,7 +75,6 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(true);
-        Time.timeScale = 0f;
         isPaused = true;
     }
 
@@ -73,7 +83,6 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Main Menu");
         pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
         isPaused = false;
     }
 
@@ -82,7 +91,6 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         settingsMenu.SetActive(false);
-        Time.timeScale = 0f;
         isPaused = true;
     }
 }
