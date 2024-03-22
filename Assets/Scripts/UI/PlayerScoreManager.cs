@@ -32,6 +32,8 @@ public class PlayerScoreManager : MonoBehaviour
         // Loads the file for HighScoreDB where we'll store score and name 
         connectString = "URI=file:" + Application.dataPath + "/PlayerScoreDB.sqlite";
 
+        CreateTable();
+
         // Initialize the score table
         using (IDbConnection dbConnection = new SqliteConnection(connectString))
         {
@@ -119,6 +121,24 @@ public class PlayerScoreManager : MonoBehaviour
                     dbCmd.ExecuteScalar();
                     dbConnection.Close();
                 }
+            }
+        }
+    }
+
+    // This method will create tables in Build
+    private void CreateTable()
+    {
+        using (IDbConnection dbConnection = new SqliteConnection(connectString))
+        {
+            dbConnection.Open();
+            using (IDbCommand dbCmd = dbConnection.CreateCommand())
+            {
+                // Insert new score and name into row
+                string createTable = String.Format("CREATE TABLE if not exists PlayerScores (PlayerID INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , Name TEXT NOT NULL , Score INTEGER NOT NULL , Date DATETIME NOT NULL  DEFAULT CURRENT_DATE)");
+
+                dbCmd.CommandText = createTable;
+                dbCmd.ExecuteScalar();
+                dbConnection.Close();
             }
         }
     }
