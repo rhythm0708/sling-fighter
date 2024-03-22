@@ -248,7 +248,7 @@ Finally, we realized that a dummy was the best option. The dummy served as an in
 
 #### Arena
 
-Near the beginning of development, we opted to go with a boxing ring. This material was licensed from TurboSquid.  is the link to the ring. I colored the ring using a monochromatic style, so that if we eventually went in that direction it would fit. After the beta stage, we decided it wouldn't fit our vision because the ropes did not work well with our physics, so we kept our original arena and added corners to make gameplay better.
+Near the beginning of development, we opted to go with a boxing ring. This material was licensed from TurboSquid. [Here](https://www.turbosquid.com/3d-models/boxing-3ds-free/1008777) is the link to the ring. I colored the ring using a monochromatic style, so that if we eventually went in that direction it would fit. After the beta stage, we decided it wouldn't fit our vision because the ropes did not work well with our physics, so we kept our original arena and added corners to make gameplay better.
 
 <p>
   <img src="https://drive.google.com/uc?export=view&id=1FLSvpcy_yftLP9eETcvMW_jgn6C_vX9q" width="400" alt="Boxing Ring Initial" style="margin-right: 20px;"/>
