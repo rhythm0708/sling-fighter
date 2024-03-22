@@ -7,7 +7,7 @@ _Sling Fighter!_ is a slingshot-style arcade game where you launch into a dummy 
 ## Project Resources
 
 [Itch page](https://slingfighter.itch.io/sling-fighter)
-[Trailoir](https://youtube.com)  
+[Trailor](https://youtube.com)  
 [Press Kit](https://dopresskit.com/)  
 [Proposal: make your own copy of the linked doc.](https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing)  
 
@@ -28,21 +28,31 @@ Here is an example:
 
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
-## Producer
+## Producer - Lucas Wang
 
-As the producer, my primary responsibility was to manage the direction of our game and make sure that everyone understood their role. I did not want to take over the project and have the final say over every decision, 
+As the producer, my primary responsibility was to manage the direction of our game and make sure that everyone understands their roles. It was important for me to avoid taking over the project and making every decision. Instead, I saw it as my responsibility to facilitate a reliable communication channel within our group and serve as a knowledgeable source of information about our project.
 
+In preparation for this project, I carefully read over the [GameProject.md](https://github.com/dr-jam/GameplayProgramming/blob/master/GameProject.md) document provided to us by the professor. I wanted to ensure that we did not miss out on important aspects of the project and end up having to rush them. I talked to past students who had taken this class and looked over their `GameProject.md` documents linked in the [Project Groups Spreadsheet](https://docs.google.com/spreadsheets/d/1OUz9atsn2HAFm9Wa97dMX5Q5Pg5Whuir-C6jLmuWleM/edit?usp=sharing). I jotted down important tasks and made sure that broad deadlines were covered. For example, I noted that the Gameplay Tester role needed to collect at least 10 pieces of feedback and the Press Kit & Trailer role could be done on itch.io (with a video published on YouTube). I made these decisions early so that our team had a clear direction and idea of what our timeline would look like.
 
-One of my goals was for everyone to get the credit that they deserved for their work. I carefully looked over the [GameProject.md](https://github.com/dr-jam/GameplayProgramming/blob/master/GameProject.md) before assigning roles and tasks. For example, I ensured that our team received at least **10** pieces of feedback and they were shared to the rest of the team in a timely manner. I managed our [Google Drive](https://drive.google.com/drive/folders/1RleSwVFyKq-hQuMPw-QvtK3InfTamqMV?usp=sharing) as a central hub of communication and resources. 
-I ensured that every person kept documentation for each of their roles, and that the Press Kit & Trailer was not left to the last minute. Another goal that I had was to Here are some more specific examples of work that I did:
+I created a broad timeline overview for our [Initial Plan](https://docs.google.com/document/d/1C83mvbO1hN6x2nOqhr4wfracJC8zQ0X5KEP7wMynV6c/edit?usp=sharing) and later iterated on it to produce a [Gantt chart](https://drive.google.com/file/d/1Wmc_jXUsYLCNVoHWeGYUSb-fZbAOdSkT/view?usp=sharing) after receiving feedback from the professor. Some examples of other work that I did as Producer:
 
-- Meeting Notes - My meeting notes
-- Rooms for Meetings - 
-- Playtest Documents-
-- Arranging Progress Reports Meetings -
-- Merging Branches - 
+- _Meeting Notes_ - For this project, our team conducted a total of 7 meetings, 5 of which were formally documented. For each meeting, I prepared a document that contained Updates, (Meeting) Agenda, Tasks, and a Postmortem section. I did this for two reasons: 1) so that each meeting would be efficient and cover all necessary topics, and 2) so that team members who missed the meeting could read them to catch up. A folder of my meeting notes can be found [here](https://drive.google.com/drive/folders/1iQh3dOM1LTEoZRAZfyugQAw6IgIBF4-z?usp=sharing).
+- _Playtests + Playtest Notes_ - Our team conducted several formal playtests throughout this project. We did an in-person close play of games that were similar in concept to our initial game idea (see [Close Play Notes](https://docs.google.com/document/d/1scHNr-ufXpqL_Jk3Jl3NwZVNuqxHBwZrDwwwx5BAPwI/edit?usp=sharing)). We did an alpha, beta, and full game loop playtest of our builds and took notes. A folder containing the documents that I designed for this purpose can be found [here](https://drive.google.com/drive/folders/1uxBcECSqo5QJZQRb4cv_ltPRpya6PuLF?usp=sharing).
+- _Meeting Miscellaneous_ - For in-person meetings and playtests, I booked meeting rooms and borrowed Xbox controllers. I would usually opt for Cruess 256 or Cruess 1107 and book it through the Tool Room (Cruess 101). I borrowed Xbox Controllers from the Alt-Ctrl Lab and informed relevant parties. I was also in charge of returning them after meetings.
+- _Designating workflow through Git_ - I knew that it was important for us to establish our GitHub workflow early, so I brought it up during an early meeting. I told my team to work in separate branches, and then @ me (in Discord) when they needed to merge. I would try to do this within a couple hours, or a day if this wasn't possible. After doing this project, I  realized that establishing branch-naming conventions would also be useful. I will remember this for future projects.
+- _Designating workflow through Unity_ - As we progressed through the project, I realized that a majority of merge conflicts came from Scenes. To avoid work from being erased, I encouraged my team to save their work in prefabs. This would ensure that their work translated consistently across scenes, but also that I could replace their work efficiently.
 
-**Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
+- _Bug Fixing & Merge Conflicts_ - Quite a few bugs and merge conflicts emerged throughout our project. I solved most of these, including [the player model facing the wrong direction](https://github.com/rhythm0708/sling-fighter/blob/4538b1bf81eb0f0c06ded106905c0549548cde17/Assets/Scripts/Player/PlayerMovement.cs#L215), [music not stopping during the Continue scene](https://github.com/rhythm0708/sling-fighter/blob/c55e483a87fbad4349b597d06b550e2cdb5e026e/Assets/Scripts/Sound/SoundManager.cs#L99), and URP rendering issues amongst others. Jet was also very active in helping me fix bugs.
+
+- _Writing and Documentation_ - I completed most of the writing for the Initial Plan and both Progress Reports, before letting my team edit and add observations. I did this to allow my team to focus on the project without having to worry about other tasks.
+- _Coordinating Progress Reports_ - I coordinated progress report meetings with other teams and found times that also worked with my team. I also checked other teams' progress reports on us and caught errors; for example, one team omitted Daniel's name when writing down which members were present. I went back and corrected that.
+- _Managing Communication and Organizational Procedures_ - Our team used Discord as our main channel of communication. On it, I posted updates and important information that I wanted to share with the team. I think that our team communicated well, as we were in constant communication and spoke up when we needed help. I also managed a [Google Drive folder](https://drive.google.com/drive/folders/1RleSwVFyKq-hQuMPw-QvtK3InfTamqMV?usp=drive_link) where team members could find all (external) resources that we used for this project.
+
+### One final note
+
+As Producer, I believe that it is important for every member of the team to be fairly credited for the work that they did. Our game has gone through an [alpha stage](https://github.com/rhythm0708/sling-fighter/tree/alpha-build), a [beta stage](https://github.com/rhythm0708/sling-fighter/tree/beta-build), and a [full game loop](https://github.com/rhythm0708/sling-fighter/tree/full-game-loop) stage- all of which looks significantly different. Below I have compiled a document listing the name of each member and their individual contributions to the project. I hope that this is useful for grading, and for clarifying the work that has been done by each person. I truly believe that each member pulled their weight for this project and that this is reflected in our final product. Please 
+
+Link to Vouch.
 
 ## User Interface and Input
 
@@ -64,18 +74,21 @@ I ensured that every person kept documentation for each of their roles, and that
 ## Wave System and Layout | Obstacle Behavior – Matvey Volkov
 
 ### Shift from Frontend Game Logic to Current Role
-At the start of our project, our team decided to split up the role of Game Logic into two parts – frontend and backend. Having taken the former, I was initially tasked with integrating user-facing logic, such as player-enemy interaction and enemy behavior, as well as the wave system and layout. I was also in charge of handling scripts associated with the UI, particularly scene progression upon user interaction with the interface and advancement in game state. However, with time, certain responsibilities of my role have been taken on by other members of the group, such as UI-related scripting. Additionally, a decent portion of my code was rewritten in the two major refactors that were handled by the Movement/Physics/Game Feel team member. As a result, given that there was not much that I could modify in the new design patterns, I was left with the task of fulfilling other responsibilities of my role by building on top of the refactored code. In particular, my remaining responsibilities included designing the waves/levels and obstacle behavior. Through trial-and-error of my Frontend Game Logic implementation, I was able to experiment with different approaches to game rules and flow, providing my group members with testable product that could be discussed, evaluated, and revised. As a result, while a large portion of my code did not make it into the final build, it still allowed our team to rule out what worked and what did not, hence slowly paving the way to current version of the game.
+At the start of our project, our team decided to split up the role of Game Logic into two parts – frontend and backend. Having taken the former, I was initially tasked with integrating user-facing logic, such as player-enemy interaction and enemy behavior, as well as the wave system and layout. I was also in charge of handling scripts associated with the UI, particularly scene progression upon user interaction with the interface and advancement in game state. However, with time, certain responsibilities of my role have been taken on by other members of the group, such as UI-related scripting. Additionally, a decent portion of my code was rewritten in the two major refactors that were handled by Jethro (note that whenever I mention the said refactors, it is <b>*not*</b> my work). As a result, given that there was not much that I could modify in the new design patterns, I was left with the task of fulfilling other responsibilities of my role by building on top of the refactored code. In particular, my remaining responsibilities included designing the waves/levels and obstacle behavior. Through trial-and-error of my Frontend Game Logic implementation, I was able to experiment with different approaches to game rules and flow, providing my group members with testable product that could be discussed, evaluated, and revised. As a result, while a large portion of my code did not make it into the final build, it still allowed our team to rule out what worked and what did not, hence slowly paving the way to the current version of the game.
 
 ### Early Wave System
 
 The early wave system followed the Factory Design Pattern, where enemies were instantiated in conformance to specs, just like in Exercise 4. Enemy spawn locations and specs were randomly generated for the sake of variety.
 https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/GameManager.cs#L1
 https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemyFactoryController.cs#L1
-https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemySpec.cs
+https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemySpec.cs#L1
 Enemies had a set amount of health, damage, and catch-up speed. They blindly gravitated towards the player, with the distinction between damaging the player and taking damage themselves being whether or not they collided with the player's fist. Enemies became dazed upon collision, and then continued their search. Our initial idea was to allow the player to enter slow-mo that would allow them to use a punching mechanic. Enemies destroyed themselves upon falling off the arena.
 https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/EnemyController.cs#L1
 Player shared similar defining characteristics, and also had a damage cooldown in order to avoid continuous damage that would result in an instant game-end. Contact with enemies and bumpers (stationary objects that could be used to ricochet) would inflict damage.
 https://github.com/rhythm0708/sling-fighter/blob/d1acf26aa281c16b9b2567b245cb813f86904e10/Assets/Scripts/PlayerController.cs#L1
+
+In Jethro's first major refactor, the Factory Design Pattern would become scrapped and collider interactions would take on a more sophisticated form with the addition of hiboxes and hurtboxes; it also introduced a Publisher/Subscriber Design Pattern for OnHit and OnHurt actions. After some feedback during our meeting, I made it so that enemies would no longer spawn at random locations on the arena, but rather random enemies would spawn at randomly selected, fixed spawnpoints. GameObjects were be created for this purpose and assigned to a spawnpoint list in GameManager.
+https://github.com/rhythm0708/sling-fighter/blob/6b845d5abff1e625a6f717621e22c0a32ec33593/Assets/Scripts/GameManager.cs#L1
 
 The first of these introduced hitboxes and hurtboxes into the game, while my own code relied on 
 
@@ -107,10 +120,41 @@ As a means of receiving objective feedback, I sought out a total of ten people t
 [Talk about findings]
 [Talk about how we made adjustments to our game based on those findings]
 
-## Game Logic (Backend)
+## Game Logic (Backend) - Lucas Wang
 
-For my sub-role, I also worked on game logic (more towards the backend side).
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+For my sub-role, I worked on Game Logic (Backend) which encompasses data, randomization, scoring, and HUD logic. Admittedly the differences between frontend and backend game logic grew murky as the project progressed. Below are some of the main things that I worked on that fit broadly in the Game Logic (Backend) role:
+
+### HUD Logic
+
+I programmed and hooked up the HUD logic for our game. This includes:
+
+- _Health Bar Controller_ - Inspired by Jet's prototype during GDAC, I developed `HealthBarController.cs` with a fader and no numerical values. The value of the health bar would immediately reduce, and the trail would follow after a calculated offset. I used `Mathf.Lerp` for this implementation. Jet later adapted it to work for all screen sizes. A link to the script can be found [here](https://github.com/rhythm0708/sling-fighter/blob/c7367e9394eafb7bd028e1af2005183167994dd8/Assets/Scripts/UI/HealthBarController.cs#L34).
+
+- _Combo Controller_ - `ComboController.cs` originally had a pop-out animation, but I removed it last minute because it was too intrusive. The implementation in the final build simply increases in size and opacity at a positive nonzero combo value. There is a slight delay before the animation resets to 0. I also designed the system for tracking and incrementing the combo which can be found in `PlayerController.cs`. Put simply, it increments `OnHit()` and resets when the player attaches to a rope, unless the dummy has been knocked off the stage. This was done to make combo-ing easier and more achievable. [ComboController.cs](https://github.com/rhythm0708/sling-fighter/blob/c7367e9394eafb7bd028e1af2005183167994dd8/Assets/Scripts/UI/ComboController.cs#L1) and [PlayerController.cs](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/Player/PlayerController.cs#L54) are linked here.
+
+- _Timer Controller_ - Players start each wave with 90s, and are tasked with beating it before time runs out. The animations for it was re-imagined during the refactor. My initial implementation was based on the idea that you could gain time by hitting enemies and was accompanied by a "PopOut" animation. Documentation of it can be found [here](https://github.com/rhythm0708/sling-fighter/blob/884d84db09b2bfef11d799d6551792e9db4ed0fc/Assets/Scripts/TimeManager.cs#L1) and [here](https://github.com/rhythm0708/sling-fighter/blob/884d84db09b2bfef11d799d6551792e9db4ed0fc/Assets/Scripts/UIManager.cs#L179), but it's pretty badly written and incomplete. The [new animation](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/UI/TimerController.cs#L1) made by Jet is well thought-out and aligned with our new game loop much better.
+
+- _Results Screen_ - Between waves, players are privy to a snapshot of their `Wave [#] Score` and `Total Score`. I designed the transition between `waveCleared` and the results screen, which then naturally linked to the next wave. This involved work in [GameManager.cs](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/Game/GameManager.cs#L64) and [DisplayResults.cs](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/UI/DisplayResults.cs#L1). I designed the accompanying animation which causes the text to increase in opacity and shift slightly to the right. This was simple, but I thought it gave the screen a bit of life. I know that the score-displaying part isn't optimal, but unfortunately I never got around to changing it
+
+### Systems
+
+Some other systems that I programmed into the game:
+
+- _Scoring System_ - I also designed the [scoring system](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/Game/GameManager.cs#L221) used throughout the game. The formula considers the time taken to beat the level, the highest combo, and the number of times that the player fell off the arena. It can go negative. The formula tended to produce somewhat 'random' values that still made sense according to how players played. I think that it incentivized 'good' gameplay whilst being weird enough so that players wouldn't dissect it.
+
+- _Damage Engine_ - I programmed a simple damage engine that leaves room for mechanical expansion (in the form of power-ups, type effectiveness...). For now, it only calculates the damage based on `comboCount`. If I recall correctly, the scaling is 10-14-17- and so forth. It is a singleton. [`DamageEngine.cs`](https://github.com/rhythm0708/sling-fighter/blob/9a2a64a4960f3e9a6c88b19462faca3fac26585c/Assets/Scripts/Player/DamageEngine.cs#L1).
+
+- (scrapped) _Score + Multiplier System, Lives System_ - For the alpha and beta builds, I made a live scoring system and a lives system to test out. The live scoring system would increment a 'held' score to the 'total' score when the multiplier ended. You would lose lives if the player traveled off the stage or got hit by an enemy. These systems worked in our previous vision of the game, but our new vision necessitated them getting scrapped. [ScoreManager.cs](https://github.com/rhythm0708/sling-fighter/blob/884d84db09b2bfef11d799d6551792e9db4ed0fc/Assets/Scripts/ScoreManager.cs#L1) and [LivesComponent.cs](https://github.com/rhythm0708/sling-fighter/blob/884d84db09b2bfef11d799d6551792e9db4ed0fc/Assets/Scripts/LivesComponent.cs#L1).
+
+### Miscellaneous
+
+There was some additional work I did that did not necessarily fit into my role. I attributed most of these instances to 'bug fixing' for my Producer role, but here are some honorable mentions that are at least somewhat relevant.
+
+- (mostly scrapped) _SubscribeOnHit() / SubscribeOnHurt() / SubscribeOnBounds()_ - As we were working with entities that could both damage and be damaged by the player, our team found it useful to implement the Observer pattern in `Hitbox.cs` and `Hurtbox.cs` amongst other scripts. I either modified or helped to implement these systems (I don't remember) and adjusted the code to be able to communicate information back to listeners. Example [here](https://github.com/rhythm0708/sling-fighter/blob/884d84db09b2bfef11d799d6551792e9db4ed0fc/Assets/Scripts/Hurtbox.cs#L15).
+
+- _ContextMenu for debugging_ - I wrote a `ContextMenu` which would instakill the dummy if you clicked a button in the editor. This was useful for me, at least, while playtesting and bug-fixing the project. Linked [here](https://github.com/rhythm0708/sling-fighter/blob/bbd0c03a3ef2d53075021c666f27e09d17c50e57/Assets/Scripts/Game/GameManager.cs#L231).
+
+As mentioned, the roles got pretty mixed up while developing this project. A lot of us did work on each other's scripts; a lot of wires were crossed. But these are the main things that I remember (and can find evidence of) coding for this project.
 
 ## Press Kit and Trailer
 
