@@ -227,7 +227,7 @@ As a means of receiving objective feedback, I sought out a total of ten people t
 
 ## Game Logic (Backend) - Lucas Wang
 
-For my sub-role, I worked on Game Logic (Backend) which encompasses data, randomization, scoring, and HUD logic. Admittedly the differences between frontend and backend game logic grew murky as the project progressed. Below are some of the main things that I worked on that fit broadly in the Game Logic (Backend) role:
+For my sub-role, I worked on Game Logic (Backend) which encompasses data, randomization, scoring, and HUD logic. Admittedly the differences between frontend and backend game logic grew murky as the project progressed. Below are some of the main things that I worked on that broadly fit in the Game Logic (Backend) role:
 
 ### HUD Logic
 
