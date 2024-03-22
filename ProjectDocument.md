@@ -15,7 +15,7 @@ _Sling Fighter!_ is a slingshot-style arcade game where you launch into a dummy 
 
 This game was designed for controller, but it will also work for keyboard and mouse. Use 'A' and the 'left stick' to pull back on the ropes, and let go to fire onto enemies. 'LB' and 'RB' are your sidesteps.
 
-**Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
+Read more on itch!
 
 # Main Roles #
 
