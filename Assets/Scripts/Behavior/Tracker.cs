@@ -13,6 +13,10 @@ public class Tracker : MonoBehaviour
     
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, trackingSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards
+        (
+            transform.position,
+            player.transform.position, trackingSpeed * Time.deltaTime
+        );
     }
 }
