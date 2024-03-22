@@ -19,7 +19,7 @@ This game was designed for controller, but it will also work for keyboard and mo
 
 # Main Roles #
 
-## Producer
+## Producer - Lucas Wang
 
 As the producer, my primary responsibility was to manage the direction of our game and make sure that everyone understands their roles. It was important for me to avoid taking over the project and making every decision. Instead, I saw it as my responsibility to facilitate a reliable communication channel within our group and serve as a knowledgeable source of information about our project.
 
@@ -100,8 +100,21 @@ As a means of receiving objective feedback, I sought out a total of ten people t
 
 ## Game Logic (Backend)
 
-For my sub-role, I also worked on game logic (more towards the backend side).
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+For my sub-role, I worked on backend game logic which encompassed data, randomization, scoring, and HUD logic. Admittedly the differences between frontend and backend game logic grew murky as the project progressed. Below are some of the main things that I worked on that fit broadly in the Game Logic (Backend) role:
+
+# HUD Logic
+
+I did a majority of the HUD UI for our game. This includes
+
+- HUD LogicHealth Bar
+- 
+
+# Miscellaneous / Ambiguous
+
+- Damage Engine
+- Combos and Multipliers
+- Alpha Build: (old) Score + Multiplier System, Lives System
+- Beta Build: Timer Incrementation
 
 ## Press Kit and Trailer
 
