@@ -123,7 +123,30 @@ Finally, we realized that a dummy was the best option. The dummy served as an in
 
 #### Arena
 
-Near the beginning of development, we opted to go with a boxing ring. This material was licensed from TurboSquid. [Here](https://www.google.com/url?q=https://www.turbosquid.com/3d-models/boxing-3ds-free/1008777&sa=D&source=editors&ust=1711145430384745&usg=AOvVaw1recJ2xABXAPYVl3VFPBlS) is the
+Near the beginning of development, we opted to go with a boxing ring. This material was licensed from TurboSquid. [Here](https://www.google.com/url?q=https://www.turbosquid.com/3d-models/boxing-3ds-free/1008777&sa=D&source=editors&ust=1711145430384745&usg=AOvVaw1recJ2xABXAPYVl3VFPBlS) is the link to the ring. I colored the ring using a monochromatic style, so that if we eventually went in that direction it would fit. After the beta stage, we decided it wouldn't fit our vision because the ropes did not work well with our physics, so we kept our original arena and added corners to make gameplay better.
+
+<p>
+  <img src="https://drive.google.com/uc?export=view&id=1FLSvpcy_yftLP9eETcvMW_jgn6C_vX9q" width="300" alt="Boxing Ring Initial" style="margin-right: 20px;"/>
+  <img src="https://drive.google.com/uc?export=view&id=1VuUJ1D8Jo4jeV_Vq3BMfrN6obxCzfdOa" width="300" alt="Boxing Ring Final"/>
+</p>
+
+#### Obstacles
+
+A main part of the gameplay of Sling Fighter are the obstacles. These obstacles serve to make the game more challenging by making it hard to damage the dummy. The obstacles were all mainly done in Unity, save the projectiles and orbiter. There are too many different kinds of obstacles to list here, so for a comprehensive view of all art used in the game refer to our style guide.
+
+#### Menus and Logo
+
+We needed a background for our main menu and settings menu. I wanted Sling Fighter to have its own branding, somewhat like Nintendo games of old. A huge inspiration for this was the Super Smash Bros logo, so I used AI to give me an idea. Once I found what I thought to be the right fit, I used photopea to touch up the image and add unique colors, while also refining the edges of the logo. The menus used a blue tinted gradient background with this logo in the top corner.
+
+<p>
+  <img src="https://drive.google.com/uc?export=view&id=1u8T5l3h5jn8SWGHcbiiZjLtjyguf1gEa" width="600" alt="Game Logo and Menu Background"/>
+</p>
+
+#### Shader
+
+Towards the end of development, we implemented a shader in Unity to give the game a cel-shaded effect. The shader provides our game with a unique style, adding to the arcade-like feel we wanted to achieve. We chose lighter shades of green because it was the most visually pleasing aesthetic.
+
+Overall, it was a great experience making art for the game. To see the complete set of models, components, and materials we implemented, please refer to our visual style guide here
 
 
 ## Wave System and Layout | Obstacle Behavior – Matvey Volkov
