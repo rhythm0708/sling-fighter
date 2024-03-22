@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        inWaveScene = scene.name.Substring(0, 4) == "Wave";
+        inWaveScene = scene.name.Length >= 4 && scene.name.Substring(0, 4) == "Wave";
 
         // Once a scene is loaded, we try to detect the wave number by
         // parsing the scene's name. This allows automatic assignment
