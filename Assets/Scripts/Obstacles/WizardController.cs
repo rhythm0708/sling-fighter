@@ -1,6 +1,5 @@
 using UnityEngine;
 
-// Have to run into it in order to kill.
 public class WizardController : MonoBehaviour
 {
     [SerializeField] private GameObject projTemplate;
@@ -27,7 +26,7 @@ public class WizardController : MonoBehaviour
         Vector3 planarPosition = transform.position;
         planarPosition.y = 0.0f;
 
-        var targetRot = Quaternion.LookRotation(planarPlayer- planarPosition);
+        var targetRot = Quaternion.LookRotation(planarPlayer - planarPosition);
         transform.rotation = Quaternion.Slerp
         (
             transform.rotation, 

@@ -60,7 +60,7 @@ public class L14 : MonoBehaviour
             startLoading.gameObject.SetActive(true);
 
             // Play SFX
-            SoundManager.instance.PlaySfx("Unused2");
+            SoundManager.instance.PlaySfx("Continue");
         }
     }
 
@@ -75,7 +75,7 @@ public class L14 : MonoBehaviour
         startLoading.gameObject.SetActive(false);
 
         // Play SFX
-        SoundManager.instance.StopSfx("Unused2");
+        SoundManager.instance.StopSfx("Continue");
     }
 
     IEnumerator LoadNextScene()
