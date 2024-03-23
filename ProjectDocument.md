@@ -19,6 +19,9 @@ There's an Easter Egg Menu, where players will be able to test out and select al
 
 Read more on itch!
 
+## Note on the Scoreboard and Itch
+Our implementation of the scoreboard relies on SQLite and a local database file to keep track of the scores. Unfortunately, we cannot access the SQLite libraries from Unity WebGL. There are possible ways to fix this by changing our implementation, but we didn't have time to do so. For now, scores can only be tracked from a local Windows/Mac build, and not WebGL. Maybe in the future we can have an online leaderboard though!
+
 # Main Roles #
 
 ## Producer - Lucas Wang
