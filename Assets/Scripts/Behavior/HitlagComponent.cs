@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitlagComponent : MonoBehaviour
+public class HitlagComponent : MonoBehaviour, IIgnoreHitlag
 {
     private const float LENGTH = 0.1f;
     private float timer;
@@ -34,7 +34,7 @@ public class HitlagComponent : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
-        else if (timer < 0.0f)
+        else
         {
             StopHitlag();
         }
